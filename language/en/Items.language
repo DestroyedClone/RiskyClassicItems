@@ -1,0 +1,29 @@
+﻿{
+	strings: {
+		//[TIER1]
+		"BOILERPLATE_ITEM_DEPRECATE_ME_ITEM_NAME": "Deprecate Me!",
+		"BOILERPLATE_ITEM_DEPRECATE_ME_ITEM_PICKUP": "On pickup, deprecate. This is a number: {0}",
+		"BOILERPLATE_ITEM_DEPRECATE_ME_ITEM_DESCRIPTION": "+{0}% chance to deprecate on kill, for {1} damage.",
+		"BOILERPLATE_ITEM_DEPRECATE_ME_ITEM_LORE": "There was.",
+
+		"BOILERPLATE_ITEM__NAME": "",
+		"BOILERPLATE_ITEM__PICKUP": "",
+		"BOILERPLATE_ITEM__DESCRIPTION": "",
+		"BOILERPLATE_ITEM__LOGBOOK_DESCRIPTION": "{0}",
+		"BOILERPLATE_ITEM__LORE": ""
+
+		//[TIER2]
+
+		//[TIER3]
+
+		//[TIERBOSS]
+
+		//[TIERLUNAR]
+
+		//[VOIDUNCOMMON]
+
+		//[VOIDLEGENDARY]
+
+		//[NOTIER]
+	}
+}
