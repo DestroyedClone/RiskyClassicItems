@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Equipment\EliteEquipment\ExampleEliteEquipment.cs" />
+    <Compile Remove="Equipment\ExampleEquipment.cs" />
+    <Compile Remove="Equipment\ExampleEquipWithTargeting.cs" />
+    <Compile Remove="Equipment\Snowglobe.cs" />
+    <Compile Remove="Items\ExampleItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <PackageReference Include="BepInEx.Analyzers" Version="1.0.*">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -7,7 +7,7 @@ namespace RiskyClassicItems.Modules
 {
     internal class LanguageOverrides
     {
-        public const string LanguageTokenPrefix = "BOILERPLATE_";
+        public const string LanguageTokenPrefix = "CLASSICITEMSRETURNS_";
         public const string LanguageTokenPrefixArtifact = LanguageTokenPrefix + "ARTIFACT_";
         public const string LanguageTokenPrefixItem = LanguageTokenPrefix + "ITEM_";
         public const string LanguageTokenPrefixEquipment = LanguageTokenPrefix + "EQUIPMENT_";

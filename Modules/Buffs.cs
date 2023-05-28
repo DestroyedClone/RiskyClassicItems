@@ -6,6 +6,22 @@ namespace RiskyClassicItems.Modules
 {
     internal class Buffs
     {
+        public static BuffDef DrugsBuff;
+        public static BuffDef SnowglobeBuff;
+
+        public static void Initialize()
+        {
+            DrugsBuff = CreateBuffInternal("RCI_Prescriptions",
+                Color.red,
+                false,
+                null,
+                Assets.NullSprite,
+                false,
+                false,
+                false,
+                null);
+        }
+
         public static BuffDef CreateBuffInternal(string name, Color buffColor, bool canStack, EliteDef eliteDef, Sprite iconSprite, bool isCooldown, bool isDebuff, bool isHidden, NetworkSoundEventDef startSfx)
         {
             var buffDef = ScriptableObject.CreateInstance<BuffDef>();

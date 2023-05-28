@@ -11,18 +11,18 @@ namespace RiskyClassicItems.Modules
         internal const string unlockableDefItemPrefix = "ItemMod.";
         internal const string unlockableDefEquipmentPrefix = "ItemMod.";
 
-        internal static GameObject NullModel = LoadAsset<GameObject>("RoR2/Base/Core/NullModel.prefab");
-        internal static Sprite NullSprite = LoadAsset<Sprite>("RoR2/Base/Core/texNullIcon.png");
+        internal static GameObject NullModel = LoadAddressable<GameObject>("RoR2/Base/Core/NullModel.prefab");
+        internal static Sprite NullSprite = LoadAddressable<Sprite>("RoR2/Base/Core/texNullIcon.png");
 
-        internal static ItemTierDef itemLunarTierDef = LoadAsset<ItemTierDef>("RoR2/Base/Common/LunarTierDef.asset");
-        internal static ItemTierDef itemBossTierDef = LoadAsset<ItemTierDef>("RoR2/Base/Common/BossTierDef.asset");
-        internal static ItemTierDef itemTier1Def = LoadAsset<ItemTierDef>("RoR2/Base/Common/Tier1Def.asset");
-        internal static ItemTierDef itemTier2Def = LoadAsset<ItemTierDef>("RoR2/Base/Common/Tier2Def.asset");
-        internal static ItemTierDef itemTier3Def = LoadAsset<ItemTierDef>("RoR2/Base/Common/Tier3Def.asset");
-        internal static ItemTierDef itemVoidBossTierDef = LoadAsset<ItemTierDef>("RoR2/DLC1/Common/VoidBossDef.asset");
-        internal static ItemTierDef itemVoidTier1Def = LoadAsset<ItemTierDef>("RoR2/DLC1/Common/VoidTier1Def.asset");
-        internal static ItemTierDef itemVoidTier2Def = LoadAsset<ItemTierDef>("RoR2/DLC1/Common/VoidTier2Def.asset");
-        internal static ItemTierDef itemVoidTier3Def = LoadAsset<ItemTierDef>("RoR2/DLC1/Common/VoidTier3Def.asset");
+        internal static ItemTierDef itemLunarTierDef = LoadAddressable<ItemTierDef>("RoR2/Base/Common/LunarTierDef.asset");
+        internal static ItemTierDef itemBossTierDef = LoadAddressable<ItemTierDef>("RoR2/Base/Common/BossTierDef.asset");
+        internal static ItemTierDef itemTier1Def = LoadAddressable<ItemTierDef>("RoR2/Base/Common/Tier1Def.asset");
+        internal static ItemTierDef itemTier2Def = LoadAddressable<ItemTierDef>("RoR2/Base/Common/Tier2Def.asset");
+        internal static ItemTierDef itemTier3Def = LoadAddressable<ItemTierDef>("RoR2/Base/Common/Tier3Def.asset");
+        internal static ItemTierDef itemVoidBossTierDef = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidBossDef.asset");
+        internal static ItemTierDef itemVoidTier1Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier1Def.asset");
+        internal static ItemTierDef itemVoidTier2Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier2Def.asset");
+        internal static ItemTierDef itemVoidTier3Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier3Def.asset");
 
         public static ItemTierDef ResolveTierDef(ItemTier itemTier)
         {
@@ -66,7 +66,7 @@ namespace RiskyClassicItems.Modules
 
         public static AssetBundle mainAssetBundle;
 
-        public static T LoadAsset<T>(string path)
+        public static T LoadAddressable<T>(string path)
         {
             return Addressables.LoadAssetAsync<T>(path).WaitForCompletion();
         }

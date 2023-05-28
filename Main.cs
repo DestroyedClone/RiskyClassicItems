@@ -43,6 +43,8 @@ namespace RiskyClassicItems
             DLCSupport.Initialize();
             ModSupport.CheckForModSupport();
             LanguageOverrides.Initialize();
+            Deployables.Initialize();
+            Buffs.Initialize();
             AddToAssembly();
         }
 
