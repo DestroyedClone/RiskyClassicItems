@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+//https://github.com/Bubbet/Risk-Of-Rain-Mods/blob/04540d86404e5ab8609742be568ed579e0176ac0/BubbetsItems/BubbetsItemsPlugin.cs
+using SearchableAttribute = HG.Reflection.SearchableAttribute;
+[assembly: SearchableAttribute.OptIn]
 
 namespace RiskyClassicItems
 {
@@ -21,8 +24,8 @@ namespace RiskyClassicItems
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(EliteAPI))]
     public class Main : BaseUnityPlugin
     {
-        public const string ModGuid = "com.MyUsername.MyModName";
-        public const string ModName = "My Mod's Title and if we see this exact name on Thunderstore we will deprecate your mod";
+        public const string ModGuid = "com.Risky.RiskyClassicItems";
+        public const string ModName = "RiskyClassicItems";
         public const string ModVer = "0.0.1";
 
         //For RiskOfOptions
@@ -35,6 +38,13 @@ namespace RiskyClassicItems
 
         //Provides a direct access to this plugin's logger for use in any of your other classes.
         public static BepInEx.Logging.ManualLogSource ModLogger;
+        public const bool debug = true;
+
+        public static void ModDebugLog(object data)
+        {
+            if (debug)
+                ModLogger.LogMessage(data);
+        }
 
         private void Awake()
         {
