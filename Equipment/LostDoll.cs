@@ -89,7 +89,10 @@ namespace RiskyClassicItems.Equipment
                     procChainMask = default,
                     procCoefficient = 1f,
                     target = hurtBox,
-                    effectType = RoR2.Orbs.DevilOrb.EffectType.Wisp
+                    effectType = RoR2.Orbs.DevilOrb.EffectType.Wisp,
+                    origin = slot.characterBody.corePosition,
+                    teamIndex = slot.characterBody.teamComponent.teamIndex,
+                    arrivalTime = 1f
                 });
                 slot.InvalidateCurrentTarget();
                 return true;
