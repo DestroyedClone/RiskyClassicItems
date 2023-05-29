@@ -25,15 +25,15 @@
     "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_EMBRYO": "",
     "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_LORE": "",
 
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETED_NAME": "Jar of Souless",
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETED_PICKUP": "Duplicates an enemy as a ghost to fight on your side.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETED_DESCRIPTION": "<style=cIsUtility>Duplicates</style> an enemy as a <style=cIsUtility>ghost</style> for <style=cIsUtility>{0} seconds</style>.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETED_EMBRYO": "",
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETED_LORE": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_NAME": "Jar of Souless",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_PICKUP": "Duplicates an enemy as a ghost to fight on your side.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "<style=cIsUtility>Duplicates</style> an enemy as a <style=cIsUtility>ghost</style> for <style=cIsUtility>{0} seconds</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_LORE": "",
 
     "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_NAME": "Lost Doll",
     "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_PICKUP": "Sacrifice 25% of your current health to damage an enemy for 500% of your maximum health",
-    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_DESCRIPTION": "Sacrifice <style=cHealth>{0}% of your current health</style> to <style=cIsDamage>damage</style> an enemy for <style=cIsDamage>{1}% of your maximum health</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_DESCRIPTION": "Sacrifice <style=cIsHealth>{0}% of your current health</style> to <style=cIsDamage>damage</style> an enemy for <style=cIsDamage>{1}% of your maximum health</style>.",
     "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_EMBRYO": "",
     "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_LORE": "",
 
