@@ -188,7 +188,15 @@ namespace RiskyClassicItems.Items
         /// <para>P.S. CreateItemDisplayRules(); does not have to be called in this, as it already gets called in CreateItem();</para>
         /// </summary>
         /// <param name="config">The config file that will be passed into this from the main class.</param>
-        public abstract void Init(ConfigFile config);
+        public virtual void Init(ConfigFile config)
+        {
+            CreateLang();
+            CreateConfig(config);
+            CreateAssets(config);
+            CreateItem();
+            Hooks();
+        }
+        public virtual void CreateAssets(ConfigFile config) { }
 
         public virtual void CreateConfig(ConfigFile config)
         { }
