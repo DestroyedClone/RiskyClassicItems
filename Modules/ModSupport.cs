@@ -1,7 +1,7 @@
-using RiskyClassicItems.Modules;
+using RoR2;
 using System.Runtime.CompilerServices;
 
-namespace RiskyClassicItems
+namespace RiskyClassicItems.Modules
 {
     internal class ModSupport
     {
@@ -37,11 +37,11 @@ namespace RiskyClassicItems
             [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
             internal static void BetterUICompat_Buffs()
             {
-                void RegisterBuffInfo(RoR2.BuffDef buffDef, string baseToken, string[] descTokenParams = null)
+                void RegisterBuffInfo(BuffDef buffDef, string baseToken, string[] descTokenParams = null)
                 {
                     if (descTokenParams != null && descTokenParams.Length > 0)
                     {
-                        Modules.LanguageOverrides.DeferToken(LanguageOverrides.LanguageTokenPrefixBuffs + baseToken + "_DESC", descTokenParams);
+                        LanguageOverrides.DeferToken(LanguageOverrides.LanguageTokenPrefixBuffs + baseToken + "_DESC", descTokenParams);
                     }
                     BetterUI.Buffs.RegisterBuffInfo(buffDef, LanguageOverrides.LanguageTokenPrefixBuffs + baseToken + "_NAME", LanguageOverrides.LanguageTokenPrefixBuffs + baseToken + "_DESC");
                 }
@@ -76,6 +76,14 @@ namespace RiskyClassicItems
             internal static void Init()
             {
                 loaded = true;
+            }
+
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            internal static void GiveAllyItem(Inventory inventory)
+            {
+                if (!loaded) return;
+                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyMarkerItem);
+                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyScalingItem);
             }
         }
     }

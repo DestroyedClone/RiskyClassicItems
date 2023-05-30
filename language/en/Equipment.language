@@ -27,7 +27,7 @@
 
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_NAME": "Jar of Souless",
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_PICKUP": "Duplicates an enemy as a ghost to fight on your side.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "<style=cIsUtility>Duplicates</style> an enemy as a <style=cIsUtility>ghost</style> for <style=cIsUtility>{0} seconds</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "<style=cIsUtility>Duplicates</style> an enemy as a <style=cIsUtility>ghost</style> with <style=cIsDamage>{1}% damage</style>. Lasts <style=cIsUtility>{0} seconds</style>.",
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_EMBRYO": "",
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_LORE": "",
 
