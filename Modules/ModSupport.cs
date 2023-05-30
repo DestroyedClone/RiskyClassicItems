@@ -15,6 +15,10 @@ namespace RiskyClassicItems
             {
                 ModCompatRiskOfOptions.Init();
             }
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatRiskyMod.guid))
+            {
+                ModCompatRiskyMod.Init();
+            }
         }
 
         internal class ModCompatBetterUI
@@ -60,6 +64,18 @@ namespace RiskyClassicItems
                 loaded = true;
 
                 RiskOfOptions.ModSettingsManager.SetModDescription(Main.ModDescription, Main.ModGuid, Main.ModName);
+            }
+        }
+
+        internal class ModCompatRiskyMod
+        {
+            internal const string guid = "com.RiskyLives.RiskyMod";
+            internal static bool loaded = false;
+
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            internal static void Init()
+            {
+                loaded = true;
             }
         }
     }
