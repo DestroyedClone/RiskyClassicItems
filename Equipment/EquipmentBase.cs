@@ -142,7 +142,13 @@ namespace RiskyClassicItems.Equipment
         /// <para>P.S. CreateItemDisplayRules(); does not have to be called in this, as it already gets called in CreateEquipment();</para>
         /// </summary>
         /// <param name="config">The config file that will be passed into this from the main class.</param>
-        public abstract void Init(ConfigFile config);
+        public virtual void Init(ConfigFile config)
+        {
+            CreateConfig(config);
+            CreateLang();
+            CreateEquipment();
+            Hooks();
+        }
 
         public string ConfigCategory
         {

@@ -37,7 +37,6 @@ namespace RiskyClassicItems.Items
         public override Sprite ItemIcon => LoadSprite();
         public const float cloverDropChance = 4.5f;
         public const float cloverDropChancePerStack = 1.5f;
-        public float cloverActivationChance = 0;
         public static ConfigEntry<bool> useClassic;
         public static PickupDropTable SacrificePickupDropTable => RoR2.Artifacts.SacrificeArtifactManager.dropTable;
         private static readonly Xoroshiro128Plus treasureRng = new Xoroshiro128Plus(0UL);

@@ -5,19 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Artifact\ExampleArtifact.cs" />
     <Compile Remove="Equipment\EliteEquipment\ExampleEliteEquipment.cs" />
     <Compile Remove="Equipment\ExampleEquipment.cs" />
     <Compile Remove="Equipment\ExampleEquipWithTargeting.cs" />
     <Compile Remove="Equipment\Snowglobe.cs" />
     <Compile Remove="Equipment\ThrowOnHitProjectile.cs" />
-    <Compile Remove="Items\BitterRoot.cs" />
     <Compile Remove="Items\ExampleItem.cs" />
-    <Compile Remove="Items\FilialImprinting.cs" />
-    <Compile Remove="Items\MysteriousVial.cs" />
     <Compile Remove="Items\Permafrost - Copy.cs" />
-    <Compile Remove="Items\Permafrost.cs" />
-    <Compile Remove="Items\PrisonShackles.cs" />
-    <Compile Remove="Items\Thallium.cs" />
   </ItemGroup>
 
   <ItemGroup>

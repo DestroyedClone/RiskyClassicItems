@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using RoR2;
 using R2API;
 using R2API.Utils;
 using RiskyClassicItems.Artifact;
@@ -29,7 +30,7 @@ namespace RiskyClassicItems
         public const string ModVer = "0.0.1";
 
         //For RiskOfOptions
-        public const string ModDescription = "Mod Description";
+        public const string ModDescription = "Adds items and equipment from Risk of Rain 1.";
 
         public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public List<ItemBase> Items = new List<ItemBase>();
@@ -55,7 +56,10 @@ namespace RiskyClassicItems
             LanguageOverrides.Initialize();
             Deployables.Initialize();
             Buffs.Initialize();
+            RiskyVisuals.Init(Config);
+            Dots.Initialize();
             AddToAssembly();
+            Events.Initialize();
         }
 
         private void AddToAssembly()

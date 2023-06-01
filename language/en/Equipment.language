@@ -39,7 +39,7 @@
 
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_NAME": "Prescriptions",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_PICKUP": "Enter a drug-induced frenzy.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_DESCRIPTION": "You enter a <style=cIsDamage>drug-induced frenzy</style> for <style=cIsUtility>7</style> seconds. Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>50%</style> and <style=cIsDamage>attack speed</style> by <style=cIsDamage>100%</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_DESCRIPTION": "You enter a <style=cIsDamage>drug-induced frenzy</style> for <style=cIsUtility>{0}</style> seconds. Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>{1}%</style> and <style=cIsDamage>attack speed</style> by <style=cIsDamage>{2}%</style>.",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_EMBRYO": "",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_LORE": "",
 

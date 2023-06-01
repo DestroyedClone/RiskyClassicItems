@@ -8,6 +8,11 @@ namespace RiskyClassicItems.Modules
     {
         public static BuffDef DrugsBuff;
         public static BuffDef SnowglobeBuff;
+        public static BuffDef BitterRootBuff;
+        public static BuffDef GoldenGunBuff;
+        public static BuffDef PermafrostChilledBuff;
+        public static BuffDef ShacklesBuff;
+        public static BuffDef ThalliumBuff;
 
         public static void Initialize()
         {
@@ -20,6 +25,33 @@ namespace RiskyClassicItems.Modules
                 false,
                 false,
                 null);
+            BitterRootBuff = CreateBuffInternal("RCI_BitterRoot",
+                Color.green,
+                false,
+                null,
+                Assets.NullSprite,
+                false,
+                false,
+                false,
+                null);
+            GoldenGunBuff = CreateBuffInternal("RCI_GoldenGun",
+                Color.yellow, true,
+                null, Assets.NullSprite,
+                true, false,
+                false, null);
+            PermafrostChilledBuff = CreateBuffInternal("RCI_Chilled",
+                Color.cyan, false,
+                null, Assets.NullSprite,
+                false, true,
+                false, null);//Play_wFeralShoot2
+            ShacklesBuff = CreateBuffInternal("RCI_PrisonShackles",
+                Color.blue, false,
+                null, Assets.NullSprite,
+                false, true, false, null);
+            ThalliumBuff = CreateBuffInternal("RCI_ThalliumBuff",
+                Color.green, true,
+                null, Assets.NullSprite,
+                false, true, false, null);
         }
 
         public static BuffDef CreateBuffInternal(string name, Color buffColor, bool canStack, EliteDef eliteDef, Sprite iconSprite, bool isCooldown, bool isDebuff, bool isHidden, NetworkSoundEventDef startSfx)

@@ -162,5 +162,14 @@ namespace RiskyClassicItems.Utils
 
             return index;
         }
+
+        public static float StackingLinear(int itemCount, float baseValue, float stackValue)
+        {
+            return baseValue + stackValue * (itemCount - 1);
+        }
+        public static int StackingLinear(int itemCount, int baseValue, int stackValue)
+        {
+            return baseValue + stackValue * (itemCount - 1);
+        }
     }
 }

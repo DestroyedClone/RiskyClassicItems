@@ -3,17 +3,23 @@
 		//[TIER1]
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
-		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>+{0} hp/s</style> <style=cStack>(+{1} hp/s per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Bitter Root",
-		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "Increases maximum health.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "Increases <style=cIsHealing>maximum health</style> by <style=cIsHealing>{0}%</style> <style=cStack>(+{1}% per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE": "",
+		//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Languages/en/LITLanguage_en.json#LL8C2-L8C2
+		//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME_ALT": "Bitter Root",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP_ALT": "Regenerate health on kill.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>{0} hp/s</style> for <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style> after killing an enemy.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE_ALT": "",
 
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Life Savings",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Generate gold over time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} gold</style> <style=cStack>(+{1} gold per stack)</style> every <style=cIsUtility>2 seconds</style>. Increases over time.",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Fire Shield",
@@ -57,8 +63,8 @@
 		"CLASSICITEMSRETURNS_ITEM_SPROUTINGEGG_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_NAME": "Hermit's Scarf",
-		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_PICKUP": "Chance to dodge incoming damage",
+		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_DESCRIPTION": "<style=cIsHealing>15%</style> <style=cStack>(+15% per stack)</style> chance to <style=cIsHealing>block</style> incoming damage. <style=cIsUtility>Unaffected by luck</style>.",
 		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_TASER_NAME": "Taser",
@@ -68,8 +74,8 @@
 
 		//[TIER2]
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Deals bonus damage per gold",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+40% damage</style> <style=cStack>(+20% per stack)</style> at <style=cIsUtility>300 gold</style> <style=cStack>(+150 per stack, scaling with time)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "",
 
 
@@ -84,8 +90,8 @@
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
-		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Slow enemy attacks on hit.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "<style=cIsUtility>Slow</style> enemies on hit for <style=cIsUtility>-{0}% attack speed</style> for <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PANICMINES_NAME": "Panic Mines",
@@ -94,8 +100,8 @@
 		"CLASSICITEMSRETURNS_ITEM_PANICMINES_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_TOXICWORM_NAME": "Toxic Worm",
-		"CLASSICITEMSRETURNS_ITEM_TOXICWORM_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_TOXICWORM_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_TOXICWORM_PICKUP": "Infect enemies, dealing 100% damage/sec for 5.5 seconds. Bounces to other enemies on death.",
+		"CLASSICITEMSRETURNS_ITEM_TOXICWORM_DESCRIPTION": "<style=cIsDamage>Infect</style> enemies, dealing <style=cIsDamage>100% damage per second</style> for <style=cIsDamage>5.5 seconds</style>. <style=cIsDamage>Bounces to other enemies on death</style>.",
 		"CLASSICITEMSRETURNS_ITEM_TOXICWORM_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "Tough Times",
@@ -148,20 +154,20 @@
 
 
 		"CLASSICITEMSRETURNS_ITEM_FILIALIMPRINTING_NAME": "Filial Imprinting",
-		"CLASSICITEMSRETURNS_ITEM_FILIALIMPRINTING_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_FILIALIMPRINTING_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_FILIALIMPRINTING_PICKUP": "Hatch a strange creature who drops buffs periodically.",
+		"CLASSICITEMSRETURNS_ITEM_FILIALIMPRINTING_DESCRIPTION": "Hatch a <style=cIsUtility>strange creature</style> <style=cStack>(+1 strange creature per stack)</style> who <style=cIsUtility>drops buffs</style> every <style=cIsUtility>{0} seconds</style>. Buffs include: <style=cIsDamage>+{1}% damage</style>, <style=cIsUtility>+{2}% movement speed</style>, <style=cIsHealing>+{3} health regen</style>.",
 		"CLASSICITEMSRETURNS_ITEM_FILIALIMPRINTING_LORE": "",
 
 		//[TIER3]
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "On hit: 10% chance to damage/slow by 500 enemy damage% and 100% speed over 3 seconds",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "Gain 10% chance to dam",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "On hit: 10% chanceto damage/slow by 500 enemy damage% and 100% speed over 3 seconds",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit: {0}% chance <style=cStack>(+{1}% chance per stack) to damage/slow by <style=cIsDamage>{2}% enemy attack damage</style> and <style=cIsUtility>{3}% of enemy movement speed</style> over {4} seconds.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to chill enemies on hit.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "On hit: <style=cIsUtility>35% chance</style> to <style=cIsUtility>chill</style> enemies <style=cStack>(+5% chance per stack)</style>, slowing <style=cIsUtility>movement speed</style> by <style=cIsUtility>-30%</style> for 2 seconds. <style=cIsUtility>Chilling</style> a <style=cIsUtility>chilled</style> enemy has a <style=cIsUtility>50% chance</style> to stun for <style=cIsUtility>1.5 seconds</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "",
 
 

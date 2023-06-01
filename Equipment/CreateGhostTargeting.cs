@@ -20,9 +20,10 @@ namespace RiskyClassicItems.Equipment
         public const int ghostDamageCoefficientTimesTen = 10;
         DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
 
-        public override string[] EquipmentFullDescriptionParams => new string[] { 
-            (ghostDamageCoefficientTimesTen * 10 * 100).ToString(),
-            ghostDurationSecondsPlayer.ToString() };
+        public override string[] EquipmentFullDescriptionParams => new string[] {
+            ghostDurationSecondsPlayer.ToString(),
+            (ghostDamageCoefficientTimesTen * 10).ToString()
+             };
 
         public override GameObject EquipmentModel => Assets.NullModel;
 

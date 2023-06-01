@@ -91,7 +91,7 @@ namespace RiskyClassicItems.Equipment
                     };
                     HealthComponent victim = healthComponent;
                     DamageReport damageReport = new DamageReport(damageInfo, victim, damageInfo.damage, healthComponent.combinedHealth);
-                    GlobalEventManager.ServerDamageDealt(damageReport);
+                    GlobalEventManager.OnHitAll(damageInfo, );
                 }
             }
 

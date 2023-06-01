@@ -12,7 +12,15 @@ namespace RiskyClassicItems.Equipment
 
         public override string EquipmentLangTokenName => "DRUGS";
         public const float buffDuration = 8f;
-        public override string[] EquipmentFullDescriptionParams => new string[] { buffDuration.ToString() };
+        public const float buffMovementSpeed = 0.5f;
+        public const float buffAttackSpeed = 1f;
+
+        public override string[] EquipmentFullDescriptionParams => new string[]
+        {
+            buffDuration.ToString(),
+            (buffMovementSpeed * 100).ToString(),
+            (buffAttackSpeed * 100).ToString(),
+        };
 
         public override GameObject EquipmentModel => LoadModel();
 
@@ -20,12 +28,19 @@ namespace RiskyClassicItems.Equipment
 
         public static BuffDef DrugsBuff => Buffs.DrugsBuff;
 
-        public override void Init(ConfigFile config)
+        public override void Hooks()
         {
-            CreateConfig(config);
-            CreateLang();
-            CreateEquipment();
-            Hooks();
+            RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            var buffCount = sender.GetBuffCount(DrugsBuff);
+            if (buffCount > 0)
+            {
+                args.moveSpeedMultAdd += buffMovementSpeed;
+                args.attackSpeedMultAdd += buffAttackSpeed;
+            }
         }
 
         protected override void CreateConfig(ConfigFile config)
@@ -39,7 +54,7 @@ namespace RiskyClassicItems.Equipment
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
-            slot.characterBody.AddTimedBuff(RoR2Content.Buffs.WarCryBuff, buffDuration);
+            slot.characterBody.AddTimedBuff(DrugsBuff, buffDuration);
             return true;
         }
     }
