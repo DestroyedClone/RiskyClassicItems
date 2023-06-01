@@ -291,6 +291,14 @@ namespace RiskyClassicItems.Items
             return body.inventory.GetItemCount(ItemDef);
         }
 
+        public bool TryGetCount(CharacterBody body, out int count)
+        {
+            count = 0;
+            if (!body || !body.inventory) { return false; }
+            count = body.inventory.GetItemCount(ItemDef);
+            return count > 0;
+        }
+
         public int GetCount(CharacterMaster master)
         {
             if (!master || !master.inventory) { return 0; }
@@ -298,11 +306,26 @@ namespace RiskyClassicItems.Items
             return master.inventory.GetItemCount(ItemDef);
         }
 
+        public bool TryGetCount(CharacterMaster master, out int count)
+        {
+            count = 0;
+            if (!master || !master.inventory) { return false; }
+            count = master.inventory.GetItemCount(ItemDef);
+            return count > 0;
+        }
+
         public int GetCountSpecific(CharacterBody body, ItemDef itemDef)
         {
             if (!body || !body.inventory) { return 0; }
 
             return body.inventory.GetItemCount(itemDef);
+        }
+        public bool TryGetCountSpecific(CharacterBody body, ItemDef itemDef, out int count)
+        {
+            count = 0;
+            if (!body || !body.inventory) { return false; }
+            count = body.inventory.GetItemCount(itemDef);
+            return true;
         }
 
         /// <summary>
