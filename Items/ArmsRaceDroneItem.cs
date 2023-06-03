@@ -12,6 +12,12 @@ using UnityEngine.Diagnostics;
 using RoR2.CharacterAI;
 using BepInEx.Configuration;
 using static RiskyClassicItems.Items.ArmsRace;
+using EntityStates.Drone.DroneWeapon;
+using RoR2.Projectile;
+using UnityEngine.Networking;
+using RiskyClassicItems.Utils;
+using System.Linq;
+using RoR2.Orbs;
 
 namespace RiskyClassicItems.Items
 {
@@ -32,63 +38,151 @@ namespace RiskyClassicItems.Items
             return new ItemDisplayRuleDict();
         }
 
-
+        //https://github.com/Moffein/RiskyMod/blob/master/RiskyMod/Allies/DroneBehaviors/AutoMissileBehavior.cs#L10
         public class ArmsRaceDroneBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => ArmsRaceDroneItem.Instance.ItemDef;
-            public float cooldown => ArmsRace.Instance.cooldown;
+
+            public static float searchInterval = 1f;
+            public static float maxActivationDistance = 80f;
+            public static int missilesPerBarrage = 4;
+
+            public static float damageCoefficient = 1.1f;
+            public static float baseFireInterval = 0.15f;
+
+            public float searchStopwatch;
+            public float cooldownStopwatch;
+            public float fireStopwatch;
+            public int missilesLoaded;
+            public bool firingBarrage = false;
+            public float fireInterval;
+            public HurtBox targetHurtBox;
+
+            public float cooldownInterval => ArmsRace.Instance.cooldown;
+            
             public float failedTargetCooldown = 2f;
-            public float damage => ArmsRace.Instance.damageCoeff;
             public float timer = 2f;
-            public BaseAI baseAI = null;
-            public int missileCount = ArmsRace.Instance.missileCount;
-            public ArmsRace.ArmsRaceSyncComponent ArmsRaceSyncComponent;
-            private void OnEnable()
+            public int missileCount;
+
+            private void GetMissileBarrageCount()
             {
-                if (!(body && body.master && body.master.GetComponent<ArmsRaceSyncComponent>() is ArmsRaceSyncComponent component))
+                if (body && body.master && body.master.minionOwnership && body.master.minionOwnership.ownerMaster && ArmsRace.Instance.TryGetCount(body.master.minionOwnership.ownerMaster, out int ownerArmsRaceItemCount))
                 {
-                    enabled = false;
+                    missilesPerBarrage = ItemHelpers.StackingLinear(ownerArmsRaceItemCount, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
                     return;
                 }
-                ArmsRaceSyncComponent = component;
-
-                baseAI = body.master.aiComponents[0];
-                if (!baseAI)
-                {
-                    enabled = false;
-                    return;
-                }
-
-                timer = cooldown;
+                missilesPerBarrage = ItemHelpers.StackingLinear(stack, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
             }
 
-
-            private void OnDestroy()
+            private void OnEnable()
             {
+                GetMissileBarrageCount();
+                missilesLoaded = missilesPerBarrage;
+                searchStopwatch = 0f;
+                cooldownStopwatch = UnityEngine.Random.Range(0.1f, 0.75f);
+                fireStopwatch = 0f;
+                fireInterval = baseFireInterval;
+            }
+            public bool AcquireTarget()
+            {
+                Ray aimRay = body.inputBank ? body.inputBank.GetAimRay() : default;
+
+                BullseyeSearch search = new BullseyeSearch();
+
+                search.teamMaskFilter = TeamMask.allButNeutral;
+                search.teamMaskFilter.RemoveTeam(body.teamComponent.teamIndex);
+
+                search.filterByLoS = true;
+                search.searchOrigin = aimRay.origin;
+                search.sortMode = BullseyeSearch.SortMode.Angle;
+                search.maxDistanceFilter = maxActivationDistance;
+                search.maxAngleFilter = 360f;
+                search.searchDirection = aimRay.direction;
+                search.RefreshCandidates();
+
+                targetHurtBox = search.GetResults().FirstOrDefault<HurtBox>();
+
+                return targetHurtBox != null;
             }
 
             private void FixedUpdate()
             {
-                timer -= Time.fixedDeltaTime;
-                if (timer < 0)
+                if (NetworkServer.active)// && !characterBody.isPlayerControlled
                 {
-                    if (baseAI.currentEnemy != null && baseAI.currentEnemy.gameObject)
+                    if (!firingBarrage)
                     {
-                        timer = 0;
-                        FireMissile();
-                        return;
+                        GetMissileBarrageCount();
+                        //Reloading takes priority
+                        if (missilesLoaded < missilesPerBarrage)
+                        {
+                            cooldownStopwatch += Time.fixedDeltaTime;
+                            if (cooldownStopwatch >= cooldownInterval)
+                            {
+                                cooldownStopwatch = 0f;
+                                //missilesLoaded = Mathf.FloorToInt(missilesPerBarrage * Mathf.Max(body.attackSpeed, 1f));
+                                missilesLoaded = missilesPerBarrage;
+                                //fireInterval = baseFireInterval / body.attackSpeed;
+                            }
+                        }
+                        else
+                        {
+                            //Once loaded, search for enemies
+                            searchStopwatch += Time.fixedDeltaTime;
+                            if (searchStopwatch > searchInterval)
+                            {
+                                searchStopwatch -= searchInterval;
+                                if (body.teamComponent && AcquireTarget())
+                                {
+                                    firingBarrage = true;
+                                    fireStopwatch = 0f;
+                                }
+                            }
+                        }
                     }
-                    timer = failedTargetCooldown;
+                    else //Handle firing
+                    {
+                        fireStopwatch += Time.fixedDeltaTime;
+                        if (fireStopwatch >= fireInterval)
+                        {
+                            fireStopwatch -= fireInterval;
+                            FireMissile();
+                        }
+                    }
                 }
             }
 
             private void FireMissile()
             {
-                var missileCount = ArmsRaceSyncComponent.droneMissileCount; 
-                for (int i = 0; i < missileCount; i++)
+                if (targetHurtBox != default)
                 {
-                    MissileUtils.FireMissile(body.corePosition, body, default, baseAI.currentEnemy.gameObject, damage, body.RollCrit(), GlobalEventManager.CommonAssets.missilePrefab, DamageColorIndex.Item, true);
+                    Ray aimRay = body.inputBank ? body.inputBank.GetAimRay() : default;
+                    MicroMissileOrb missileOrb = new MicroMissileOrb();
+                    missileOrb.origin = aimRay.origin;
+                    //missileOrb.damageValue = body.damage * damageCoefficient * (AlliesCore.normalizeDroneDamage ? 1f : 0.857142857f);  // 12/14
+                    missileOrb.damageValue = body.damage * ArmsRace.Instance.damageCoeff;
+                    missileOrb.isCrit = body.RollCrit();
+                    missileOrb.teamIndex = body.teamComponent.teamIndex;
+                    missileOrb.attacker = base.gameObject;
+                    missileOrb.procChainMask = default;
+                    missileOrb.procCoefficient = 1f;
+                    missileOrb.damageColorIndex = DamageColorIndex.Default;
+                    missileOrb.target = targetHurtBox;
+                    missileOrb.speed = 25f; //Same as misisleprojectile. Default is 55f
+                    OrbManager.instance.AddOrb(missileOrb);
+
+                    if (EntityStates.Drone.DroneWeapon.FireMissileBarrage.effectPrefab)
+                    {
+                        EffectManager.SimpleMuzzleFlash(EntityStates.Drone.DroneWeapon.FireMissileBarrage.effectPrefab, base.gameObject, "Muzzle", true);
+                    }
+
+                    //Technically animation is missing but no one will notice.
+                }
+
+                missilesLoaded--;
+                if (missilesLoaded <= 0)
+                {
+                    firingBarrage = false;
                 }
             }
         }

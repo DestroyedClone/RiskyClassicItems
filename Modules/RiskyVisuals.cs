@@ -16,13 +16,19 @@ namespace RiskyClassicItems.Modules
         public const string cat = "Cosmetics";
         public static void Init(ConfigFile config)
         {
+            return;
             ExecuteLowHealthElite = config.Bind(cat, "Guiotinne lopper", true, "");
             Bear_HermitScarf = config.Bind(cat, "Tougher Times Hermit Scarf", true);
             HealWhileSafe_SproutingEgg = config.Bind(cat, "Cautious Slug Sprouting Egg", true, "");
 
+            ItemCatalog.availability.CallWhenAvailable(CallWhenAvail);
+            On.RoR2.UI.MainMenu.MainMenuController.Start += MainMenuController_Start;
+        }
+
+        public static void CallWhenAvail()
+        {
             Bear.Init();
             HealWhileSafe.Init();
-            On.RoR2.UI.MainMenu.MainMenuController.Start += MainMenuController_Start;
         }
 
 
@@ -47,6 +53,7 @@ namespace RiskyClassicItems.Modules
                     bool displayExists = false;
                     foreach (var displayRule in lunarSunDRG.rules)
                     {
+                        if (!displayRule.followerPrefab) continue;
                         if (displayRule.followerPrefab.name.StartsWith("DisplaySunHeadNeck"))
                         {
                             itemDisplayRuleToCopy = displayRule;
@@ -121,7 +128,7 @@ namespace RiskyClassicItems.Modules
             {
                 var lunarSunScarf = Assets.LoadAddressable<GameObject>("RoR2/DLC1/LunarSun/DisplaySunHeadNeck.prefab");
                 HermitScarfDisplay = PrefabAPI.InstantiateClone(lunarSunScarf, "DisplayHermitScarf_RCI");
-                HermitScarfDisplay.transform.Find("mdlSunHeadNeck").GetComponent<SkinnedMeshRenderer>().SetMaterial(Assets.LoadAddressable<Material>("RoR2/Base/Clover/matClover.mat"));
+                HermitScarfDisplay.transform.Find("mdlSunHeadNeck/mdlSunHeadNeck").GetComponent<SkinnedMeshRenderer>().SetMaterial(Assets.LoadAddressable<Material>("RoR2/Base/Clover/matClover.mat"));
             }
 
             public static void ReplaceLanguage()

@@ -43,10 +43,6 @@ namespace RiskyClassicItems.Equipment
             }
         }
 
-        protected override void CreateConfig(ConfigFile config)
-        {
-        }
-
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();

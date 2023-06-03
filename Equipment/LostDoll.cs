@@ -57,7 +57,7 @@ namespace RiskyClassicItems.Equipment
             spike.name = "DollSpike";
             spike.transform.SetParent(dollActivationEffect.transform);
             spike.transform.localScale = new Vector3(25, 25, 125);
-            spike.AddComponent<DollSpikeDisplayHelper>();
+            spike.AddComponent<DollSpikeDisplayHelper>().enabled = false;
 
             int spikeCount = 0;
             GameObject spikeCopy()
@@ -70,12 +70,13 @@ namespace RiskyClassicItems.Equipment
 
             comp.AddSpike(spikeCopy(), Util.QuaternionSafeLookRotation(new Vector3(0, 90, 0)), Vector3.up * 3f, Vector3.zero);
             comp.AddSpike(spikeCopy(), Util.QuaternionSafeLookRotation(new Vector3(90, 0, 0)), Vector3.one * 3f, Vector3.zero);
-            
+            //add more as needed
 
             comp.blackMat = Assets.LoadAddressable<Material>("RoR2/Base/Common/matDebugBlack.mat");
             comp.dollMR = dollActivationEffect.transform.Find("Mesh").GetComponent<MeshRenderer>();
             comp.gameObject.AddComponent<NetworkIdentity>();
 
+            //idk how to, people usually make one from asset or clone an existing one
             //var efcomp = spike.AddComponent<EffectComponent>();
             //ContentAddition.AddEffect(dollActivationEffect);
             UnityEngine.Object.Destroy(spike);
@@ -88,7 +89,7 @@ namespace RiskyClassicItems.Equipment
             public void FixedUpdate()
             {
                 var transform = gameObject.transform;
-                output = $"comp.AddSpike(spikeCopy(), new Quaternion({transform.rotation.ToString()}), new Vector3({transform.localPosition.ToString()}), Vector3.zero);";
+                output = $"comp.AddSpike(spikeCopy(), new Quaternion({transform.rotation}), new Vector3({transform.localPosition}), Vector3.zero);";
 
             }
         }
@@ -115,7 +116,6 @@ namespace RiskyClassicItems.Equipment
                 delayStopwatch = durationDelay;
                 effectStopwatch = 0;
                 terminationStopwatch = 0.5f;
-                Chat.AddMessage("State: Start");
             }
 
             public void AddSpike(GameObject spike, Quaternion initialRotation, Vector3 startPosition, Vector3 endPosition)

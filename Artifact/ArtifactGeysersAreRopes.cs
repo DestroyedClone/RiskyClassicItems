@@ -42,7 +42,11 @@ namespace RiskyClassicItems.Artifact
         {
             if (NetworkServer.active)
             {
-                
+                var jumpVolumes = UnityEngine.Object.FindObjectsOfType<JumpVolume>();
+                foreach (var jumpVolume in jumpVolumes)
+                {
+
+                }
             }
         }
     }

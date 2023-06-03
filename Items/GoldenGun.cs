@@ -67,11 +67,34 @@ namespace RiskyClassicItems.Items
 
             public void OnDestroy()
             {
-                while (this.body.HasBuff(Buffs.GoldenGunBuff))
+                SetBuffCount(0);
+            }
+
+            public void SetBuffCount(int count)
+            {
+                var userBuffCount = body.GetBuffCount(Buffs.GoldenGunBuff);
+                var difference = userBuffCount - count;
+
+                if (difference > 0)
                 {
-                    this.body.RemoveBuff(Buffs.GoldenGunBuff);
+                    // If the current count is greater than the desired count,
+                    // remove the excess buffs until the count matches the desired count.
+                    for (int i = 0; i < difference; i++)
+                    {
+                        body.RemoveBuff(Buffs.GoldenGunBuff);
+                    }
+                }
+                else if (difference < 0)
+                {
+                    // If the current count is less than the desired count,
+                    // add buffs until the count matches the desired count.
+                    for (int i = 0; i < -difference; i++)
+                    {
+                        body.AddBuff(Buffs.GoldenGunBuff);
+                    }
                 }
             }
+
 
             private void FixedUpdate()
             {
@@ -88,7 +111,7 @@ namespace RiskyClassicItems.Items
                     int currentBuffCount = body.GetBuffCount(Buffs.GoldenGunBuff);
                     if (targetBuffCount != currentBuffCount)
                     {
-                        body.SetBuffCount(Buffs.GoldenGunBuff.buffIndex, targetBuffCount);
+                        SetBuffCount(targetBuffCount);
                     }
                 }
             }

@@ -66,7 +66,6 @@ namespace RiskyClassicItems.Items
                         if (body)
                         {
                             UpdateMinionInventory(summonMasterInstance.inventory, body.bodyFlags, stack);
-                            body.gameObject.AddComponent<ArmsRaceSyncComponent>().ownerMaster = summonMasterInstance;
                         }
                     }
                 }
@@ -90,40 +89,9 @@ namespace RiskyClassicItems.Items
                 }
             }
 
-
-
             private void OnDisable()
             {
                 MasterSummon.onServerMasterSummonGlobal -= MasterSummon_onServerMasterSummonGlobal;
-            }
-        }
-
-
-        //https://github.com/WhitePhant0m/RoR2-Mods/blob/master/SyncedTurrets
-        public class ArmsRaceSyncComponent : MonoBehaviour
-        {
-            public int droneMissileCount = ArmsRace.Instance.missileCount;
-            public CharacterMaster ownerMaster;
-
-            public void Start()
-            {
-                if (ownerMaster && ownerMaster.inventory)
-                    ownerMaster.inventory.onInventoryChanged += OnOwnerInventoryChanged;
-            }
-
-            private void OnOwnerInventoryChanged()
-            {
-                var itemCount = ArmsRace.Instance.GetCount(ownerMaster);
-                if (itemCount > 0)
-                {
-                    droneMissileCount = Instance.missileCount + Instance.missileCountPerStack * (itemCount - 1);
-                }
-            }
-
-            public void OnDestroy()
-            {
-                if (ownerMaster && ownerMaster.inventory)
-                    ownerMaster.inventory.onInventoryChanged -= OnOwnerInventoryChanged;
             }
         }
     }

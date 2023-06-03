@@ -10,9 +10,9 @@ namespace RiskyClassicItems.Items
 {
     public class LifeSavings : ItemBase<LifeSavings>
     {
-        int gold;
-        int goldStack;
-        float intervalSeconds;
+        int gold = 1;
+        int goldStack = 1;
+        float intervalSeconds = 3;
         public override string ItemName => "LifeSavings";
 
         public override string ItemLangTokenName => ItemName.ToUpper();

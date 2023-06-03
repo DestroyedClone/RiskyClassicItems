@@ -40,10 +40,6 @@ namespace RiskyClassicItems.Equipment
             Hooks();
         }
 
-        protected override void CreateConfig(ConfigFile config)
-        {
-        }
-
         /// <summary>
         /// An example targeting indicator implementation. We clone the woodsprite's indicator, but we edit it to our liking. We'll use this in our activate equipment.
         /// We shouldn't need to network this as this only shows for the player with the Equipment.
@@ -63,8 +59,6 @@ namespace RiskyClassicItems.Equipment
         {
             return new ItemDisplayRuleDict();
         }
-
-        
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {

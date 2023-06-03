@@ -19,7 +19,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Life Savings",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Generate gold over time.",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} gold</style> <style=cStack>(+{1} gold per stack)</style> every <style=cIsUtility>2 seconds</style>. Increases over time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} gold</style> <style=cStack>(+{1} gold per stack)</style> every <style=cIsUtility>{2} seconds</style>. Increases over time.",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Fire Shield",
