@@ -16,8 +16,10 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "GOLDENGUN";
 
-        public static uint goldCap = 300;
         public static uint goldNeeded = 40;
+        public static uint goldNeededPerStack = 40;
+        public static uint goldCap = 300;
+        public static uint goldCapPerStack = 300;
         public override string[] ItemFullDescriptionParams => new string[]
         {
             (0.5f*100).ToString(),
@@ -29,7 +31,7 @@ namespace RiskyClassicItems.Items
             112345f.ToString()
         };
 
-        public override ItemTier Tier => ItemTier.Tier1;
+        public override ItemTier Tier => ItemTier.Tier2;
 
         public override GameObject ItemModel => LoadModel();
 

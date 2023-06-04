@@ -17,8 +17,8 @@ namespace RiskyClassicItems.Items
     internal class ArmsRace : ItemBase<ArmsRace>
     {
         public float cooldown = 10;
-        public int missileCount = 1;
-        public int missileCountPerStack = 1;
+        public int missileCount = 4;
+        public int missileCountPerStack = 4;
         public float damageCoeff = 2;
         public override string ItemName => "Arms Race";
         public override string ItemLangTokenName => "ARMSRACE";
@@ -31,7 +31,7 @@ namespace RiskyClassicItems.Items
             (damageCoeff*100f).ToString()
         };
 
-        public override ItemTier Tier => ItemTier.Tier1;
+        public override ItemTier Tier => ItemTier.Tier2;
 
         public override GameObject ItemModel => Assets.NullModel;
 

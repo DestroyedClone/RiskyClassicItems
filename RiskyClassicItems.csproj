@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Artifact\ArtifactGeysersAreRopes.cs" />
     <Compile Remove="Artifact\ExampleArtifact.cs" />
     <Compile Remove="Equipment\EliteEquipment\ExampleEliteEquipment.cs" />
     <Compile Remove="Equipment\ExampleEquipment.cs" />

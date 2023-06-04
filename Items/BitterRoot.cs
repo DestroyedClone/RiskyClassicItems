@@ -43,6 +43,11 @@ namespace RiskyClassicItems.Items
         public override void CreateConfig(ConfigFile config)
         {
             useAlternateVersion = config.Bind(ConfigCategory, "Use LiT", false, "If true, uses LiT's implementation.");
+
+            if (useAlternateVersion.Value)
+            {
+                ItemDef.descriptionToken = "CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT";
+            }
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

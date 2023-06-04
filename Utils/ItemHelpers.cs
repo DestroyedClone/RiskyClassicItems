@@ -171,5 +171,11 @@ namespace RiskyClassicItems.Utils
         {
             return baseValue + stackValue * (itemCount - 1);
         }
+
+        public static bool TryGetBuffCount(CharacterBody characterBody, BuffDef buffDef, out int buffCount)
+        {
+            buffCount = characterBody.GetBuffCount(buffDef);
+            return buffCount > 0;
+        }
     }
 }

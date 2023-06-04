@@ -23,7 +23,7 @@ namespace RiskyClassicItems.Items
             durationStack.ToString(),
         };
 
-        public override ItemTier Tier => ItemTier.Tier1;
+        public override ItemTier Tier => ItemTier.Tier2;
 
         public override GameObject ItemModel => LoadModel();
 

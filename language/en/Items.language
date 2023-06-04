@@ -167,7 +167,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to chill enemies on hit.",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "On hit: <style=cIsUtility>35% chance</style> to <style=cIsUtility>chill</style> enemies <style=cStack>(+5% chance per stack)</style>, slowing <style=cIsUtility>movement speed</style> by <style=cIsUtility>-30%</style> for 2 seconds. <style=cIsUtility>Chilling</style> a <style=cIsUtility>chilled</style> enemy has a <style=cIsUtility>50% chance</style> to stun for <style=cIsUtility>1.5 seconds</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "On hit: <style=cIsUtility>{0}% chance</style> to <style=cIsUtility>chill</style> enemies <style=cStack>(+{1}% chance per stack)</style>, slowing <style=cIsUtility>movement speed</style> by <style=cIsUtility>-{2}%</style> for {3} seconds. <style=cIsUtility>Chilling</style> a <style=cIsUtility>chilled</style> enemy has a <style=cIsUtility>{4}% chance</style> to stun for <style=cIsUtility>{5} seconds</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "",
 
 

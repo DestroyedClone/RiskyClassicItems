@@ -22,8 +22,18 @@ namespace RiskyClassicItems.Items
         float stunChance = 0.5f;
         float stunDuration = 1.5f;
 
+        public override string[] ItemFullDescriptionParams => new string[]
+        {
+            (procChance * 100).ToString(),
+            (procChanceStack * 100).ToString(),
+            procDuration.ToString(),
+            (movementSpeedCoef * 100).ToString(),
+            (stunChance * 100).ToString(),
+            stunDuration.ToString(),
+        };
 
-        public override ItemTier Tier => ItemTier.Tier1;
+
+        public override ItemTier Tier => ItemTier.Tier2;
 
         public override GameObject ItemModel => LoadModel();
 
@@ -49,6 +59,15 @@ namespace RiskyClassicItems.Items
         public override void Hooks()
         {
             GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
+            RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            if (ItemHelpers.TryGetBuffCount(sender, Modules.Buffs.PermafrostChilledBuff, out int buffCount))
+            {
+                args.moveSpeedReductionMultAdd += movementSpeedCoef;
+            }
         }
 
         private void GlobalEventManager_onServerDamageDealt(DamageReport damageReport)
@@ -57,32 +76,14 @@ namespace RiskyClassicItems.Items
             {
                 if (Util.CheckRoll(ItemHelpers.StackingLinear(itemCount, procChance, procChanceStack), damageReport.attackerMaster))
                     damageReport.attackerBody.AddTimedBuff(Modules.Buffs.PermafrostChilledBuff, procDuration);
+
                 if (damageReport.attackerBody.HasBuff(Modules.Buffs.PermafrostChilledBuff)
                     && Util.CheckRoll(stunChance, damageReport.attackerMaster)
-                    && damageReport.attackerBody.TryGetComponent(out SetStateOnHurt setStateOnHurt))
+                    && damageReport.victimBody.TryGetComponent(out SetStateOnHurt setStateOnHurt))
                 {
                     setStateOnHurt.SetStun(stunDuration);
                 }
-                    
-
             }
         }
-
-        public class PermafrostBehavior : BaseItemBodyBehavior
-        {
-            [ItemDefAssociation(useOnClient = false, useOnServer = true)]
-            public static ItemDef GetItemDef() => Instance.ItemDef;
-
-            private void OnEnable()
-            {
-                
-            }
-
-
-            private void OnDisable()
-            {
-            }
-        }
-
     }
 }
