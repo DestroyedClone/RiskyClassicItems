@@ -23,12 +23,12 @@ namespace RiskyClassicItems.Items
         public override string ItemName => "Arms Race";
         public override string ItemLangTokenName => "ARMSRACE";
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            cooldown.ToString(),
-            missileCount.ToString(),
-            missileCountPerStack.ToString(),
-            (damageCoeff*100f).ToString()
+            cooldown,
+            missileCount,
+            missileCountPerStack,
+            (damageCoeff*100f)
         };
 
         public override ItemTier Tier => ItemTier.Tier2;

@@ -51,7 +51,7 @@ namespace RiskyClassicItems.Items
         ///<summary>
         ///Parameters for formatting the pickup language token. Parameter amount passed <b>must equal</b> the amount of parameters in the token.
         ///</summary>
-        public virtual string[] ItemPickupDescParams { get; }
+        public virtual object[] ItemPickupDescParams { get; }
 
         ///<summary>
         ///The auto-generated token for the description.
@@ -67,7 +67,7 @@ namespace RiskyClassicItems.Items
         ///<summary>
         ///Parameters for formatting the description language token. Parameter amount passed <b>must equal</b> the amount of parameters in the token.
         ///</summary>
-        public virtual string[] ItemFullDescriptionParams { get; }
+        public virtual object[] ItemFullDescriptionParams { get; }
 
         ///<summary>
         ///The auto-generated token for the lore.
@@ -83,7 +83,7 @@ namespace RiskyClassicItems.Items
         ///<summary>
         ///Parameters for formatting the lore language token. Parameter amount passed <b>must equal</b> the amount of parameters in the token.
         ///</summary>
-        public virtual string[] ItemLoreParams { get; }
+        public virtual object[] ItemLoreParams { get; }
 
         /// <summary>
         /// Whether to have a token override the Item's description in the Logbook.

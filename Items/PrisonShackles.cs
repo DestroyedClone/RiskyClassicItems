@@ -16,11 +16,11 @@ namespace RiskyClassicItems.Items
         public static int duration = 2;
 
         public static int durationStack = 2;
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            (slowMultiplier*100).ToString(),
-            duration.ToString(),
-            durationStack.ToString(),
+            (slowMultiplier*100),
+            duration,
+            durationStack,
         };
 
         public override ItemTier Tier => ItemTier.Tier2;

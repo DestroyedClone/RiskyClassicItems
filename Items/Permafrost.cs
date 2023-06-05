@@ -22,14 +22,14 @@ namespace RiskyClassicItems.Items
         float stunChance = 0.5f;
         float stunDuration = 1.5f;
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            (procChance * 100).ToString(),
-            (procChanceStack * 100).ToString(),
-            procDuration.ToString(),
-            (movementSpeedCoef * 100).ToString(),
-            (stunChance * 100).ToString(),
-            stunDuration.ToString(),
+            (procChance * 100),
+            (procChanceStack * 100),
+            (movementSpeedCoef * 100),
+            procDuration,
+            (stunChance * 100),
+            stunDuration,
         };
 
 

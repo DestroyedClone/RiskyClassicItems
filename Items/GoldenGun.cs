@@ -20,15 +20,15 @@ namespace RiskyClassicItems.Items
         public static uint goldNeededPerStack = 40;
         public static uint goldCap = 300;
         public static uint goldCapPerStack = 300;
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            (0.5f*100).ToString(),
-            100.ToString()
+            (0.5f*100),
+            100
         };
 
-        public override string[] ItemPickupDescParams => new string[]
+        public override object[] ItemPickupDescParams => new object[]
         {
-            112345f.ToString()
+            112345f
         };
 
         public override ItemTier Tier => ItemTier.Tier2;

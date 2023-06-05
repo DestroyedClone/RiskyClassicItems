@@ -45,7 +45,7 @@ namespace RiskyClassicItems.Artifact
         ///<summary>
         ///Parameters for formatting the description language token.
         ///</summary>
-        public virtual string[] ArtifactFullDescriptionParams { get; }
+        public virtual object[] ArtifactFullDescriptionParams { get; }
 
         ///<summary>
         ///The required ExpansionDef for this artifact.

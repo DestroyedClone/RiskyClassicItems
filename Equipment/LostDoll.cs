@@ -19,10 +19,10 @@ namespace RiskyClassicItems.Equipment
         public const float damageCoefficient = 5f;
         public const float durationDelay = 0.15f;
 
-        public override string[] EquipmentFullDescriptionParams => new string[]
+        public override object[] EquipmentFullDescriptionParams => new object[]
         {
-            (selfHurtCoefficient*100).ToString(),
-            (damageCoefficient*100).ToString(),
+            (selfHurtCoefficient*100),
+            (damageCoefficient*100),
         };
 
         public override GameObject EquipmentModel => Assets.NullModel;

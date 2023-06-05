@@ -46,7 +46,7 @@ namespace RiskyClassicItems.Equipment
         /// <summary>
         /// Optional parameters for the Equipment Pickup Token
         /// </summary>
-        public virtual string[] EquipmentPickupDescParams { get; }
+        public virtual object[] EquipmentPickupDescParams { get; }
 
         ///<summary>
         ///The auto-generated token for the description.
@@ -62,7 +62,7 @@ namespace RiskyClassicItems.Equipment
         /// <summary>
         /// Optional parameters for the Equipment Description Token
         /// </summary>
-        public virtual string[] EquipmentFullDescriptionParams { get; }
+        public virtual object[] EquipmentFullDescriptionParams { get; }
 
         /// <summary>
         /// Primary Token for language.

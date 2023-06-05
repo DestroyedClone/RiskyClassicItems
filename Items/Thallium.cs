@@ -19,13 +19,13 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "THALLIUM";
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            chance.ToString(),
-            chancePerStack.ToString(),
-            (enemyAttackDamageCoef * 100f).ToString(),
-            (enemyMoveSpeedCoef * 100).ToString(),
-            duration.ToString(),
+            chance,
+            chancePerStack,
+            (enemyAttackDamageCoef * 100f),
+            (enemyMoveSpeedCoef * 100),
+            duration,
         };
 
         public override ItemTier Tier => ItemTier.Tier3;

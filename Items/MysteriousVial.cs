@@ -15,10 +15,10 @@ namespace RiskyClassicItems.Items
         float regen = 0.7f;
         float regenPerStack = 0.6f;
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            regen.ToString(),
-            regenPerStack.ToString()
+            regen,
+            regenPerStack
         };
 
         public override ItemTier Tier => ItemTier.Tier1;

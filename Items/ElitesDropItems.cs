@@ -24,10 +24,10 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "56LEAFCLOVER";
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            cloverDropChance.ToString(),
-            cloverDropChancePerStack.ToString()
+            cloverDropChance,
+            cloverDropChancePerStack
         };
 
         public override ItemTier Tier => ItemTier.Tier2;

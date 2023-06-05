@@ -16,10 +16,10 @@ namespace RiskyClassicItems.Items
 
         float maxHealthMultiplier = 0.07f;
         float maxHealthMultiplierStack = 0.07f;
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            (maxHealthMultiplier*100).ToString(),
-            (maxHealthMultiplierStack*100).ToString(),
+            (maxHealthMultiplier*100),
+            (maxHealthMultiplierStack*100),
         };
 
         public override ItemTier Tier => ItemTier.Tier1;

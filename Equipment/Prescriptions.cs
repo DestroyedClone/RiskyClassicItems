@@ -15,11 +15,11 @@ namespace RiskyClassicItems.Equipment
         public const float buffMovementSpeed = 0.5f;
         public const float buffAttackSpeed = 1f;
 
-        public override string[] EquipmentFullDescriptionParams => new string[]
+        public override object[] EquipmentFullDescriptionParams => new object[]
         {
-            buffDuration.ToString(),
-            (buffMovementSpeed * 100).ToString(),
-            (buffAttackSpeed * 100).ToString(),
+            buffDuration,
+            (buffMovementSpeed * 100),
+            (buffAttackSpeed * 100),
         };
 
         public override GameObject EquipmentModel => LoadModel();
