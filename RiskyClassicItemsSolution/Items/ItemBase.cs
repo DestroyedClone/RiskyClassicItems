@@ -333,10 +333,10 @@ namespace RiskyClassicItems.Items
         /// </summary>
         /// <param name="itemNameToken">langNameToken for the item. Defaults to current Item's langNameToken.</param>
         /// <returns></returns>
-        public Sprite LoadSprite(string itemNameToken = "")
+        public Sprite LoadItemIcon(string itemNameToken = "")
         {
             var token = itemNameToken == "" ? ItemLangTokenName : itemNameToken;
-            return Assets.LoadSprite($"ITEM_{token}");
+            return Assets.LoadSprite($"tex{token}Icon");
         }
 
         /// <summary>
@@ -344,10 +344,10 @@ namespace RiskyClassicItems.Items
         /// </summary>
         /// <param name="itemNameToken">langNameToken for the item. Defaults to current Item's langNameToken.</param>
         /// <returns></returns>
-        public GameObject LoadModel(string itemNameToken = "")
+        public GameObject LoadPickupModel(string itemNameToken = "")
         {
             var token = itemNameToken == "" ? ItemLangTokenName : itemNameToken;
-            return Assets.LoadObject($"{token}.prefab");
+            return Assets.LoadObject($"Pickup{token}.prefab");
         }
     }
 }

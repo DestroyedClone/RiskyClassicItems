@@ -32,9 +32,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadModel();
+        public override GameObject ItemModel => LoadPickupModel("Clover");
 
-        public override Sprite ItemIcon => LoadSprite();
+        public override Sprite ItemIcon => LoadItemIcon("Clover");
         public const float cloverDropChance = 4.5f;
         public const float cloverDropChancePerStack = 1.5f;
         public static ConfigEntry<bool> useClassic;

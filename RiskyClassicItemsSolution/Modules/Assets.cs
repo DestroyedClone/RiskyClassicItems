@@ -2,6 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using System.IO;
 
 namespace RiskyClassicItems.Modules
 {
@@ -65,6 +66,17 @@ namespace RiskyClassicItems.Modules
         }
 
         public static AssetBundle mainAssetBundle;
+        public const string bundleName = "classicitemsreturnsbundle";
+        public const string assetBundleFolder = "AssetBundles";
+        public static string AssetBundlePath
+        {
+            get
+            {
+                //This returns the path to your assetbundle assuming said bundle is on the same folder as your DLL. If you have your bundle in a folder, you can uncomment the statement below this one.
+               // return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), bundleName);
+                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), assetBundleFolder, bundleName);
+            }
+        }
 
         public static T LoadAddressable<T>(string path)
         {
@@ -86,14 +98,13 @@ namespace RiskyClassicItems.Modules
 
         public static void PopulateAssets()
         {
-            // Don't know how to create/use an asset bundle, or don't have a unity project set up?
-            // Look here for info on how to set these up: https://github.com/KomradeSpectre/AetheriumMod/blob/rewrite-master/Tutorials/Item%20Mod%20Creation.md#unity-project
-            // (This is a bit old now, but the information on setting the unity asset bundle should be the same.)
+            mainAssetBundle = AssetBundle.LoadFromFile(AssetBundlePath);
+            /*
             if (mainAssetBundle == null)
             {
                 try
                 {
-                    using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("RiskOfBulletstormRewrite.riskofbulletstormbundle"))
+                    using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("RiskyClassicItems.classicitemsreturnsbundle"))
                     {
                         mainAssetBundle = AssetBundle.LoadFromStream(assetStream);
                     }
@@ -102,7 +113,7 @@ namespace RiskyClassicItems.Modules
                 {
                     Main.ModLogger.LogError($"Assets.PopulateAssets failed to load assetbundle!");
                 }
-            }
+            }*/
         }
 
         public static Sprite LoadSprite(string path)

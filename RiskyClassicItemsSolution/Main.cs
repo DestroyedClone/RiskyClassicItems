@@ -31,6 +31,7 @@ namespace RiskyClassicItems
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain 1.";
+        public static PluginInfo PInfo { get; private set; }
 
         public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public List<ItemBase> Items = new List<ItemBase>();
@@ -49,6 +50,7 @@ namespace RiskyClassicItems
 
         private void Awake()
         {
+            PInfo = Info;
             ModLogger = Logger;
             Assets.Init();
             DLCSupport.Initialize();

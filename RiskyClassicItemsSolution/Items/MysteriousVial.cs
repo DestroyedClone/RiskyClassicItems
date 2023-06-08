@@ -23,9 +23,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadModel();
+        public override GameObject ItemModel => LoadPickupModel("MysteriousVial");
 
-        public override Sprite ItemIcon => LoadSprite();
+        public override Sprite ItemIcon => LoadItemIcon("MysteriousVial");
 
         public override void CreateConfig(ConfigFile config)
         {

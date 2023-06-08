@@ -24,9 +24,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadModel();
+        public override GameObject ItemModel => LoadPickupModel("BitterRoot");
 
-        public override Sprite ItemIcon => LoadSprite();
+        public override Sprite ItemIcon => LoadItemIcon("BitterRoot");
         public float alt_regenIncrease = 3;
         public float alt_duration = 3;
         public float alt_durationStack = 3;

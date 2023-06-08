@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1980625428
+CRC: 868353396
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 14c7deac6cc5faf767caa7e5ab6bd69e
+    Hash: b0315059aa508f4816d440a371d4d5d1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1fe3abd029edb3522ae5dbbc711d0a74
@@ -29,37 +29,39 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Sprites/Icons/LostDollIcon.png
+- Assets/Sprites/Icons/texLostDollIcon.png
 - Assets/Materials/Textures/texClover.png
 - Assets/Materials/Textures/texGoldenGun.png
-- Assets/Sprites/Icons/PrisonShacklesIcon.png
-- Assets/Sprites/Icons/MysteriousVialIcon.png
+- Assets/Sprites/Icons/texPrisonShacklesIcon.png
+- Assets/Sprites/Icons/texMysteriousVialIcon.png
 - Assets/Prefabs/PickupGiganticAmethyst.prefab
 - Assets/Models/mdlArmsRace.fbx
-- Assets/Sprites/Icons/BitterRootIcon.png
+- Assets/Sprites/Icons/texBitterRootIcon.png
 - Assets/Prefabs/PickupGoldenGun.prefab
 - Assets/Materials/Textures/texArmsRace.png
 - Assets/Prefabs/PickupJarOfSouls.prefab
+- Assets/Prefabs/PickupMysteriousVial.prefab
 - Assets/Models/mdlClover.fbx
 - Assets/Prefabs/PickupClover.prefab
 - Assets/Models/mdlGiganticAmethyst.fbx
 - Assets/Models/mdlJarOfSouls.fbx
+- Assets/Models/mdlMysteriousVial.fbx
 - Assets/Models/mdlLostDoll.fbx
 - Assets/Materials/Glass.mat
 - Assets/Models/mdlBitterRoot.fbx
 - Assets/Materials/Textures/texLostDoll.png
-- Assets/Sprites/Icons/ThalliumIcon.png
+- Assets/Sprites/Icons/texThalliumIcon.png
 - Assets/Models/mdlGoldenGun.fbx
 - Assets/Prefabs/PickupLostDoll.prefab
-- Assets/Sprites/Icons/CloverIcon.png
+- Assets/Sprites/Icons/texCloverIcon.png
 - Assets/Materials/matVialMedicine.mat
 - Assets/Materials/Textures/texBitterRoot.png
 - Assets/Prefabs/PickupArmsRace.prefab
 - Assets/Materials/Textures/texJarOfSouls.png
-- Assets/Sprites/Icons/GoldenGunIcon.png
-- Assets/Sprites/Icons/SoulJarIcon.png
-- Assets/Sprites/Icons/PermafrostIcon.png
-- Assets/Sprites/Icons/GiganticAmethystIcon.png
-- Assets/Sprites/Icons/ArmsRaceIcon.png
+- Assets/Sprites/Icons/texGoldenGunIcon.png
+- Assets/Sprites/Icons/texSoulJarIcon.png
+- Assets/Sprites/Icons/texPermafrostIcon.png
+- Assets/Sprites/Icons/texGiganticAmethystIcon.png
+- Assets/Sprites/Icons/texArmsRaceIcon.png
 - Assets/Prefabs/PickupBitterRoot.prefab
 Dependencies: []
