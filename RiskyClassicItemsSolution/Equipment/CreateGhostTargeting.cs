@@ -88,12 +88,12 @@ namespace RiskyClassicItems.Equipment
             return true;
         }
 
-        //idk how uhhh other
+        /*//idk how uhhh other
         public static Dictionary<ItemDef, int> ghostItems = new Dictionary<ItemDef, int>()
         {
             { RoR2Content.Items.BoostDamage, ghostDamageCoefficientTimesTen },
             { RoR2Content.Items.HealthDecay, ghostDurationSecondsPlayer }
-        };
+        };*/
 
         public static CharacterBody SpawnMaskGhost(CharacterBody targetBody, CharacterBody ownerBody)
         {
@@ -140,14 +140,17 @@ namespace RiskyClassicItems.Equipment
 
                     if (ownerBody && ownerBody.teamComponent && ownerBody.teamComponent.teamIndex == TeamIndex.Player)
                     {
-                        foreach (var pair in ghostItems)
+                        /*foreach (var pair in ghostItems)
                         {
                             inventory.GiveItem(pair.Key, pair.Value);
-                        }
+                        }*/
 
-                        //inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, ghostDamageCoefficientTimesTen);
-                        //inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
-                        //Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(inventory);
+                        inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, ghostDamageCoefficientTimesTen);
+                        inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
+                        if (ModSupport.ModCompatRiskyMod.loaded)
+                        {
+                            Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(inventory);
+                        }
                     }
                     else //Handle enemy-spawned ghosts
                     {

@@ -8,7 +8,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Bitter Root",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "Increases maximum health.",
-		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "Increases <style=cIsHealing>maximum health</style> by <style=cIsHealing>{0}%</style> <style=cStack>(+{1}% per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "Increases <style=cIsHealing>maximum health</style> by <style=cIsHealing>+{0}%</style> <style=cStack>(+{1}% per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE": "",
 		//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Languages/en/LITLanguage_en.json#LL8C2-L8C2
 		//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
@@ -86,7 +86,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "Arms Race",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "Your drones get a missile barrage.",
-		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones gain a <style=cIsDamage>missile barrage</style> every <style=cIsDamage>{0} seconds</style>, firing <style=cIsDamage>{1} missile</style> <style=cStack>(+{2} missile per stack)</style> for <style=cIsDamage>{3}% damage.</style>",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones gain a <style=cIsDamage>missile barrage</style> every <style=cIsDamage>{0} seconds</style>, firing <style=cIsDamage>{1} missiles</style> <style=cStack>(+{2} missiles per stack)</style> for <style=cIsDamage>{3}% damage.</style>",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
@@ -166,8 +166,8 @@
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to chill enemies on hit.",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "On hit: <style=cIsUtility>{0}% chance</style> to <style=cIsUtility>chill</style> enemies <style=cStack>(+{1}% chance per stack)</style>, slowing <style=cIsUtility>movement speed</style> by <style=cIsUtility>-{2}%</style> for {3} seconds. <style=cIsUtility>Chilling</style> a <style=cIsUtility>chilled</style> enemy has a <style=cIsUtility>{4}% chance</style> to stun for <style=cIsUtility>{5} seconds</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to chill enemies on hit. Chilling a chilled enemy has a chance to freeze.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "On hit: <style=cIsUtility>{0}% chance</style> to <style=cIsUtility>chill</style> enemies <style=cStack>(+{1}% chance per stack)</style>, slowing <style=cIsUtility>movement speed</style> by <style=cIsUtility>{2}%</style> for {3} seconds. <style=cIsUtility>Chilling</style> a <style=cIsUtility>chilled</style> enemy has a <style=cIsUtility>{4}% chance</style> to freeze for <style=cIsUtility>{5} seconds</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "",
 
 

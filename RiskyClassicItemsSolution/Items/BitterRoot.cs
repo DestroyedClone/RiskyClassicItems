@@ -47,11 +47,6 @@ namespace RiskyClassicItems.Items
         public override void CreateConfig(ConfigFile config)
         {
             useAlternateVersion = config.Bind(ConfigCategory, "Use LiT", false, "If true, uses LiT's implementation.");
-
-            if (useAlternateVersion.Value)
-            {
-                ItemDef.descriptionToken = "CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT";
-            }
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -64,21 +59,26 @@ namespace RiskyClassicItems.Items
             if (useAlternateVersion.Value)
             {
                 GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-                RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+                RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients_Alt;
                 ItemDef.descriptionToken += "_ALT";
                 return;
             }
+            RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients;
         }
 
-        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        private void GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            if (TryGetCount(sender, out var count))
+            {
+                args.healthMultAdd += ItemHelpers.StackingLinear(count, maxHealthMultiplier, maxHealthMultiplierStack);
+            }
+        }
+
+        private void GetStatCoefficients_Alt(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
             if (sender && sender.HasBuff(Buffs.BitterRootBuff))
             {
                 args.baseRegenAdd += alt_regenIncrease;
-            }
-            if (TryGetCount(sender, out var count))
-            {
-                args.healthMultAdd += ItemHelpers.StackingLinear(count, maxHealthMultiplier, maxHealthMultiplierStack);
             }
         }
 

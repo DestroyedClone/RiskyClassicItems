@@ -15,20 +15,20 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "PERMAFROST";
 
-        float procChance = 0.35f;
-        float procChanceStack = 0.05f;
+        float procChancePercentage = 35f;
+        float procChanceStackPercentage = 5f;
         float procDuration = 2f;
         float movementSpeedCoef = -0.3f;
-        float stunChance = 0.5f;
+        float stunChancePercentage = 50f;
         float stunDuration = 1.5f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            (procChance * 100),
-            (procChanceStack * 100),
+            procChancePercentage,
+            procChanceStackPercentage,
             (movementSpeedCoef * 100),
             procDuration,
-            (stunChance * 100),
+            stunChancePercentage,
             stunDuration,
         };
 
@@ -79,14 +79,14 @@ namespace RiskyClassicItems.Items
         {
             if (damageReport.attackerBody && damageReport.victimBody && TryGetCount(damageReport.attackerBody, out int itemCount))
             {
-                if (Util.CheckRoll(ItemHelpers.StackingLinear(itemCount, procChance, procChanceStack), damageReport.attackerMaster))
-                    damageReport.attackerBody.AddTimedBuff(Modules.Buffs.PermafrostChilledBuff, procDuration);
+                if (Util.CheckRoll(ItemHelpers.StackingLinear(itemCount, procChancePercentage, procChanceStackPercentage) * 100, damageReport.attackerMaster))
+                    damageReport.victimBody.AddTimedBuff(Modules.Buffs.PermafrostChilledBuff, procDuration);
 
                 if (damageReport.attackerBody.HasBuff(Modules.Buffs.PermafrostChilledBuff)
-                    && Util.CheckRoll(stunChance, damageReport.attackerMaster)
+                    && Util.CheckRoll(stunChancePercentage, damageReport.attackerMaster)
                     && damageReport.victimBody.TryGetComponent(out SetStateOnHurt setStateOnHurt))
                 {
-                    setStateOnHurt.SetStun(stunDuration);
+                    setStateOnHurt.SetFrozen(stunDuration);
                 }
             }
         }

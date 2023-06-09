@@ -41,7 +41,7 @@ namespace RiskyClassicItems.Modules
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("RCI_Chilled",
                 Color.cyan, false,
-                null, Assets.LoadSprite("texGoldenGunBuffIcon"),
+                null, Assets.LoadSprite("texPermafrostBuffIcon"),
                 false, true,
                 false, null);//Play_wFeralShoot2
             ShacklesBuff = CreateBuffInternal("RCI_PrisonShackles",

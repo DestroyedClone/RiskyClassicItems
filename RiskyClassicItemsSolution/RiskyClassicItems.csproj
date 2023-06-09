@@ -13,6 +13,7 @@
     <Compile Remove="Equipment\Snowglobe.cs" />
     <Compile Remove="Equipment\ThrowOnHitProjectile.cs" />
     <Compile Remove="Items\ExampleItem.cs" />
+    <Compile Remove="Items\FilialImprinting.cs" />
     <Compile Remove="Items\LifeSavings.cs" />
     <Compile Remove="Items\Permafrost - Copy.cs" />
     <Compile Remove="Items\ToxicWorm.cs" />

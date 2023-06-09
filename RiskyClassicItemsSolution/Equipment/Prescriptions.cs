@@ -22,9 +22,9 @@ namespace RiskyClassicItems.Equipment
             (buffAttackSpeed * 100),
         };
 
-        public override GameObject EquipmentModel => LoadPickupModel("Drugs");
+        public override GameObject EquipmentModel => LoadPickupModel("Prescriptions");
 
-        public override Sprite EquipmentIcon => LoadEquipmentIcon("Drugs");
+        public override Sprite EquipmentIcon => LoadEquipmentIcon("Prescriptions");
 
         public static BuffDef DrugsBuff => Buffs.DrugsBuff;
 
