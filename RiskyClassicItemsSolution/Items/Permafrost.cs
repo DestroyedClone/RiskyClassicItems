@@ -38,6 +38,11 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("Permafrost");
 
         public override Sprite ItemIcon => LoadItemIcon("Permafrost");
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Damage,
+            ItemTag.Utility
+        };
 
         public override void Init(ConfigFile config)
         {

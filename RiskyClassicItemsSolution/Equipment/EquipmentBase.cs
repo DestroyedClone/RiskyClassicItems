@@ -264,16 +264,16 @@ namespace RiskyClassicItems.Equipment
 
         protected abstract bool ActivateEquipment(EquipmentSlot slot);
 
-        public Sprite LoadSprite(string equipmentNameToken = "")
+        public Sprite LoadEquipmentIcon(string equipmentNameToken = "")
         {
             var token = equipmentNameToken == "" ? EquipmentLangTokenName : equipmentNameToken;
-            return Assets.LoadSprite($"EQUIPMENT_{token}");
+            return Assets.LoadSprite($"tex{token}Icon");
         }
 
-        public GameObject LoadModel(string equipmentNameToken = "")
+        public GameObject LoadPickupModel(string equipmentNameToken = "")
         {
             var token = equipmentNameToken == "" ? EquipmentLangTokenName : equipmentNameToken;
-            return Assets.LoadObject($"{token}.prefab");
+            return Assets.LoadObject($"Pickup{token}.prefab");
         }
 
         public virtual void Hooks()

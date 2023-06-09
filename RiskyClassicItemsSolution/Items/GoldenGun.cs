@@ -45,6 +45,11 @@ namespace RiskyClassicItems.Items
         {
             return new ItemDisplayRuleDict();
         }
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Damage,
+            ItemTag.AIBlacklist
+        };
 
         public override void Hooks()
         {

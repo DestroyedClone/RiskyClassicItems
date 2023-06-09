@@ -35,6 +35,10 @@ namespace RiskyClassicItems.Items
         {
             return new ItemDisplayRuleDict();
         }
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Healing
+        };
 
         public override void Hooks()
         {

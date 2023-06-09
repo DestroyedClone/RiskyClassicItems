@@ -1,4 +1,5 @@
 using RoR2;
+using System;
 using System.Runtime.CompilerServices;
 
 namespace RiskyClassicItems.Modules
@@ -76,15 +77,24 @@ namespace RiskyClassicItems.Modules
             internal static void Init()
             {
                 loaded = true;
+                CreateGhostTargeting_RiskyMod();
             }
 
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            private static void CreateGhostTargeting_RiskyMod()
+            {
+                Equipment.CreateGhostTargeting.ghostItems.Add(RiskyMod.Allies.AllyItems.AllyMarkerItem, 1);
+                Equipment.CreateGhostTargeting.ghostItems.Add(RiskyMod.Allies.AllyItems.AllyScalingItem, 1);
+            }
+
+            /*
             [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
             internal static void GiveAllyItem(Inventory inventory)
             {
                 if (!loaded) return;
                 inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyMarkerItem);
                 inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyScalingItem);
-            }
+            }*/
         }
     }
 }

@@ -11,9 +11,9 @@ namespace RiskyClassicItems.Equipment
 
         public override string EquipmentLangTokenName => "SNOWGLOBE";
 
-        public override GameObject EquipmentModel => LoadModel();
+        public override GameObject EquipmentModel => LoadPickupModel("Snowglobe");
 
-        public override Sprite EquipmentIcon => LoadSprite();
+        public override Sprite EquipmentIcon => LoadEquipmentIcon();
 
         public override void Init(ConfigFile config)
         {

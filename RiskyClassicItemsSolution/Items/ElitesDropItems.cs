@@ -35,6 +35,13 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("Clover");
 
         public override Sprite ItemIcon => LoadItemIcon("Clover");
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.BrotherBlacklist,
+            ItemTag.AIBlacklist,
+            ItemTag.OnKillEffect,
+            ItemTag.Utility
+        };
         public const float cloverDropChance = 4.5f;
         public const float cloverDropChancePerStack = 1.5f;
         public static ConfigEntry<bool> useClassic;

@@ -30,6 +30,10 @@ namespace RiskyClassicItems.Items
         public float alt_regenIncrease = 3;
         public float alt_duration = 3;
         public float alt_durationStack = 3;
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Healing
+        };
 
         protected override void CreateLang()
         {

@@ -20,7 +20,7 @@ namespace RiskyClassicItems.Modules
                 Color.red,
                 false,
                 null,
-                Assets.NullSprite,
+                Assets.LoadSprite("texPrescriptionsBuffIcon"),
                 false,
                 false,
                 false,
@@ -29,28 +29,28 @@ namespace RiskyClassicItems.Modules
                 Color.green,
                 false,
                 null,
-                Assets.NullSprite,
+                Assets.LoadSprite("texBitterRootBuffIcon"),
                 false,
                 false,
                 false,
                 null);
             GoldenGunBuff = CreateBuffInternal("RCI_GoldenGun",
                 Color.yellow, true,
-                null, Assets.NullSprite,
+                null, Assets.LoadSprite("texPrescriptionsBuffIcon"),
                 true, false,
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("RCI_Chilled",
                 Color.cyan, false,
-                null, Assets.NullSprite,
+                null, Assets.LoadSprite("texGoldenGunBuffIcon"),
                 false, true,
                 false, null);//Play_wFeralShoot2
             ShacklesBuff = CreateBuffInternal("RCI_PrisonShackles",
                 Color.blue, false,
-                null, Assets.NullSprite,
+                null, Assets.LoadSprite("texPrisonShacklesBuffIcon"),
                 false, true, false, null);
             ThalliumBuff = CreateBuffInternal("RCI_ThalliumBuff",
                 Color.green, true,
-                null, Assets.NullSprite,
+                null, Assets.LoadSprite("texThalliumBuffIcon"),
                 false, true, false, null);
         }
 

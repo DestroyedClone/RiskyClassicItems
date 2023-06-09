@@ -272,7 +272,7 @@ namespace RiskyClassicItems.Items
             }
 
             if (ItemTags.Length > 0) { ItemDef.tags = ItemTags; }
-            if (AIBlacklisted)
+            if (AIBlacklisted && ItemDef.DoesNotContainTag(ItemTag.AIBlacklist))
             {
                 HG.ArrayUtils.ArrayAppend(ref ItemDef.tags, ItemTag.AIBlacklist);
             }

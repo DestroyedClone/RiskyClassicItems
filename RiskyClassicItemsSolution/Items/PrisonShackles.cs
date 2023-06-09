@@ -28,6 +28,11 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("PrisonShackles");
 
         public override Sprite ItemIcon => LoadItemIcon("PrisonShackles");
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Utility,
+            ItemTag.Damage
+        };
 
         public override void CreateConfig(ConfigFile config)
         {

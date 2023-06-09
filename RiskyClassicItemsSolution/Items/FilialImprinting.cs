@@ -16,19 +16,19 @@ namespace RiskyClassicItems.Items
         public float movespeedCoefficient = 1f;
         public float regenBoost = 1;
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            cooldown.ToString(),
-            (damageCoefficient * 100).ToString(),
-            (movespeedCoefficient * 100).ToString(),
-            regenBoost.ToString(),
+            cooldown,
+            (damageCoefficient * 100),
+            (movespeedCoefficient * 100),
+            regenBoost,
         };
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadModel();
+        public override GameObject ItemModel => LoadPickupModel("FilialImprinting");
 
-        public override Sprite ItemIcon => LoadSprite();
+        public override Sprite ItemIcon => LoadItemIcon("FilialImprinting");
 
         public override void Init(ConfigFile config)
         {
@@ -94,6 +94,10 @@ namespace RiskyClassicItems.Items
             {
 
             }
+        }
+        public class StrangeCreatureDisplay : MonoBehaviour
+        {
+
         }
     }
 }

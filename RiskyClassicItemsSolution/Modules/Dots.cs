@@ -14,9 +14,12 @@ namespace RiskyClassicItems.Modules
         internal static DotAPI.CustomDotVisual ThalliumDotVisual;
         internal static void Initialize()
         {
-            var thallium = Items.Thallium.Instance;
+            Init_Thallium();
+        }
 
-            ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
+        private static void Init_Thallium()
+        {
+            var thallium = Items.Thallium.Instance;
 
             ThalliumDotBehavior = new DotAPI.CustomDotBehaviour((dotController, dotStack) =>
             {
@@ -26,6 +29,8 @@ namespace RiskyClassicItems.Modules
                     dotStack.damage = thallium.enemyAttackDamageCoef * dotController.victimBody.damage;
                 }
             });
+
+            ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
         }
     }
 }

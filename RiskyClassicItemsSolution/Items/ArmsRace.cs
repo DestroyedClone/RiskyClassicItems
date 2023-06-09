@@ -39,6 +39,12 @@ namespace RiskyClassicItems.Items
 
         public static ItemDef ArmsRaceDroneItemDef => ArmsRaceDroneItem.Instance.ItemDef;
 
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.BrotherBlacklist,
+            ItemTag.Damage
+        };
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();

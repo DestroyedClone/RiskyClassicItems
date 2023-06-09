@@ -60,8 +60,8 @@ namespace RiskyClassicItems
             Buffs.Initialize();
             RiskyVisuals.Init(Config);
             Dots.Initialize();
-            AddToAssembly();
             Events.Initialize();
+            AddToAssembly();
         }
 
         private void AddToAssembly()

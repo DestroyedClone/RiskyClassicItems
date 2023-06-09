@@ -33,6 +33,10 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("Thallium");
 
         public override Sprite ItemIcon => LoadItemIcon("Thallium");
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Damage
+        };
 
         public override void Init(ConfigFile config)
         {

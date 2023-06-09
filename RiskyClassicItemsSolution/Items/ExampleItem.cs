@@ -11,22 +11,22 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "DEPRECATE_ME_ITEM";
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
             (0.5f*100).ToString(),
             100.ToString()
         };
 
-        public override string[] ItemPickupDescParams => new string[]
+        public override object[] ItemPickupDescParams => new object[]
         {
             112345f.ToString()
         };
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadModel();
+        public override GameObject ItemModel => LoadPickupModel("");
 
-        public override Sprite ItemIcon => LoadSprite();
+        public override Sprite ItemIcon => LoadItemIcon("");
 
         public override void Init(ConfigFile config)
         {
