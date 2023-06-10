@@ -95,6 +95,11 @@ namespace RiskyClassicItems.Modules
                 inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyMarkerItem);
                 inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyScalingItem);
             }
+
+            internal static bool IsNormalizeDroneDamage()
+            {
+                return RiskyMod.Allies.AlliesCore.normalizeDroneDamage;
+            }
         }
     }
 }

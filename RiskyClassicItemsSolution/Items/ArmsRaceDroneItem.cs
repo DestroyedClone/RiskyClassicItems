@@ -122,7 +122,7 @@ namespace RiskyClassicItems.Items
                                 cooldownStopwatch = 0f;
                                 //missilesLoaded = Mathf.FloorToInt(missilesPerBarrage * Mathf.Max(body.attackSpeed, 1f));
                                 missilesLoaded = missilesPerBarrage;
-                                //fireInterval = baseFireInterval / body.attackSpeed;
+                                fireInterval = baseFireInterval * ArmsRace.Instance.missileCount / missilesPerBarrage;
                             }
                         }
                         else
@@ -161,6 +161,10 @@ namespace RiskyClassicItems.Items
                     missileOrb.origin = aimRay.origin;
                     //missileOrb.damageValue = body.damage * damageCoefficient * (AlliesCore.normalizeDroneDamage ? 1f : 0.857142857f);  // 12/14
                     missileOrb.damageValue = body.damage * ArmsRace.Instance.damageCoeff;
+                    if (ModSupport.ModCompatRiskyMod.loaded)
+                    {
+                        missileOrb.damageValue *= ModSupport.ModCompatRiskyMod.IsNormalizeDroneDamage() ? 1 : 0.857142857f;
+                    }
                     missileOrb.isCrit = body.RollCrit();
                     missileOrb.teamIndex = body.teamComponent.teamIndex;
                     missileOrb.attacker = base.gameObject;
@@ -180,8 +184,9 @@ namespace RiskyClassicItems.Items
                 }
 
                 missilesLoaded--;
-                if (missilesLoaded <= 0)
+                if (missilesLoaded <= 0 || !targetHurtBox.healthComponent.alive)
                 {
+                    missilesLoaded = 0;
                     firingBarrage = false;
                 }
             }
