@@ -35,6 +35,7 @@ namespace RiskyClassicItems.Equipment
             if (slot && slot.characterBody && slot.characterBody.skillLocator)
             {
                 slot.characterBody.skillLocator.ApplyAmmoPack();
+                Util.PlaySound("Play_env_hiddenLab_laptop_activate", slot.gameObject);
                 return true;
             }
             return false;

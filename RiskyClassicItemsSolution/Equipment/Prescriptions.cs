@@ -12,13 +12,13 @@ namespace RiskyClassicItems.Equipment
 
         public override string EquipmentLangTokenName => "DRUGS";
         public const float buffDuration = 8f;
-        public const float buffMovementSpeed = 0.5f;
+        public const float buffDamageMultiplier = 0.5f;
         public const float buffAttackSpeed = 1f;
 
         public override object[] EquipmentFullDescriptionParams => new object[]
         {
             buffDuration,
-            (buffMovementSpeed * 100),
+            (buffDamageMultiplier * 100),
             (buffAttackSpeed * 100),
         };
 
@@ -38,8 +38,8 @@ namespace RiskyClassicItems.Equipment
             var buffCount = sender.GetBuffCount(DrugsBuff);
             if (buffCount > 0)
             {
-                args.moveSpeedMultAdd += buffMovementSpeed;
                 args.attackSpeedMultAdd += buffAttackSpeed;
+                args.damageMultAdd += buffDamageMultiplier;
             }
         }
 
@@ -51,6 +51,7 @@ namespace RiskyClassicItems.Equipment
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
             slot.characterBody.AddTimedBuff(DrugsBuff, buffDuration);
+            Util.PlaySound("Play_item_proc_healingPotion", slot.gameObject);
             return true;
         }
     }

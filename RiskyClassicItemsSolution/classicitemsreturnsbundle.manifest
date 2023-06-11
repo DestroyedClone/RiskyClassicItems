@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1578603770
+CRC: 2162801049
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b6a4d6803a005ed3136f7c6c8c9858cc
+    Hash: a941afc8e2429cd2b22bff5af50708d2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1fe3abd029edb3522ae5dbbc711d0a74
@@ -45,6 +45,7 @@ Assets:
 - Assets/Materials/Textures/texArmsRace.png
 - Assets/Prefabs/PickupJarOfSouls.prefab
 - Assets/Prefabs/PickupMysteriousVial.prefab
+- Assets/Sprites/Icons/texJarOfSoulsChampionTargetIndicator.png
 - Assets/Models/mdlClover.fbx
 - Assets/Prefabs/PickupClover.prefab
 - Assets/Prefabs/PickupToughTimes.prefab
@@ -57,6 +58,7 @@ Assets:
 - Assets/Models/mdlGiganticAmethyst.fbx
 - Assets/Sprites/Icons/texThalliumBuffIcon.png
 - Assets/Models/mdlStrangeCreature.fbx
+- Assets/Sprites/Icons/texWoodSpriteCrosshair.png
 - Assets/Sprites/Icons/texToxicWormBuffIcon.png
 - Assets/Prefabs/PickupPrescriptions.prefab
 - Assets/Materials/matMetal.mat
@@ -65,6 +67,7 @@ Assets:
 - Assets/Models/mdlLostDoll.fbx
 - Assets/Sprites/Icons/texPrisonShacklesBuffIcon.png
 - Assets/Materials/matStrangeCreature.mat
+- Assets/Sprites/Icons/texJarOfSoulsTargetIndicator.png
 - Assets/Materials/matGlass.mat
 - Assets/Models/mdlBitterRoot.fbx
 - Assets/Materials/Textures/texLostDoll.png
@@ -76,6 +79,7 @@ Assets:
 - Assets/Prefabs/PickupFilialImprinting.prefab
 - Assets/Prefabs/FollowerStrangeCreature.prefab
 - Assets/Prefabs/PickupThallium.prefab
+- Assets/Sprites/Icons/texLostDollTargetIndicator.png
 - Assets/Sprites/Icons/texFilialImprintIcon.png
 - Assets/Prefabs/PickupLostDoll.prefab
 - Assets/Sprites/Icons/texToughTimesIcon.png
@@ -93,6 +97,7 @@ Assets:
 - Assets/Models/mdlThallium.fbx
 - Assets/Sprites/Icons/texSoulJarIcon.png
 - Assets/Sprites/Icons/texDeadMansFootIcon.png
+- Assets/Sprites/Icons/texPrescriptionsIcon.png
 - Assets/Sprites/Icons/texPermafrostIcon.png
 - Assets/Materials/Textures/texFilialImprinting.png
 - Assets/Sprites/Icons/texGiganticAmethystIcon.png

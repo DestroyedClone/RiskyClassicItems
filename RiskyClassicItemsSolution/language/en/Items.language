@@ -90,8 +90,8 @@
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
-		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Slow enemy attacks on hit.",
-		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "<style=cIsUtility>Slow</style> enemies on hit for <style=cIsUtility>-{0}% attack speed</style> for <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Shackle enemy attacks on hit.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "<style=cIsDamage>Shackle</style> enemies on hit for <style=cIsDamage>-{0}% attack speed</style> for <style=cIsDamage>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PANICMINES_NAME": "Panic Mines",
@@ -167,7 +167,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to chill enemies on hit. Chilling a chilled enemy has a chance to freeze.",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "On hit: <style=cIsUtility>{0}% chance</style> to <style=cIsUtility>chill</style> enemies <style=cStack>(+{1}% chance per stack)</style>, slowing <style=cIsUtility>movement speed</style> by <style=cIsUtility>{2}%</style> for {3} seconds. <style=cIsUtility>Chilling</style> a <style=cIsUtility>chilled</style> enemy has a <style=cIsUtility>{4}% chance</style> to freeze for <style=cIsUtility>{5} seconds</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "",
 
 

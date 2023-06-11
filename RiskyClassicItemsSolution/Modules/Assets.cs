@@ -25,6 +25,8 @@ namespace RiskyClassicItems.Modules
         internal static ItemTierDef itemVoidTier2Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier2Def.asset");
         internal static ItemTierDef itemVoidTier3Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier3Def.asset");
 
+        internal static NetworkSoundEventDef nseShackles;
+
         public static ItemTierDef ResolveTierDef(ItemTier itemTier)
         {
             switch (itemTier)
@@ -94,6 +96,8 @@ namespace RiskyClassicItems.Modules
         public static void Init()
         {
             PopulateAssets();
+
+            nseShackles = CreateNetworkSoundEventDef("Play_gravekeeper_attack2_shoot_singleChain");
         }
 
         public static void PopulateAssets()
@@ -140,6 +144,17 @@ namespace RiskyClassicItems.Modules
                 Main.ModLogger.LogError($"Assets.LoadObject failed to load path \"{path}\", defaulting to Assets.NullModel.");
                 return Assets.NullModel;
             }
+        }
+
+        internal static NetworkSoundEventDef CreateNetworkSoundEventDef(string eventName)
+        {
+            NetworkSoundEventDef networkSoundEventDef = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            networkSoundEventDef.akId = AkSoundEngine.GetIDFromString(eventName);
+            networkSoundEventDef.eventName = eventName;
+
+            R2API.ContentAddition.AddNetworkSoundEventDef(networkSoundEventDef);
+
+            return networkSoundEventDef;
         }
     }
 }

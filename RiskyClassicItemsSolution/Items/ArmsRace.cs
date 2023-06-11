@@ -55,10 +55,65 @@ namespace RiskyClassicItems.Items
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => ArmsRace.Instance.ItemDef;
-            
+            public MinionOwnership minionOwnership;
+
+            private const float display2Chance = 0.1f;
+
+            private int previousStack;
+
+            private Xoroshiro128Plus rng;
             private void OnEnable()
             {
+                ulong seed = Run.instance.seed ^ (ulong)((long)Run.instance.stageClearCount);
+                this.rng = new Xoroshiro128Plus(seed);
+                this.UpdateAllMinions(this.stack);
                 MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
+                
+                minionOwnership = body.GetComponent<MinionOwnership>();
+            }
+
+            private void OnDisable()
+            {
+                MasterSummon.onServerMasterSummonGlobal -= MasterSummon_onServerMasterSummonGlobal;
+                this.UpdateAllMinions(0);
+            }
+
+            private void FixedUpdate()
+            {
+                if (this.previousStack != this.stack)
+                {
+                    this.UpdateAllMinions(this.stack);
+                }
+            }
+            private void UpdateAllMinions(int newStack)
+            {
+                if (this.body)
+                {
+                    CharacterBody body = this.body;
+                    if ((body != null) ? body.master : null)
+                    {
+                        MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(this.body.master.netId);
+                        if (minionGroup != null)
+                        {
+                            foreach (MinionOwnership minionOwnership in minionGroup.members)
+                            {
+                                if (minionOwnership)
+                                {
+                                    CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
+                                    if (component && component.inventory)
+                                    {
+                                        CharacterBody body2 = component.GetBody();
+                                        if (body2)
+                                        {
+                                            this.UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
+                                        }
+                                    }
+                                }
+                            }
+                            this.previousStack = newStack;
+                        }
+                    }
+                }
             }
 
             private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport summonReport)
@@ -78,26 +133,36 @@ namespace RiskyClassicItems.Items
             }
             private void UpdateMinionInventory(Inventory inventory, CharacterBody.BodyFlags bodyFlags, int newStack)
             {
-                if (newStack <= 0 || !bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
+                if (inventory && newStack > 0 && (bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)
                 {
-                    inventory.ResetItem(ArmsRaceDroneItemDef);
-                    return;
+                    int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
+                    int itemCount2 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay1);
+                    int itemCount3 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay2);
+                    if (itemCount < this.stack)
+                    {
+                        inventory.GiveItem(ArmsRaceDroneItemDef, this.stack - itemCount);
+                    }
+                    else if (itemCount > this.stack)
+                    {
+                        inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - this.stack);
+                    }
+                    if (itemCount2 + itemCount3 <= 0)
+                    {
+                        ItemDef itemDef = DLC1Content.Items.DroneWeaponsDisplay1;
+                        if (UnityEngine.Random.value < display2Chance)
+                        {
+                            itemDef = DLC1Content.Items.DroneWeaponsDisplay2;
+                        }
+                        inventory.GiveItem(itemDef, 1);
+                        return;
+                    }
                 }
-
-                int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
-                if (itemCount < newStack)
+                else
                 {
-                    inventory.GiveItem(ArmsRaceDroneItemDef, newStack - itemCount);
+                    inventory.ResetItem(DLC1Content.Items.DroneWeaponsBoost);
+                    inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay1);
+                    inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay2);
                 }
-                else if (itemCount > newStack)
-                {
-                    inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - newStack);
-                }
-            }
-
-            private void OnDisable()
-            {
-                MasterSummon.onServerMasterSummonGlobal -= MasterSummon_onServerMasterSummonGlobal;
             }
         }
     }

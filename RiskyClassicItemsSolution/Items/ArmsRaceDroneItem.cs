@@ -18,6 +18,7 @@ using UnityEngine.Networking;
 using RiskyClassicItems.Utils;
 using System.Linq;
 using RoR2.Orbs;
+using System.ComponentModel;
 
 namespace RiskyClassicItems.Items
 {
@@ -48,7 +49,6 @@ namespace RiskyClassicItems.Items
             public static float maxActivationDistance = 80f;
             public static int missilesPerBarrage = 4;
 
-            public static float damageCoefficient = 1.1f;
             public static float baseFireInterval = 0.15f;
 
             public float searchStopwatch;
@@ -63,7 +63,47 @@ namespace RiskyClassicItems.Items
             
             public float failedTargetCooldown = 2f;
             public float timer = 2f;
-            public int missileCount;
+
+            private Transform missileMuzzleTransform;
+
+            private void Start()
+            {
+                ModelLocator component = base.GetComponent<ModelLocator>();
+                if (component)
+                {
+                    Transform modelTransform = component.modelTransform;
+                    if (modelTransform)
+                    {
+                        CharacterModel component2 = modelTransform.GetComponent<CharacterModel>();
+                        if (component2)
+                        {
+                            List<GameObject> itemDisplayObjects = component2.GetItemDisplayObjects(DLC1Content.Items.DroneWeaponsDisplay1.itemIndex);
+                            itemDisplayObjects.AddRange(component2.GetItemDisplayObjects(DLC1Content.Items.DroneWeaponsDisplay2.itemIndex));
+                            foreach (GameObject gameObject in itemDisplayObjects)
+                            {
+                                ChildLocator component3 = gameObject.GetComponent<ChildLocator>();
+                                if (component3)
+                                {
+                                    Transform exists = component3.FindChild("MissileMuzzle");
+                                    if (exists)
+                                    {
+                                        this.missileMuzzleTransform = exists;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                GetMissileBarrageCount();
+                missilesLoaded = missilesPerBarrage;
+                searchStopwatch = 0f;
+                cooldownStopwatch = UnityEngine.Random.Range(0.1f, 0.75f);
+                fireStopwatch = 0f;
+                fireInterval = baseFireInterval;
+            }
 
             private void GetMissileBarrageCount()
             {
@@ -75,15 +115,6 @@ namespace RiskyClassicItems.Items
                 missilesPerBarrage = ItemHelpers.StackingLinear(stack, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
             }
 
-            private void OnEnable()
-            {
-                GetMissileBarrageCount();
-                missilesLoaded = missilesPerBarrage;
-                searchStopwatch = 0f;
-                cooldownStopwatch = UnityEngine.Random.Range(0.1f, 0.75f);
-                fireStopwatch = 0f;
-                fireInterval = baseFireInterval;
-            }
             public bool AcquireTarget()
             {
                 Ray aimRay = body.inputBank ? body.inputBank.GetAimRay() : default;
@@ -156,17 +187,15 @@ namespace RiskyClassicItems.Items
             {
                 if (targetHurtBox != default)
                 {
-                    Ray aimRay = body.inputBank ? body.inputBank.GetAimRay() : default;
                     MicroMissileOrb missileOrb = new MicroMissileOrb();
-                    missileOrb.origin = aimRay.origin;
-                    //missileOrb.damageValue = body.damage * damageCoefficient * (AlliesCore.normalizeDroneDamage ? 1f : 0.857142857f);  // 12/14
+                    missileOrb.origin = missileMuzzleTransform ? missileMuzzleTransform.position : body.corePosition;
                     missileOrb.damageValue = body.damage * ArmsRace.Instance.damageCoeff;
                     if (ModSupport.ModCompatRiskyMod.loaded)
                     {
                         missileOrb.damageValue *= ModSupport.ModCompatRiskyMod.IsNormalizeDroneDamage() ? 1 : 0.857142857f;
                     }
                     missileOrb.isCrit = body.RollCrit();
-                    missileOrb.teamIndex = body.teamComponent.teamIndex;
+                    missileOrb.teamIndex = TeamComponent.GetObjectTeam(body.gameObject);//body.teamComponent.teamIndex;
                     missileOrb.attacker = base.gameObject;
                     missileOrb.procChainMask = default;
                     missileOrb.procCoefficient = 1f;

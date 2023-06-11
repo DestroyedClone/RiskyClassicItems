@@ -44,10 +44,11 @@ namespace RiskyClassicItems.Modules
                 null, Assets.LoadSprite("texPermafrostBuffIcon"),
                 false, true,
                 false, null);//Play_wFeralShoot2
+
             ShacklesBuff = CreateBuffInternal("RCI_PrisonShackles",
                 Color.blue, false,
                 null, Assets.LoadSprite("texPrisonShacklesBuffIcon"),
-                false, true, false, null);
+                false, true, false, Assets.nseShackles);
             ThalliumBuff = CreateBuffInternal("RCI_ThalliumBuff",
                 Color.green, true,
                 null, Assets.LoadSprite("texThalliumBuffIcon"),

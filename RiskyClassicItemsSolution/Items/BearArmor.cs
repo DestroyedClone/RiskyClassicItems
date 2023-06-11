@@ -21,7 +21,7 @@ namespace RiskyClassicItems.Items
             armorPerStack
         };
 
-        public override ItemTier Tier => ItemTier.Tier1;
+        public override ItemTier Tier => ItemTier.Tier2;
 
         public override GameObject ItemModel => LoadPickupModel("ToughTimes");
 

@@ -6,6 +6,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using IL.RoR2.Projectile;
+using RoR2.Orbs;
+using Rewired.ComponentControls.Effects;
 
 namespace RiskyClassicItems.Equipment
 {
@@ -17,7 +19,7 @@ namespace RiskyClassicItems.Equipment
 
         public const float selfHurtCoefficient = 0.25f;
         public const float damageCoefficient = 5f;
-        public const float durationDelay = 0.15f;
+        public const float durationDelay = 0.3f;
 
         public override object[] EquipmentFullDescriptionParams => new object[]
         {
@@ -57,7 +59,8 @@ namespace RiskyClassicItems.Equipment
             spike.name = "DollSpike";
             spike.transform.SetParent(dollActivationEffect.transform);
             spike.transform.localScale = new Vector3(25, 25, 125);
-            spike.AddComponent<DollSpikeDisplayHelper>().enabled = false;
+            DollSpikeDisplayHelper dollSpikeDisplayHelper = spike.AddComponent<DollSpikeDisplayHelper>();
+            dollSpikeDisplayHelper.enabled = false;
 
             int spikeCount = 0;
             GameObject spikeCopy()
@@ -178,12 +181,13 @@ namespace RiskyClassicItems.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            /*
-            TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "ExampleIndicator", false);
-            //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("ExampleReticuleIcon.png");
-            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_LostDollIndicator", false);
+            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texLostDollTargetIndicator.png");
+            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = new Color(0.047f, 0.447f, 0.008f);
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
-            TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);*/
+            TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.047f, 0.447f, 0.008f);
+            TargetingIndicatorPrefabBase.transform.localScale = Vector3.one * 0.25f;
+            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
             //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
         }
 
@@ -191,53 +195,46 @@ namespace RiskyClassicItems.Equipment
         {
             return new ItemDisplayRuleDict();
         }
+        protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController)
+        {
+            equipmentSlot.targetIndicator.visualizerPrefab = TargetingIndicatorPrefabBase;
+        }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
             HurtBox hurtBox = slot.currentTarget.hurtBox;
-            if (hurtBox)
+            if (!hurtBox || !hurtBox.healthComponent || !hurtBox.healthComponent.alive)
             {
-                slot.subcooldownTimer = 0.2f;
-                slot.characterBody.healthComponent.TakeDamage(new DamageInfo()
-                {
-                    attacker = slot.gameObject,
-                    crit = false,
-                    damage = slot.characterBody.healthComponent.combinedHealth * selfHurtCoefficient,
-                    damageColorIndex = DamageColorIndex.Item,
-                    damageType = DamageType.NonLethal,
-                    inflictor = slot.gameObject,
-                    position = slot.characterBody.corePosition,
-                    procCoefficient = 0,
-                    procChainMask = default
-                });
-                RoR2.Orbs.OrbManager.instance.AddOrb(new RoR2.Orbs.DevilOrb
-                {
-                    attacker = slot.gameObject,
-                    damageColorIndex = DamageColorIndex.Item,
-                    damageValue = slot.characterBody.healthComponent.fullCombinedHealth * damageCoefficient,
-                    isCrit = Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master),
-                    procChainMask = default,
-                    procCoefficient = 1f,
-                    target = hurtBox,
-                    effectType = RoR2.Orbs.DevilOrb.EffectType.Wisp,
-                    origin = slot.characterBody.corePosition,
-                    teamIndex = slot.characterBody.teamComponent.teamIndex,
-                    arrivalTime = durationDelay
-                });
-
-                /* var effectData = new EffectData()
-                 {
-                     origin = slot.characterBody.aimOrigin + Vector3.up * 3f
-                 };*/
-                //EffectManager.SpawnEffect(dollActivationEffect, effectData, true);
-                var effect = UnityEngine.Object.Instantiate(dollActivationEffect);
-                effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
-                effect.transform.SetParent(slot.transform, false);
-                NetworkServer.Spawn(effect);
-                slot.InvalidateCurrentTarget();
-                return true;
+                return false;
             }
-            return false;
+
+            slot.subcooldownTimer = 0.05f;
+            RoR2.Orbs.OrbManager.instance.AddOrb(new Orbs.LostDollOrb()
+            {
+                attacker = slot.gameObject,
+                attackerCharacterBody = slot.characterBody,
+                damageColorIndex = DamageColorIndex.Item,
+                damageValue = slot.characterBody.healthComponent.fullCombinedHealth * damageCoefficient,
+                isCrit = Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master),
+                procChainMask = default,
+                procCoefficient = 0f,
+                target = hurtBox,
+                //effectType = RoR2.Orbs.DevilOrb.EffectType.Wisp,
+                origin = slot.characterBody.corePosition,
+                teamIndex = slot.characterBody.teamComponent.teamIndex,
+            });
+
+            /* var effectData = new EffectData()
+             {
+                 origin = slot.characterBody.aimOrigin + Vector3.up * 3f
+             };*/
+            //EffectManager.SpawnEffect(dollActivationEffect, effectData, true);
+            var effect = UnityEngine.Object.Instantiate(dollActivationEffect);
+            effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
+            effect.transform.SetParent(slot.transform, false);
+            NetworkServer.Spawn(effect);
+            slot.InvalidateCurrentTarget();
+            return true;
         }
     }
 }

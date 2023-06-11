@@ -11,14 +11,14 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "PRISONSHACKLES";
 
-        public static float slowMultiplier = 0.3f;
+        public static float attackSpeedSlowMultiplier = 0.3f;
 
         public static int duration = 2;
 
         public static int durationStack = 2;
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            (slowMultiplier*100),
+            (attackSpeedSlowMultiplier*100),
             duration,
             durationStack,
         };
@@ -33,10 +33,6 @@ namespace RiskyClassicItems.Items
             ItemTag.Utility,
             ItemTag.Damage
         };
-
-        public override void CreateConfig(ConfigFile config)
-        {
-        }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -53,7 +49,7 @@ namespace RiskyClassicItems.Items
         {
             if (sender.HasBuff(Modules.Buffs.ShacklesBuff))
             {
-                args.attackSpeedMultAdd -= slowMultiplier;
+                args.attackSpeedReductionMultAdd += attackSpeedSlowMultiplier;
             }
         }
 

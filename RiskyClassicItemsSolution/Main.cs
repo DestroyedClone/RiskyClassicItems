@@ -22,7 +22,6 @@ namespace RiskyClassicItems
     [BepInDependency(ModSupport.ModCompatBetterUI.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(EliteAPI))]
     public class Main : BaseUnityPlugin
     {
         public const string ModGuid = "com.Risky.RiskyClassicItems";
@@ -61,6 +60,7 @@ namespace RiskyClassicItems
             RiskyVisuals.Init(Config);
             Dots.Initialize();
             Events.Initialize();
+            Orbs.Initialize();
             AddToAssembly();
         }
 

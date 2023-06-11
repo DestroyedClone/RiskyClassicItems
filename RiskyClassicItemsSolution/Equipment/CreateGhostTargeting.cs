@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using Rewired.ComponentControls.Effects;
 
 namespace RiskyClassicItems.Equipment
 {
@@ -15,15 +16,21 @@ namespace RiskyClassicItems.Equipment
         public override string EquipmentName => "Soul Jar";
 
         public override string EquipmentLangTokenName => "CREATEGHOSTTARGETING";
-        public const int maxGhosts = 1;
         public const int ghostDurationSecondsPlayer = 30;
         public const int ghostDurationSecondsEnemy = 25;
-        public const int ghostDamageCoefficientTimesTen = 10;
-        DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
+        public const int boostDamageItemCount = 10;
+
+        public int ghostsPerCommon = 3;
+        public int ghostsPerChampion = 1;
+        public int maxGhosts = 9;
+
+        //DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
+        public static ConfigEntry<bool> limitSpawns;
 
         public override object[] EquipmentFullDescriptionParams => new object[] {
+            (boostDamageItemCount * 10),
+            ghostsPerCommon,
             ghostDurationSecondsPlayer,
-            (ghostDamageCoefficientTimesTen * 10)
              };
 
         public override GameObject EquipmentModel => LoadPickupModel("JarOfSouls");
@@ -41,12 +48,30 @@ namespace RiskyClassicItems.Equipment
             Hooks();
         }
 
+        public static GameObject commonTargetIndicator;
+        public static GameObject championTargetIndicator;
+
         /// <summary>
         /// An example targeting indicator implementation. We clone the woodsprite's indicator, but we edit it to our liking. We'll use this in our activate equipment.
         /// We shouldn't need to network this as this only shows for the player with the Equipment.
         /// </summary>
         private void CreateTargetingIndicator()
         {
+            commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_SoulJarCommonIndicator", false);
+            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
+            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
+            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
+            commonTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
+            //commonTargetIndicator.transform.localScale = Vector3.one * 0.25f;
+
+            championTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_SoulJarChampionIndicator", false);
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
+            championTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
+            //championTargetIndicator.transform.localScale = Vector3.one * 0.25f;
             /*
             TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "ExampleIndicator", false);
             //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("ExampleReticuleIcon.png");
@@ -56,23 +81,102 @@ namespace RiskyClassicItems.Equipment
             //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
         }
 
+        protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController)
+        {
+            //base.ConfigureTargetIndicator(equipmentSlot, targetingEquipmentIndex, genericPickupController);
+            if (equipmentSlot.currentTarget.hurtBox)
+            {
+                if (equipmentSlot.currentTarget.hurtBox.healthComponent.body.isChampion)
+                    equipmentSlot.targetIndicator.visualizerPrefab = championTargetIndicator;
+                else
+                    equipmentSlot.targetIndicator.visualizerPrefab = commonTargetIndicator;
+            }
+        }
+
+        protected override void CreateConfig(ConfigFile config)
+        {
+            base.CreateConfig(config);
+            limitSpawns = config.Bind(ConfigCategory, "Limit Spawns", true, $"If true, max spawns will be set to {maxGhosts}.");
+            maxGhosts *= (limitSpawns.Value ? 1 : 999999);
+        }
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
         }
 
+        public class JarGhostTrackerComponent : MonoBehaviour
+        {
+            public List<CharacterMaster> ghostList = new List<CharacterMaster>();
+
+            public bool CanSpawnGhost()
+            {
+                int currentPoints = 0;
+                foreach (CharacterMaster cm in ghostList)
+                {
+                    CharacterBody cb = cm.GetBody();
+                    if (cb && cb.isChampion)
+                    {
+                        currentPoints += Instance.ghostsPerCommon;
+                    }
+                    else
+                    {
+                        currentPoints += 1;
+                    }
+                }
+
+                bool canSpawn = ((currentPoints + Instance.ghostsPerCommon) <= Instance.maxGhosts);
+                /*string message = $"Ghost List Count: {ghostList.Count}, Ghosts Per Common: {Instance.ghostsPerCommon}, Max Ghosts: {Instance.maxGhosts}, Can Spawn Ghost: {canSpawn}";
+                Debug.Log(message);*/
+                return canSpawn;
+            }
+
+            public void FixedUpdate()
+            {
+                for (int i = ghostList.Count - 1; i >= 0; i--)
+                {
+                    CharacterMaster ghost = ghostList[i];
+                    if (ghost && ghost.IsDeadAndOutOfLivesServer())
+                    {
+                        ghostList.Remove(ghost);
+                    }
+                }
+            }
+        }
+
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
             HurtBox hurtBox = slot.currentTarget.hurtBox;
-            if (!hurtBox)
+            if (!hurtBox || !hurtBox.healthComponent)
             {
                 return false;
             }
-            if (!hurtBox.healthComponent)
+            var component = slot.GetComponent<JarGhostTrackerComponent>();
+            if (!component)
             {
-                return false;
+                component = slot.gameObject.AddComponent<JarGhostTrackerComponent>();
             }
-            var deployableCount = slot.characterBody.master.GetDeployableCount(DS_GhostAlly);
+
+            int ghostsToSpawn = hurtBox.healthComponent.body.isChampion ? ghostsPerChampion : ghostsPerCommon;
+            bool hasSpawnedGhost = false;
+
+            if (component.CanSpawnGhost())
+                while (ghostsToSpawn > 0)
+                {
+                    SpawnMaskGhost(hurtBox.healthComponent.body, slot.characterBody, out CharacterMaster master);
+                    if (master)
+                    {
+                        component.ghostList.Add(master);
+                        ghostsToSpawn--;
+                        hasSpawnedGhost = true;
+                    } else
+                    {
+                        ghostsToSpawn = 0;
+                    }
+                }
+            slot.InvalidateCurrentTarget();
+
+            /*var deployableCount = slot.characterBody.master.GetDeployableCount(DS_GhostAlly);
             if (deployableCount == 0)
             {
                 var ghostBody = SpawnMaskGhost(hurtBox.healthComponent.body, slot.characterBody);
@@ -84,19 +188,13 @@ namespace RiskyClassicItems.Equipment
                     slot.characterBody.master.AddDeployable(deployable, DS_GhostAlly);
                 }
                 slot.InvalidateCurrentTarget();
-            }
-            return true;
+            }*/
+            return hasSpawnedGhost;
         }
 
-        /*//idk how uhhh other
-        public static Dictionary<ItemDef, int> ghostItems = new Dictionary<ItemDef, int>()
+        public static CharacterBody SpawnMaskGhost(CharacterBody targetBody, CharacterBody ownerBody, out CharacterMaster ghostMaster)
         {
-            { RoR2Content.Items.BoostDamage, ghostDamageCoefficientTimesTen },
-            { RoR2Content.Items.HealthDecay, ghostDurationSecondsPlayer }
-        };*/
-
-        public static CharacterBody SpawnMaskGhost(CharacterBody targetBody, CharacterBody ownerBody)
-        {
+            ghostMaster = null;
             if (!NetworkServer.active)
             {
                 Debug.LogWarning("[Server] function 'HappiestMask SpawnMaskGhost' called on client");
@@ -132,30 +230,30 @@ namespace RiskyClassicItems.Equipment
             }
             else
             {
+                ghostMaster = characterMaster2;
                 Inventory inventory = characterMaster2.inventory;
                 if (inventory)
                 {
                     if (inventory.GetItemCount(RoR2Content.Items.Ghost) <= 0) inventory.GiveItem(RoR2Content.Items.Ghost);
                     if (inventory.GetItemCount(RoR2Content.Items.UseAmbientLevel) <= 0) inventory.GiveItem(RoR2Content.Items.UseAmbientLevel);
 
+
+                    MasterSuicideOnTimer mst = characterMaster2.gameObject.AddComponent<MasterSuicideOnTimer>();
+
                     if (ownerBody && ownerBody.teamComponent && ownerBody.teamComponent.teamIndex == TeamIndex.Player)
                     {
-                        /*foreach (var pair in ghostItems)
-                        {
-                            inventory.GiveItem(pair.Key, pair.Value);
-                        }*/
 
-                        inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, ghostDamageCoefficientTimesTen);
-                        inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
+                        inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, boostDamageItemCount);
+                        //inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
                         if (ModSupport.ModCompatRiskyMod.loaded)
                         {
                             Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(inventory);
                         }
+                        mst.lifeTimer = ghostDurationSecondsPlayer;
                     }
                     else //Handle enemy-spawned ghosts
                     {
                         inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsEnemy);
-                        MasterSuicideOnTimer mst = characterMaster2.gameObject.AddComponent<MasterSuicideOnTimer>();
                         mst.lifeTimer = ghostDurationSecondsEnemy;
                     }
                 }
@@ -167,6 +265,7 @@ namespace RiskyClassicItems.Equipment
                 {
                     entityStateMachine.initialStateType = entityStateMachine.mainStateType;
                 }
+                Util.PlaySound("Play_elite_haunt_ghost_convert", body.gameObject);
             }
             return body;
         }

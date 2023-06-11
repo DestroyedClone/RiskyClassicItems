@@ -12,8 +12,8 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "MYSTERIOUSVIAL";
 
-        float regen = 0.7f;
-        float regenPerStack = 0.6f;
+        float regen = 1f;
+        float regenPerStack = 1f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
@@ -49,7 +49,8 @@ namespace RiskyClassicItems.Items
         {
             if (TryGetCount(sender, out int count))
             {
-                args.baseRegenAdd += ItemHelpers.StackingLinear(count, regen, regenPerStack);
+                float levelFactor = 1f + 0.2f * (sender.level - 1f);
+                args.baseRegenAdd += ItemHelpers.StackingLinear(count, regen, regenPerStack) * levelFactor;
             }
         }
     }
