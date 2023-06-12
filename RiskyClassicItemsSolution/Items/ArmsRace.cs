@@ -136,8 +136,9 @@ namespace RiskyClassicItems.Items
                 if (inventory && newStack > 0 && (bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)
                 {
                     int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
-                    int itemCount2 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay1);
-                    int itemCount3 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay2);
+                    //Need to use a seperate display cause the display add/removal conflicts with spare drone parts
+                    //int itemCount2 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay1);
+                    //int itemCount3 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay2);
                     if (itemCount < this.stack)
                     {
                         inventory.GiveItem(ArmsRaceDroneItemDef, this.stack - itemCount);
@@ -146,7 +147,7 @@ namespace RiskyClassicItems.Items
                     {
                         inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - this.stack);
                     }
-                    if (itemCount2 + itemCount3 <= 0)
+                    /*if (itemCount2 + itemCount3 <= 0)
                     {
                         ItemDef itemDef = DLC1Content.Items.DroneWeaponsDisplay1;
                         if (UnityEngine.Random.value < display2Chance)
@@ -155,13 +156,13 @@ namespace RiskyClassicItems.Items
                         }
                         inventory.GiveItem(itemDef, 1);
                         return;
-                    }
+                    }*/
                 }
                 else
                 {
                     inventory.ResetItem(DLC1Content.Items.DroneWeaponsBoost);
-                    inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay1);
-                    inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay2);
+                    //inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay1);
+                    //inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay2);
                 }
             }
         }

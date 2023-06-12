@@ -39,6 +39,8 @@ namespace RiskyClassicItems.Equipment
 
         public override TargetFinderType EquipmentTargetFinderType => TargetFinderType.Enemies;
 
+        public override float Cooldown => 90;
+
         public override void Init(ConfigFile config)
         {
             CreateConfig(config);
@@ -58,27 +60,15 @@ namespace RiskyClassicItems.Equipment
         private void CreateTargetingIndicator()
         {
             commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_SoulJarCommonIndicator", false);
-            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
             commonTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
-            //commonTargetIndicator.transform.localScale = Vector3.one * 0.25f;
 
-            championTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_SoulJarChampionIndicator", false);
-            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");
-            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
-            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
-            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
-            championTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
-            //championTargetIndicator.transform.localScale = Vector3.one * 0.25f;
-            /*
-            TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "ExampleIndicator", false);
-            //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("ExampleReticuleIcon.png");
-            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
-            TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);*/
-            //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
+            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");
+
+            championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, "RCI_SoulJarChampionIndicator", false);
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
         }
 
         protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController)
@@ -266,6 +256,19 @@ namespace RiskyClassicItems.Equipment
                     entityStateMachine.initialStateType = entityStateMachine.mainStateType;
                 }
                 Util.PlaySound("Play_elite_haunt_ghost_convert", body.gameObject);
+
+                if (body.mainHurtBox)
+                {
+                    var duration = 1f;
+                    EffectData effectData = new EffectData
+                    {
+                        scale = 1f,
+                        origin = targetBody.corePosition,
+                        genericFloat = duration
+                    };
+                    effectData.SetHurtBoxReference(body.mainHurtBox);
+                    EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect"), effectData, true);
+                }
             }
             return body;
         }

@@ -17,18 +17,15 @@ namespace RiskyClassicItems.Items
         public override string ItemLangTokenName => "GOLDENGUN";
 
         public static uint goldNeeded = 40;
-        public static uint goldNeededPerStack = 40;
+        public static uint goldNeededPerStack = 20;
         public static uint goldCap = 300;
-        public static uint goldCapPerStack = 300;
+        public static uint goldCapPerStack = 150;
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            (0.5f*100),
-            100
-        };
-
-        public override object[] ItemPickupDescParams => new object[]
-        {
-            112345f
+            goldNeeded,
+            goldNeededPerStack,
+            goldCap,
+            goldCapPerStack,
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
@@ -109,8 +106,10 @@ namespace RiskyClassicItems.Items
                 {
                     int singleStackCost = Stage.instance ? Run.instance.GetDifficultyScaledCost((int)goldCap, Stage.instance.entryDifficultyCoefficient) : Run.instance.GetDifficultyScaledCost((int)goldCap);
 
-                    int maxCost = singleStackCost + ((int)(0.5f * goldCap) * stack - 1);
-                    int maxBuffs = (int)goldNeeded + ((int)(0.5f * goldNeeded) * stack - 1);
+                    //int maxCost = singleStackCost + ((int)(0.5f * goldCap) * stack - 1);
+                    //int maxBuffs = (int)goldNeeded + ((int)(0.5f * goldNeeded) * stack - 1);
+                    int maxCost = (int)Utils.ItemHelpers.StackingLinear(stack, singleStackCost, goldCapPerStack);
+                    int maxBuffs = (int)Utils.ItemHelpers.StackingLinear(stack, goldNeeded, goldNeededPerStack);
 
                     float moneyPercent = (float)body.master.money / maxCost;
                     int targetBuffCount = Mathf.Min(maxBuffs, Mathf.FloorToInt(maxBuffs * moneyPercent));

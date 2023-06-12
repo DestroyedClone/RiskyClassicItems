@@ -26,8 +26,8 @@ namespace RiskyClassicItems.Items
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            cloverDropChance,
-            cloverDropChancePerStack
+            cloverPercentageDropChance,
+            cloverPercentageDropChancePerStack
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
@@ -42,8 +42,8 @@ namespace RiskyClassicItems.Items
             ItemTag.OnKillEffect,
             ItemTag.Utility
         };
-        public const float cloverDropChance = 4.5f;
-        public const float cloverDropChancePerStack = 1.5f;
+        public const float cloverPercentageDropChance = 4.5f;
+        public const float cloverPercentageDropChancePerStack = 1.5f;
         public static ConfigEntry<bool> useClassic;
         public static PickupDropTable SacrificePickupDropTable => RoR2.Artifacts.SacrificeArtifactManager.dropTable;
         private static readonly Xoroshiro128Plus treasureRng = new Xoroshiro128Plus(0UL);
@@ -119,7 +119,7 @@ namespace RiskyClassicItems.Items
                 var itemCount = GetCount(master);
                 if (itemCount > 0)
                 {
-                    var rollChance = cloverDropChance + cloverDropChancePerStack * (itemCount - 1);
+                    var rollChance = Utils.ItemHelpers.StackingLinear(itemCount, cloverPercentageDropChance, cloverPercentageDropChancePerStack);
                     return Util.CheckRoll(rollChance);
                 }
             }

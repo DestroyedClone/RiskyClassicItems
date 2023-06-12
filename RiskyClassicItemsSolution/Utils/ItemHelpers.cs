@@ -1,4 +1,5 @@
-﻿using RiskyClassicItems.Utils.Components;
+﻿using RiskyClassicItems.Modules;
+using RiskyClassicItems.Utils.Components;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -176,6 +177,64 @@ namespace RiskyClassicItems.Utils
         {
             buffCount = characterBody.GetBuffCount(buffDef);
             return buffCount > 0;
+        }
+
+        public class OverlayPreviewer : MonoBehaviour
+        {
+            public bool EnableToPreview = false;
+            public string materialAssetPath = "";
+
+            [HideInInspector]
+            public Material materialInstance;
+
+            public bool isAssigned;
+
+            public CharacterModel assignedCharacterModel;
+
+            public CharacterModel inspectorCharacterModel;
+
+            public bool animateShaderAlpha;
+
+            public AnimationCurve alphaCurve;
+            public enum AnimationCurveType
+            {
+                Constant,
+                Linear,
+                EaseInAndOut
+            }
+
+            public float constantAnimCurveFloat = 1;
+
+
+            public AnimationCurveType animationCurveType = AnimationCurveType.Constant;
+
+            public float duration = 2;
+
+            public void Update()
+            {
+                if (EnableToPreview)
+                {
+                    EnableToPreview = false;
+                    TemporaryOverlay temporaryOverlay = gameObject.GetComponent<ModelLocator>().modelTransform.gameObject.AddComponent<TemporaryOverlay>();
+                    temporaryOverlay.duration = duration;
+                    temporaryOverlay.animateShaderAlpha = animateShaderAlpha;
+                    //temporaryOverlay.alphaCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
+                    //temporaryOverlay.alphaCurve = AnimationCurve.Linear(0f, 1f, duration, 1f);
+                    temporaryOverlay.alphaCurve = AnimationCurve.Constant(0, duration, constantAnimCurveFloat);
+                    //if (alphaCurve != null) temporaryOverlay.alphaCurve = alphaCurve;
+                    temporaryOverlay.destroyComponentOnEnd = true;
+                    try
+                    {
+                        temporaryOverlay.originalMaterial = Assets.LoadAddressable<Material>(materialAssetPath);
+                        temporaryOverlay.AddToCharacerModel(gameObject.GetComponent<ModelLocator>().modelTransform.GetComponent<CharacterModel>());
+                    }
+                    catch
+                    {
+                        UnityEngine.Object.Destroy(temporaryOverlay);
+                        Chat.AddMessage("Exception on preview");
+                    }
+                }
+            }
         }
     }
 }

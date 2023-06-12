@@ -58,10 +58,10 @@ namespace RiskyClassicItems
             Deployables.Initialize();
             Buffs.Initialize();
             RiskyVisuals.Init(Config);
-            Dots.Initialize();
             Events.Initialize();
             Orbs.Initialize();
             AddToAssembly();
+            Dots.Initialize();
         }
 
         private void AddToAssembly()

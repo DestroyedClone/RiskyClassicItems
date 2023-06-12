@@ -14,6 +14,8 @@ namespace RiskyClassicItems.Items
         public float enemyMoveSpeedCoef = 1f;
         public float duration = 3f;
 
+        public float dotInterval = 0.5f;
+
 
         public override string ItemName => "Thallium";
 
@@ -57,14 +59,27 @@ namespace RiskyClassicItems.Items
 
         public override void Hooks()
         {
-            Events.PostOnHitEnemy += Events_PostOnHitEnemy;
+            //Events.PostOnHitEnemy += Events_PostOnHitEnemy;
+            On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
         }
 
-        private void Events_PostOnHitEnemy(DamageInfo obj, GameObject victimGameObject)
+        private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victimGameObject)
         {
-            if (!obj.attacker || !victimGameObject || victimGameObject.TryGetComponent(out CharacterBody victimBody) || !obj.attacker.TryGetComponent(out CharacterBody attackerBody) || !TryGetCount(attackerBody, out var count) || !Util.CheckRoll(Utils.ItemHelpers.StackingLinear(count, chance, chancePerStack)))
+            orig(self, damageInfo, victimGameObject);
+            if (victimGameObject && victimGameObject.TryGetComponent(out CharacterBody victimBody) && damageInfo.attacker && damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody))
+            {
+                if (TryGetCount(attackerBody, out int itemCount) && Util.CheckRoll(Utils.ItemHelpers.StackingLinear(itemCount, chance, chancePerStack)))
+                {
+                    DotController.InflictDot(victimGameObject, damageInfo.attacker, Dots.ThalliumDotIndex, duration, victimBody.damage * enemyAttackDamageCoef * dotInterval);
+                }
+            }
+        }
+
+        private void Events_PostOnHitEnemy(DamageInfo damageInfo, GameObject victimGameObject)
+        {
+            if (!damageInfo.attacker || !victimGameObject || victimGameObject.TryGetComponent(out CharacterBody victimBody) || !damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody) || !TryGetCount(attackerBody, out var count) || !Util.CheckRoll(Utils.ItemHelpers.StackingLinear(count, chance, chancePerStack)))
                 return;
-            DotController.InflictDot(victimGameObject, obj.attacker, Modules.Dots.ThalliumDotIndex, duration);
+            DotController.InflictDot(victimGameObject, damageInfo.attacker, Modules.Dots.ThalliumDotIndex, duration);
         }
     }
 }

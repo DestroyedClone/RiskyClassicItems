@@ -35,7 +35,7 @@ namespace RiskyClassicItems.Equipment
 
         public override bool IsLunar => true;
         public static GameObject dollActivationEffect;
-        public override float Cooldown => 1;
+        public override float Cooldown => 75;
 
         public override void Init(ConfigFile config)
         {
@@ -71,8 +71,12 @@ namespace RiskyClassicItems.Equipment
                 return obj;
             }
 
-            comp.AddSpike(spikeCopy(), Util.QuaternionSafeLookRotation(new Vector3(0, 90, 0)), Vector3.up * 3f, Vector3.zero);
-            comp.AddSpike(spikeCopy(), Util.QuaternionSafeLookRotation(new Vector3(90, 0, 0)), Vector3.one * 3f, Vector3.zero);
+            comp.AddSpike(spikeCopy(), new Quaternion(0.7f, 0.0f, 0.0f, 0.7f), new Vector3(0.0f, 3.0f, 0.0f), Vector3.zero);
+            comp.AddSpike(spikeCopy(), new Quaternion(0.7f, 0.1f, -0.7f, 0.1f), new Vector3(5.4f, 1.0f, 0.0f), Vector3.zero);
+            comp.AddSpike(spikeCopy(), new Quaternion(0.3f, 0.6f, -0.3f, 0.6f), new Vector3(-2.2f, 3.2f, 0.2f), Vector3.zero);
+            comp.AddSpike(spikeCopy(), new Quaternion(0.2f, 0.6f, -0.1f, 0.7f), new Vector3(-3.6f, 1.6f, -0.3f), Vector3.zero);
+            comp.AddSpike(spikeCopy(), new Quaternion(0.0f, 0.0f, 0.0f, 1.0f), new Vector3(0.0f, 0.0f, -6.0f), Vector3.zero);
+
             //add more as needed
 
             comp.blackMat = Assets.LoadAddressable<Material>("RoR2/Base/Common/matDebugBlack.mat");
@@ -92,7 +96,7 @@ namespace RiskyClassicItems.Equipment
             public void FixedUpdate()
             {
                 var transform = gameObject.transform;
-                output = $"comp.AddSpike(spikeCopy(), new Quaternion({transform.rotation}), new Vector3({transform.localPosition}), Vector3.zero);";
+                output = $"comp.AddSpike(spikeCopy(), new Quaternion{transform.rotation}, new Vector3{transform.localPosition}, Vector3.zero);";
 
             }
         }
@@ -186,7 +190,7 @@ namespace RiskyClassicItems.Equipment
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = new Color(0.047f, 0.447f, 0.008f);
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.047f, 0.447f, 0.008f);
-            TargetingIndicatorPrefabBase.transform.localScale = Vector3.one * 0.25f;
+            //TargetingIndicatorPrefabBase.transform.localScale = Vector3.one * 0.25f;
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
             //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
         }
@@ -230,8 +234,8 @@ namespace RiskyClassicItems.Equipment
              };*/
             //EffectManager.SpawnEffect(dollActivationEffect, effectData, true);
             var effect = UnityEngine.Object.Instantiate(dollActivationEffect);
-            effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
             effect.transform.SetParent(slot.transform, false);
+            effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
             NetworkServer.Spawn(effect);
             slot.InvalidateCurrentTarget();
             return true;

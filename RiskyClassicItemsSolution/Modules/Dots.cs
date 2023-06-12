@@ -21,7 +21,7 @@ namespace RiskyClassicItems.Modules
         {
             var thallium = Items.Thallium.Instance;
 
-            ThalliumDotBehavior = new DotAPI.CustomDotBehaviour((dotController, dotStack) =>
+            /*ThalliumDotBehavior = new DotAPI.CustomDotBehaviour((dotController, dotStack) =>
             {
                 CharacterBody attackerBody = dotStack.attackerObject.GetComponent<CharacterBody>();
                 if (attackerBody && dotController.victimBody)
@@ -30,7 +30,8 @@ namespace RiskyClassicItems.Modules
                 }
             });
 
-            ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
+            ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);*/
+            ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
         }
     }
 }

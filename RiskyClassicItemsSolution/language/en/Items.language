@@ -75,7 +75,7 @@
 		//[TIER2]
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Deals bonus damage per gold",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+40% damage</style> <style=cStack>(+20% per stack)</style> at <style=cIsUtility>300 gold</style> <style=cStack>(+150 per stack, scaling with time)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack, scaling with time)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "",
 
 
@@ -161,7 +161,7 @@
 		//[TIER3]
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "On hit: 10% chanceto damage/slow by 500 enemy damage% and 100% speed over 3 seconds",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit: {0}% chance <style=cStack>(+{1}% chance per stack) to damage/slow by <style=cIsDamage>{2}% enemy attack damage</style> and <style=cIsUtility>{3}% of enemy movement speed</style> over {4} seconds.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "",
 
