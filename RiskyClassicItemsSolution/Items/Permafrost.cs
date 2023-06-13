@@ -15,13 +15,13 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "PERMAFROST";
 
-        float procChancePercentage = 35f;
-        float procChanceStackPercentage = 5f;
+        //util.amplification only accepts one value
+        //and figuring out the formula will dent my brain durther
+        float procChancePercentage = 5f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
             procChancePercentage,
-            procChanceStackPercentage,
         };
 
 
@@ -49,8 +49,7 @@ namespace RiskyClassicItems.Items
         {
             if (damageInfo.attacker && damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody) && TryGetCount(attackerBody, out int itemCount))
             {
-                var rollChance = Utils.ItemHelpers.StackingLinear(itemCount, procChancePercentage, procChanceStackPercentage);
-                if (Util.CheckRoll(rollChance, attackerBody.master))
+                if (Util.CheckRoll(Util.ConvertAmplificationPercentageIntoReductionPercentage(15f * itemCount)))
                 {
                     damageInfo.damageType |= DamageType.Freeze2s;
                 }

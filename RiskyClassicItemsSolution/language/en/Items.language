@@ -162,12 +162,12 @@
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit: {0}% chance <style=cStack>(+{1}% chance per stack) to damage/slow by <style=cIsDamage>{2}% enemy attack damage</style> and <style=cIsUtility>{3}% of enemy movement speed</style> over {4} seconds.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>{1}% of victim's damage</style> and slow by <style=cIsDamage>{3} movement speed</style> over {4} seconds <style=cStack>(+{5} seconds per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to chill enemies on hit. Chilling a chilled enemy has a chance to freeze.",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to freeze enemies on hit.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "",
 
 
