@@ -31,7 +31,7 @@ namespace RiskyClassicItems.Modules
             });
 
             ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);*/
-            ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
+            ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
         }
     }
 }

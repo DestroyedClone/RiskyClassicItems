@@ -23,7 +23,7 @@ namespace RiskyClassicItems.Equipment
             if (flag6)
             {
                 GenericPickupController pickupController = self.currentTarget.pickupController;
-                ConfigureTargetIndicator(self, targetingEquipmentIndex, pickupController);
+                ConfigureTargetIndicator(self, targetingEquipmentIndex, pickupController, ref flag6);
             }
             self.targetIndicator.active = flag6;
             self.targetIndicator.targetTransform = (flag6 ? self.currentTarget.transformToIndicateAt : null);
@@ -106,7 +106,7 @@ namespace RiskyClassicItems.Equipment
             equipmentSlot.currentTarget = new EquipmentSlot.UserTargetInfo(equipmentSlot.targetFinder.GetResults().FirstOrDefault<HurtBox>());
         }
 
-        protected virtual void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController)
+        protected virtual void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController, ref bool shouldShowOverride)
         {
             equipmentSlot.targetIndicator.visualizerPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/BossHunterIndicator");
         }

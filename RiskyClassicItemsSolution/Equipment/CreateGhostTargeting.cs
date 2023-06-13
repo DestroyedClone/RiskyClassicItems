@@ -71,22 +71,25 @@ namespace RiskyClassicItems.Equipment
             championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
         }
 
-        protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController)
+        protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController, ref bool shouldShowOverride)
         {
             //base.ConfigureTargetIndicator(equipmentSlot, targetingEquipmentIndex, genericPickupController);
-            if (equipmentSlot.currentTarget.hurtBox)
+            EquipmentSlot.UserTargetInfo currentTarget = equipmentSlot.currentTarget;
+            if (currentTarget.hurtBox && currentTarget.hurtBox.healthComponent && currentTarget.hurtBox.healthComponent.alive)
             {
-                if (equipmentSlot.currentTarget.hurtBox.healthComponent.body.isChampion)
+                if (currentTarget.hurtBox.healthComponent.body.isChampion)
                     equipmentSlot.targetIndicator.visualizerPrefab = championTargetIndicator;
                 else
                     equipmentSlot.targetIndicator.visualizerPrefab = commonTargetIndicator;
+                return;
             }
+            shouldShowOverride = false;
         }
 
         protected override void CreateConfig(ConfigFile config)
         {
             base.CreateConfig(config);
-            limitSpawns = config.Bind(ConfigCategory, "Limit Spawns", true, $"If true, max spawns will be set to {maxGhosts}.");
+            limitSpawns = config.Bind(ConfigCategory, "Limit Spawns", true, $"If true, max ghosts per player will be set to {maxGhosts}.");
             maxGhosts *= (limitSpawns.Value ? 1 : 999999);
         }
 
@@ -137,7 +140,7 @@ namespace RiskyClassicItems.Equipment
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
             HurtBox hurtBox = slot.currentTarget.hurtBox;
-            if (!hurtBox || !hurtBox.healthComponent)
+            if (!hurtBox || !hurtBox.healthComponent || !hurtBox.healthComponent.alive)
             {
                 return false;
             }
@@ -164,6 +167,10 @@ namespace RiskyClassicItems.Equipment
                         ghostsToSpawn = 0;
                     }
                 }
+            if (hasSpawnedGhost)
+            {
+                CreateGhostOrbEffect(slot.characterBody, hurtBox.healthComponent.body, 0.25f);
+            }
             slot.InvalidateCurrentTarget();
 
             /*var deployableCount = slot.characterBody.master.GetDeployableCount(DS_GhostAlly);
@@ -259,18 +266,22 @@ namespace RiskyClassicItems.Equipment
 
                 if (body.mainHurtBox)
                 {
-                    var duration = 1f;
-                    EffectData effectData = new EffectData
-                    {
-                        scale = 1f,
-                        origin = targetBody.corePosition,
-                        genericFloat = duration
-                    };
-                    effectData.SetHurtBoxReference(body.mainHurtBox);
-                    EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect"), effectData, true);
+                    CreateGhostOrbEffect(targetBody, body, 0.5f);
                 }
             }
             return body;
+        }
+
+        private static void CreateGhostOrbEffect(CharacterBody targetBody, CharacterBody originBody, float duration)
+        {
+            EffectData effectData = new EffectData
+            {
+                scale = 0.5f,
+                origin = targetBody.corePosition,
+                genericFloat = duration
+            };
+            effectData.SetHurtBoxReference(originBody.mainHurtBox);
+            EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect"), effectData, true);
         }
     }
 }

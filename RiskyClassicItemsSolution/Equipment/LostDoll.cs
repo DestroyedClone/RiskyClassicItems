@@ -199,9 +199,15 @@ namespace RiskyClassicItems.Equipment
         {
             return new ItemDisplayRuleDict();
         }
-        protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController)
+        protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController, ref bool shouldShowOverride)
         {
-            equipmentSlot.targetIndicator.visualizerPrefab = TargetingIndicatorPrefabBase;
+            EquipmentSlot.UserTargetInfo currentTarget = equipmentSlot.currentTarget;
+            if (currentTarget.hurtBox && equipmentSlot.currentTarget.hurtBox.healthComponent && equipmentSlot.currentTarget.hurtBox.healthComponent.alive)
+            {
+                equipmentSlot.targetIndicator.visualizerPrefab = TargetingIndicatorPrefabBase;
+                return;
+            }
+            shouldShowOverride = false;
         }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
