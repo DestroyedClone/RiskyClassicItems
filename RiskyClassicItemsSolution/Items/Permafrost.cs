@@ -21,7 +21,7 @@ namespace RiskyClassicItems.Items
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            procChancePercentage,
+            procChancePercentage
         };
 
 
@@ -49,7 +49,7 @@ namespace RiskyClassicItems.Items
         {
             if (damageInfo.attacker && damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody) && TryGetCount(attackerBody, out int itemCount))
             {
-                if (Util.CheckRoll(Util.ConvertAmplificationPercentageIntoReductionPercentage(15f * itemCount)))
+                if (Util.CheckRoll(Util.ConvertAmplificationPercentageIntoReductionPercentage(procChancePercentage * itemCount)))
                 {
                     damageInfo.damageType |= DamageType.Freeze2s;
                 }

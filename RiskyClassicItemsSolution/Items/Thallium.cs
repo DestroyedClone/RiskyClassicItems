@@ -73,32 +73,15 @@ namespace RiskyClassicItems.Items
 
         private void Events_PostOnHitEnemy(DamageInfo damageInfo, GameObject victimGameObject)
         {
-            if (!victimGameObject || !victimGameObject.TryGetComponent(out CharacterBody victimBody) || !damageInfo.attacker || !damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody))
+            if (!victimGameObject || !victimGameObject.TryGetComponent(out CharacterBody _) || !damageInfo.attacker || !damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody))
             {
                 return;
             }
-            if (!TryGetCount(attackerBody, out int itemCount) || !Util.CheckRoll(chance))
+            if (!TryGetCount(attackerBody, out int _) || !Util.CheckRoll(chance))
             {
                 return;
             }
-
-            float victimDamage = victimBody.damage;
-            float attackerDamage = attackerBody.damage;
-
-            float damage;
-            if (victimDamage > attackerDamage)
-            {
-                damage = victimDamage / attackerDamage;
-            } else
-            {
-                damage = 1;
-            }
-                damage /= attackerDamage;
-            damage *= enemyAttackDamageCoef;
-
-            var newDuration = Utils.ItemHelpers.StackingLinear(itemCount, duration, durationPerStack);
-
-            DotController.InflictDot(victimGameObject, damageInfo.attacker, Dots.ThalliumDotIndex, newDuration, damage * dotInterval);
+            DotController.InflictDot(victimGameObject, damageInfo.attacker, Dots.Thallium.ThalliumDotIndex, duration);
         }
     }
 }
