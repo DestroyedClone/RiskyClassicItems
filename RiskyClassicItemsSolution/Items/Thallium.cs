@@ -40,16 +40,25 @@ namespace RiskyClassicItems.Items
             ItemTag.Damage
         };
 
-        public override void Init(ConfigFile config)
-        {
-            CreateConfig(config);
-            CreateLang();
-            CreateItem();
-            Hooks();
-        }
+        public static GameObject thalliumTickEffect;
 
         public override void CreateConfig(ConfigFile config)
         {
+        }
+
+        public override void CreateAssets(ConfigFile config)
+        {
+            var asset = Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/DeathProjectileTickEffect.prefab");
+            /*
+            thalliumTickEffect = PrefabAPI.InstantiateClone(asset.transform.Find("DarkWisps01Ring_Ps").gameObject, "ThalliumTickEffect");
+            thalliumTickEffect.AddComponent<DestroyOnTimer>().duration = 1;
+            var nps = thalliumTickEffect.AddComponent<NormalizeParticleScale>();
+            nps.normalizeWithSkinnedMeshRendererInstead = true;*/
+            thalliumTickEffect = PrefabAPI.InstantiateClone(asset, "ThalliumProcEffect");
+            thalliumTickEffect.transform.localScale = Vector3.one * 0.5f;
+            Object.Destroy(thalliumTickEffect.transform.Find("FlarePersitant_Ps").gameObject);
+            Object.Destroy(thalliumTickEffect.transform.Find("WispsBurst_Ps").gameObject);
+            ContentAddition.AddEffect(thalliumTickEffect);
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -77,7 +86,7 @@ namespace RiskyClassicItems.Items
             {
                 return;
             }
-            if (!TryGetCount(attackerBody, out int _) || !Util.CheckRoll(chance))
+            if (!TryGetCount(attackerBody, out int _) || !Util.CheckRoll(chance, attackerBody.master))
             {
                 return;
             }

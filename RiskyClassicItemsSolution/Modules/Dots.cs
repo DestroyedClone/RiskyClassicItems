@@ -5,6 +5,7 @@ using R2API;
 using RiskyClassicItems.Utils;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RiskyClassicItems.Modules
 {
@@ -42,8 +43,8 @@ namespace RiskyClassicItems.Modules
 
                 ThalliumEffectParams = new BurnEffectController.EffectParams()
                 {
-                    overlayMaterial = Assets.LoadAddressable<Material>("RoR2/DLC1/VoidCamp/matVoidCampSphereSubtle.mat"),
-                    fireEffectPrefab = Assets.LoadAddressable<GameObject>("RoR2/Base/Croco/BlightEffect.prefab")
+                    //overlayMaterial = Assets.LoadAddressable<Material>("RoR2/DLC1/VoidCamp/matVoidCampSphereSubtle.mat"),
+                    //fireEffectPrefab = Items.Thallium.thalliumTickEffect
                 };
 
                 ThalliumDotDef = new DotController.DotDef()
@@ -111,6 +112,7 @@ namespace RiskyClassicItems.Modules
                         //but because this is contained it can't do that...
 
                         dotStack.timer = 0;
+                        dotStack.damage = 0;
                     }
                 });
 
@@ -127,7 +129,7 @@ namespace RiskyClassicItems.Modules
                             if (modelLocator.modelTransform)
                             {
                                 dotVisualTracker.thalliumEffect = target.gameObject.AddComponent<BurnEffectController>();
-                                dotVisualTracker.thalliumEffect.effectType = ThalliumEffectParams;
+                                //dotVisualTracker.thalliumEffect.effectType = ThalliumEffectParams;
                                 dotVisualTracker.thalliumEffect.target = modelLocator.modelTransform.gameObject;
                             }
                         }
@@ -138,9 +140,20 @@ namespace RiskyClassicItems.Modules
                         dotVisualTracker.thalliumEffect = null;
                     }
                 });
-                ThalliumDotIndex = DotAPI.RegisterDotDef(ThalliumDotDef, ThalliumDotBehavior, ThalliumDotVisual);
-                //ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
-                //ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
+                ThalliumDotIndex = DotAPI.RegisterDotDef(ThalliumDotDef, ThalliumDotBehavior);//, ThalliumDotVisual);
+                                                                                              //ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
+                                                                                              //ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
+
+                On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            }
+
+            private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+            {
+                orig(self, damageInfo);
+                if (NetworkServer.active && damageInfo.dotIndex == ThalliumDotIndex)
+                {
+                    EffectManager.SimpleEffect(Items.Thallium.thalliumTickEffect, damageInfo.position, Quaternion.identity, true);
+                }
             }
         }
     }
