@@ -1,7 +1,10 @@
-﻿using R2API;
+﻿using MonoMod.Cil;
+using R2API;
 using RoR2;
 using System;
 using UnityEngine;
+using MonoMod;
+using Mono.Cecil.Cil;
 
 namespace RiskyClassicItems.Modules
 {
@@ -22,6 +25,21 @@ namespace RiskyClassicItems.Modules
 
             On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            IL.RoR2.CharacterBody.UpdateAllTemporaryVisualEffects += (il) =>
+            {
+                ILCursor c = new ILCursor(il);
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "CrocoRegen")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterBody, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || self.HasBuff(BitterRootBuff);
+                    });
+                }
+            };
         }
 
         private static void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
@@ -70,8 +88,7 @@ namespace RiskyClassicItems.Modules
                             false,
                             null);
             BitterRootBuff = CreateBuffInternal("RCI_BitterRoot",
-                Color.green,
-                false,
+                Color.green, true,
                 null,
                 Assets.LoadSprite("texBitterRootBuffIcon"),
                 false,
@@ -94,7 +111,7 @@ namespace RiskyClassicItems.Modules
                 null, Assets.LoadSprite("texPrisonShacklesBuffIcon"),
                 false, true, false, null);
             ThalliumBuff = CreateBuffInternal("RCI_ThalliumBuff",
-                Color.green, true,
+                rgb(123, 74, 149), true,
                 null, Assets.LoadSprite("texThalliumBuffIcon"),
                 false, true, false, null);
         }
@@ -118,6 +135,12 @@ namespace RiskyClassicItems.Modules
         public static BuffDef CreateEliteBuffDef(string name, Color buffcolor, EliteDef eliteDef, Sprite iconSprite, NetworkSoundEventDef startSfx)
         {
             return CreateBuffInternal(name, buffcolor, false, eliteDef, iconSprite, false, false, false, startSfx);
+        }
+
+        //https://github.com/prodzpod/TemplarSkins/blob/master/TemplarSkins/Skins.cs#L52
+        public static Color rgb(byte r, byte g, byte b, byte a = 255)
+        {
+            return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
         }
     }
 }

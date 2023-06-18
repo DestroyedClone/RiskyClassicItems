@@ -3,6 +3,7 @@ using R2API;
 using RiskyClassicItems.Modules;
 using RoR2;
 using UnityEngine;
+using static RiskyClassicItems.Modules.Dots;
 
 namespace RiskyClassicItems.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/Thallium.cs
@@ -54,8 +55,12 @@ namespace RiskyClassicItems.Items
             thalliumTickEffect.AddComponent<DestroyOnTimer>().duration = 1;
             var nps = thalliumTickEffect.AddComponent<NormalizeParticleScale>();
             nps.normalizeWithSkinnedMeshRendererInstead = true;*/
+            //[Error: R2API.Prefab] ThalliumProcEffect(UnityEngine.GameObject) don't have a NetworkIdentity Component but was marked for network registration.
             thalliumTickEffect = PrefabAPI.InstantiateClone(asset, "ThalliumProcEffect");
             thalliumTickEffect.transform.localScale = Vector3.one * 0.5f;
+            //thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().playbackSpeed = 4f;
+            var main = thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().main;
+            main.simulationSpeed *= 4f;
             Object.Destroy(thalliumTickEffect.transform.Find("FlarePersitant_Ps").gameObject);
             Object.Destroy(thalliumTickEffect.transform.Find("WispsBurst_Ps").gameObject);
             ContentAddition.AddEffect(thalliumTickEffect);
@@ -86,11 +91,22 @@ namespace RiskyClassicItems.Items
             {
                 return;
             }
-            if (!TryGetCount(attackerBody, out int _) || !Util.CheckRoll(chance, attackerBody.master))
+            if (!TryGetCount(attackerBody, out int itemCount) || !Util.CheckRoll(chance, attackerBody.master))
             {
                 return;
             }
-            DotController.InflictDot(victimGameObject, damageInfo.attacker, Dots.Thallium.ThalliumDotIndex, duration);
+            var duration = Utils.ItemHelpers.StackingLinear(itemCount, Thallium.Instance.duration, durationPerStack);
+            var inflictDotInfo = new InflictDotInfo()
+            {
+                attackerObject = damageInfo.attacker,
+                dotIndex = Dots.Thallium.ThalliumDotIndex,
+                maxStacksFromAttacker = new uint?(1U),
+                victimObject = victimGameObject,
+                duration = duration,
+            };
+
+            //DotController.InflictDot(victimGameObject, damageInfo.attacker, Dots.Thallium.ThalliumDotIndex, duration);
+            DotController.InflictDot(ref inflictDotInfo);
         }
     }
 }

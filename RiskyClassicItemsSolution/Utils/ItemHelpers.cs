@@ -175,6 +175,9 @@ namespace RiskyClassicItems.Utils
 
         public static bool TryGetBuffCount(CharacterBody characterBody, BuffDef buffDef, out int buffCount)
         {
+            buffCount = 0;
+            if (!characterBody) return false;
+
             buffCount = characterBody.GetBuffCount(buffDef);
             return buffCount > 0;
         }

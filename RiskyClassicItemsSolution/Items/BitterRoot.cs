@@ -76,9 +76,10 @@ namespace RiskyClassicItems.Items
 
         private void GetStatCoefficients_Alt(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            if (sender && sender.HasBuff(Buffs.BitterRootBuff))
+            if (Utils.ItemHelpers.TryGetBuffCount(sender, Buffs.BitterRootBuff, out int buffCount))
             {
-                args.baseRegenAdd += alt_regenIncrease;
+                float levelFactor = 1f + 0.2f * (sender.level - 1f);
+                args.baseRegenAdd += alt_regenIncrease * buffCount * levelFactor;
             }
         }
 

@@ -51,9 +51,9 @@ namespace RiskyClassicItems.Modules
                 {
                     associatedBuff = Buffs.ThalliumBuff,
                     damageCoefficient = 0.333f,
-                    damageColorIndex = DamageColorIndex.Poison,
+                    damageColorIndex = DamageColorIndex.Void,
                     interval = thallium.dotInterval,
-                    resetTimerOnAdd = false,
+                    resetTimerOnAdd = true,
                 };
 
                 ThalliumDotBehavior = new DotAPI.CustomDotBehaviour((dotController, dotStack) =>
@@ -78,9 +78,12 @@ namespace RiskyClassicItems.Modules
                     var itemCount = 1;
                     if (attackerBody)
                         itemCount = thallium.GetCount(attackerBody);
-                    var duration = Utils.ItemHelpers.StackingLinear(itemCount, thallium.duration, thallium.durationPerStack);
+                    //var duration = Utils.ItemHelpers.StackingLinear(itemCount, thallium.duration, thallium.durationPerStack);
+                    dotStack.damage = damageToDeal;
+                    //dotStack.timer = duration;
+                    //only use this if you want one stack total regardless of attacker
+                    /*
                     bool stackActive = false;
-
                     foreach (var dotStack1 in dotController.dotStackList)
                     {
                         if (dotStack1.dotIndex == ThalliumDotIndex)
@@ -95,7 +98,6 @@ namespace RiskyClassicItems.Modules
                             stackActive = true;
                             break;
                         }
-                    }
                     if (!stackActive)
                     {
                         //Main.ModDebugLog($"Current: Damage Comparison oldvsnew:  {dotStack.damage} -> {damageToDeal}");
@@ -113,7 +115,7 @@ namespace RiskyClassicItems.Modules
 
                         dotStack.timer = 0;
                         dotStack.damage = 0;
-                    }
+                    }*/
                 });
 
                 ThalliumDotVisual = new DotAPI.CustomDotVisual((target) =>
