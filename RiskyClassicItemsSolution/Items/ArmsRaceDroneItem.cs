@@ -39,6 +39,8 @@ namespace RiskyClassicItems.Items
             return new ItemDisplayRuleDict();
         }
 
+        public override string ParentItemName => ArmsRace.Instance.ItemName;
+
         //https://github.com/Moffein/RiskyMod/blob/master/RiskyMod/Allies/DroneBehaviors/AutoMissileBehavior.cs#L10
         public class ArmsRaceDroneBehavior : BaseItemBodyBehavior
         {

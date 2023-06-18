@@ -88,7 +88,7 @@ namespace RiskyClassicItems.Modules
                             false,
                             null);
             BitterRootBuff = CreateBuffInternal("RCI_BitterRoot",
-                Color.green, true,
+                new Color(0.7882f, 0.949f, 0.302f, 1), true,
                 null,
                 Assets.LoadSprite("texBitterRootBuffIcon"),
                 false,

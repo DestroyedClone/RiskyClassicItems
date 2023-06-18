@@ -8,6 +8,7 @@ namespace RiskyClassicItems.Modules
     {
         internal static void CheckForModSupport()
         {
+            /*
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatBetterUI.guid))
             {
                 ModCompatBetterUI.Init();
@@ -15,7 +16,7 @@ namespace RiskyClassicItems.Modules
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatRiskOfOptions.guid))
             {
                 ModCompatRiskOfOptions.Init();
-            }
+            }*/
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatRiskyMod.guid))
             {
                 ModCompatRiskyMod.Init();
