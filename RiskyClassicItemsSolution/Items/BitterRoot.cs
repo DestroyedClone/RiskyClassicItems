@@ -60,6 +60,7 @@ namespace RiskyClassicItems.Items
             {
                 GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
                 RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients_Alt;
+                ItemDef.pickupToken += "_ALT";
                 ItemDef.descriptionToken += "_ALT";
                 return;
             }

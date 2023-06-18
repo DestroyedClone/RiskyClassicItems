@@ -72,6 +72,11 @@
 		"CLASSICITEMSRETURNS_ITEM_TASER_DESCRIPTION": "",
 		"CLASSICITEMSRETURNS_ITEM_TASER_LORE": "",
 
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "The Toxin",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "Touching an enemy makes it vulnerable to your next attack",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "<style=cIsDamage>Touching</style> an enemy makes it <style=cIsDamage>vulnerable</style> to your next attack, <style=cIsDamage>reducing</style> its <style=cIsDamage>armor</style> by <style=cIsDamage>{0}</style> for <style=cIsDamage>{1} seconds</style> <style=cStack>(+{2} seconds per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "",
+
 		//[TIER2]
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Deals bonus damage per gold",

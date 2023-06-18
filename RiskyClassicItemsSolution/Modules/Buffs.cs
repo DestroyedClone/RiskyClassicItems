@@ -17,6 +17,7 @@ namespace RiskyClassicItems.Modules
         public static BuffDef PermafrostChilledBuff;
         public static BuffDef ShacklesBuff;
         public static BuffDef ThalliumBuff;
+        public static BuffDef WeakenOnContactBuff;
 
         public static void Initialize()
         {
@@ -38,6 +39,40 @@ namespace RiskyClassicItems.Modules
                     {
                         return hasBuff || self.HasBuff(BitterRootBuff);
                     });
+                }
+            };
+            IL.RoR2.CharacterBody.UpdateAllTemporaryVisualEffects += (il) =>
+            {
+                ILCursor c = new ILCursor(il);
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "Weak")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterBody, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || self.HasBuff(WeakenOnContactBuff);
+                    });
+                }
+            };
+            IL.RoR2.CharacterModel.UpdateOverlays += (il) =>
+            {
+                ILCursor c = new ILCursor(il);
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "Weak")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterModel, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || (self.body.HasBuff(WeakenOnContactBuff));
+                    });
+                }
+                else
+                {
+                    Debug.LogError("Starstorm 2 Unofficial: Failed to set up Chirr Friend Buff overlay IL Hook.");
                 }
             };
         }
@@ -97,7 +132,7 @@ namespace RiskyClassicItems.Modules
                 null);
             GoldenGunBuff = CreateBuffInternal("RCI_GoldenGun",
                 Color.yellow, true,
-                null, Assets.LoadSprite("texPrescriptionsBuffIcon"),
+                null, Assets.LoadSprite("texGoldenGunBuffIcon"),
                 true, false,
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("RCI_Chilled",
@@ -113,6 +148,10 @@ namespace RiskyClassicItems.Modules
             ThalliumBuff = CreateBuffInternal("RCI_ThalliumBuff",
                 rgb(123, 74, 149), true,
                 null, Assets.LoadSprite("texThalliumBuffIcon"),
+                false, true, false, null);
+            WeakenOnContactBuff = CreateBuffInternal("RCI_WeakenOnContact",
+                Color.green, false,
+                null, Assets.LoadSprite("texWeakenOnContactBuffIcon"),
                 false, true, false, null);
         }
 
