@@ -113,7 +113,7 @@ namespace RiskyClassicItems.Modules
 
         private static void InitializeBuffDefs()
         {
-            DrugsBuff = CreateBuffInternal("RCI_Prescriptions",
+            DrugsBuff = CreateBuffInternal("CIR_Prescriptions",
                             Color.red,
                             false,
                             null,
@@ -122,7 +122,7 @@ namespace RiskyClassicItems.Modules
                             false,
                             false,
                             null);
-            BitterRootBuff = CreateBuffInternal("RCI_BitterRoot",
+            BitterRootBuff = CreateBuffInternal("CIR_BitterRoot",
                 new Color(0.7882f, 0.949f, 0.302f, 1), true,
                 null,
                 Assets.LoadSprite("texBitterRootBuffIcon"),
@@ -130,26 +130,26 @@ namespace RiskyClassicItems.Modules
                 false,
                 false,
                 null);
-            GoldenGunBuff = CreateBuffInternal("RCI_GoldenGun",
+            GoldenGunBuff = CreateBuffInternal("CIR_GoldenGun",
                 Color.yellow, true,
                 null, Assets.LoadSprite("texGoldenGunBuffIcon"),
                 true, false,
                 false, null);
-            PermafrostChilledBuff = CreateBuffInternal("RCI_Chilled",
+            PermafrostChilledBuff = CreateBuffInternal("CIR_Chilled",
                 Color.cyan, false,
                 null, Assets.LoadSprite("texPermafrostBuffIcon"),
                 false, true,
                 false, null);//Play_wFeralShoot2
 
-            ShacklesBuff = CreateBuffInternal("RCI_PrisonShackles",
+            ShacklesBuff = CreateBuffInternal("CIR_PrisonShackles",
                 Color.blue, false,
                 null, Assets.LoadSprite("texPrisonShacklesBuffIcon"),
                 false, true, false, null);
-            ThalliumBuff = CreateBuffInternal("RCI_ThalliumBuff",
+            ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",
                 rgb(123, 74, 149), true,
                 null, Assets.LoadSprite("texThalliumBuffIcon"),
                 false, true, false, null);
-            WeakenOnContactBuff = CreateBuffInternal("RCI_WeakenOnContact",
+            WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
                 Color.green, false,
                 null, Assets.LoadSprite("texWeakenOnContactBuffIcon"),
                 false, true, false, null);

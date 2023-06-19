@@ -13,10 +13,10 @@ namespace RiskyClassicItems.Modules
     {
         public static void Initialize()
         {
-            OrbAPI.AddOrb(typeof(LostDollOrb));
+            OrbAPI.AddOrb(typeof(CIR_LostDollOrb));
         }
 
-        public class LostDollOrb : DevilOrb
+        public class CIR_LostDollOrb : DevilOrb
         {
             public CharacterBody attackerCharacterBody;
 

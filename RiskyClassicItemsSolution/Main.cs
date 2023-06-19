@@ -24,8 +24,8 @@ namespace RiskyClassicItems
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     public class Main : BaseUnityPlugin
     {
-        public const string ModGuid = "com.Risky.RiskyClassicItems";
-        public const string ModName = "RiskyClassicItems";
+        public const string ModGuid = "com.DestroyedClone.ClassicItemsReturns";
+        public const string ModName = "Classic Items Returns";
         public const string ModVer = "0.0.1";
 
         //For RiskOfOptions

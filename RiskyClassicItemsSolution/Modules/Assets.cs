@@ -8,9 +8,10 @@ namespace RiskyClassicItems.Modules
 {
     internal class Assets
     {
-        internal const string unlockableDefPrefix = "ItemMod.";
-        internal const string unlockableDefItemPrefix = "ItemMod.";
-        internal const string unlockableDefEquipmentPrefix = "ItemMod.";
+        internal const string unlockableDefPrefix = "ClassicItemsReturns.";
+        internal const string unlockableDefItemPrefix = "ClassicItemsReturns.";
+        internal const string unlockableDefEquipmentPrefix = "ClassicItemsReturns.";
+        internal const string prefabPrefix = "ClassicItemsReturns_";
 
         internal static GameObject NullModel = LoadAddressable<GameObject>("RoR2/Base/Core/NullModel.prefab");
         internal static Sprite NullSprite = LoadAddressable<Sprite>("RoR2/Base/Core/texNullIcon.png");

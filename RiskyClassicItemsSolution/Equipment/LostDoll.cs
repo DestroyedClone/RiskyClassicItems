@@ -53,8 +53,8 @@ namespace RiskyClassicItems.Equipment
 
         public void CreateAssets()
         {
-            dollActivationEffect = PrefabAPI.InstantiateClone(Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/PickupDeathProjectile.prefab"), "RCI_LostDollEffect");
-            var comp = dollActivationEffect.gameObject.AddComponent<RCI_LostDollVisualEffect>();
+            dollActivationEffect = PrefabAPI.InstantiateClone(Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/PickupDeathProjectile.prefab"), Assets.prefabPrefix + "LostDollEffect");
+            var comp = dollActivationEffect.gameObject.AddComponent<ClassicItemsReturns_LostDollVisualEffect>();
             var spike = UnityEngine.Object.Instantiate<GameObject>(Assets.LoadAddressable<GameObject>("RoR2/Base/moon/AbyssSpike.prefab"));
             spike.name = "DollSpike";
             spike.transform.SetParent(dollActivationEffect.transform);
@@ -101,7 +101,7 @@ namespace RiskyClassicItems.Equipment
             }
         }
 
-        public class RCI_LostDollVisualEffect : MonoBehaviour
+        public class ClassicItemsReturns_LostDollVisualEffect : MonoBehaviour
         {
             public float delayStopwatch = 0;
 
@@ -219,7 +219,7 @@ namespace RiskyClassicItems.Equipment
             }
 
             slot.subcooldownTimer = 0.05f;
-            RoR2.Orbs.OrbManager.instance.AddOrb(new Orbs.LostDollOrb()
+            RoR2.Orbs.OrbManager.instance.AddOrb(new Orbs.CIR_LostDollOrb()
             {
                 attacker = slot.gameObject,
                 attackerCharacterBody = slot.characterBody,

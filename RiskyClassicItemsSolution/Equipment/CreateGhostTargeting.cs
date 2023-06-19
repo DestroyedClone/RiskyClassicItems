@@ -59,14 +59,14 @@ namespace RiskyClassicItems.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_SoulJarCommonIndicator", false);
+            commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Assets.prefabPrefix+"SoulJarCommonIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
             commonTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
 
 
-            championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, "RCI_SoulJarChampionIndicator", false);
+            championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, Assets.prefabPrefix + "SoulJarChampionIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
             championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");
         }

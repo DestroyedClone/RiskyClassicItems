@@ -31,23 +31,23 @@ namespace RiskyClassicItems.Modules
 
         public static class Thallium
         {
-            internal static DotController.DotIndex ThalliumDotIndex;
-            internal static DotController.DotDef ThalliumDotDef;
-            internal static DotAPI.CustomDotBehaviour ThalliumDotBehavior;
-            internal static DotAPI.CustomDotVisual ThalliumDotVisual;
-            internal static BurnEffectController.EffectParams ThalliumEffectParams;
+            internal static DotController.DotIndex CIR_ThalliumDotIndex;
+            internal static DotController.DotDef CIR_ThalliumDotDef;
+            internal static DotAPI.CustomDotBehaviour CIR_ThalliumDotBehavior;
+            internal static DotAPI.CustomDotVisual CIR_ThalliumDotVisual;
+            internal static BurnEffectController.EffectParams CIR_ThalliumEffectParams;
 
             public static void Initialize()
             {
                 var thallium = Items.Thallium.Instance;
 
-                ThalliumEffectParams = new BurnEffectController.EffectParams()
+                CIR_ThalliumEffectParams = new BurnEffectController.EffectParams()
                 {
                     //overlayMaterial = Assets.LoadAddressable<Material>("RoR2/DLC1/VoidCamp/matVoidCampSphereSubtle.mat"),
                     //fireEffectPrefab = Items.Thallium.thalliumTickEffect
                 };
 
-                ThalliumDotDef = new DotController.DotDef()
+                CIR_ThalliumDotDef = new DotController.DotDef()
                 {
                     associatedBuff = Buffs.ThalliumBuff,
                     damageCoefficient = 0.333f,
@@ -56,7 +56,7 @@ namespace RiskyClassicItems.Modules
                     resetTimerOnAdd = true,
                 };
 
-                ThalliumDotBehavior = new DotAPI.CustomDotBehaviour((dotController, dotStack) =>
+                CIR_ThalliumDotBehavior = new DotAPI.CustomDotBehaviour((dotController, dotStack) =>
                 {
                     float damageToDeal = 0;
                     float victimDamage = dotController.victimBody.damage;
@@ -118,13 +118,13 @@ namespace RiskyClassicItems.Modules
                     }*/
                 });
 
-                ThalliumDotVisual = new DotAPI.CustomDotVisual((target) =>
+                CIR_ThalliumDotVisual = new DotAPI.CustomDotVisual((target) =>
                 {
                     var modelLocator = target.victimObject.GetComponent<ModelLocator>();
                     var dotVisualTracker = target.GetComponent<DotVisualTracker>();
                     if (!modelLocator || !dotVisualTracker)
                         return;
-                    if (target.HasDotActive(ThalliumDotIndex))
+                    if (target.HasDotActive(CIR_ThalliumDotIndex))
                     {
                         if (!dotVisualTracker.thalliumEffect)
                         {
@@ -142,7 +142,7 @@ namespace RiskyClassicItems.Modules
                         dotVisualTracker.thalliumEffect = null;
                     }
                 });
-                ThalliumDotIndex = DotAPI.RegisterDotDef(ThalliumDotDef, ThalliumDotBehavior);//, ThalliumDotVisual);
+                CIR_ThalliumDotIndex = DotAPI.RegisterDotDef(CIR_ThalliumDotDef, CIR_ThalliumDotBehavior);//, ThalliumDotVisual);
                                                                                               //ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
                                                                                               //ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
 
@@ -152,7 +152,7 @@ namespace RiskyClassicItems.Modules
             private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
             {
                 orig(self, damageInfo);
-                if (NetworkServer.active && damageInfo.dotIndex == ThalliumDotIndex)
+                if (NetworkServer.active && damageInfo.dotIndex == CIR_ThalliumDotIndex)
                 {
                     EffectManager.SimpleEffect(Items.Thallium.thalliumTickEffect, damageInfo.position, Quaternion.identity, true);
                 }

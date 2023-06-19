@@ -56,7 +56,7 @@ namespace RiskyClassicItems.Items
             var nps = thalliumTickEffect.AddComponent<NormalizeParticleScale>();
             nps.normalizeWithSkinnedMeshRendererInstead = true;*/
             //[Error: R2API.Prefab] ThalliumProcEffect(UnityEngine.GameObject) don't have a NetworkIdentity Component but was marked for network registration.
-            thalliumTickEffect = PrefabAPI.InstantiateClone(asset, "ThalliumProcEffect");
+            thalliumTickEffect = PrefabAPI.InstantiateClone(asset, "ThalliumProcEffect", false);
             thalliumTickEffect.transform.localScale = Vector3.one * 0.5f;
             //thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().playbackSpeed = 4f;
             var main = thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().main;
@@ -99,7 +99,7 @@ namespace RiskyClassicItems.Items
             var inflictDotInfo = new InflictDotInfo()
             {
                 attackerObject = damageInfo.attacker,
-                dotIndex = Dots.Thallium.ThalliumDotIndex,
+                dotIndex = Dots.Thallium.CIR_ThalliumDotIndex,
                 maxStacksFromAttacker = new uint?(1U),
                 victimObject = victimGameObject,
                 duration = duration,
