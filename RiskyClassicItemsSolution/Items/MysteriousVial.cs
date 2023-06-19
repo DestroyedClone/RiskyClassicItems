@@ -12,8 +12,8 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "MYSTERIOUSVIAL";
 
-        float regen = 1f;
-        float regenPerStack = 1f;
+        private float regen = 1f;
+        private float regenPerStack = 1f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
@@ -35,6 +35,7 @@ namespace RiskyClassicItems.Items
         {
             return new ItemDisplayRuleDict();
         }
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Healing

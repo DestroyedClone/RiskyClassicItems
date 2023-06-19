@@ -1,13 +1,12 @@
 ﻿using BepInEx.Configuration;
 using R2API;
+using Rewired.ComponentControls.Effects;
 using RiskyClassicItems.Modules;
 using RoR2;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Networking;
-using System.Collections.Generic;
-using Rewired.ComponentControls.Effects;
 
 namespace RiskyClassicItems.Equipment
 {
@@ -59,12 +58,11 @@ namespace RiskyClassicItems.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Assets.prefabPrefix+"SoulJarCommonIndicator", false);
+            commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Assets.prefabPrefix + "SoulJarCommonIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
             commonTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
-
 
             championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, Assets.prefabPrefix + "SoulJarChampionIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
@@ -162,7 +160,8 @@ namespace RiskyClassicItems.Equipment
                         component.ghostList.Add(master);
                         ghostsToSpawn--;
                         hasSpawnedGhost = true;
-                    } else
+                    }
+                    else
                     {
                         ghostsToSpawn = 0;
                     }
@@ -234,12 +233,10 @@ namespace RiskyClassicItems.Equipment
                     if (inventory.GetItemCount(RoR2Content.Items.Ghost) <= 0) inventory.GiveItem(RoR2Content.Items.Ghost);
                     if (inventory.GetItemCount(RoR2Content.Items.UseAmbientLevel) <= 0) inventory.GiveItem(RoR2Content.Items.UseAmbientLevel);
 
-
                     MasterSuicideOnTimer mst = characterMaster2.gameObject.AddComponent<MasterSuicideOnTimer>();
 
                     if (ownerBody && ownerBody.teamComponent && ownerBody.teamComponent.teamIndex == TeamIndex.Player)
                     {
-
                         inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, boostDamageItemCount);
                         //inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
                         if (ModSupport.ModCompatRiskyMod.loaded)

@@ -1,11 +1,7 @@
 ﻿using R2API;
 using RoR2;
 using RoR2.Orbs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
-using static RoR2.MasterSpawnSlotController;
 
 namespace RiskyClassicItems.Modules
 {

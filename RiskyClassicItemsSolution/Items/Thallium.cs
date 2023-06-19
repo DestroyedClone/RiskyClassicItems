@@ -3,7 +3,6 @@ using R2API;
 using RiskyClassicItems.Modules;
 using RoR2;
 using UnityEngine;
-using static RiskyClassicItems.Modules.Dots;
 
 namespace RiskyClassicItems.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/Thallium.cs
@@ -16,7 +15,6 @@ namespace RiskyClassicItems.Items
         public float durationPerStack = 1.5f;
 
         public float dotInterval = 0.5f;
-
 
         public override string ItemName => "Thallium";
 
@@ -36,6 +34,7 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("Thallium");
 
         public override Sprite ItemIcon => LoadItemIcon("Thallium");
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage

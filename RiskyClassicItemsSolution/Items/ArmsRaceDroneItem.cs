@@ -1,24 +1,13 @@
 ﻿using R2API;
-using RoR2;
 using RiskyClassicItems.Modules;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
-using static RoR2.Items.BaseItemBodyBehavior;
-using RoR2.Items;
-using UnityEngine.Diagnostics;
-using RoR2.CharacterAI;
-using BepInEx.Configuration;
-using static RiskyClassicItems.Items.ArmsRace;
-using EntityStates.Drone.DroneWeapon;
-using RoR2.Projectile;
-using UnityEngine.Networking;
 using RiskyClassicItems.Utils;
-using System.Linq;
+using RoR2;
+using RoR2.Items;
 using RoR2.Orbs;
-using System.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RiskyClassicItems.Items
 {
@@ -62,7 +51,7 @@ namespace RiskyClassicItems.Items
             public HurtBox targetHurtBox;
 
             public float cooldownInterval => ArmsRace.Instance.cooldown;
-            
+
             public float failedTargetCooldown = 2f;
             public float timer = 2f;
 
@@ -97,7 +86,6 @@ namespace RiskyClassicItems.Items
                         }
                     }
                 }
-
 
                 GetMissileBarrageCount();
                 missilesLoaded = missilesPerBarrage;

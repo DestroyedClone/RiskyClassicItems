@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using JetBrains.Annotations;
-using Rewired;
-using RoR2.Networking;
-using RoR2.Projectile;
+﻿using BepInEx.Configuration;
+using R2API;
+using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
-using RoR2;
-using BepInEx.Configuration;
-using R2API;
 
 namespace RiskyClassicItems.Items
 {
@@ -35,6 +23,7 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("Clover");
 
         public override Sprite ItemIcon => LoadItemIcon("Clover");
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.BrotherBlacklist,
@@ -42,6 +31,7 @@ namespace RiskyClassicItems.Items
             ItemTag.OnKillEffect,
             ItemTag.Utility
         };
+
         public const float cloverPercentageDropChance = 4.5f;
         public const float cloverPercentageDropChancePerStack = 1.5f;
         public static ConfigEntry<bool> useClassic;

@@ -1,13 +1,11 @@
 ﻿using BepInEx.Configuration;
 using R2API;
+using Rewired.ComponentControls.Effects;
 using RiskyClassicItems.Modules;
 using RoR2;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Networking;
-using IL.RoR2.Projectile;
-using RoR2.Orbs;
-using Rewired.ComponentControls.Effects;
 
 namespace RiskyClassicItems.Equipment
 {
@@ -91,13 +89,12 @@ namespace RiskyClassicItems.Equipment
 
         public class DollSpikeDisplayHelper : MonoBehaviour
         {
-            string output = "";
+            private string output = "";
 
             public void FixedUpdate()
             {
                 var transform = gameObject.transform;
                 output = $"comp.AddSpike(spikeCopy(), new Quaternion{transform.rotation}, new Vector3{transform.localPosition}, Vector3.zero);";
-
             }
         }
 
@@ -118,6 +115,7 @@ namespace RiskyClassicItems.Equipment
             public Material blackMat;
 
             public MeshRenderer dollMR;
+
             public void Awake()
             {
                 delayStopwatch = durationDelay;
@@ -199,6 +197,7 @@ namespace RiskyClassicItems.Equipment
         {
             return new ItemDisplayRuleDict();
         }
+
         protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController, ref bool shouldShowOverride)
         {
             EquipmentSlot.UserTargetInfo currentTarget = equipmentSlot.currentTarget;

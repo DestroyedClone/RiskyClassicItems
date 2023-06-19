@@ -1,8 +1,6 @@
 ﻿using RoR2;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using System.IO;
 
 namespace RiskyClassicItems.Modules
 {
@@ -71,12 +69,13 @@ namespace RiskyClassicItems.Modules
         public static AssetBundle mainAssetBundle;
         public const string bundleName = "classicitemsreturnsbundle";
         public const string assetBundleFolder = "AssetBundles";
+
         public static string AssetBundlePath
         {
             get
             {
                 //This returns the path to your assetbundle assuming said bundle is on the same folder as your DLL. If you have your bundle in a folder, you can uncomment the statement below this one.
-               // return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), bundleName);
+                // return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), bundleName);
                 return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), assetBundleFolder, bundleName);
             }
         }

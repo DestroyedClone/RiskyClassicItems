@@ -1,10 +1,9 @@
-﻿using MonoMod.Cil;
+﻿using Mono.Cecil.Cil;
+using MonoMod.Cil;
 using R2API;
 using RoR2;
 using System;
 using UnityEngine;
-using MonoMod;
-using Mono.Cecil.Cil;
 
 namespace RiskyClassicItems.Modules
 {
@@ -22,7 +21,6 @@ namespace RiskyClassicItems.Modules
         public static void Initialize()
         {
             InitializeBuffDefs();
-
 
             On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;

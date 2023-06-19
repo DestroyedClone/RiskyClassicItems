@@ -1,16 +1,7 @@
 ﻿using R2API;
 using RoR2;
-using RiskyClassicItems.Modules;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
-using static RoR2.Items.BaseItemBodyBehavior;
 using RoR2.Items;
-using UnityEngine.Diagnostics;
-using RoR2.CharacterAI;
-using BepInEx.Configuration;
+using UnityEngine;
 
 namespace RiskyClassicItems.Items
 {
@@ -50,11 +41,11 @@ namespace RiskyClassicItems.Items
             return new ItemDisplayRuleDict();
         }
 
-
         public class ArmsRaceBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => ArmsRace.Instance.ItemDef;
+
             public MinionOwnership minionOwnership;
 
             private const float display2Chance = 0.1f;
@@ -62,13 +53,14 @@ namespace RiskyClassicItems.Items
             private int previousStack;
 
             private Xoroshiro128Plus rng;
+
             private void OnEnable()
             {
                 ulong seed = Run.instance.seed ^ (ulong)((long)Run.instance.stageClearCount);
                 this.rng = new Xoroshiro128Plus(seed);
                 this.UpdateAllMinions(this.stack);
                 MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
-                
+
                 minionOwnership = body.GetComponent<MinionOwnership>();
             }
 
@@ -85,6 +77,7 @@ namespace RiskyClassicItems.Items
                     this.UpdateAllMinions(this.stack);
                 }
             }
+
             private void UpdateAllMinions(int newStack)
             {
                 if (this.body)
@@ -131,6 +124,7 @@ namespace RiskyClassicItems.Items
                     }
                 }
             }
+
             private void UpdateMinionInventory(Inventory inventory, CharacterBody.BodyFlags bodyFlags, int newStack)
             {
                 if (inventory && newStack > 0 && (bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)

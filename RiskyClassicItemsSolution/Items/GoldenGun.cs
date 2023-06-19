@@ -1,11 +1,10 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using RoR2;
-using UnityEngine;
-using static RoR2.Items.BaseItemBodyBehavior;
-using UnityEngine.Networking;
-using RoR2.Items;
 using RiskyClassicItems.Modules;
+using RoR2;
+using RoR2.Items;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RiskyClassicItems.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/GoldenGun.cs
@@ -20,6 +19,7 @@ namespace RiskyClassicItems.Items
         public static uint goldNeededPerStack = 20;
         public static uint goldCap = 300;
         public static uint goldCapPerStack = 150;
+
         public override object[] ItemFullDescriptionParams => new object[]
         {
             goldNeeded,
@@ -42,6 +42,7 @@ namespace RiskyClassicItems.Items
         {
             return new ItemDisplayRuleDict();
         }
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
@@ -66,7 +67,6 @@ namespace RiskyClassicItems.Items
 
             public void OnEnable()
             {
-
             }
 
             public void OnDestroy()
@@ -98,7 +98,6 @@ namespace RiskyClassicItems.Items
                     }
                 }
             }
-
 
             private void FixedUpdate()
             {

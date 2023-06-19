@@ -14,8 +14,9 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "BITTERROOT";
 
-        float maxHealthMultiplier = 0.07f;
-        float maxHealthMultiplierStack = 0.07f;
+        private float maxHealthMultiplier = 0.07f;
+        private float maxHealthMultiplierStack = 0.07f;
+
         public override object[] ItemFullDescriptionParams => new object[]
         {
             (maxHealthMultiplier*100),
@@ -30,6 +31,7 @@ namespace RiskyClassicItems.Items
         public float alt_regenIncrease = 3;
         public float alt_duration = 3;
         public float alt_durationStack = 3;
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Healing

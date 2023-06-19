@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RiskyClassicItems.Modules
 {
@@ -12,7 +10,9 @@ namespace RiskyClassicItems.Modules
         }
 
         public static event Action<RoR2.DamageInfo, UnityEngine.GameObject> PreOnHitEnemy;
+
         public static event Action<RoR2.DamageInfo, UnityEngine.GameObject> PostOnHitEnemy;
+
         private static void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, RoR2.GlobalEventManager self, RoR2.DamageInfo damageInfo, UnityEngine.GameObject victim)
         {
             PreOnHitEnemy?.Invoke(damageInfo, victim);

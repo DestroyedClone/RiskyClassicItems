@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using R2API;
-using RiskyClassicItems.Utils;
+﻿using R2API;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -143,8 +139,8 @@ namespace RiskyClassicItems.Modules
                     }
                 });
                 CIR_ThalliumDotIndex = DotAPI.RegisterDotDef(CIR_ThalliumDotDef, CIR_ThalliumDotBehavior);//, ThalliumDotVisual);
-                                                                                              //ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
-                                                                                              //ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
+                                                                                                          //ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
+                                                                                                          //ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
 
                 On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             }

@@ -1,5 +1,4 @@
-﻿using BepInEx.Configuration;
-using R2API;
+﻿using R2API;
 using RoR2;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ namespace RiskyClassicItems.Items
         public static int duration = 2;
 
         public static int durationStack = 2;
+
         public override object[] ItemFullDescriptionParams => new object[]
         {
             (attackSpeedSlowMultiplier*100),
@@ -28,6 +28,7 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("PrisonShackles");
 
         public override Sprite ItemIcon => LoadItemIcon("PrisonShackles");
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility,

@@ -1,5 +1,4 @@
 using RoR2;
-using System;
 using System.Runtime.CompilerServices;
 
 namespace RiskyClassicItems.Modules
@@ -88,7 +87,6 @@ namespace RiskyClassicItems.Modules
                 //Equipment.CreateGhostTargeting.ghostItems.Add(RiskyMod.Allies.AllyItems.AllyScalingItem, 1);
             }
 
-            
             [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
             internal static void GiveAllyItem(Inventory inventory)
             {

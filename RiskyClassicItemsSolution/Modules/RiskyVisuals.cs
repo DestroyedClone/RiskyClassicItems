@@ -1,9 +1,6 @@
 ﻿using BepInEx.Configuration;
 using R2API;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace RiskyClassicItems.Modules
@@ -14,6 +11,7 @@ namespace RiskyClassicItems.Modules
         public static ConfigEntry<bool> Bear_HermitScarf;
         public static ConfigEntry<bool> HealWhileSafe_SproutingEgg;
         public const string cat = "Cosmetics";
+
         public static void Init(ConfigFile config)
         {
             return;
@@ -30,7 +28,6 @@ namespace RiskyClassicItems.Modules
             Bear.Init();
             HealWhileSafe.Init();
         }
-
 
         private static void MainMenuController_Start(On.RoR2.UI.MainMenu.MainMenuController.orig_Start orig, RoR2.UI.MainMenu.MainMenuController self)
         {
@@ -75,7 +72,7 @@ namespace RiskyClassicItems.Modules
                     };
                     bearDRG.AddDisplayRule(newRule);
                 }
-                Label_1:
+            Label_1:
                 if (HealWhileSafe_SproutingEgg.Value)
                 {
                     var originalDRG = characterModel.itemDisplayRuleSet.FindDisplayRuleGroup(RoR2Content.Items.HealWhileSafe);
@@ -108,11 +105,12 @@ namespace RiskyClassicItems.Modules
                     };
                     originalDRG.AddDisplayRule(newRule);
                 }
-                Label_2:
+            Label_2:
                 continue;
             }
             On.RoR2.UI.MainMenu.MainMenuController.Start -= MainMenuController_Start;
         }
+
         internal class Bear
         {
             public static ItemDef ItemDef => RoR2Content.Items.Bear;
@@ -137,6 +135,7 @@ namespace RiskyClassicItems.Modules
                 ItemDef.descriptionToken = "CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_DESCRIPTION";
             }
         }
+
         internal class HealWhileSafe
         {
             public static ItemDef ItemDef => RoR2Content.Items.HealWhileSafe;

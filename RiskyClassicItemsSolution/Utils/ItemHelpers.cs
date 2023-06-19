@@ -168,6 +168,7 @@ namespace RiskyClassicItems.Utils
         {
             return baseValue + stackValue * (itemCount - 1);
         }
+
         public static int StackingLinear(int itemCount, int baseValue, int stackValue)
         {
             return baseValue + stackValue * (itemCount - 1);
@@ -199,6 +200,7 @@ namespace RiskyClassicItems.Utils
             public bool animateShaderAlpha;
 
             public AnimationCurve alphaCurve;
+
             public enum AnimationCurveType
             {
                 Constant,
@@ -207,7 +209,6 @@ namespace RiskyClassicItems.Utils
             }
 
             public float constantAnimCurveFloat = 1;
-
 
             public AnimationCurveType animationCurveType = AnimationCurveType.Constant;
 

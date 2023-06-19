@@ -1,5 +1,4 @@
-﻿using BepInEx.Configuration;
-using R2API;
+﻿using R2API;
 using RiskyClassicItems.Modules;
 using RoR2;
 using UnityEngine;

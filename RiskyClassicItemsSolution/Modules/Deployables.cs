@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using R2API;
-using RiskyClassicItems.Equipment;
-using RoR2;
-
-namespace RiskyClassicItems.Modules
+﻿namespace RiskyClassicItems.Modules
 {
     internal class Deployables
     {
@@ -17,7 +10,5 @@ namespace RiskyClassicItems.Modules
                 return CreateGhostTargeting.maxGhosts;
             });*/
         }
-
-
     }
 }

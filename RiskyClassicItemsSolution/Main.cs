@@ -1,6 +1,4 @@
 ﻿using BepInEx;
-using RoR2;
-using R2API;
 using R2API.Utils;
 using RiskyClassicItems.Artifact;
 using RiskyClassicItems.Equipment;
@@ -11,8 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 //https://github.com/Bubbet/Risk-Of-Rain-Mods/blob/04540d86404e5ab8609742be568ed579e0176ac0/BubbetsItems/BubbetsItemsPlugin.cs
 using SearchableAttribute = HG.Reflection.SearchableAttribute;
+
 [assembly: SearchableAttribute.OptIn]
 
 namespace RiskyClassicItems
@@ -30,6 +30,7 @@ namespace RiskyClassicItems
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain 1.";
+
         public static PluginInfo PInfo { get; private set; }
 
         public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
@@ -39,6 +40,7 @@ namespace RiskyClassicItems
 
         //Provides a direct access to this plugin's logger for use in any of your other classes.
         public static BepInEx.Logging.ManualLogSource ModLogger;
+
         public const bool debug = true;
 
         public static void ModDebugLog(object data)

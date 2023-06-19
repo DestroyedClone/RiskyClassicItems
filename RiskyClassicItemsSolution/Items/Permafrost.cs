@@ -1,11 +1,6 @@
-﻿using BepInEx.Configuration;
-using R2API;
-using RiskyClassicItems.Utils;
+﻿using R2API;
 using RoR2;
-using RoR2.Items;
 using UnityEngine;
-using static RiskyClassicItems.Items.ArmsRace;
-using static RoR2.Items.BaseItemBodyBehavior;
 
 namespace RiskyClassicItems.Items
 {
@@ -17,19 +12,19 @@ namespace RiskyClassicItems.Items
 
         //util.amplification only accepts one value
         //and figuring out the formula will dent my brain durther
-        float procChancePercentage = 5f;
+        private float procChancePercentage = 5f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
             procChancePercentage
         };
 
-
         public override ItemTier Tier => ItemTier.Tier3;
 
         public override GameObject ItemModel => LoadPickupModel("Permafrost");
 
         public override Sprite ItemIcon => LoadItemIcon("Permafrost");
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility

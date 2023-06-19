@@ -3,7 +3,6 @@ using R2API;
 using RiskyClassicItems.Modules;
 using RoR2;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RiskyClassicItems.Items
@@ -196,7 +195,9 @@ namespace RiskyClassicItems.Items
             CreateItem();
             Hooks();
         }
-        public virtual void CreateAssets(ConfigFile config) { }
+
+        public virtual void CreateAssets(ConfigFile config)
+        { }
 
         public virtual void CreateConfig(ConfigFile config)
         { }
@@ -320,6 +321,7 @@ namespace RiskyClassicItems.Items
 
             return body.inventory.GetItemCount(itemDef);
         }
+
         public bool TryGetCountSpecific(CharacterBody body, ItemDef itemDef, out int count)
         {
             count = 0;

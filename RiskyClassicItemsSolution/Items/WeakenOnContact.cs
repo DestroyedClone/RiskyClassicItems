@@ -6,10 +6,7 @@ using RiskyClassicItems.Utils;
 using RoR2;
 using RoR2.Items;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Networking;
-using static RoR2.Items.BaseItemBodyBehavior;
 
 namespace RiskyClassicItems.Items
 {
@@ -69,15 +66,16 @@ namespace RiskyClassicItems.Items
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => Instance.ItemDef;
+
             public SphereSearch sphereSearch = new SphereSearch();
 
             public float age = 0;
             protected float timer = 0.5f;
+
             //[Min(1E-45f)]
             public float tickRate = 1f;
+
             public float sizeCorrectionMultiplier = 1.3f;
-
-
 
             public void OnEnable()
             {
