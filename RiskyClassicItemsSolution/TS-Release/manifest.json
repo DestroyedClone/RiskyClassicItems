@@ -1,0 +1,10 @@
+{
+    "name": "ClassicItemsReturns",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/DestroyedClone/RiskyClassicItems",
+    "description": "Adds items and equipment from Risk of Rain & Returns",
+    "dependencies": [
+        "bbepis-BepInExPack-5.4.2113",
+        "tristanmcpherson-R2API-5.0.5"
+    ]
+}

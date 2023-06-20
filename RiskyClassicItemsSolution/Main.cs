@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using ClassicItemsReturns.ReadmeGenerator;
 using R2API.Utils;
 using RiskyClassicItems.Artifact;
 using RiskyClassicItems.Equipment;
@@ -64,6 +65,7 @@ namespace RiskyClassicItems
             Orbs.Initialize();
             AddToAssembly();
             Dots.Initialize();
+            //ReadmeGeneratorMain.Init();
         }
 
         private void AddToAssembly()
