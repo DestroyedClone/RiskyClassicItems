@@ -2,7 +2,9 @@
 using R2API;
 using RoR2;
 using RoR2.Items;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static RiskyClassicItems.Items.ArmsRace;
 using static RoR2.Items.BaseItemBodyBehavior;
 
@@ -26,9 +28,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadPickupModel("WeakenOnContact");
+        public override GameObject ItemModel => LoadPickupModel("LifeSavings");
 
-        public override Sprite ItemIcon => LoadItemIcon("WeakenOnContact");
+        public override Sprite ItemIcon => LoadItemIcon("LifeSavings");
 
         public override void Init(ConfigFile config)
         {
@@ -38,8 +40,13 @@ namespace RiskyClassicItems.Items
             Hooks();
         }
 
+        public static ConfigEntry<string> cfgBannedSceneNames;
+        public static string[] bannedSceneDefNames = new string[] { };
         public override void CreateConfig(ConfigFile config)
         {
+            cfgBannedSceneNames = config.Bind(ConfigCategory, "Banned Scenes", "bazaar", "Input the names of the scenes you don't want the item to perform on. Entries are separated by commas.");
+
+            bannedSceneDefNames = cfgBannedSceneNames.Value.Split(',');
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -51,6 +58,8 @@ namespace RiskyClassicItems.Items
         {
         }
 
+
+
         public class LifeSavingsBehaviour : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
@@ -61,6 +70,8 @@ namespace RiskyClassicItems.Items
             private void OnEnable()
             {
                 master = body.master;
+                if (bannedSceneDefNames.Contains(SceneManager.GetActiveScene().name))
+                    enabled = false;
             }
 
             private void FixedUpdate()
