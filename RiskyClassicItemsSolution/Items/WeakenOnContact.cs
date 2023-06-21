@@ -70,12 +70,12 @@ namespace RiskyClassicItems.Items
             public SphereSearch sphereSearch = new SphereSearch();
 
             public float age = 0;
-            protected float timer = 0.5f;
+            protected float timer = 1/8;
 
             //[Min(1E-45f)]
             public float tickRate = 1f;
 
-            public float sizeCorrectionMultiplier = 1.3f;
+            public float sizeCorrectionMultiplier = 2f;
 
             public void OnEnable()
             {
@@ -93,7 +93,7 @@ namespace RiskyClassicItems.Items
                     List<HurtBox> list = CollectionPool<HurtBox, List<HurtBox>>.RentCollection();
                     SearchForTargets(list);
                     if (list.Count == 0)
-                        return;
+                        goto ReturnCollectAndReturn;
                     var duration = Utils.ItemHelpers.StackingLinear(stack, Instance.duration, Instance.durationPerStack);
                     foreach (var hurtBox in list)
                     {
@@ -101,6 +101,9 @@ namespace RiskyClassicItems.Items
                             continue;
                         hurtBox.healthComponent.body.AddTimedBuff(Buffs.WeakenOnContactBuff, duration);
                     }
+                    ReturnCollectAndReturn:
+                    CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(list);
+                    return;
                 }
             }
 

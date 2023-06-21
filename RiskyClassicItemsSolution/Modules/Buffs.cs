@@ -73,6 +73,17 @@ namespace RiskyClassicItems.Modules
                     Debug.LogError("Starstorm 2 Unofficial: Failed to set up Chirr Friend Buff overlay IL Hook.");
                 }
             };
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+        }
+
+        private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            if (self.body && self.body.HasBuff(WeakenOnContactBuff))
+            {
+                if (damageInfo.damageColorIndex == DamageColorIndex.Default)
+                    damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
+            }
+            orig(self, damageInfo);
         }
 
         private static void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
