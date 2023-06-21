@@ -17,18 +17,18 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => ItemName.ToUpper();
 
-        public override string[] ItemFullDescriptionParams => new string[]
+        public override object[] ItemFullDescriptionParams => new object[]
         {
-            gold.ToString(),
-            goldStack.ToString(),
-            intervalSeconds.ToString()
+            gold,
+            goldStack,
+            intervalSeconds
         };
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadModel();
+        public override GameObject ItemModel => LoadPickupModel("WeakenOnContact");
 
-        public override Sprite ItemIcon => LoadSprite();
+        public override Sprite ItemIcon => LoadItemIcon("WeakenOnContact");
 
         public override void Init(ConfigFile config)
         {
@@ -69,8 +69,9 @@ namespace RiskyClassicItems.Items
                 if (stopwatch <= 0)
                 {
                     stopwatch = Instance.intervalSeconds;
-                    var multiplier = Run.instance ? Run.instance.stageClearCount + 1 : 1;
-                    master.GiveMoney((uint)(Utils.ItemHelpers.StackingLinear(this.stack, Instance.gold, Instance.goldStack) * multiplier));
+                    var stackEffect = (Utils.ItemHelpers.StackingLinear(this.stack, Instance.gold, Instance.goldStack));
+                    var multiplier = Run.instance ? Run.instance.GetDifficultyScaledCost(stackEffect, Run.instance.difficultyCoefficient) : 1;
+                    master.GiveMoney((uint)(stackEffect * multiplier));
                 }
             }
         }

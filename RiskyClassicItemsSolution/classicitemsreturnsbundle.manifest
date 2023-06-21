@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3256837077
+CRC: 67497007
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3011d3291ba4f33b2430d7ce3110458e
+    Hash: 52a3506b6ff86960f0927fca5e0020b1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1fe3abd029edb3522ae5dbbc711d0a74
@@ -68,6 +68,7 @@ Assets:
 - Assets/Materials/matStrangeCreature.mat
 - Assets/Sprites/Icons/texJarOfSoulsTargetIndicator.png
 - Assets/Materials/matGlass.mat
+- Assets/Sprites/Icons/Materials/texLifeSavingsIcon.mat
 - Assets/Models/mdlBitterRoot.fbx
 - Assets/Materials/Textures/texLostDoll.png
 - Assets/Sprites/Icons/Materials/texFilialImprintIcon.mat
@@ -82,6 +83,7 @@ Assets:
 - Assets/Sprites/Icons/texLostDollTargetIndicator.png
 - Assets/Sprites/Icons/texFilialImprintIcon.png
 - Assets/Prefabs/PickupLostDoll.prefab
+- Assets/Prefabs/PickupLifeSavings.prefab
 - Assets/Sprites/Icons/texToughTimesIcon.png
 - Assets/Prefabs/PickupFilialImprinting.prefab
 - Assets/Prefabs/PickupWeakenOnContact.prefab
@@ -102,6 +104,7 @@ Assets:
 - Assets/Sprites/Icons/texSoulJarIcon.png
 - Assets/Sprites/Icons/texDeadMansFootIcon.png
 - Assets/Sprites/Icons/texPrescriptionsIcon.png
+- Assets/Sprites/Icons/texLifeSavingsIcon.png
 - Assets/Sprites/Icons/texPermafrostIcon.png
 - Assets/Sprites/Icons/texWeakenOnContactBuffIcon.png
 - Assets/Materials/Textures/texFilialImprinting.png

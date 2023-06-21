@@ -86,6 +86,8 @@ namespace RiskyClassicItems.Items
 
             public void FixedUpdate()
             {
+                AdjustFrequencyBasedOnSpeed();
+
                 age -= Time.fixedDeltaTime;
                 if (age < 0) //floats are effectively impossible to resolve to 0
                 {
@@ -93,17 +95,16 @@ namespace RiskyClassicItems.Items
                     List<HurtBox> list = CollectionPool<HurtBox, List<HurtBox>>.RentCollection();
                     SearchForTargets(list);
                     if (list.Count == 0)
-                        goto ReturnCollectAndReturn;
+                        goto ReturnCollection;
                     var duration = Utils.ItemHelpers.StackingLinear(stack, Instance.duration, Instance.durationPerStack);
                     foreach (var hurtBox in list)
                     {
                         if (!hurtBox)
                             continue;
-                        hurtBox.healthComponent.body.AddTimedBuff(Buffs.WeakenOnContactBuff, duration);
+                        hurtBox.healthComponent.body.AddTimedBuffAuthority(Buffs.WeakenOnContactBuff.buffIndex, duration);
                     }
-                    ReturnCollectAndReturn:
-                    CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(list);
-                    return;
+                    ReturnCollection:
+                        CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(list);
                 }
             }
 
@@ -116,6 +117,15 @@ namespace RiskyClassicItems.Items
                 this.sphereSearch.FilterCandidatesByDistinctHurtBoxEntities();
                 this.sphereSearch.GetHurtBoxes(dest);
                 this.sphereSearch.ClearCandidates();
+            }
+
+            public void AdjustFrequencyBasedOnSpeed()
+            {
+                float maxValue = 1 / 8;
+                float minValue = 1 / 4;
+                //float baseSprintSpeed = 10.15f; 7*1.45
+                float sprintSpeedMultiplierCap = 20.30f;
+                timer = Mathf.Lerp(minValue, maxValue, body.moveSpeed / sprintSpeedMultiplierCap);
             }
         }
     }
