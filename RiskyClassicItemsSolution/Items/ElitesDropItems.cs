@@ -36,7 +36,7 @@ namespace RiskyClassicItems.Items
         public const float cloverPercentageDropChancePerStack = 1.5f;
         public static ConfigEntry<bool> useClassic;
         public static PickupDropTable SacrificePickupDropTable => RoR2.Artifacts.SacrificeArtifactManager.dropTable;
-        private static readonly Xoroshiro128Plus treasureRng = new Xoroshiro128Plus(0UL);
+        private static Xoroshiro128Plus treasureRng;
 
         public override void Init(ConfigFile config)
         {
@@ -44,6 +44,7 @@ namespace RiskyClassicItems.Items
             CreateLang();
             CreateItem();
             Hooks();
+            treasureRng = new Xoroshiro128Plus(0UL);
         }
 
         public override void CreateConfig(ConfigFile config)
