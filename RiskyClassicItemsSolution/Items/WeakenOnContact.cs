@@ -77,11 +77,17 @@ namespace RiskyClassicItems.Items
 
             public float sizeCorrectionMultiplier = 2f;
 
+            readonly float maxFrequency = 0.125f;//1 / 8;
+            readonly float minFrequency = 0.25f;//1 / 4;
+            float lerp_denominator = 2;
+
             public void OnEnable()
             {
                 this.sphereSearch.mask = LayerIndex.entityPrecise.mask;
                 this.sphereSearch.radius = body.radius * sizeCorrectionMultiplier;
                 this.sphereSearch.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
+
+                lerp_denominator = body.moveSpeed * body.sprintingSpeedMultiplier * 2f;
             }
 
             public void FixedUpdate()
@@ -121,11 +127,7 @@ namespace RiskyClassicItems.Items
 
             public void AdjustFrequencyBasedOnSpeed()
             {
-                float maxValue = 1 / 8;
-                float minValue = 1 / 4;
-                //float baseSprintSpeed = 10.15f; 7*1.45
-                float sprintSpeedMultiplierCap = 20.30f;
-                timer = Mathf.Lerp(minValue, maxValue, body.moveSpeed / sprintSpeedMultiplierCap);
+                timer = Mathf.Lerp(minFrequency, maxFrequency, body.moveSpeed / lerp_denominator);
             }
         }
     }
