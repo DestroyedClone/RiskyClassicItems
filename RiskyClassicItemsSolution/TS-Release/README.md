@@ -1,9 +1,12 @@
 # ClassicItemsReturns
 This mod adds items and equipment from Risk of Rain / Returns. 
+
+This is *not* a replacement for Classic Items or Lost in Transit. Just an alternative.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texBitterRootIcon.png) | Bitter Root | Increases `maximum health` by `+7%` `(+7% per stack)`.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLifeSavingsIcon.png) | Life Savings | Generate `1 gold` `(+1 gold per stack)` every `3 seconds`. Increases over time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texMysteriousVialIcon.png) | Mysterious Vial | Increase `base health regeneration` by `+1 hp/s` `(+1 hp/s per stack)`. `Scales with level`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texWeakenOnContactIcon.png) | The Toxin | `Touching` an enemy makes it `vulnerable` to your next attack, `reducing` its `armor` by `20` for `3 seconds` `(+3 seconds per stack)`.
 
@@ -35,14 +38,15 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice `25% of your current health` to `damage` an enemy for `500% of your maximum health`.
 
 ### Suggestions
-For implemented artifacts, see [Risky Artifacts](https://thunderstore.io/package/Moffein/Risky_Artifacts/)
+- For implemented artifacts, see [Risky Artifacts](https://thunderstore.io/package/Moffein/Risky_Artifacts/)
 
 ### Mod Compat
-Risky Mod
+- Risky Mod
 
 ### Credits
 
 - LostInTransit - Some item implementations
 - ClassicItems - Some item implementations
-- Moffein - Consultation, testing
-- KomradeSpectre - Item Boilerplate
+- Moffein - Consultation, RiskyMod, testing
+- KomradeSpectre - ItemModBoilerplate
+- khouryj - Void Item Conversion code [Link](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Void-Items/)
