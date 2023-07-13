@@ -87,7 +87,9 @@ namespace RiskyClassicItems.Items
                 this.sphereSearch.radius = body.radius * sizeCorrectionMultiplier;
                 this.sphereSearch.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
 
-                lerp_denominator = body.moveSpeed * body.sprintingSpeedMultiplier * 2f;
+                lerp_denominator = (body.baseMoveSpeed * body.sprintingSpeedMultiplier * 2f) + body.baseMoveSpeed;
+                //If I set it to just basespeed*sprintingspeedmultiplier*2, then the base movement, will just
+                //base = 7, which already makes the check frequency hit halfway, so gotta offset it
             }
 
             public void FixedUpdate()
