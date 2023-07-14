@@ -73,6 +73,7 @@
     <Folder Include="language\vn\" />
     <Folder Include="language\zh-CN\" />
     <Folder Include="language\zh-TW\" />
+    <Folder Include="TS-Release\BepinEx\plugins\ClassicItemsReturns\AssetBundles\" />
   </ItemGroup>
 
 </Project>

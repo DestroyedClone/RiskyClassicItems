@@ -1,7 +1,8 @@
 # ClassicItemsReturns
+**BETA RELEASE**
+
 This mod adds items and equipment from Risk of Rain / Returns. 
 
-This is *not* a replacement for Classic Items or Lost in Transit. Just an alternative.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
@@ -38,7 +39,6 @@ This is *not* a replacement for Classic Items or Lost in Transit. Just an altern
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice `25% of your current health` to `damage` an enemy for `500% of your maximum health`.
 
 ### Suggestions
-- For implemented artifacts, see [Risky Artifacts](https://thunderstore.io/package/Moffein/Risky_Artifacts/)
 
 ### Mod Compat
 - Risky Mod
