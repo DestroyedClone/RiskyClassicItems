@@ -11,8 +11,8 @@ namespace RiskyClassicItems.Equipment
 
         public override string EquipmentLangTokenName => "DRUGS";
         public const float buffDuration = 8f;
-        public const float buffDamageMultiplier = 0.5f;
-        public const float buffAttackSpeed = 1f;
+        public const float buffDamageMultiplier = 0.2f;
+        public const float buffAttackSpeed = 0.4f;
 
         public override object[] EquipmentFullDescriptionParams => new object[]
         {

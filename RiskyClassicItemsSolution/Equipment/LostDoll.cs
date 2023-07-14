@@ -33,7 +33,7 @@ namespace RiskyClassicItems.Equipment
 
         public override bool IsLunar => true;
         public static GameObject dollActivationEffect;
-        public override float Cooldown => 75;
+        public override float Cooldown => 45;
 
         public override void Init(ConfigFile config)
         {

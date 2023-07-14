@@ -12,7 +12,7 @@ namespace RiskyClassicItems.Items
         public override string ItemLangTokenName => "TOUGHTIMES";
 
         public float armor = 14f;
-        public float armorPerStack = 7f;
+        public float armorPerStack = 14f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {

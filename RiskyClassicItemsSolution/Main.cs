@@ -27,7 +27,7 @@ namespace RiskyClassicItems
     {
         public const string ModGuid = "com.DestroyedClone.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "0.1.0";
+        public const string ModVer = "0.1.1";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain 1.";
