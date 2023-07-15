@@ -28,6 +28,7 @@ namespace RiskyClassicItems.Items
             duration,
             durationPerStack
         };
+        public override bool AIBlacklisted => true;
 
         public override ItemTier Tier => ItemTier.Tier3;
 

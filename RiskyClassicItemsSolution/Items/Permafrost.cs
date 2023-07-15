@@ -18,6 +18,7 @@ namespace RiskyClassicItems.Items
         {
             procChancePercentage
         };
+        public override bool AIBlacklisted => true;
 
         public override ItemTier Tier => ItemTier.Tier3;
 

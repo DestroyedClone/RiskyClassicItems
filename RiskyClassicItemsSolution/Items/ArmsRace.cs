@@ -14,6 +14,8 @@ namespace RiskyClassicItems.Items
         public override string ItemName => "Arms Race";
         public override string ItemLangTokenName => "ARMSRACE";
 
+        public override bool AIBlacklisted => true;
+
         public override object[] ItemFullDescriptionParams => new object[]
         {
             cooldown,

@@ -15,6 +15,7 @@ namespace RiskyClassicItems.Items
         public static int duration = 2;
 
         public static int durationStack = 2;
+        public override bool AIBlacklisted => true;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
