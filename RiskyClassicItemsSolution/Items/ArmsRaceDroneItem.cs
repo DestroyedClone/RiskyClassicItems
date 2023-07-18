@@ -180,10 +180,6 @@ namespace RiskyClassicItems.Items
                     MicroMissileOrb missileOrb = new MicroMissileOrb();
                     missileOrb.origin = missileMuzzleTransform ? missileMuzzleTransform.position : body.corePosition;
                     missileOrb.damageValue = body.damage * ArmsRace.Instance.damageCoeff;
-                    if (ModSupport.ModCompatRiskyMod.loaded)
-                    {
-                        missileOrb.damageValue *= ModSupport.ModCompatRiskyMod.IsNormalizeDroneDamage() ? 1 : 0.857142857f;
-                    }
                     missileOrb.isCrit = body.RollCrit();
                     missileOrb.teamIndex = TeamComponent.GetObjectTeam(body.gameObject);//body.teamComponent.teamIndex;
                     missileOrb.attacker = base.gameObject;
