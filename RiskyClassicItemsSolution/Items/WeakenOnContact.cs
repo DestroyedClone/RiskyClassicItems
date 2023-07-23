@@ -32,6 +32,12 @@ namespace RiskyClassicItems.Items
 
         public override Sprite ItemIcon => LoadItemIcon("WeakenOnContact");
 
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Damage
+        };
+
+
         public override void Init(ConfigFile config)
         {
             CreateConfig(config);
