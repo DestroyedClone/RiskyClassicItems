@@ -37,6 +37,15 @@ namespace RiskyClassicItems.Items
             ItemTag.Healing
         };
 
+        public override void Init(ConfigFile config)
+        {
+            base.Init(config);
+            if (useAlternateVersion.Value)
+            {
+                if (ItemDef.DoesNotContainTag(ItemTag.OnKillEffect)) HG.ArrayUtils.ArrayAppend(ref ItemDef.tags, ItemTag.OnKillEffect);
+            }
+        }
+
         protected override void CreateLang()
         {
             base.CreateLang();
