@@ -3,6 +3,8 @@ using R2API;
 using RiskyClassicItems.Modules;
 using RoR2;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RiskyClassicItems.Items
@@ -277,6 +279,10 @@ namespace RiskyClassicItems.Items
             {
                 HG.ArrayUtils.ArrayAppend(ref ItemDef.tags, ItemTag.AIBlacklist);
             }
+            else if (!AIBlacklisted && ItemDef.ContainsTag(ItemTag.AIBlacklist))
+            {
+                ItemDef.tags = ItemDef.tags.Where(tag => tag != ItemTag.AIBlacklist).ToArray();
+            }    
 
             ItemAPI.Add(new CustomItem(ItemDef, CreateItemDisplayRules()));
         }

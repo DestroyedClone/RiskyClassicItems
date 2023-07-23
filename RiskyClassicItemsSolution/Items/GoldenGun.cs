@@ -15,6 +15,8 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "GOLDENGUN";
 
+        public override bool AIBlacklisted => true;
+
         public static uint goldNeeded = 40;
         public static uint goldNeededPerStack = 20;
         public static uint goldCap = 300;
@@ -45,8 +47,7 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Damage,
-            ItemTag.AIBlacklist
+            ItemTag.Damage
         };
 
         public override void Hooks()
