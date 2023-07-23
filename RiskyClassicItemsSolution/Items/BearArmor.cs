@@ -28,7 +28,7 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Healing
+            ItemTag.Utility
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
