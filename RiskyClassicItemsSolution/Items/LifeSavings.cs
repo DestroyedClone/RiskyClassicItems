@@ -16,6 +16,7 @@ namespace RiskyClassicItems.Items
         int goldStack = 1;
         float intervalSeconds = 3;
         public override string ItemName => "LifeSavings";
+        public override bool AIBlacklisted => true;
 
         public override string ItemLangTokenName => ItemName.ToUpper();
 
@@ -31,6 +32,11 @@ namespace RiskyClassicItems.Items
         public override GameObject ItemModel => LoadPickupModel("LifeSavings");
 
         public override Sprite ItemIcon => LoadItemIcon("LifeSavings");
+
+        public override ItemTag[] ItemTags => new ItemTag[]
+        {
+            ItemTag.Utility
+        };
 
         public override void Init(ConfigFile config)
         {

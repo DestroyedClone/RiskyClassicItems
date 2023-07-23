@@ -32,8 +32,7 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Utility,
-            ItemTag.Damage
+            ItemTag.Utility
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
