@@ -27,6 +27,12 @@ namespace RiskyClassicItems.Items
         {
             return new ItemDisplayRuleDict();
         }
+        public override ItemTag[] ItemTags => new ItemTag[]
+       {
+            ItemTag.CannotSteal,
+            ItemTag.CannotCopy,
+            ItemTag.Damage
+       };
 
         public override string ParentItemName => ArmsRace.Instance.ItemName;
 
