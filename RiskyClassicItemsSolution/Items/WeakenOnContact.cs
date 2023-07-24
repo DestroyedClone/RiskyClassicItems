@@ -82,10 +82,10 @@ namespace RiskyClassicItems.Items
             //[Min(1E-45f)]
             public float tickRate = 1f;
 
-            public float sizeCorrectionMultiplier = 2f;
+            public float sizeCorrectionMultiplier = 4f;
 
-            readonly float maxFrequency = 0.125f;//1 / 8;
-            readonly float minFrequency = 0.25f;//1 / 4;
+            readonly float maxTickDuration = 1f / 12f;
+            readonly float minTickDuration = 1f / 8f;
             float lerp_denominator = 2;
 
             public void OnEnable()
@@ -101,10 +101,11 @@ namespace RiskyClassicItems.Items
 
             public void FixedUpdate()
             {
+                this.sphereSearch.radius = Mathf.Max(4f, body.radius * sizeCorrectionMultiplier);
                 AdjustFrequencyBasedOnSpeed();
 
                 age -= Time.fixedDeltaTime;
-                if (age < 0) //floats are effectively impossible to resolve to 0
+                if (age <= 0f)
                 {
                     age = timer;
                     List<HurtBox> list = CollectionPool<HurtBox, List<HurtBox>>.RentCollection();
@@ -136,7 +137,7 @@ namespace RiskyClassicItems.Items
 
             public void AdjustFrequencyBasedOnSpeed()
             {
-                timer = Mathf.Lerp(minFrequency, maxFrequency, body.moveSpeed / lerp_denominator);
+                timer = Mathf.Lerp(minTickDuration, maxTickDuration, body.moveSpeed / lerp_denominator);
             }
         }
     }
