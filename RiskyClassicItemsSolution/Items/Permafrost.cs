@@ -18,7 +18,6 @@ namespace RiskyClassicItems.Items
         {
             procChancePercentage
         };
-        public override bool AIBlacklisted => true;
 
         public override ItemTier Tier => ItemTier.Tier3;
 
@@ -28,7 +27,8 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Utility
+            ItemTag.Utility,
+            ItemTag.AIBlacklist
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

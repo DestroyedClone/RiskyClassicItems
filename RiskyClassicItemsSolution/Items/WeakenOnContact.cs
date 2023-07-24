@@ -34,7 +34,8 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Damage
+            ItemTag.Damage,
+            ItemTag.AIBlacklist
         };
 
 

@@ -12,8 +12,6 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "56LEAFCLOVER";
 
-        public override bool AIBlacklisted => true;
-
         public override object[] ItemFullDescriptionParams => new object[]
         {
             cloverPercentageDropChance,
@@ -28,6 +26,7 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
+            ItemTag.AIBlacklist,
             ItemTag.BrotherBlacklist,
             ItemTag.OnKillEffect,
             ItemTag.Utility

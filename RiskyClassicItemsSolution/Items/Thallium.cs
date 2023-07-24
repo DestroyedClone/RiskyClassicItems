@@ -28,7 +28,6 @@ namespace RiskyClassicItems.Items
             duration,
             durationPerStack
         };
-        public override bool AIBlacklisted => true;
 
         public override ItemTier Tier => ItemTier.Tier3;
 
@@ -38,7 +37,8 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Damage
+            ItemTag.Damage,
+            ItemTag.AIBlacklist
         };
 
         public static GameObject thalliumTickEffect;

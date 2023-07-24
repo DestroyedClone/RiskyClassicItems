@@ -13,9 +13,6 @@ namespace RiskyClassicItems.Items
         public float damageCoeff = 2;
         public override string ItemName => "Arms Race";
         public override string ItemLangTokenName => "ARMSRACE";
-
-        public override bool AIBlacklisted => true;
-
         public override object[] ItemFullDescriptionParams => new object[]
         {
             cooldown,
@@ -34,6 +31,7 @@ namespace RiskyClassicItems.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
+            ItemTag.AIBlacklist,
             ItemTag.BrotherBlacklist,
             ItemTag.Damage
         };
