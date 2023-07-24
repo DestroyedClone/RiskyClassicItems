@@ -4,6 +4,7 @@ using R2API;
 using RoR2;
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace RiskyClassicItems.Modules
 {
@@ -122,8 +123,13 @@ namespace RiskyClassicItems.Modules
 
         private static void InitializeBuffDefs()
         {
+            BuffDef vWeak = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Treebot/bdWeak.asset").WaitForCompletion();
+            BuffDef vMedkit = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Medkit/bdMedkitHeal.asset").WaitForCompletion();
+            BuffDef vArmor = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdArmorBoost.asset").WaitForCompletion();
+            BuffDef vPred = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/AttackSpeedOnCrit/bdAttackSpeedOnCrit.asset").WaitForCompletion();
+
             DrugsBuff = CreateBuffInternal("CIR_Prescriptions",
-                            Color.red,
+                            vPred.buffColor,
                             false,
                             null,
                             Assets.LoadSprite("texPrescriptionsBuffIcon"),
@@ -132,7 +138,7 @@ namespace RiskyClassicItems.Modules
                             false,
                             null);
             BitterRootBuff = CreateBuffInternal("CIR_BitterRoot",
-                new Color(0.7882f, 0.949f, 0.302f, 1), true,
+                vMedkit.buffColor, true,
                 null,
                 Assets.LoadSprite("texBitterRootBuffIcon"),
                 false,
@@ -140,7 +146,7 @@ namespace RiskyClassicItems.Modules
                 false,
                 null);
             GoldenGunBuff = CreateBuffInternal("CIR_GoldenGun",
-                Color.yellow, true,
+                vArmor.buffColor, true,
                 null, Assets.LoadSprite("texGoldenGunBuffIcon"),
                 true, false,
                 false, null);
@@ -151,7 +157,7 @@ namespace RiskyClassicItems.Modules
                 false, null);//Play_wFeralShoot2
 
             ShacklesBuff = CreateBuffInternal("CIR_PrisonShackles",
-                Color.blue, false,
+                new Color32(181, 191, 193, 255), false,
                 null, Assets.LoadSprite("texPrisonShacklesBuffIcon"),
                 false, true, false, null);
             ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",
@@ -159,7 +165,7 @@ namespace RiskyClassicItems.Modules
                 null, Assets.LoadSprite("texThalliumBuffIcon"),
                 false, true, false, null);
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
-                Color.green, false,
+                vWeak.buffColor, false,
                 null, Assets.LoadSprite("texWeakenOnContactBuffIcon"),
                 false, true, false, null);
         }
