@@ -55,6 +55,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 - `0.2.0`
 	- General
 		- Major visual overhaul for everything.
+		- Updated default AI blacklist settings.
 	- Items
 		- Bitter Root
 			- Increased HP from 7% to 8% to match RoR1.
