@@ -54,7 +54,7 @@ namespace RiskyClassicItems.Items
 
         public override void CreateConfig(ConfigFile config)
         {
-            useAlternateVersion = config.Bind(ConfigCategory, "Use LiT", false, "If true, uses LiT's implementation.");
+            useAlternateVersion = config.Bind(ConfigCategory, "Use Rework", true, "Reworks the item into providing health regen on kill since Bison Steak already exists. If false, gives +HP like in Risk of Rain 1.");
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

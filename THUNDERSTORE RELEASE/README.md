@@ -6,7 +6,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicRoot.png) | Bitter Root | Increases `maximum health` by `+8%` `(+8% per stack)`.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicRoot.png) | Bitter Root | Increase `base health regeneration` by `3hp/s` for `3s (+3s per stack)` after killing an enemy..
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicPig.png) | Life Savings | Generate `1 gold` `(+1 gold per stack)` every `3 seconds`. Increases over time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicVial.png) | Mysterious Vial | Increase `base health regeneration` by `+1 hp/s` `(+1 hp/s per stack)`. `Scales with level`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texWeakenOnContactIcon.png) | The Toxin | `Touching` an enemy makes it `vulnerable` to your next attack, `reducing` its `armor` by `20` for `3 seconds` `(+3 seconds per stack)`.
@@ -46,9 +46,9 @@ This mod adds items and equipment from Risk of Rain / Returns.
 
 - LostInTransit - Some item implementations
 - ClassicItems - Some item implementations
+- DestroyedClone - Coding
 - Moffein - Coding and Unity stuff, Consultation, testing
 - KomradeSpectre - ItemModBoilerplate
-- khouryj - Void Item Conversion code [Link](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Void-Items/)
 
 ### Changelog
 
