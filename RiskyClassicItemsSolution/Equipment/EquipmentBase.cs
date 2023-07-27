@@ -289,7 +289,7 @@ namespace RiskyClassicItems.Equipment
         public Sprite LoadItemSprite(string spriteName)
         {
             Sprite spr = Assets.LoadSprite("texIcon" + (Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
-            if (!spr)
+            if (spr == Assets.NullSprite)
             {
                 Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Sprite" : "Icon") + " for " + spriteName);
                 spr = Assets.LoadSprite("texIcon" + (!Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
@@ -300,7 +300,7 @@ namespace RiskyClassicItems.Equipment
         public GameObject LoadItemModel(string modelName)
         {
             GameObject go = Assets.LoadObject("mdl" + (Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
-            if (!go)
+            if (go == Assets.NullModel)
             {
                 Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Model" : "Model") + " for " + modelName);
                 go = Assets.LoadObject("mdl" + (!Main.useClassicSprites ? "Classic" : string.Empty) + modelName);

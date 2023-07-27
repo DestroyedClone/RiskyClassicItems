@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1470711963
+CRC: 4217949096
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: affe2d9690c93918c53c5c38a012e022
+    Hash: 431bcaa319d7cb5a9bd37613f18115f6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1fe3abd029edb3522ae5dbbc711d0a74
@@ -33,22 +33,23 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
 - Assets/Resources/Textures/Classic/texIconClassicBear.png
 - Assets/Resources/Models/Classic/mdlClassicJarSouls.prefab
-- Assets/Resources/Materials/matClassicBear.mat
+- Assets/Resources/Materials/Classic/matClassicBear.mat
 - Assets/Resources/Textures/UI/texJarOfSoulsChampionTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicClover.png
 - Assets/Resources/Textures/UI/texHitListMarker.png
 - Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
-- Assets/Resources/Materials/matClassicDoll.mat
-- Assets/Resources/Materials/matClassicPills.mat
+- Assets/Resources/Materials/Classic/matClassicDoll.mat
+- Assets/Resources/Materials/Classic/matClassicPills.mat
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
-- Assets/Resources/Materials/matClassicShackles.mat
+- Assets/Resources/Materials/Classic/matClassicShackles.mat
 - Assets/Resources/Textures/Classic/texIconClassicDoll.png
 - Assets/Resources/Models/Classic/mdlClassicRoot.prefab
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
+- Assets/Resources/Materials/matNodraw.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
 - Assets/Resources/Models/Classic/mdlClassicArmsRace.prefab
@@ -58,32 +59,32 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Models/Classic/mdlClassicDoll.prefab
-- Assets/Resources/Materials/matClassicJarSouls.mat
+- Assets/Resources/Materials/Classic/matClassicJarSouls.mat
 - Assets/Resources/Models/Classic/mdlClassicThallium.prefab
-- Assets/Resources/Materials/matClassicClover.mat
+- Assets/Resources/Materials/Classic/matClassicClover.mat
 - Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
-- Assets/Resources/Materials/matClasicArmsRace.mat
+- Assets/Resources/Materials/Classic/matClasicArmsRace.mat
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
-- Assets/Resources/Materials/matClassicGoldGun.mat
+- Assets/Resources/Materials/Classic/matClassicGoldGun.mat
 - Assets/Resources/Textures/Classic/texIconClassicToxin.png
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
-- Assets/Resources/Materials/matClassicRoot.mat
-- Assets/Resources/Materials/matClassicIceCube.mat
+- Assets/Resources/Materials/Classic/matClassicRoot.mat
+- Assets/Resources/Materials/Classic/matClassicIceCube.mat
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/Buffs/texBuffToxin.png
 - Assets/Resources/Textures/UI/texHitListBuffIcon.png
 - Assets/Resources/Models/Classic/mdlClassicShackles.prefab
-- Assets/Resources/Materials/matClassicVial.mat
-- Assets/Resources/Materials/matClassicPig.mat
+- Assets/Resources/Materials/Classic/matClassicVial.mat
+- Assets/Resources/Materials/Classic/matClassicPig.mat
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
-- Assets/Resources/Materials/matClassicCrystal.mat
+- Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
-- Assets/Resources/Materials/matClassicToxin.mat
+- Assets/Resources/Materials/Classic/matClassicToxin.mat
 - Assets/Resources/Models/Classic/mdlClassicClover.prefab
 - Assets/Resources/Textures/Classic/texIconClassicPig.png
-- Assets/Resources/Materials/matClassicThallium.mat
+- Assets/Resources/Materials/Classic/matClassicThallium.mat
 - Assets/Resources/Textures/texModLogo.png
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
 Dependencies: []

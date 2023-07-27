@@ -1,12 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AssetBundleBrowser.Editor", "Unity.AssetBundleBrowser.Editor.csproj", "{F3EFECA6-664C-4AA0-AC15-3E28DEB1FAEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AssetBundleBrowser.Editor.Tests", "Unity.AssetBundleBrowser.Editor.Tests.csproj", "{D819612C-0CA2-D9F0-ECF0-D6082EF1D62F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3EFECA6-664C-4AA0-AC15-3E28DEB1FAEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EFECA6-664C-4AA0-AC15-3E28DEB1FAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EFECA6-664C-4AA0-AC15-3E28DEB1FAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EFECA6-664C-4AA0-AC15-3E28DEB1FAEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D819612C-0CA2-D9F0-ECF0-D6082EF1D62F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D819612C-0CA2-D9F0-ECF0-D6082EF1D62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D819612C-0CA2-D9F0-ECF0-D6082EF1D62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D819612C-0CA2-D9F0-ECF0-D6082EF1D62F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
