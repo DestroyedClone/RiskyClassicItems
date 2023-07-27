@@ -15,7 +15,7 @@ namespace ClassicItemsReturns.Items
         int gold = 1;
         int goldStack = 1;
         float intervalSeconds = 3;
-        public override string ItemName => "LifeSavings";
+        public override string ItemName => "Life Savings";
 
         public override string ItemLangTokenName => ItemName.ToUpper();
 

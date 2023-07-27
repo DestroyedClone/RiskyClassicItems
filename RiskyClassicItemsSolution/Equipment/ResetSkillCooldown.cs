@@ -7,7 +7,7 @@ namespace ClassicItemsReturns.Equipment
 {
     internal class ResetSkillCooldown : EquipmentBase<ResetSkillCooldown>
     {
-        public override string EquipmentName => "ResetSkillCooldown";
+        public override string EquipmentName => "Gigantic Amethyst";
         public override string EquipmentLangTokenName => "RESETSKILLCOOLDOWN";
 
         public override GameObject EquipmentModel => LoadItemModel("Crystal");

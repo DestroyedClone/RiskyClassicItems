@@ -10,7 +10,7 @@ namespace ClassicItemsReturns.Items
     public class BitterRoot : ItemBase<BitterRoot>
     {
         public ConfigEntry<bool> useAlternateVersion;
-        public override string ItemName => "BitterRoot";
+        public override string ItemName => "Bitter Root";
 
         public override string ItemLangTokenName => "BITTERROOT";
 

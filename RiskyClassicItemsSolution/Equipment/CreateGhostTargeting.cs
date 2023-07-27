@@ -12,7 +12,7 @@ namespace ClassicItemsReturns.Equipment
 {
     internal class CreateGhostTargeting : EquipmentBase<CreateGhostTargeting>
     {
-        public override string EquipmentName => "Soul Jar";
+        public override string EquipmentName => "Jar of Souls";
 
         public override string EquipmentLangTokenName => "CREATEGHOSTTARGETING";
         public const int ghostDurationSecondsPlayer = 30;
