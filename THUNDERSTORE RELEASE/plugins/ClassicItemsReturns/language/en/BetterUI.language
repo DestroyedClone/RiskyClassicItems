@@ -1,0 +1,31 @@
+{
+	strings: {
+		//[ "BUFFS" ],
+		"BOILERPLATE_BUFF_METRONOME_NAME": "Metronome Stacks",
+		"BOILERPLATE_BUFF_METRONOME_DESC": "Deal {0}% extra damage per stack.",
+
+		//[ "ItemStats" ],
+		//[CommonAssets]
+		//[STATSDISPLAY]
+		"BOILERPLATE_STATDISPLAY_ACCURACY": "Accuracy",
+
+		//[Common]
+		"BOILERPLATE_STAT_EXAMPLEITEMTOKEN_ITEMSPERSTAGE": "Extra Items Per Stage"
+
+		//[Uncommon]
+
+		//[Legendary]
+
+		//[Lunar]
+
+		//[NoTier]
+
+		//[VOID COMMON]
+
+		//[VOID UNCOMMON]
+
+		//[VOID LEGENDARY]
+
+		//[VOID BOSS]
+	}
+}

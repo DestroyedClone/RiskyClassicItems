@@ -27,10 +27,10 @@ namespace RiskyClassicItems
     {
         public const string ModGuid = "com.DestroyedClone.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "0.1.1";
+        public const string ModVer = "0.2.0";
 
         //For RiskOfOptions
-        public const string ModDescription = "Adds items and equipment from Risk of Rain 1.";
+        public const string ModDescription = "Adds items and equipment from Risk of Rain & Returns.";
 
         public static PluginInfo PInfo { get; private set; }
         public static bool useClassicSprites = true;    //TODO: IMPLEMENT TOGGLE IF REAL MODELS BECOME A THING

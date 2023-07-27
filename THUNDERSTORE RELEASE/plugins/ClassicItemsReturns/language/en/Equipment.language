@@ -1,0 +1,89 @@
+﻿{
+  strings: {
+    //[NORMAL]
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_NAME": "Gigantic Amethyst",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_PICKUP": "Resets all skill cooldowns",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_DESCRIPTION": "Activation <style=cIsUtility>refreshes</style> all cooldowns.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_EMBRYO": "Activation <style=cIsUtility>refreshes</style> all cooldowns, and increases <style=cIsUtility>skill recharge rate</style> by <style=cIsUtility>25%</style> for <style=cIsUtility>4 seconds</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_THROWONHITPROJECTILE_NAME": "Thqwib",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THROWONHITPROJECTILE_PICKUP": "Release a bloom of thqwibs, activating On-Hit effects.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THROWONHITPROJECTILE_DESCRIPTION": "<style=cIsDamage>Release</style> a <style=cIsDamage>bloom of {0} thqwibs</style> that activates <style=cIsDamage>On-Hit effects</style> for <style=cIsDamage>{1}% damage</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THROWONHITPROJECTILE_EMBRYO": "<style=cIsDamage>Release</style> a <style=cIsDamage>bloom of 60 thqwibs</style> that activates <style=cIsDamage>On-Hit effects</style> for <style=cIsDamage>200% damage</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THROWONHITPROJECTILE_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_DECOY_NAME": "Crudely Modelled Buddy",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DECOY_PICKUP": "Creates a decoy of the player, attracting enemies for 8 seconds",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DECOY_DESCRIPTION": "Creates a <style=cIsDamage>decoy</style>, <style=cIsDamage>attracting enemies</style> for <style=cIsDamage>8 seconds</style>. Up to <style=cIsDamage>1 decoy</style> can exist at a time.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DECOY_EMBRYO": "Creates a <style=cIsDamage>decoy</style>, <style=cIsDamage>attracting enemies</style> for <style=cIsDamage>16 seconds</style>. Up to <style=cIsDamage>1 decoy</style> can exist at a time.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DECOY_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_NAME": "Jar of Souls",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_PICKUP": "Duplicate every enemy as a ghost to fight on your side",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_DESCRIPTION": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SOULJAR_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_NAME": "Jar of Souless",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_PICKUP": "Duplicates an enemy as a ghost to fight on your side.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "<style=cIsUtility>Duplicates</style> an enemy as a <style=cIsUtility>ghost</style> with <style=cIsDamage>{0}% damage</style>. <style=cIsDamage>Common</style> enemies are <style=cIsDamage>duplicated {1} times</style>. Lasts <style=cIsUtility>{2} seconds</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_NAME": "Lost Doll",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_PICKUP": "Sacrifice 25% of your current health to damage an enemy for 500% of your maximum health",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_DESCRIPTION": "Sacrifice <style=cIsHealth>{0}% of your current health</style> to <style=cIsDamage>damage</style> an enemy for <style=cIsDamage>{1}% of your maximum health</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_NAME": "Prescriptions",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_PICKUP": "Enter a drug-induced frenzy.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_DESCRIPTION": "You enter a <style=cIsDamage>drug-induced frenzy</style> for <style=cIsUtility>{0}</style> seconds. Increases <style=cIsDamage>damage</style> by <style=cIsDamage>{1}%</style> and <style=cIsDamage>attack speed</style> by <style=cIsDamage>{2}%</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_BRAIN_NAME": "Rotten Brain",
+    "CLASSICITEMSRETURNS_EQUIPMENT_BRAIN_PICKUP": "Throw out a brain that bounces in place, damaging/slowing enemies for 6x200%",
+    "CLASSICITEMSRETURNS_EQUIPMENT_BRAIN_DESCRIPTION": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_BRAIN_EMBRYO": "two brains",
+    "CLASSICITEMSRETURNS_EQUIPMENT_BRAIN_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_SHATTEREDMIRROR_NAME": "Shattered Mirror",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SHATTEREDMIRROR_PICKUP": "For 15 seconds, double all of your abilities' damage and effects",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SHATTEREDMIRROR_DESCRIPTION": "For <style=cIsUtility>15 seconds</style>, <style=cIsDamage>double</style> all of your <style=cIsDamage>abilities' effects and damage</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SHATTEREDMIRROR_EMBRYO": "For <style=cIsUtility>15 seconds</style>, <style=cIsDamage>triple</style> all of your <style=cIsDamage>abilities' effects and damage</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SHATTEREDMIRROR_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_SNOWGLOBE_NAME": "Snowglobe",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SNOWGLOBE_PICKUP": "Summon a snowstorm that slowly freezes enemies.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SNOWGLOBE_DESCRIPTION": "Summon a <style=cIsUtility>snowstorm</style> that slows enemies and deals X% damage per second. Enemies who linger too long are frozen.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SNOWGLOBE_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_SNOWGLOBE_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_TIMESTOP_NAME": "Unstable Watch",
+    "CLASSICITEMSRETURNS_EQUIPMENT_TIMESTOP_PICKUP": "Stop time for 7 seconds",
+    "CLASSICITEMSRETURNS_EQUIPMENT_TIMESTOP_DESCRIPTION": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_TIMESTOP_EMBRYO": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_TIMESTOP_LORE": "",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_VAGRANT_NAME": "Nematocyst Nozzle",
+    "CLASSICITEMSRETURNS_EQUIPMENT_VAGRANT_PICKUP": "Shoot out 6 nematocysts that deal 6x200% damage",
+    "CLASSICITEMSRETURNS_EQUIPMENT_VAGRANT_DESCRIPTION": "",
+    "CLASSICITEMSRETURNS_EQUIPMENT_VAGRANT_EMBRYO": "12",
+    "CLASSICITEMSRETURNS_EQUIPMENT_VAGRANT_LORE": "",
+
+    //[LUNAR]
+
+    //[ELITE]
+    "BOILERPLATE_ELITE_EQUIPMENT_AFFIXEXAMPLE_NAME": "Their Instruction",
+    "BOILERPLATE_ELITE_EQUIPMENT_AFFIXEXAMPLE_PICKUP": "Become an aspect of teaching.",
+    "BOILERPLATE_ELITE_EQUIPMENT_AFFIXEXAMPLE_DESCRIPTION": "",
+    "BOILERPLATE_ELITE_EQUIPMENT_AFFIXEXAMPLE_LORE": "",
+
+    "BOILERPLATE_ELITE_EQUIPMENT_ELITENAME_NAME": "",
+    "BOILERPLATE_ELITE_EQUIPMENT_ELITENAME_PICKUP": "Become an aspect of .",
+    "BOILERPLATE_ELITE_EQUIPMENT_ELITENAME_DESCRIPTION": "",
+    "BOILERPLATE_ELITE_EQUIPMENT_ELITENAME_LORE": ""
+  }
+}
