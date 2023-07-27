@@ -117,7 +117,8 @@ namespace RiskyClassicItems.Modules
             //so better to play on first stack
             if (buffDef == ShacklesBuff)
             {
-                Util.PlaySound("Play_gravekeeper_attack2_shoot_singleChain", self.gameObject);
+                //Util.PlaySound("Play_gravekeeper_attack2_shoot_singleChain", self.gameObject);
+                //TODO: Find less harsh sound
             }
         }
 
@@ -132,7 +133,7 @@ namespace RiskyClassicItems.Modules
                             vPred.buffColor,
                             false,
                             null,
-                            Assets.LoadSprite("texPrescriptionsBuffIcon"),
+                            Assets.LoadSprite("texBuffPills"),
                             false,
                             false,
                             false,
@@ -140,33 +141,33 @@ namespace RiskyClassicItems.Modules
             BitterRootBuff = CreateBuffInternal("CIR_BitterRoot",
                 vMedkit.buffColor, true,
                 null,
-                Assets.LoadSprite("texBitterRootBuffIcon"),
+                Assets.LoadSprite("texBuffGinseng"),
                 false,
                 false,
                 false,
                 null);
             GoldenGunBuff = CreateBuffInternal("CIR_GoldenGun",
                 vArmor.buffColor, true,
-                null, Assets.LoadSprite("texGoldenGunBuffIcon"),
+                null, Assets.LoadSprite("texBuffGoldGun"),
                 true, false,
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("CIR_Chilled",
                 Color.cyan, false,
-                null, Assets.LoadSprite("texPermafrostBuffIcon"),
+                null, Assets.LoadSprite("texPermafrostBuffIcon"),   //whoops forgot this. If it's unused no one's going to notice the missing icon.
                 false, true,
                 false, null);//Play_wFeralShoot2
 
             ShacklesBuff = CreateBuffInternal("CIR_PrisonShackles",
                 new Color32(181, 191, 193, 255), false,
-                null, Assets.LoadSprite("texPrisonShacklesBuffIcon"),
+                null, Assets.LoadSprite("texBuffShackles"),
                 false, true, false, null);
             ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",
                 rgb(123, 74, 149), true,
-                null, Assets.LoadSprite("texThalliumBuffIcon"),
+                null, Assets.LoadSprite("texBuffThallium"),
                 false, true, false, null);
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
                 vWeak.buffColor, false,
-                null, Assets.LoadSprite("texWeakenOnContactBuffIcon"),
+                null, Assets.LoadSprite("texBuffToxin"),
                 false, true, false, null);
         }
 

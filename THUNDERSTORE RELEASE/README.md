@@ -53,13 +53,19 @@ This mod adds items and equipment from Risk of Rain / Returns.
 ### Changelog
 
 - `0.2.0`
-	- Bitter Root
-		- Increased HP from 7% to 8% to match RoR1.
-	- The Toxin
-		- Increased tickrate from 4-8 -> 8-12
-		- Doubled radius, and added a minimum search radius to the contact check.
-	- Tough Times
-		- Increased armor from 14 (+7) -> 14 (+14)
+	- General
+		- Major visual overhaul for everything.
+	- Items
+		- Bitter Root
+			- Increased HP from 7% to 8% to match RoR1.
+		- The Toxin
+			- Increased tickrate from 4-8 -> 8-12
+			- Doubled radius, and added a minimum search radius to the contact check.
+		- Tough Times
+			- Increased armor from 14 (+7) -> 14 (+14)
+		- Prison Shackles
+			- Disabled proc sound.
+
 
 - `0.1.0`
 	- Release
