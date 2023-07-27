@@ -127,10 +127,9 @@ namespace ClassicItemsReturns.Modules
             BuffDef vWeak = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Treebot/bdWeak.asset").WaitForCompletion();
             BuffDef vMedkit = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Medkit/bdMedkitHeal.asset").WaitForCompletion();
             BuffDef vArmor = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdArmorBoost.asset").WaitForCompletion();
-            BuffDef vPred = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/AttackSpeedOnCrit/bdAttackSpeedOnCrit.asset").WaitForCompletion();
 
             DrugsBuff = CreateBuffInternal("CIR_Prescriptions",
-                            vPred.buffColor,
+                            Color.white,
                             false,
                             null,
                             Assets.LoadSprite("texBuffPills"),

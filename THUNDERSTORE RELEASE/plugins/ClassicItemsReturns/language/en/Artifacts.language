@@ -1,6 +1,6 @@
 ﻿{
 	"strings": {
 		"CLASSICITEMSRETURNS_ARTIFACT_CLOVER_NAME": "Artifact of Clovers",
-		"CLASSICITEMSRETURNS_ARTIFACT_GLASS_DESCRIPTION": "All players start with a 56 Leaf Clover in their inventory.",
+		"CLASSICITEMSRETURNS_ARTIFACT_CLOVER_DESCRIPTION": "All players start with a 56 Leaf Clover in their inventory.",
 	}
 }
