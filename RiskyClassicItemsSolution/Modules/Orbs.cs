@@ -3,7 +3,7 @@ using RoR2;
 using RoR2.Orbs;
 using UnityEngine;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class Orbs
     {

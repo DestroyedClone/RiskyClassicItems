@@ -1,12 +1,12 @@
-﻿using RiskyClassicItems.Modules;
-using RiskyClassicItems.Utils.Components;
+﻿using ClassicItemsReturns.Modules;
+using ClassicItemsReturns.Utils.Components;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RiskyClassicItems.Utils
+namespace ClassicItemsReturns.Utils
 {
     public static class ItemHelpers
     {

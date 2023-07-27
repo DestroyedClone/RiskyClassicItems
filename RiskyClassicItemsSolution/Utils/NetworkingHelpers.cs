@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Networking;
 
-namespace RiskyClassicItems.Utils
+namespace ClassicItemsReturns.Utils
 {
     public static class NetworkingHelpers
     {

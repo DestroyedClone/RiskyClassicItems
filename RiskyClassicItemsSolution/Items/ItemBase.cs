@@ -1,13 +1,13 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Modules;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     // The directly below is entirely from TILER2 API (by ThinkInvis) specifically the Item module. Utilized to implement instancing for classes.
     // TILER2 API can be found at the following places:
@@ -370,22 +370,22 @@ namespace RiskyClassicItems.Items
 
         public Sprite LoadItemSprite(string spriteName)
         {
-            Sprite spr = Assets.LoadSprite("texIcon" + (Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
+            Sprite spr = Assets.LoadSprite("texIcon" + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + spriteName);
             if (spr == Assets.NullSprite)
             {
-                Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Sprite" : "Icon") + " for " + spriteName);
-                spr = Assets.LoadSprite("texIcon" + (!Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
+                Debug.LogError("Could not find " + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic Sprite" : "Icon") + " for " + spriteName);
+                spr = Assets.LoadSprite("texIcon" + (!ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + spriteName);
             }
             return spr;
         }
 
         public GameObject LoadItemModel(string modelName)
         {
-            GameObject go = Assets.LoadObject("mdl" + (Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
+            GameObject go = Assets.LoadObject("mdl" + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + modelName);
             if (go == Assets.NullModel)
             {
-                Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Model" : "Model") + " for " + modelName);
-                go = Assets.LoadObject("mdl" + (!Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
+                Debug.LogError("Could not find " + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic Model" : "Model") + " for " + modelName);
+                go = Assets.LoadObject("mdl" + (!ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + modelName);
             }
             return go;
         }

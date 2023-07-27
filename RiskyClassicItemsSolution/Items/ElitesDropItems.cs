@@ -4,7 +4,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     public class ElitesDropItems : ItemBase<ElitesDropItems>
     {
@@ -45,6 +45,7 @@ namespace RiskyClassicItems.Items
             CreateItem();
             Hooks();
             treasureRng = new Xoroshiro128Plus(0UL);
+            Artifact.ArtifactOfClover.cloverDef = this.ItemDef;
         }
 
         public override void CreateConfig(ConfigFile config)

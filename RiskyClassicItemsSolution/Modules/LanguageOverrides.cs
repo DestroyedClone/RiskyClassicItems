@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class LanguageOverrides
     {
@@ -108,7 +108,7 @@ namespace RiskyClassicItems.Modules
 
         private static void SetupLanguage()
         {
-            Main.ModLogger.LogMessage($"Setting up language with {replacementTokens.Count + postReplacementTokens.Count} tokens.");
+            ClassicItemsReturnsPlugin.ModLogger.LogMessage($"Setting up language with {replacementTokens.Count + postReplacementTokens.Count} tokens.");
             DeferTokenFinalize();
             PostDeferTokenFinalize();
         }
@@ -143,7 +143,7 @@ namespace RiskyClassicItems.Modules
                 }
                 catch
                 {
-                    Main.ModLogger.LogError($"Failed to load replacement token {replacementToken.assignedToken}"
+                    ClassicItemsReturnsPlugin.ModLogger.LogError($"Failed to load replacement token {replacementToken.assignedToken}"
                     + $"Params: {replacementToken.args}");
                 }
             }
@@ -177,7 +177,7 @@ namespace RiskyClassicItems.Modules
                 }
                 catch
                 {
-                    Main.ModLogger.LogError($"Failed to load post replacement token {postReplacementToken.assignedToken}"
+                    ClassicItemsReturnsPlugin.ModLogger.LogError($"Failed to load post replacement token {postReplacementToken.assignedToken}"
                     + $"Params are wrong?");
                 }
             }

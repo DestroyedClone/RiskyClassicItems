@@ -1,14 +1,14 @@
 ﻿using BepInEx.Configuration;
 using R2API;
 using Rewired.ComponentControls.Effects;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Modules;
 using RoR2;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RiskyClassicItems.Equipment
+namespace ClassicItemsReturns.Equipment
 {
     internal class CreateGhostTargeting : EquipmentBase<CreateGhostTargeting>
     {

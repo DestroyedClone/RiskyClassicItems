@@ -3,7 +3,7 @@ using R2API;
 using RoR2;
 using UnityEngine;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class RiskyVisuals
     {

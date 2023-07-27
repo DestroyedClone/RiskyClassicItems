@@ -3,7 +3,7 @@ using R2API;
 using RoR2;
 using UnityEngine;
 
-namespace RiskyClassicItems.Equipment
+namespace ClassicItemsReturns.Equipment
 {
     internal class ResetSkillCooldown : EquipmentBase<ResetSkillCooldown>
     {

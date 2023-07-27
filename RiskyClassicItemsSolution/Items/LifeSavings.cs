@@ -5,10 +5,10 @@ using RoR2.Items;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static RiskyClassicItems.Items.ArmsRace;
+using static ClassicItemsReturns.Items.ArmsRace;
 using static RoR2.Items.BaseItemBodyBehavior;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     public class LifeSavings : ItemBase<LifeSavings>
     {

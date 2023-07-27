@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace RiskyClassicItems.Equipment
+namespace ClassicItemsReturns.Equipment
 {
     public abstract partial class EquipmentBase
     {
@@ -97,12 +97,12 @@ namespace RiskyClassicItems.Equipment
 
         protected virtual void ConfigureTargetFinderCustom(EquipmentSlot equipmentSlot)
         {
-            Main.ModLogger.LogWarning($"EquipmentBase.Targeting ConfigureTargetFinderCustom isn't set!");
+            ClassicItemsReturnsPlugin.ModLogger.LogWarning($"EquipmentBase.Targeting ConfigureTargetFinderCustom isn't set!");
         }
 
         protected virtual void SetCurrentTargetCustom(EquipmentSlot equipmentSlot)
         {
-            Main.ModLogger.LogWarning($"EquipmentBase.Targeting SetCurrentTargetCustom isn't set!");
+            ClassicItemsReturnsPlugin.ModLogger.LogWarning($"EquipmentBase.Targeting SetCurrentTargetCustom isn't set!");
             equipmentSlot.currentTarget = new EquipmentSlot.UserTargetInfo(equipmentSlot.targetFinder.GetResults().FirstOrDefault<HurtBox>());
         }
 

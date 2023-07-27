@@ -1,9 +1,9 @@
 ﻿using R2API;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Modules;
 using RoR2;
 using UnityEngine;
 
-namespace RiskyClassicItems.Equipment
+namespace ClassicItemsReturns.Equipment
 {
     public class Prescriptions : EquipmentBase<Prescriptions>
     {

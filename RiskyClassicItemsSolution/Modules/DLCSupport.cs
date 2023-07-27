@@ -2,9 +2,9 @@
 using RoR2;
 using System.Collections.Generic;
 using System.Linq;
-using static RiskyClassicItems.Main;
+using static ClassicItemsReturns.ClassicItemsReturnsPlugin;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class DLCSupport
     {

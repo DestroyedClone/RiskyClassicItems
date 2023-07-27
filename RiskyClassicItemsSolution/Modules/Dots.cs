@@ -3,7 +3,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class Dots
     {

@@ -2,7 +2,7 @@
 using RoR2;
 using UnityEngine;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     public class Permafrost : ItemBase<Permafrost>
     {

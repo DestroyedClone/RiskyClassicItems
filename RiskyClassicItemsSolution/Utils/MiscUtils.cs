@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace RiskyClassicItems.Utils
+namespace ClassicItemsReturns.Utils
 {
     public static class MiscUtils
     {
@@ -54,7 +54,7 @@ namespace RiskyClassicItems.Utils
                 return ResultPosition;
             }
 
-            Main.ModLogger.LogInfo($"No closest node to be found for XYZ: {position}, returning 0,0,0");
+            ClassicItemsReturnsPlugin.ModLogger.LogInfo($"No closest node to be found for XYZ: {position}, returning 0,0,0");
             return Vector3.zero;
         }
 
@@ -188,7 +188,7 @@ namespace RiskyClassicItems.Utils
 
             if (!didHit)
             {
-                Main.ModLogger.LogInfo($"GetAimSurfaceAlignmentInfo did not hit anything in the aim direction on the specified layer ({layerMask}).");
+                ClassicItemsReturnsPlugin.ModLogger.LogInfo($"GetAimSurfaceAlignmentInfo did not hit anything in the aim direction on the specified layer ({layerMask}).");
                 return null;
             }
 

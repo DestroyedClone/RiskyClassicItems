@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RiskyClassicItems.Utils
+namespace ClassicItemsReturns.Utils
 {
     public static class MathHelpers
     {

@@ -1,14 +1,14 @@
 ﻿using BepInEx.Configuration;
 using HG;
 using R2API;
-using RiskyClassicItems.Modules;
-using RiskyClassicItems.Utils;
+using ClassicItemsReturns.Modules;
+using ClassicItemsReturns.Utils;
 using RoR2;
 using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     public class WeakenOnContact : ItemBase<WeakenOnContact>
     {

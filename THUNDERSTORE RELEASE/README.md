@@ -65,6 +65,10 @@ This mod adds items and equipment from Risk of Rain / Returns.
 			- Increased armor from 14 (+7) -> 14 (+14)
 		- Prison Shackles
 			- Disabled proc sound.
+	- Artifacts
+		- Added Artifact of Clover
+			- Players start with a single 56 Leaf Clover in their inventory.
+			- Disabled if 56 Leaf Clover is disabled in the config.
 
 
 - `0.1.0`

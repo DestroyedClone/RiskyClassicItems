@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Modules;
 using RoR2;
 using RoR2.ExpansionManagement;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using UnityEngine;
 using static RoR2.CombatDirector;
 
-namespace RiskyClassicItems.Equipment.EliteEquipment
+namespace ClassicItemsReturns.Equipment.EliteEquipment
 {
     public abstract class EliteEquipmentBase<T> : EliteEquipmentBase where T : EliteEquipmentBase<T>
     {

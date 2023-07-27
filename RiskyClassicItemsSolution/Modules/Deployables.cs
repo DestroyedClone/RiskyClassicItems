@@ -1,4 +1,4 @@
-﻿namespace RiskyClassicItems.Modules
+﻿namespace ClassicItemsReturns.Modules
 {
     internal class Deployables
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class Events
     {

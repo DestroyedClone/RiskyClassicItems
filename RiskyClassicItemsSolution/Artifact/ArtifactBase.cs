@@ -1,12 +1,12 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Modules;
 using RoR2;
 using RoR2.ExpansionManagement;
 using System;
 using UnityEngine;
 
-namespace RiskyClassicItems.Artifact
+namespace ClassicItemsReturns.Artifact
 {
     public abstract class ArtifactBase<T> : ArtifactBase where T : ArtifactBase<T>
     {
@@ -38,7 +38,7 @@ namespace RiskyClassicItems.Artifact
         {
             get
             {
-                return "RISKOFBULLETSTORM_ARTIFACT_" + ArtifactLangTokenName + "_DESCRIPTION";
+                return LanguageOverrides.LanguageTokenPrefix + "ARTIFACT_" + ArtifactLangTokenName + "_DESCRIPTION";
             }
         }
 
@@ -81,7 +81,12 @@ namespace RiskyClassicItems.Artifact
         //For use only after the run has started.
         public bool ArtifactEnabled => RunArtifactManager.instance.IsArtifactEnabled(ArtifactDef);
 
-        public abstract void Init(ConfigFile config);
+        public virtual void Init(ConfigFile config)
+        {
+            CreateLang();
+            CreateArtifact();
+            Hooks();
+        }
 
         ///<summary>
         ///Method responsible for creating and deferring the language tokens.
@@ -145,12 +150,9 @@ namespace RiskyClassicItems.Artifact
         public virtual void Hooks()
         { }
 
-        public Sprite LoadSprite(bool enabled)
+        public Sprite LoadSprite(string spriteName)
         {
-            return Assets.LoadSprite(
-            "Assets/Icons/ARTIFACT_" + ArtifactLangTokenName
-            + (enabled ? "_ENABLED" : "_DISABLED") + ".png"
-            );
+            return Assets.LoadSprite(spriteName);
         }
     }
 }

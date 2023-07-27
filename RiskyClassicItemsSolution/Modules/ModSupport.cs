@@ -1,7 +1,7 @@
 using RoR2;
 using System.Runtime.CompilerServices;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class ModSupport
     {
@@ -64,7 +64,7 @@ namespace RiskyClassicItems.Modules
             {
                 loaded = true;
 
-                RiskOfOptions.ModSettingsManager.SetModDescription(Main.ModDescription, Main.ModGuid, Main.ModName);
+                RiskOfOptions.ModSettingsManager.SetModDescription(ClassicItemsReturnsPlugin.ModDescription, ClassicItemsReturnsPlugin.ModGuid, ClassicItemsReturnsPlugin.ModName);
             }
         }
 

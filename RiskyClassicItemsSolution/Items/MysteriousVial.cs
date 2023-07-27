@@ -1,10 +1,10 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using RiskyClassicItems.Utils;
+using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/MysteriousVial.cs
     public class MysteriousVial : ItemBase<MysteriousVial>
     {

@@ -1,9 +1,9 @@
 ﻿using R2API;
-using RiskyClassicItems.Utils;
+using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     public class BearArmor : ItemBase<BearArmor>
     {

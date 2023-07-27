@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 13323318
+CRC: 3534559558
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 147f9dcbf942db69e08a10c39cd211b0
+    Hash: b29500ba51f45779b5355e713bc4d2f0
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -77,6 +77,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
+- Assets/Resources/Textures/Artifacts/texArtifactCloverDisabled.png
 - Assets/Resources/Textures/Buffs/texBuffToxin.png
 - Assets/Resources/Textures/UI/texHitListBuffIcon.png
 - Assets/Resources/Models/Classic/mdlClassicShackles.prefab
@@ -86,6 +87,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Classic/matClassicToxin.mat
+- Assets/Resources/Textures/Artifacts/texArtifactCloverEnabled.png
 - Assets/Resources/Models/Classic/mdlClassicClover.prefab
 - Assets/Resources/Textures/Classic/texIconClassicPig.png
 - Assets/Resources/Materials/Classic/matClassicThallium.mat

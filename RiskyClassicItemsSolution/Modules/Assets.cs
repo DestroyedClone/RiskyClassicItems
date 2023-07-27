@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class Assets
     {
@@ -76,7 +76,7 @@ namespace RiskyClassicItems.Modules
             {
                 //This returns the path to your assetbundle assuming said bundle is on the same folder as your DLL. If you have your bundle in a folder, you can uncomment the statement below this one.
                 // return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), bundleName);
-                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Main.PInfo.Location), assetBundleFolder, bundleName);
+                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(ClassicItemsReturnsPlugin.PInfo.Location), assetBundleFolder, bundleName);
             }
         }
 
@@ -128,7 +128,7 @@ namespace RiskyClassicItems.Modules
             }
             catch
             {
-                Main.ModLogger.LogError($"Assets.LoadSprite failed to load path \"{path}\", defaulting to Assets.NullSprite.");
+                ClassicItemsReturnsPlugin.ModLogger.LogError($"Assets.LoadSprite failed to load path \"{path}\", defaulting to Assets.NullSprite.");
                 return Assets.NullSprite;
             }
         }
@@ -141,7 +141,7 @@ namespace RiskyClassicItems.Modules
             }
             catch
             {
-                Main.ModLogger.LogError($"Assets.LoadObject failed to load path \"{path}\", defaulting to Assets.NullModel.");
+                ClassicItemsReturnsPlugin.ModLogger.LogError($"Assets.LoadObject failed to load path \"{path}\", defaulting to Assets.NullModel.");
                 return Assets.NullModel;
             }
         }

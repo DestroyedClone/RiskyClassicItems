@@ -1,11 +1,11 @@
 ﻿using BepInEx;
 using ClassicItemsReturns.ReadmeGenerator;
 using R2API.Utils;
-using RiskyClassicItems.Artifact;
-using RiskyClassicItems.Equipment;
-using RiskyClassicItems.Equipment.EliteEquipment;
-using RiskyClassicItems.Items;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Artifact;
+using ClassicItemsReturns.Equipment;
+using ClassicItemsReturns.Equipment.EliteEquipment;
+using ClassicItemsReturns.Items;
+using ClassicItemsReturns.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +16,14 @@ using SearchableAttribute = HG.Reflection.SearchableAttribute;
 
 [assembly: SearchableAttribute.OptIn]
 
-namespace RiskyClassicItems
+namespace ClassicItemsReturns
 {
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
     [BepInDependency(ModSupport.ModCompatBetterUI.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    public class Main : BaseUnityPlugin
+    public class ClassicItemsReturnsPlugin : BaseUnityPlugin
     {
         public const string ModGuid = "com.DestroyedClone.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
@@ -35,10 +35,10 @@ namespace RiskyClassicItems
         public static PluginInfo PInfo { get; private set; }
         public static bool useClassicSprites = true;    //TODO: IMPLEMENT TOGGLE IF REAL MODELS BECOME A THING
 
-        public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
-        public List<ItemBase> Items = new List<ItemBase>();
-        public List<EquipmentBase> Equipments = new List<EquipmentBase>();
-        public List<EliteEquipmentBase> EliteEquipments = new List<EliteEquipmentBase>();
+        public static List<ArtifactBase> Artifacts = new List<ArtifactBase>();
+        public static List<ItemBase> Items = new List<ItemBase>();
+        public static List<EquipmentBase> Equipments = new List<EquipmentBase>();
+        public static List<EliteEquipmentBase> EliteEquipments = new List<EliteEquipmentBase>();
 
         //Provides a direct access to this plugin's logger for use in any of your other classes.
         public static BepInEx.Logging.ManualLogSource ModLogger;
@@ -72,18 +72,6 @@ namespace RiskyClassicItems
 
         private void AddToAssembly()
         {
-            //This section automatically scans the project for all artifacts
-            var ArtifactTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ArtifactBase)));
-
-            foreach (var artifactType in ArtifactTypes)
-            {
-                ArtifactBase artifact = (ArtifactBase)Activator.CreateInstance(artifactType);
-                if (ValidateArtifact(artifact, Artifacts))
-                {
-                    artifact.Init(Config);
-                }
-            }
-
             //this section automatically scans the project for all equipment
             var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EquipmentBase)));
             var loadedEquipmentNames = new List<string>();
@@ -153,6 +141,19 @@ namespace RiskyClassicItems
                     {
                         childItem.Init(Config);
                     }
+                }
+            }
+
+            //Run this at the end because Clover auto-disables if 56 Leaf Clover is disabled.
+            //This section automatically scans the project for all artifacts
+            var ArtifactTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ArtifactBase)));
+
+            foreach (var artifactType in ArtifactTypes)
+            {
+                ArtifactBase artifact = (ArtifactBase)Activator.CreateInstance(artifactType);
+                if (ValidateArtifact(artifact, Artifacts))
+                {
+                    artifact.Init(Config);
                 }
             }
         }

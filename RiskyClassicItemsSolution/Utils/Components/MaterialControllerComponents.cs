@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace RiskyClassicItems.Utils.Components
+namespace ClassicItemsReturns.Utils.Components
 {
     public class MaterialControllerComponents
     {

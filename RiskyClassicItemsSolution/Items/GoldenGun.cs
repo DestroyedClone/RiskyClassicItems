@@ -1,12 +1,12 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using RiskyClassicItems.Modules;
+using ClassicItemsReturns.Modules;
 using RoR2;
 using RoR2.Items;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/GoldenGun.cs
     //moff personally oversaw this one so a 1:1 is fine
     public class GoldenGun : ItemBase<GoldenGun>

@@ -6,7 +6,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace RiskyClassicItems.Modules
+namespace ClassicItemsReturns.Modules
 {
     internal class Buffs
     {

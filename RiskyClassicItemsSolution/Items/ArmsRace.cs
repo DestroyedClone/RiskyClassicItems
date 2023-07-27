@@ -3,7 +3,7 @@ using RoR2;
 using RoR2.Items;
 using UnityEngine;
 
-namespace RiskyClassicItems.Items
+namespace ClassicItemsReturns.Items
 {
     internal class ArmsRace : ItemBase<ArmsRace>
     {
