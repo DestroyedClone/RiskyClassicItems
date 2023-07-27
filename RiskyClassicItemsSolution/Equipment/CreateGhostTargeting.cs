@@ -32,9 +32,9 @@ namespace RiskyClassicItems.Equipment
             ghostDurationSecondsPlayer,
              };
 
-        public override GameObject EquipmentModel => LoadPickupModel("JarOfSouls");
+        public override GameObject EquipmentModel => LoadItemModel("JarSouls");
 
-        public override Sprite EquipmentIcon => LoadEquipmentIcon("SoulJar");
+        public override Sprite EquipmentIcon => LoadItemSprite("JarSouls");
 
         public override TargetFinderType EquipmentTargetFinderType => TargetFinderType.Enemies;
 

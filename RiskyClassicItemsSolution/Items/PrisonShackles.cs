@@ -25,9 +25,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadPickupModel("PrisonShackles");
+        public override GameObject ItemModel => LoadItemModel("Shackles");
 
-        public override Sprite ItemIcon => LoadItemIcon("PrisonShackles");
+        public override Sprite ItemIcon => LoadItemSprite("Shackles");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {

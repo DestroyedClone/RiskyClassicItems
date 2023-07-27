@@ -21,9 +21,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier3;
 
-        public override GameObject ItemModel => LoadPickupModel("Permafrost");
+        public override GameObject ItemModel => LoadItemModel("IceCube");
 
-        public override Sprite ItemIcon => LoadItemIcon("Permafrost");
+        public override Sprite ItemIcon => LoadItemSprite("IceCube");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {

@@ -28,9 +28,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadPickupModel("WeakenOnContact");
+        public override GameObject ItemModel => LoadItemModel("Toxin");
 
-        public override Sprite ItemIcon => LoadItemIcon("WeakenOnContact");
+        public override Sprite ItemIcon => LoadItemSprite("Toxin");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {

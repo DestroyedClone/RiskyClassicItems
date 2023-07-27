@@ -33,6 +33,7 @@ namespace RiskyClassicItems
         public const string ModDescription = "Adds items and equipment from Risk of Rain 1.";
 
         public static PluginInfo PInfo { get; private set; }
+        public static bool useClassicSprites = true;    //TODO: IMPLEMENT TOGGLE IF REAL MODELS BECOME A THING
 
         public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public List<ItemBase> Items = new List<ItemBase>();

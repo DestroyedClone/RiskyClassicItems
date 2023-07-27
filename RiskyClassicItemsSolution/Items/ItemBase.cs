@@ -341,7 +341,7 @@ namespace RiskyClassicItems.Items
         /// </summary>
         /// <param name="itemNameToken">langNameToken for the item. Defaults to current Item's langNameToken.</param>
         /// <returns></returns>
-        public Sprite LoadItemIcon(string itemNameToken = "")
+        /*public Sprite LoadItemIcon(string itemNameToken = "")
         {
             var token = itemNameToken == "" ? ItemLangTokenName : itemNameToken;
             return Assets.LoadSprite($"tex{token}Icon");
@@ -356,6 +356,38 @@ namespace RiskyClassicItems.Items
         {
             var token = itemNameToken == "" ? ItemLangTokenName : itemNameToken;
             return Assets.LoadObject($"Pickup{token}.prefab");
+        }*/
+
+        public Sprite LoadSprite(string spriteName)
+        {
+            return Assets.LoadSprite(spriteName);
+        }
+
+        public GameObject LoadModel(string modelName)
+        {
+            return Assets.LoadObject(modelName);
+        }
+
+        public Sprite LoadItemSprite(string spriteName)
+        {
+            Sprite spr = Assets.LoadSprite("texIcon" + (Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
+            if (!spr)
+            {
+                Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Sprite" : "Icon") + " for " + spriteName);
+                spr = Assets.LoadSprite("texIcon" + (!Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
+            }
+            return spr;
+        }
+
+        public GameObject LoadItemModel(string modelName)
+        {
+            GameObject go = Assets.LoadObject("mdl" + (Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
+            if (!go)
+            {
+                Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Model" : "Model") + " for " + modelName);
+                go = Assets.LoadObject("mdl" + (!Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
+            }
+            return go;
         }
     }
 }

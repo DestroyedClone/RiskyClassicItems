@@ -25,9 +25,9 @@ namespace RiskyClassicItems.Equipment
             (damageCoefficient*100),
         };
 
-        public override GameObject EquipmentModel => LoadPickupModel("LostDoll");
+        public override GameObject EquipmentModel => LoadItemModel("Doll");
 
-        public override Sprite EquipmentIcon => LoadEquipmentIcon("LostDoll");
+        public override Sprite EquipmentIcon => LoadItemSprite("Doll");
 
         public override TargetFinderType EquipmentTargetFinderType => TargetFinderType.Enemies;
 

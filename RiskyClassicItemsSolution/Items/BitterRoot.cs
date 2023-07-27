@@ -14,8 +14,8 @@ namespace RiskyClassicItems.Items
 
         public override string ItemLangTokenName => "BITTERROOT";
 
-        private float maxHealthMultiplier = 0.07f;
-        private float maxHealthMultiplierStack = 0.07f;
+        private float maxHealthMultiplier = 0.08f;
+        private float maxHealthMultiplierStack = 0.08f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
@@ -25,9 +25,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadPickupModel("BitterRoot");
+        public override GameObject ItemModel => LoadItemModel("Root");
 
-        public override Sprite ItemIcon => LoadItemIcon("BitterRoot");
+        public override Sprite ItemIcon => LoadItemSprite("Root");
         public float alt_regenIncrease = 3;
         public float alt_duration = 3;
         public float alt_durationStack = 3;
@@ -40,10 +40,7 @@ namespace RiskyClassicItems.Items
         public override void Init(ConfigFile config)
         {
             base.Init(config);
-            if (useAlternateVersion.Value)
-            {
-                if (ItemDef.DoesNotContainTag(ItemTag.OnKillEffect)) HG.ArrayUtils.ArrayAppend(ref ItemDef.tags, ItemTag.OnKillEffect);
-            }
+            if (useAlternateVersion.Value && ItemDef.DoesNotContainTag(ItemTag.OnKillEffect)) HG.ArrayUtils.ArrayAppend(ref ItemDef.tags, ItemTag.OnKillEffect);
         }
 
         protected override void CreateLang()

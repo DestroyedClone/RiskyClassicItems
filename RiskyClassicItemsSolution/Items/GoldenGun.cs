@@ -30,9 +30,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadPickupModel("GoldenGun");
+        public override GameObject ItemModel => LoadItemModel("GoldGun");
 
-        public override Sprite ItemIcon => LoadItemIcon("GoldenGun");
+        public override Sprite ItemIcon => LoadItemSprite("GoldGun");
 
         public override void CreateConfig(ConfigFile config)
         {

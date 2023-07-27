@@ -23,9 +23,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadPickupModel("ArmsRace");
+        public override GameObject ItemModel => LoadItemModel("ArmsRace");
 
-        public override Sprite ItemIcon => LoadItemIcon("ArmsRace");
+        public override Sprite ItemIcon => LoadItemSprite("ArmsRace");
 
         public static ItemDef ArmsRaceDroneItemDef => ArmsRaceDroneItem.Instance.ItemDef;
 

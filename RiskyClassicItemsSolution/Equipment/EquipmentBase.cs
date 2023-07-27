@@ -264,7 +264,7 @@ namespace RiskyClassicItems.Equipment
 
         protected abstract bool ActivateEquipment(EquipmentSlot slot);
 
-        public Sprite LoadEquipmentIcon(string equipmentNameToken = "")
+        /*public Sprite LoadEquipmentIcon(string equipmentNameToken = "")
         {
             var token = equipmentNameToken == "" ? EquipmentLangTokenName : equipmentNameToken;
             return Assets.LoadSprite($"tex{token}Icon");
@@ -274,6 +274,38 @@ namespace RiskyClassicItems.Equipment
         {
             var token = equipmentNameToken == "" ? EquipmentLangTokenName : equipmentNameToken;
             return Assets.LoadObject($"Pickup{token}.prefab");
+        }*/
+
+        public Sprite LoadSprite(string spriteName)
+        {
+            return Assets.LoadSprite(spriteName);
+        }
+
+        public GameObject LoadModel(string modelName)
+        {
+            return Assets.LoadObject(modelName);
+        }
+
+        public Sprite LoadItemSprite(string spriteName)
+        {
+            Sprite spr = Assets.LoadSprite("texIcon" + (Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
+            if (!spr)
+            {
+                Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Sprite" : "Icon") + " for " + spriteName);
+                spr = Assets.LoadSprite("texIcon" + (!Main.useClassicSprites ? "Classic" : string.Empty) + spriteName);
+            }
+            return spr;
+        }
+
+        public GameObject LoadItemModel(string modelName)
+        {
+            GameObject go = Assets.LoadObject("mdl" + (Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
+            if (!go)
+            {
+                Debug.LogError("Could not find " + (Main.useClassicSprites ? "Classic Model" : "Model") + " for " + modelName);
+                go = Assets.LoadObject("mdl" + (!Main.useClassicSprites ? "Classic" : string.Empty) + modelName);
+            }
+            return go;
         }
 
         public virtual void Hooks()

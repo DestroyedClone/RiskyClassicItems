@@ -10,9 +10,9 @@ namespace RiskyClassicItems.Equipment
         public override string EquipmentName => "ResetSkillCooldown";
         public override string EquipmentLangTokenName => "RESETSKILLCOOLDOWN";
 
-        public override GameObject EquipmentModel => LoadPickupModel("GiganticAmethyst");
+        public override GameObject EquipmentModel => LoadItemModel("Crystal");
 
-        public override Sprite EquipmentIcon => LoadEquipmentIcon("GiganticAmethyst");
+        public override Sprite EquipmentIcon => LoadItemSprite("Crystal");
 
         public override float Cooldown => 20f;
 

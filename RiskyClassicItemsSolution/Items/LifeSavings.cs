@@ -28,9 +28,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => LoadPickupModel("LifeSavings");
+        public override GameObject ItemModel => LoadItemModel("Pig");
 
-        public override Sprite ItemIcon => LoadItemIcon("LifeSavings");
+        public override Sprite ItemIcon => LoadItemSprite("Pig");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {

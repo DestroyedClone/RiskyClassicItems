@@ -1,0 +1,89 @@
+ManifestFileVersion: 0
+CRC: 1470711963
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: affe2d9690c93918c53c5c38a012e022
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1fe3abd029edb3522ae5dbbc711d0a74
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Textures/Buffs/texBuffPills.png
+- Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
+- Assets/Resources/Textures/Classic/texIconClassicBear.png
+- Assets/Resources/Models/Classic/mdlClassicJarSouls.prefab
+- Assets/Resources/Materials/matClassicBear.mat
+- Assets/Resources/Textures/UI/texJarOfSoulsChampionTargetIndicator.png
+- Assets/Resources/Textures/Classic/texIconClassicClover.png
+- Assets/Resources/Textures/UI/texHitListMarker.png
+- Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
+- Assets/Resources/Materials/matClassicDoll.mat
+- Assets/Resources/Materials/matClassicPills.mat
+- Assets/Resources/Textures/Classic/texIconClassicShackles.png
+- Assets/Resources/Textures/Classic/texIconClassicIceCube.png
+- Assets/Resources/Materials/matClassicShackles.mat
+- Assets/Resources/Textures/Classic/texIconClassicDoll.png
+- Assets/Resources/Models/Classic/mdlClassicRoot.prefab
+- Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
+- Assets/Resources/Textures/Classic/texIconClassicCrystal.png
+- Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
+- Assets/Resources/Textures/Buffs/texBuffThallium.png
+- Assets/Resources/Models/Classic/mdlClassicPig.prefab
+- Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
+- Assets/Resources/Models/Classic/mdlClassicArmsRace.prefab
+- Assets/Resources/Textures/Buffs/texBuffGoldGun.png
+- Assets/Resources/Textures/Classic/texIconClassicThallium.png
+- Assets/Resources/Textures/Classic/texIconClassicPills.png
+- Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
+- Assets/Resources/Models/Classic/mdlClassicToxin.prefab
+- Assets/Resources/Models/Classic/mdlClassicDoll.prefab
+- Assets/Resources/Materials/matClassicJarSouls.mat
+- Assets/Resources/Models/Classic/mdlClassicThallium.prefab
+- Assets/Resources/Materials/matClassicClover.mat
+- Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
+- Assets/Resources/Materials/matClasicArmsRace.mat
+- Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
+- Assets/Resources/Materials/matClassicGoldGun.mat
+- Assets/Resources/Textures/Classic/texIconClassicToxin.png
+- Assets/Resources/Textures/Classic/texIconClassicRoot.png
+- Assets/Resources/Textures/Buffs/texBuffGinseng.png
+- Assets/Resources/Materials/matClassicRoot.mat
+- Assets/Resources/Materials/matClassicIceCube.mat
+- Assets/Resources/Models/Classic/mdlClassicPills.prefab
+- Assets/Resources/Textures/Buffs/texBuffShackles.png
+- Assets/Resources/Textures/Buffs/texBuffToxin.png
+- Assets/Resources/Textures/UI/texHitListBuffIcon.png
+- Assets/Resources/Models/Classic/mdlClassicShackles.prefab
+- Assets/Resources/Materials/matClassicVial.mat
+- Assets/Resources/Materials/matClassicPig.mat
+- Assets/Resources/Models/Classic/mdlClassicVial.prefab
+- Assets/Resources/Materials/matClassicCrystal.mat
+- Assets/Resources/Models/Classic/mdlClassicBear.prefab
+- Assets/Resources/Materials/matClassicToxin.mat
+- Assets/Resources/Models/Classic/mdlClassicClover.prefab
+- Assets/Resources/Textures/Classic/texIconClassicPig.png
+- Assets/Resources/Materials/matClassicThallium.mat
+- Assets/Resources/Textures/texModLogo.png
+- Assets/Resources/Textures/Classic/texIconClassicVial.png
+Dependencies: []

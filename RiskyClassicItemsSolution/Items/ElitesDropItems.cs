@@ -20,9 +20,9 @@ namespace RiskyClassicItems.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadPickupModel("Clover");
+        public override GameObject ItemModel => LoadItemModel("Clover");
 
-        public override Sprite ItemIcon => LoadItemIcon("Clover");
+        public override Sprite ItemIcon => LoadItemSprite("Clover");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
