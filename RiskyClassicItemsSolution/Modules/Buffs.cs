@@ -124,10 +124,6 @@ namespace ClassicItemsReturns.Modules
 
         private static void InitializeBuffDefs()
         {
-            BuffDef vWeak = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Treebot/bdWeak.asset").WaitForCompletion();
-            BuffDef vMedkit = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Medkit/bdMedkitHeal.asset").WaitForCompletion();
-            BuffDef vArmor = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdArmorBoost.asset").WaitForCompletion();
-
             DrugsBuff = CreateBuffInternal("CIR_Prescriptions",
                             Color.white,
                             false,
@@ -138,7 +134,7 @@ namespace ClassicItemsReturns.Modules
                             false,
                             null);
             BitterRootBuff = CreateBuffInternal("CIR_BitterRoot",
-                vMedkit.buffColor, true,
+                new Color(0.784f, 0.937f, 0.427f, 1f), true,
                 null,
                 Assets.LoadSprite("texBuffGinseng"),
                 false,
@@ -146,8 +142,8 @@ namespace ClassicItemsReturns.Modules
                 false,
                 null);
             GoldenGunBuff = CreateBuffInternal("CIR_GoldenGun",
-                vArmor.buffColor, true,
-                null, Assets.LoadSprite("texBuffGoldGun"),
+                new Color32(219, 211,  77, 255), true,
+                null, Assets.LoadSprite("texBuffGoldGun_nomoney"),
                 true, false,
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("CIR_Chilled",
@@ -165,7 +161,7 @@ namespace ClassicItemsReturns.Modules
                 null, Assets.LoadSprite("texBuffThallium"),
                 false, true, false, null);
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
-                vWeak.buffColor, false,
+                new Color(0.784f, 0.937f, 0.427f, 1f), false,
                 null, Assets.LoadSprite("texBuffToxin"),
                 false, true, false, null);
         }

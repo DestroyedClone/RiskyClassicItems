@@ -58,7 +58,8 @@ This mod adds items and equipment from Risk of Rain / Returns.
 		- Updated default AI blacklist settings.
 	- Items
 		- Bitter Root
-			- Increased HP from 7% to 8% to match RoR1.
+			- Reworked version is now enabled by default.
+			- Classic Version: Increased HP from 7% to 8% to match RoR1.
 		- The Toxin
 			- Increased tickrate from 4-8 -> 8-12
 			- Doubled radius, and added a minimum search radius to the contact check.

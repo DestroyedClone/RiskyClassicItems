@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1514505272
+CRC: 3183770838
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 076aa4f30d11ea0355edb89ea23273f0
+    Hash: 3209409ca805e01fae55ecbc2be26ba5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -43,6 +43,7 @@ Assets:
 - Assets/Resources/Textures/UI/texHitListMarker.png
 - Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
 - Assets/Resources/Materials/Classic/matClassicDoll.mat
+- Assets/Resources/Textures/Buffs/texBuffGoldGun_nomoney.png
 - Assets/Resources/Materials/Classic/matClassicPills.mat
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
