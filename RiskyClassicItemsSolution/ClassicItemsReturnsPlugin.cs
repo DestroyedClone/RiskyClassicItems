@@ -62,7 +62,6 @@ namespace ClassicItemsReturns
             Deployables.Initialize();
             Buffs.Initialize();
             RiskyVisuals.Init(Config);
-            Events.Initialize();
             Orbs.Initialize();
             AddToAssembly();
             Dots.Initialize();

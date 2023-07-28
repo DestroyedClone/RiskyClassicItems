@@ -73,7 +73,7 @@ namespace ClassicItemsReturns.Items
 
         public override void Hooks()
         {
-            Events.PostOnHitEnemy += Events_PostOnHitEnemy;
+            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryActions += ApplyThallium;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
@@ -85,27 +85,23 @@ namespace ClassicItemsReturns.Items
             }
         }
 
-        private void Events_PostOnHitEnemy(DamageInfo damageInfo, GameObject victimGameObject)
+        private void ApplyThallium(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory)
         {
-            if (!victimGameObject || !victimGameObject.TryGetComponent(out CharacterBody _) || !damageInfo.attacker || !damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody))
-            {
-                return;
-            }
-            if (!TryGetCount(attackerBody, out int itemCount) || !Util.CheckRoll(chance, attackerBody.master))
-            {
-                return;
-            }
-            var duration = Utils.ItemHelpers.StackingLinear(itemCount, Thallium.Instance.duration, durationPerStack);
+            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+
+            if (!Util.CheckRoll(chance, attackerBody.master)) return;
+
+            int itemStack = itemCount - 1;
+            float totalDuration = Utils.ItemHelpers.StackingLinear(itemCount, Thallium.Instance.duration, durationPerStack);
             var inflictDotInfo = new InflictDotInfo()
             {
                 attackerObject = damageInfo.attacker,
                 dotIndex = Dots.Thallium.CIR_ThalliumDotIndex,
                 maxStacksFromAttacker = new uint?(1U),
-                victimObject = victimGameObject,
+                victimObject = victim,
                 duration = duration,
             };
-
-            //DotController.InflictDot(victimGameObject, damageInfo.attacker, Dots.Thallium.ThalliumDotIndex, duration);
             DotController.InflictDot(ref inflictDotInfo);
         }
     }
