@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2204548211
+CRC: 1716297253
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 153c32dba181d3d9220b2850d7e49446
+    Hash: c4dc1c1093a9d9a656f2d888b9482b08
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -63,6 +63,7 @@ Assets:
 - Assets/Resources/Textures/Buffs/texBuffGoldGun.png
 - Assets/Resources/Textures/Classic/texIconClassicThallium.png
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
+- Assets/Resources/Models/Classic/mdlClassicPurse.prefab
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Models/Classic/mdlClassicFireShield.prefab
@@ -88,6 +89,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicVial.mat
 - Assets/Resources/Materials/Classic/matClassicPig.mat
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
+- Assets/Resources/Materials/Classic/matClassicPurse.mat
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Classic/matClassicToxin.mat
@@ -95,6 +97,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicClover.prefab
 - Assets/Resources/Textures/Classic/texIconClassicPig.png
 - Assets/Resources/Materials/Classic/matClassicThallium.mat
+- Assets/Resources/Textures/Classic/texIconClassicPurse.png
 - Assets/Resources/Textures/texModLogo.png
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
 Dependencies: []

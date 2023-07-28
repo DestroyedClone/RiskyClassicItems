@@ -45,7 +45,7 @@
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "",
 		
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Deals bonus damage per gold",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Gold increases damage.",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack, scaling with time)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "",
 
@@ -53,6 +53,11 @@
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Shackle enemy attacks on hit.",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "<style=cIsDamage>Shackle</style> enemies on hit for <style=cIsDamage>-{0}% attack speed</style> for <style=cIsDamage>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "",
+		
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_PICKUP": "Enemies drop extra gold.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "Enemies drop <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> gold on kill.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "Tough Times",
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_PICKUP": "Increase armor.",

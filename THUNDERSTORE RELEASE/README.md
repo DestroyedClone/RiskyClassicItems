@@ -14,7 +14,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Uncommon | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicClover.png) | 56 Leaf Clover | Elite monsters have a `4.5% chance` `(+1.5% chance per stack)` to `drop an item` on death.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicClover.png) | 56 Leaf Clover | Elite enemies have a `4.5% chance` `(+1.5% chance per stack)` to `drop an item` on death.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicArmsRace.png) | Arms Race | Drones periodically fire a barrage of `4` `(+2 per stack)` missiles that deal `200%` damage each. Recharges every `10` seconds
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicGoldGun.png) | Golden Gun | Deal `extra damage` based on held `gold`, up to an extra `+40% damage` `(+20% per stack)` at `300 gold` `(+150 per stack, scaling with time)`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicShackles.png) | Prison Shackles | `Shackle` enemies on hit for `-30% attack speed` for `2s` `(+2s per stack)`.
