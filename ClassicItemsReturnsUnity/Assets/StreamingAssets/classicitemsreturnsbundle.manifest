@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1108633020
+CRC: 2204548211
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 77447632569b7f544df0d788a42c705e
+    Hash: 153c32dba181d3d9220b2850d7e49446
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -51,8 +51,10 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicDoll.png
 - Assets/Resources/Models/Classic/mdlClassicRoot.prefab
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
+- Assets/Resources/Textures/Classic/texIconClassicFireShield.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
+- Assets/Resources/Materials/Classic/matClasicFireShield.mat
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
 - Assets/Resources/Materials/matNodraw.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
@@ -63,6 +65,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
+- Assets/Resources/Models/Classic/mdlClassicFireShield.prefab
 - Assets/Resources/Models/Classic/mdlClassicDoll.prefab
 - Assets/Resources/Materials/Classic/matClassicJarSouls.mat
 - Assets/Resources/Models/Classic/mdlClassicThallium.prefab

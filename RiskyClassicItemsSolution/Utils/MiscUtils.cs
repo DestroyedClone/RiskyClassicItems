@@ -204,5 +204,25 @@ namespace ClassicItemsReturns.Utils
 
             return SurfaceAlignmentInfo;
         }
+
+        public static List<HealthComponent> FindEnemiesInSphere(float radius, Vector3 position, TeamIndex team)
+        {
+            int hitCount = 0;
+            List<HealthComponent> hcList = new List<HealthComponent>();
+            Collider[] array = Physics.OverlapSphere(position, radius, LayerIndex.entityPrecise.mask);
+            for (int i = 0; i < array.Length; i++)
+            {
+                HurtBox hurtBox = array[i].GetComponent<HurtBox>();
+                if (hurtBox)
+                {
+                    HealthComponent healthComponent = hurtBox.healthComponent;
+                    if (healthComponent && healthComponent.body && healthComponent.body.teamComponent && healthComponent.body.teamComponent.teamIndex != team && !hcList.Contains(healthComponent))
+                    {
+                        hcList.Add(healthComponent);
+                    }
+                }
+            }
+            return hcList;
+        }
     }
 }

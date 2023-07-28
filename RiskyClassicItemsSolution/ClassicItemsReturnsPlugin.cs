@@ -33,7 +33,7 @@ namespace ClassicItemsReturns
         public const string ModDescription = "Adds items and equipment from Risk of Rain & Returns.";
 
         public static PluginInfo PInfo { get; private set; }
-        public static bool useClassicSprites = true;    //TODO: IMPLEMENT TOGGLE IF REAL MODELS BECOME A THING
+        public static bool useClassicSprites = true;    //Will this ever actually get implemented?
 
         public static List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public static List<ItemBase> Items = new List<ItemBase>();
@@ -66,6 +66,7 @@ namespace ClassicItemsReturns
             Orbs.Initialize();
             AddToAssembly();
             Dots.Initialize();
+            SharedHooks.TakeDamage.Initialize();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
         }
