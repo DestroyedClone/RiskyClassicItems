@@ -67,6 +67,11 @@ This mod adds items and equipment from Risk of Rain / Returns.
 			- Increased armor from 14 (+7) -> 14 (+14)
 		- Prison Shackles
 			- Disabled proc sound.
+	- Equipment
+		- Lost Doll
+			- Increased proc coefficient from 0 -> 1.0
+			- Reduced damage from 5x HP -> 4x HP
+			- Increased HP cost from 25% -> 33%
 	- Artifacts
 		- Added Artifact of Clover
 			- Players start with a single 56 Leaf Clover in their inventory.

@@ -1,0 +1,11 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1002291773	Play_ClassicItemsReturns_Doll			\Default Work Unit\Play_ClassicItemsReturns_Doll	
+	2357504551	Play_ClassicItemsReturns_JarSouls			\Default Work Unit\Play_ClassicItemsReturns_JarSouls	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	862402117	wDoll	C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\.cache\Windows\SFX\wDoll_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\wDoll		351168
+	880444803	wJarSouls	C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\.cache\Windows\SFX\wJarSouls_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\wJarSouls		224704
+

@@ -19,14 +19,14 @@ namespace ClassicItemsReturns.Equipment
             }
 
             ConfigureTargetFinder(self);
-            bool flag6 = self.currentTarget.transformToIndicateAt;
-            if (flag6)
+            bool hasTargetTransform = self.currentTarget.transformToIndicateAt;
+            if (hasTargetTransform)
             {
                 GenericPickupController pickupController = self.currentTarget.pickupController;
-                ConfigureTargetIndicator(self, targetingEquipmentIndex, pickupController, ref flag6);
+                ConfigureTargetIndicator(self, targetingEquipmentIndex, pickupController, ref hasTargetTransform);
             }
-            self.targetIndicator.active = flag6;
-            self.targetIndicator.targetTransform = (flag6 ? self.currentTarget.transformToIndicateAt : null);
+            self.targetIndicator.active = hasTargetTransform && self.stock > 0;
+            self.targetIndicator.targetTransform = (hasTargetTransform ? self.currentTarget.transformToIndicateAt : null);
         }
 
         public enum TargetFinderType

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="263542888">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3837207957" Language="SFX" Hash="283990892">
+			<ObjectPath>\SoundBanks\Default Work Unit\ClassicItemsReturnsSoundbank</ObjectPath>
+			<ShortName>ClassicItemsReturnsSoundbank</ShortName>
+			<Path>ClassicItemsReturnsSoundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1002291773" Name="Play_ClassicItemsReturns_Doll" ObjectPath="\Events\Default Work Unit\Play_ClassicItemsReturns_Doll">
+					<IncludedMemoryFiles>
+						<File Id="862402117" Language="SFX">
+							<ShortName>wDoll.wav</ShortName>
+							<Path>SFX\wDoll_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2357504551" Name="Play_ClassicItemsReturns_JarSouls" ObjectPath="\Events\Default Work Unit\Play_ClassicItemsReturns_JarSouls">
+					<IncludedMemoryFiles>
+						<File Id="880444803" Language="SFX">
+							<ShortName>wJarSouls.wav</ShortName>
+							<Path>SFX\wJarSouls_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
+			</GameParameters>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

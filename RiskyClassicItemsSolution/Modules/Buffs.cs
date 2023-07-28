@@ -153,7 +153,7 @@ namespace ClassicItemsReturns.Modules
                 false, null);//Play_wFeralShoot2
 
             ShacklesBuff = CreateBuffInternal("CIR_PrisonShackles",
-                new Color32(181, 191, 193, 255), false,
+                new Color(0.918f, 0.408f, 0.420f, 1.000f), false,
                 null, Assets.LoadSprite("texBuffShackles"),
                 false, true, false, null);
             ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",

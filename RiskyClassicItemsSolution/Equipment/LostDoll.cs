@@ -6,6 +6,7 @@ using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -15,9 +16,9 @@ namespace ClassicItemsReturns.Equipment
 
         public override string EquipmentLangTokenName => "LOSTDOLL";
 
-        public const float selfHurtCoefficient = 0.25f;
-        public const float damageCoefficient = 5f;
-        public const float durationDelay = 0.3f;
+        public const float selfHurtCoefficient = 0.33f;
+        public const float damageCoefficient = 4f;
+        public const float durationDelay = 0.5f;
 
         public override object[] EquipmentFullDescriptionParams => new object[]
         {
@@ -77,9 +78,11 @@ namespace ClassicItemsReturns.Equipment
 
             //add more as needed
 
+            //comp.spikeMat = Assets.LoadAddressable<Material>("RoR2/Base/AltarSkeleton/matAltarSkeleton.mat");
             comp.blackMat = Assets.LoadAddressable<Material>("RoR2/Base/Common/matDebugBlack.mat");
+            comp.dollMat = Assets.LoadAddressable<Material>("RoR2/Base/AltarSkeleton/matAltarSkeleton.mat");
             comp.dollMR = dollActivationEffect.transform.Find("Mesh").GetComponent<MeshRenderer>();
-            comp.gameObject.AddComponent<NetworkIdentity>();
+            //comp.gameObject.AddComponent<NetworkIdentity>();  //Is this actually needed?
 
             //idk how to, people usually make one from asset or clone an existing one
             //var efcomp = spike.AddComponent<EffectComponent>();
@@ -104,15 +107,17 @@ namespace ClassicItemsReturns.Equipment
 
             public bool activatedEffect = false;
             public float effectStopwatch = 0;
-            public float effectDuration = 0.4f;
+            public float effectDuration = 0.05f;
 
             public bool terminatingEffect = false;
-            public float terminationStopwatch = 2f;
+            public float terminationStopwatch = 0.2f;
 
             public List<GameObject> spikes = new List<GameObject>();
             public List<Vector3> startPositions = new List<Vector3>();
             public List<Vector3> endPositions = new List<Vector3>();
+            public Material dollMat;
             public Material blackMat;
+            //public Material spikeMat;
 
             public MeshRenderer dollMR;
 
@@ -120,7 +125,11 @@ namespace ClassicItemsReturns.Equipment
             {
                 delayStopwatch = durationDelay;
                 effectStopwatch = 0;
-                terminationStopwatch = 0.5f;
+                //terminationStopwatch = 0.4f;
+
+                //Do this to make it darkened from the start.
+                if (dollMR && dollMat) dollMR.SetMaterial(dollMat);
+                Util.PlaySound("Play_ClassicItemsReturns_Doll", base.gameObject);
             }
 
             public void AddSpike(GameObject spike, Quaternion initialRotation, Vector3 startPosition, Vector3 endPosition)
@@ -130,6 +139,7 @@ namespace ClassicItemsReturns.Equipment
                 endPositions.Add(endPosition);
                 spike.transform.localPosition = startPosition;
                 spike.transform.rotation = initialRotation;
+                //spike.GetComponent<MeshRenderer>().SetMaterial(spikeMat);
             }
 
             public void Update()
@@ -164,7 +174,7 @@ namespace ClassicItemsReturns.Equipment
                         GameObject spike = spikes[i];
                         spike.transform.localPosition = Vector3.Lerp(startPositions[i], endPositions[i], effectStopwatch / effectDuration);
                     }
-                    if (effectStopwatch > effectDuration)
+                    if (effectStopwatch >= effectDuration)
                     {
                         foreach (var spike in spikes)
                         {
@@ -183,14 +193,15 @@ namespace ClassicItemsReturns.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_LostDollIndicator", false);
+            TargetingIndicatorPrefabBase = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
+            /*TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_LostDollIndicator", false);
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texLostDollTargetIndicator.png");
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = new Color(0.047f, 0.447f, 0.008f);
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.047f, 0.447f, 0.008f);
             //TargetingIndicatorPrefabBase.transform.localScale = Vector3.one * 0.25f;
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
-            //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
+            //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;*/
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -226,7 +237,7 @@ namespace ClassicItemsReturns.Equipment
                 damageValue = slot.characterBody.healthComponent.fullCombinedHealth * damageCoefficient,
                 isCrit = Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master),
                 procChainMask = default,
-                procCoefficient = 0f,
+                procCoefficient = 1f,
                 target = hurtBox,
                 //effectType = RoR2.Orbs.DevilOrb.EffectType.Wisp,
                 origin = slot.characterBody.corePosition,
@@ -241,6 +252,7 @@ namespace ClassicItemsReturns.Equipment
             var effect = UnityEngine.Object.Instantiate(dollActivationEffect);
             effect.transform.SetParent(slot.transform, false);
             effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
+
             NetworkServer.Spawn(effect);
             slot.InvalidateCurrentTarget();
             return true;

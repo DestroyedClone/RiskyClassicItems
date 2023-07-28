@@ -69,6 +69,10 @@ namespace ClassicItemsReturns
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
         }
+        private void Start()
+        {
+            SoundBanks.Init();
+        }
 
         private void AddToAssembly()
         {

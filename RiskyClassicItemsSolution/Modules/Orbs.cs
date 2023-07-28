@@ -10,26 +10,34 @@ namespace ClassicItemsReturns.Modules
         public static void Initialize()
         {
             OrbAPI.AddOrb(typeof(CIR_LostDollOrb));
+
+            CIR_LostDollOrb.arrivalSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            CIR_LostDollOrb.arrivalSound.eventName = "Play_item_proc_deathMark";
+            ContentAddition.AddNetworkSoundEventDef(CIR_LostDollOrb.arrivalSound);
         }
 
         public class CIR_LostDollOrb : DevilOrb
         {
             public CharacterBody attackerCharacterBody;
+            public static GameObject effectPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect");
+            public static NetworkSoundEventDef arrivalSound;
+
 
             public override void Begin()
             {
                 base.duration = base.distanceToTarget / 30f;
                 attackerCharacterBody.healthComponent.TakeDamage(new DamageInfo()
                 {
-                    attacker = attacker,
+                    attacker = null,
                     crit = false,
                     damage = attackerCharacterBody.healthComponent.combinedHealth * Equipment.LostDoll.selfHurtCoefficient,
-                    damageColorIndex = DamageColorIndex.Item,
-                    damageType = DamageType.NonLethal,
-                    inflictor = attacker,
+                    damageColorIndex = DamageColorIndex.Default,
+                    damageType = (DamageType.NonLethal | DamageType.BypassArmor),
+                    inflictor = null,
                     position = attackerCharacterBody.corePosition,
                     procCoefficient = 0,
-                    procChainMask = default
+                    procChainMask = default,
+                    force = Vector3.zero
                 });
 
                 EffectData effectData = new EffectData
@@ -39,7 +47,7 @@ namespace ClassicItemsReturns.Modules
                     genericFloat = duration
                 };
                 effectData.SetHurtBoxReference(this.target);
-                EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect"), effectData, true);
+                EffectManager.SpawnEffect(effectPrefab, effectData, true);
             }
 
             public override void OnArrival()
@@ -52,7 +60,7 @@ namespace ClassicItemsReturns.Modules
                         DamageInfo damageInfo = new DamageInfo();
                         damageInfo.damage = this.damageValue;
                         damageInfo.attacker = this.attacker;
-                        damageInfo.inflictor = null;
+                        damageInfo.inflictor = this.attacker;
                         damageInfo.force = Vector3.zero;
                         damageInfo.crit = this.isCrit;
                         damageInfo.procChainMask = this.procChainMask;
@@ -63,7 +71,7 @@ namespace ClassicItemsReturns.Modules
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
                         GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
 
-                        Util.PlaySound("Play_item_proc_deathMark", target.gameObject);
+                        if (arrivalSound) EffectManager.SimpleSoundEffect(arrivalSound.index, this.target.transform.position, true);
                     }
                 }
             }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -25,6 +26,8 @@ namespace ClassicItemsReturns.Equipment
 
         //DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
         public static ConfigEntry<bool> limitSpawns;
+
+        public static NetworkSoundEventDef activationSound;
 
         public override object[] EquipmentFullDescriptionParams => new object[] {
             (boostDamageItemCount * 10),
@@ -47,6 +50,11 @@ namespace ClassicItemsReturns.Equipment
             CreateTargetingIndicator();
             CreateEquipment();
             Hooks();
+
+
+            activationSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            activationSound.eventName = "Play_ClassicItemsReturns_JarSouls";
+            ContentAddition.AddNetworkSoundEventDef(activationSound);
         }
 
         public static GameObject commonTargetIndicator;
@@ -58,7 +66,7 @@ namespace ClassicItemsReturns.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Assets.prefabPrefix + "SoulJarCommonIndicator", false);
+            /*commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Assets.prefabPrefix + "SoulJarCommonIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
@@ -66,7 +74,9 @@ namespace ClassicItemsReturns.Equipment
 
             championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, Assets.prefabPrefix + "SoulJarChampionIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
-            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");*/
+            commonTargetIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
+            championTargetIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
         }
 
         protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController, ref bool shouldShowOverride)
@@ -168,6 +178,7 @@ namespace ClassicItemsReturns.Equipment
                 }
             if (hasSpawnedGhost)
             {
+                EffectManager.SimpleSoundEffect(activationSound.index, slot.characterBody.corePosition, true);
                 CreateGhostOrbEffect(slot.characterBody, hurtBox.healthComponent.body, 0.25f);
             }
             slot.InvalidateCurrentTarget();
