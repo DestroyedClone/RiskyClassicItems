@@ -24,8 +24,6 @@ namespace ClassicItemsReturns.Modules
         internal static ItemTierDef itemVoidTier2Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier2Def.asset");
         internal static ItemTierDef itemVoidTier3Def = LoadAddressable<ItemTierDef>("RoR2/DLC1/Common/VoidTier3Def.asset");
 
-        internal static NetworkSoundEventDef nseShackles;
-
         public static ItemTierDef ResolveTierDef(ItemTier itemTier)
         {
             switch (itemTier)
@@ -96,8 +94,6 @@ namespace ClassicItemsReturns.Modules
         public static void Init()
         {
             PopulateAssets();
-
-            nseShackles = CreateNetworkSoundEventDef("Play_gravekeeper_attack2_shoot_singleChain");
         }
 
         public static void PopulateAssets()

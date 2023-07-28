@@ -26,7 +26,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Legendary | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicIceCube.png) | Permafrost | `5%` `(+5% per stack)` chance on hit to `freeze` for `2 seconds`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicThallium.png) | Thallium | On hit, `5% chance` to `poison` for `500% of victim's damage` and slow by `100% movement speed` over `3 seconds` `(+1.5 seconds per stack)`.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicSkullRing.png) | Wicked Ring | `Reduce skill cooldowns` by `1s` `(+{0.5s per stack)` on kill.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicSkullRing.png) | Wicked Ring | `Reduce skill cooldowns` by `1s` `(+0.5s per stack)` on kill.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -58,8 +58,13 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 ### Changelog
 
 - `1.0.2`
+	- Bitter Root
+		- Can now trigger off of assists if RiskyMod is installed.
 	- 56 Leaf Clover
-		- Enabled Classic chances by default. (Roll for every player)
+		- Enabled Classic chances by default. (Roll for every player instead of only rolling for the killer.)
+			- Need to manually change existing config.
+	- Wicked Ring
+		- Can now trigger off of assists if RiskyMod is installed.
 	- Jar of Souls
 		- Gup/Geep ghosts no longer split on death.
 

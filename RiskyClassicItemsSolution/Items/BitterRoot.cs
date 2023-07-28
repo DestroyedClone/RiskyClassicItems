@@ -4,6 +4,7 @@ using ClassicItemsReturns.Modules;
 using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
+using System.Runtime.CompilerServices;
 
 namespace ClassicItemsReturns.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
@@ -66,10 +67,17 @@ namespace ClassicItemsReturns.Items
         {
             if (useAlternateVersion.Value)
             {
-                GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-                RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients_Alt;
                 ItemDef.pickupToken += "_ALT";
                 ItemDef.descriptionToken += "_ALT";
+                RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients_Alt;
+                if (ModSupport.ModCompatRiskyMod.loaded)
+                {
+                    RiskyModAssistSetup();
+                }
+                else
+                {
+                    GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+                }
                 return;
             }
             RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients;
@@ -101,6 +109,20 @@ namespace ClassicItemsReturns.Items
                 {
                     obj.attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
                 }
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+        private void RiskyModAssistSetup()
+        {
+            RiskyMod.AssistManager.HandleAssistInventoryActions += OnKillEffect;
+        }
+        private void OnKillEffect(CharacterBody attackerBody, Inventory attackerInventory, CharacterBody victimBody, CharacterBody killerBody)
+        {
+            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            if (itemCount > 0)
+            {
+                attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
             }
         }
     }
