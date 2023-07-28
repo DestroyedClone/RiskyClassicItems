@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1448960832
+CRC: 529214728
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 31f1515ac288abc41acb934c23896a03
+    Hash: a13753a216d1a158984eabf0d54952db
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -33,6 +33,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Resources/Textures/Classic/texIconClassicSquib.png
 - Assets/Resources/Textures/Buffs/texBuffPills.png
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
 - Assets/Resources/Textures/Classic/texIconClassicBear.png
@@ -58,6 +59,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
 - Assets/Resources/Materials/matNodraw.mat
+- Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
 - Assets/Resources/Models/Classic/mdlClassicArmsRace.prefab
@@ -95,6 +97,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Classic/matClassicToxin.mat
+- Assets/Resources/Materials/Classic/matClassicSquib.mat
 - Assets/Resources/Textures/Artifact/texArtifactCloverEnabled.png
 - Assets/Resources/Models/Classic/mdlClassicClover.prefab
 - Assets/Resources/Textures/Classic/texIconClassicPig.png

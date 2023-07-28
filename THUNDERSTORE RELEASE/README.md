@@ -6,7 +6,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 |:--:|:--:|--|
 | Common | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicRoot.png) | Bitter Root | Increase `base health regeneration`by `3 hp/s` for `3s` `(+3s per stack)` after killing an enemy. `Scales with level`.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconFireShield.png) | Fire Shield | Chance on taking damage to `ignite` all enemies within `12m` for `200%` base damage. Additionally, enemies `burn` for `%200%` `(+200% per stack)` base damage. Chance increases the more damage you take.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicFireShield.png) | Fire Shield | Chance on taking damage to `ignite` all enemies within `12m` for `200%` base damage. Additionally, enemies `burn` for `%200%` `(+200% per stack)` base damage. Chance increases the more damage you take.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicPig.png) | Life Savings | Generate `1 gold` `(+1 gold per stack)` every `3 seconds`. Increases over time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicVial.png) | Mysterious Vial | Increase `base health regeneration` by `+1 hp/s` `(+1 hp/s per stack)`. `Scales with level`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texWeakenOnContactIcon.png) | The Toxin | `Touching` an enemy makes it `vulnerable` to your next attack, `reducing` its `armor` by `20` for `3 seconds` `(+3 seconds per stack)`.
@@ -62,7 +62,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 	- New Items
 		- Added Fire Shield.
 		- Added Smart Shopper.
-		- Added Wicket Ring.
+		- Added Wicked Ring.
 			- Uses LiT's rework: -1s cooldown on kill.
 			- Can enable classic version in config.
 		

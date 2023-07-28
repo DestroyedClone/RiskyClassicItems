@@ -25,7 +25,7 @@ namespace ClassicItemsReturns
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     public class ClassicItemsReturnsPlugin : BaseUnityPlugin
     {
-        public const string ModGuid = "com.DestroyedClone.ClassicItemsReturns";
+        public const string ModGuid = "com.RiskyDies.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
         public const string ModVer = "1.0.0";
 
