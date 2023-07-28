@@ -17,7 +17,7 @@ namespace ClassicItemsReturns.Items
         float intervalSeconds = 3;
         public override string ItemName => "Life Savings";
 
-        public override string ItemLangTokenName => ItemName.ToUpper();
+        public override string ItemLangTokenName => "LIFESAVINGS";
 
         public override object[] ItemFullDescriptionParams => new object[]
         {

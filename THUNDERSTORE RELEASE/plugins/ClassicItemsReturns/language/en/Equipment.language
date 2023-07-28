@@ -23,7 +23,7 @@
 	
 	"CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_NAME": "Thqwibs",
     "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_PICKUP": "Release a bloom of Thqwibs.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_DESCRIPTION": "Release a bloom of <style=cIsDamage>{0}</style> Thqwibs, detonating on impact for <style=cIsDamage>{1}% damage</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_DESCRIPTION": "Release a bloom of <style=cIsDamage>{0}</style> Thqwibs, detonating on impact for <style=cIsDamage>{1}% damage</style> each.",
     "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_LORE": "",
   }
 }
