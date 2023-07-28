@@ -29,8 +29,8 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Equipment | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texSoulJarIcon.png) | Jar of Souls | `Duplicates` an enemy as a `ghost` with `100% damage`. `Common` enemies are `duplicated 3 times`. Lasts `30 seconds`.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texPrescriptionsIcon.png) | Prescriptions | You enter a `drug-induced frenzy` for `8` seconds. Increases `damage` by `20%` and `attack speed` by `40%`.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texSoulJarIcon.png) | Jar of Souls | Creates `3 ghost duplicates` of an enemy with `100% damage`. `Large` enemies are duplicated `once`. Lasts `30 seconds`.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texPrescriptionsIcon.png) | Prescriptions | Enter a `drug-induced frenzy` for `8` seconds, increasing `damage` by `20%` and `attack speed` by `40%`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texGiganticAmethystIcon.png) | Gigantic Amethyst | Activation `refreshes` all cooldowns.
 
 | Icon | Item | Desc |
