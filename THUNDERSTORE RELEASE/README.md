@@ -41,12 +41,12 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Lunar Equipment | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice `33% of your current health` to `damage` an enemy for `400% of your maximum health`.
 
-### Todo
+## Todo
 
 - Update sprites to Returns sprites when it releases.
 - More Items?
 
-### Credits
+## Credits
 
 - LostInTransit: Some item implementations
 - ClassicItems: Some item implementations
@@ -55,7 +55,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers
 
-### Changelog
+## Changelog
 
 - `1.0.2`
 	- Bitter Root
@@ -63,8 +63,6 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 	- 56 Leaf Clover
 		- Enabled Classic chances by default. (Roll for every player instead of only rolling for the killer.)
 			- Need to manually change existing config.
-	- Wicked Ring
-		- Can now trigger off of assists if RiskyMod is installed.
 	- Jar of Souls
 		- Gup/Geep ghosts no longer split on death.
 
