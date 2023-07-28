@@ -50,8 +50,7 @@ namespace ClassicItemsReturns.Items
 
         public override void CreateConfig(ConfigFile config)
         {
-            useClassic = config.Bind(ConfigCategory, "Use Classic Chances", false, "true: Rolls through each player until true." +
-                "\nfalse: Only rolls for the attacker that killed.");
+            useClassic = config.Bind(ConfigCategory, "Use Classic Chances", true, "Roll Clover for all players until an item drops, like in RoR1. Disabling this will make it only roll for the killer.");
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

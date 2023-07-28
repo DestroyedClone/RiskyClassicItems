@@ -57,6 +57,12 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ### Changelog
 
+- `1.0.2`
+	- 56 Leaf Clover
+		- Enabled Classic chances by default. (Roll for every player)
+	- Jar of Souls
+		- Gup/Geep ghosts no longer split on death.
+
 - `1.0.1`
 	- Readme fix.
 
