@@ -30,7 +30,7 @@ namespace ClassicItemsReturns
         public const string ModVer = "1.0.0";
 
         //For RiskOfOptions
-        public const string ModDescription = "Adds items and equipment from Risk of Rain & Returns.";
+        public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
 
         public static PluginInfo PInfo { get; private set; }
         public static bool useClassicSprites = true;    //Will this ever actually get implemented?
