@@ -8,7 +8,7 @@
 
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_NAME": "Jar of Souls",
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_PICKUP": "Duplicates an enemy as a ghost to fight on your side.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "<style=cIsUtility>Duplicates</style> an enemy as a <style=cIsUtility>ghost</style> with <style=cIsDamage>{0}% damage</style>. <style=cIsDamage>Common</style> enemies are <style=cIsDamage>duplicated {1} times</style>. Lasts <style=cIsUtility>{2} seconds</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "Creates <style=cIsUtility>3 ghost duplicates</style> of an enemy with <style=cIsDamage>{0}% damage</style>. <style=cIsDamage>Large</style> enemies are duplicated <style=cIsDamage>once</style>. Lasts <style=cIsUtility>{1} seconds</style>.",
     "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_LORE": "",
 
     "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_NAME": "Lost Doll",

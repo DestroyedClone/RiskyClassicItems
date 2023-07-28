@@ -84,8 +84,8 @@ namespace ClassicItemsReturns.Items
 
             public float sizeCorrectionMultiplier = 4f;
 
-            readonly float maxTickDuration = 1f / 12f;
-            readonly float minTickDuration = 1f / 8f;
+            readonly float maxTickDuration = 0.1f;
+            readonly float minTickDuration = 0.1f;
             float lerp_denominator = 2;
 
             public void OnEnable()

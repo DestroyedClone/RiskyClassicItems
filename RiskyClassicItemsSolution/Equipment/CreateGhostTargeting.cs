@@ -31,9 +31,8 @@ namespace ClassicItemsReturns.Equipment
 
         public override object[] EquipmentFullDescriptionParams => new object[] {
             (boostDamageItemCount * 10),
-            ghostsPerCommon,
-            ghostDurationSecondsPlayer,
-             };
+            ghostDurationSecondsPlayer
+        };
 
         public override GameObject EquipmentModel => LoadItemModel("JarSouls");
 

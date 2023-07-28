@@ -24,13 +24,8 @@
 
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Life Savings",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Generate gold over time.",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} gold</style> <style=cStack>(+{1} gold per stack)</style> every <style=cIsUtility>{2} seconds</style>. Increases over time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} gold</style> <style=cStack>(+{1} gold per stack)</style> every <style=cIsUtility>{2} seconds</style>. Scales over time.",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "",
-
-		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_NAME": "Hermit's Scarf",
-		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_PICKUP": "Chance to dodge incoming damage",
-		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_DESCRIPTION": "<style=cIsHealing>15%</style> <style=cStack>(+15% per stack)</style> chance to <style=cIsHealing>block</style> incoming damage. <style=cIsUtility>Unaffected by luck</style>.",
-		"CLASSICITEMSRETURNS_ITEM_HERMITSSCARF_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "The Toxin",
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "Touching an enemy makes it vulnerable to your next attack",
@@ -38,10 +33,6 @@
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "",
 
 		//[TIER2]
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Deals bonus damage per gold",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack, scaling with time)</style>.",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "56 Leaf Clover",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "Elite enemies have a chance to drop items on death.",
@@ -50,8 +41,13 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "Arms Race",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "Drones gain a missile barrage.",
-		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones fire a <style=cIsDamage>missile barrage</style> every <style=cIsDamage>{0} seconds</style>, firing <style=cIsDamage>{1} missiles</style> <style=cStack>(+{2} missiles per stack)</style> for <style=cIsDamage>{3}%</style> damage each.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones periodically fire a barrage of <style=cIsDamage>{1}</style> <style=cStack>(+{2} per stack)</style> missiles that deal <style=cIsDamage>{3}%</style> damage each. Recharges every <style=cIsUtility>{0}</style> seconds.",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "",
+		
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Deals bonus damage per gold",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack, scaling with time)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Shackle enemy attacks on hit.",
