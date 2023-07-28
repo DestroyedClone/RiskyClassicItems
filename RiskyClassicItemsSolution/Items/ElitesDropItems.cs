@@ -112,7 +112,7 @@ namespace ClassicItemsReturns.Items
                 if (itemCount > 0)
                 {
                     var rollChance = Utils.ItemHelpers.StackingLinear(itemCount, cloverPercentageDropChance, cloverPercentageDropChancePerStack);
-                    return Util.CheckRoll(rollChance);
+                    return Util.CheckRoll(rollChance, 0);
                 }
             }
             return false;

@@ -1,6 +1,6 @@
 # ClassicItemsReturns
 
-This mod adds items and equipment from Risk of Rain / Returns. 
+This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -44,6 +44,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 ### Todo
 
 - Update sprites to Returns sprites when it releases.
+- More Items?
 
 ### Credits
 
@@ -66,6 +67,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 		- Added Wicked Ring.
 			- Uses LiT's rework: -1s cooldown on kill.
 			- Can enable classic version in config.
+		- Added Thqwibs.
 		
 	- Item Changes
 		- Bitter Root

@@ -36,7 +36,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "56 Leaf Clover",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "Elite enemies have a chance to drop items on death.",
-		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "Elite enemies have a <style=cIsUtility>{0}% chance</style> <style=cStack>(+{1}% chance per stack)</style> to <style=cIsUtility>drop an item</style> on death.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "Elite enemies have a <style=cIsUtility>{0}% chance</style> <style=cStack>(+{1}% chance per stack)</style> to <style=cIsUtility>drop an item</style> on death. <style=cIsUtility>Unaffected by luck</style>.",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "Arms Race",
