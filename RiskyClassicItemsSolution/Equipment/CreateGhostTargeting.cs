@@ -50,7 +50,6 @@ namespace ClassicItemsReturns.Equipment
             CreateEquipment();
             Hooks();
 
-
             activationSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             activationSound.eventName = "Play_ClassicItemsReturns_JarSouls";
             ContentAddition.AddNetworkSoundEventDef(activationSound);
@@ -76,6 +75,22 @@ namespace ClassicItemsReturns.Equipment
             championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");*/
             commonTargetIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
             championTargetIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
+        }
+
+        public override void Hooks()
+        {
+            base.Hooks();
+            On.EntityStates.Gup.BaseSplitDeath.OnEnter += FixGhostGupSplit;
+        }
+
+        private void FixGhostGupSplit(On.EntityStates.Gup.BaseSplitDeath.orig_OnEnter orig, EntityStates.Gup.BaseSplitDeath self)
+        {
+            orig(self);
+            if (NetworkServer.active && self.GetComponent<DontSplitOnDeath>())
+            {
+                self.hasDied = true;
+                self.DestroyBodyAsapServer();
+            }
         }
 
         protected override void ConfigureTargetIndicator(EquipmentSlot equipmentSlot, EquipmentIndex targetingEquipmentIndex, GenericPickupController genericPickupController, ref bool shouldShowOverride)
@@ -275,6 +290,11 @@ namespace ClassicItemsReturns.Equipment
                 {
                     CreateGhostOrbEffect(targetBody, body, 0.5f);
                 }
+
+                if (body.bodyIndex == BodyCatalog.FindBodyIndex("GupBody") || body.bodyIndex == BodyCatalog.FindBodyIndex("GeepBody") || body.bodyIndex == BodyCatalog.FindBodyIndex("GipBody"))
+                {
+                    body.gameObject.AddComponent<DontSplitOnDeath>();
+                }
             }
             return body;
         }
@@ -291,4 +311,6 @@ namespace ClassicItemsReturns.Equipment
             EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect"), effectData, true);
         }
     }
+
+    public class DontSplitOnDeath : MonoBehaviour { }
 }
