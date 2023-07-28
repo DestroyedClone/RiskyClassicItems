@@ -18,6 +18,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicArmsRace.png) | Arms Race | Drones periodically fire a barrage of `4` `(+2 per stack)` missiles that deal `200%` damage each. Recharges every `10` seconds
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicGoldGun.png) | Golden Gun | Deal `extra damage` based on held `gold`, up to an extra `+40% damage` `(+20% per stack)` at `300 gold` `(+150 per stack, scaling with time)`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicShackles.png) | Prison Shackles | `Shackle` enemies on hit for `-30% attack speed` for `2s` `(+2s per stack)`.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicPurse.png) | Smart Shopper | Enemies drop an extra `25%` `(+25% per stack)` gold on kill.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicBear.png) | Tough Times | Grants `+14 armor` `(+14 per stack)`.
 
 | Icon | Item | Desc |

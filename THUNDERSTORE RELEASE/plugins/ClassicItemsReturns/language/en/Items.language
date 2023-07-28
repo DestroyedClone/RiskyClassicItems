@@ -56,7 +56,7 @@
 		
 		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
 		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_PICKUP": "Enemies drop extra gold.",
-		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "Enemies drop <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> gold on kill.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "Enemies drop an extra <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> gold on kill.",
 		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "Tough Times",

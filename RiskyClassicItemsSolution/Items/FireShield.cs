@@ -46,7 +46,7 @@ namespace ClassicItemsReturns.Items
             SharedHooks.TakeDamage.OnDamageTakenInventoryActions += ProcFireShield;
         }
 
-        public void ProcFireShield(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory)
+        private void ProcFireShield(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory)
         {
             int itemCount = inventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
