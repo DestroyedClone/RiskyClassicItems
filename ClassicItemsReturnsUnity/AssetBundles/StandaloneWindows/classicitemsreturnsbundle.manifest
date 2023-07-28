@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1716297253
+CRC: 1448960832
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c4dc1c1093a9d9a656f2d888b9482b08
+    Hash: 31f1515ac288abc41acb934c23896a03
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -48,13 +48,14 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
 - Assets/Resources/Materials/Classic/matClassicShackles.mat
+- Assets/Resources/Materials/Classic/matClassicSkullRing.mat
 - Assets/Resources/Textures/Classic/texIconClassicDoll.png
 - Assets/Resources/Models/Classic/mdlClassicRoot.prefab
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicFireShield.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
-- Assets/Resources/Materials/Classic/matClasicFireShield.mat
+- Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
 - Assets/Resources/Materials/matNodraw.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
@@ -72,7 +73,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicThallium.prefab
 - Assets/Resources/Materials/Classic/matClassicClover.mat
 - Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
-- Assets/Resources/Materials/Classic/matClasicArmsRace.mat
+- Assets/Resources/Materials/Classic/matClassicArmsRace.mat
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
 - Assets/Resources/Textures/Classic/texIconClassicToxin.png
@@ -80,6 +81,7 @@ Assets:
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
+- Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
@@ -100,4 +102,5 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicPurse.png
 - Assets/Resources/Textures/texModLogo.png
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
+- Assets/Resources/Models/Classic/mdlClassicSkullRing.prefab
 Dependencies: []

@@ -27,7 +27,7 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.DestroyedClone.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "0.2.0";
+        public const string ModVer = "1.0.0";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain & Returns.";
@@ -67,6 +67,8 @@ namespace ClassicItemsReturns
             AddToAssembly();
             Dots.Initialize();
             SharedHooks.TakeDamage.Initialize();
+            SharedHooks.OnHitEnemy.Initialize();
+            SharedHooks.OnCharacterDeath.Initialize();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
         }

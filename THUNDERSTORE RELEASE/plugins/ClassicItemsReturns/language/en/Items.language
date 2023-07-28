@@ -75,6 +75,16 @@
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to freeze enemies on hit.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "",
+		
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME": "Wicked Ring",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP": "'Critical Strikes' reduce skill cooldowns.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "Gain <style=cIsDamage>{0}% critical chance</style>. <style=cIsDamage>Critical strikes</style> <style=cIsUtility>reduce skill cooldowns</style> by <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE": "",
+		
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME_ALT": "Wicked Ring",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "Kills reduce skill cooldowns.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "<style=cIsUtility>Reduce skill cooldowns</style> by <style=cIsUtility>{0}s</style> <style=cStack>(+{1}s per stack)</style> on kill.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE_ALT": "",
 
 		"CLASSICITEMSRETURNS_ITEM_A_NAME": "",
 		"CLASSICITEMSRETURNS_ITEM_A_PICKUP": "",

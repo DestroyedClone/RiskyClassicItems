@@ -26,6 +26,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | Legendary | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicIceCube.png) | Permafrost | `5%` `(+5% per stack)` chance on hit to `freeze` for `2 seconds`.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicThallium.png) | Thallium | On hit, `5% chance` to `poison` for `500% of victim's damage` and slow by `100% movement speed` over `3 seconds` `(+1.5 seconds per stack)`.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicSkullRing.png) | Wicked Ring | `Reduce skill cooldowns` by `1s` `(+{0.5s per stack)` on kill.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -39,26 +40,33 @@ This mod adds items and equipment from Risk of Rain / Returns.
 | Lunar Equipment | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice `33% of your current health` to `damage` an enemy for `400% of your maximum health`.
 
-### Suggestions
+### Todo
 
-
+- Update sprites to Returns sprites when it releases.
 
 ### Credits
 
-- LostInTransit - Some item implementations
-- ClassicItems - Some item implementations
-- DestroyedClone - Coding
-- Moffein - Coding and Unity stuff, Consultation, testing
-- KomradeSpectre - ItemModBoilerplate
+- LostInTransit: Some item implementations
+- ClassicItems: Some item implementations
+- DestroyedClone: Coding
+- Moffein: Coding and Unity stuff
+- KomradeSpectre: ItemModBoilerplate
+- whitedude: Artifact of Clovers
 
 ### Changelog
 
-- `0.2.0`
+- `1.0.0`
 	- General
 		- Major visual overhaul for everything.
 		- Updated default AI blacklist settings.
-	- Items
+	- New Items
 		- Added Fire Shield.
+		- Added Smart Shopper.
+		- Added Wicket Ring.
+			- Uses LiT's rework: -1s cooldown on kill.
+			- Can enable classic version in config.
+		
+	- Item Changes
 		- Bitter Root
 			- Reworked version is now enabled by default.
 			- Classic Version: Increased HP from 7% to 8%
