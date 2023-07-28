@@ -74,8 +74,7 @@ This mod adds items and equipment from Risk of Rain / Returns.
 			- Increased HP cost from 25% -> 33%
 	- Artifacts
 		- Added Artifact of Clover
-			- Players start with a single 56 Leaf Clover in their inventory.
-			- Disabled if 56 Leaf Clover is disabled in the config.
+			- Players start with a single 56 Leaf Clover in their inventory. (Requires 56 Leaf Clover to be enabled in config)
 
 
 - `0.1.0`

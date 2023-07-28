@@ -193,15 +193,15 @@ namespace ClassicItemsReturns.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            TargetingIndicatorPrefabBase = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
-            /*TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_LostDollIndicator", false);
-            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texLostDollTargetIndicator.png");
-            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = new Color(0.047f, 0.447f, 0.008f);
+            //TargetingIndicatorPrefabBase = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
+            TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_LostDollIndicator", false);
+            //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texLostDollTargetIndicator.png");
+            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = new Color32(156, 80, 82, 255);
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
-            TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.047f, 0.447f, 0.008f);
+            TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color32(156, 80, 82, 255);
             //TargetingIndicatorPrefabBase.transform.localScale = Vector3.one * 0.25f;
-            TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
-            //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;*/
+            //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
+            //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
