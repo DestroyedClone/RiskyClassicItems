@@ -41,7 +41,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "Arms Race",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "Drones gain a missile barrage.",
-		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones periodically fire a barrage of <style=cIsDamage>{1}</style> <style=cStack>(+{2} per stack)</style> missiles that deal <style=cIsDamage>{3}%</style> damage each. Recharges every <style=cIsUtility>{0}</style> seconds.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones periodically fire a barrage of <style=cIsDamage>{1}</style> <style=cStack>(+{2} per stack)</style> missiles that deal <style=cIsDamage>{3}%</style> damage. Recharges every <style=cIsUtility>{0}</style> seconds.",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "",
 		
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",

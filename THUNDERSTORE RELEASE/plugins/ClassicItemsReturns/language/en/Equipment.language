@@ -20,5 +20,10 @@
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_PICKUP": "Enter a drug-induced frenzy.",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_DESCRIPTION": "You enter a <style=cIsDamage>drug-induced frenzy</style> for <style=cIsUtility>{0}</style> seconds. Increases <style=cIsDamage>damage</style> by <style=cIsDamage>{1}%</style> and <style=cIsDamage>attack speed</style> by <style=cIsDamage>{2}%</style>.",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_LORE": "",
+	
+	"CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_NAME": "Thqwibs",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_PICKUP": "Release a bloom of Thqwibs.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_DESCRIPTION": "Release a bloom of <style=cIsDamage>{0}</style> Thqwibs, detonating on impact for <style=cIsDamage>{1}% damage</style>.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_LORE": "",
   }
 }
