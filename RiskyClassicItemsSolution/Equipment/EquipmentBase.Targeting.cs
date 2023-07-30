@@ -9,6 +9,8 @@ namespace ClassicItemsReturns.Equipment
     {
         public GameObject TargetingIndicatorPrefabBase = null;
 
+        public virtual void FilterTargetFinderHurtbox(EquipmentSlot slot, BullseyeSearch targetFinder) { }
+
         private void EquipmentSlot_UpdateTargets(On.RoR2.EquipmentSlot.orig_UpdateTargets orig, EquipmentSlot self, EquipmentIndex targetingEquipmentIndex, bool userShouldAnticipateTarget)
         {
             //https://github.com/ThinkInvis/RoR2-TinkersSatchel/blob/35a9445e2cacfac2d577590b378a45b4239689bd/Items/LunarEqp/MonkeysPaw.cs#L215-L217
@@ -76,6 +78,7 @@ namespace ClassicItemsReturns.Equipment
                         goto IL_134;
                     }
                 }
+                FilterTargetFinderHurtbox(slot, slot.targetFinder);
                 source = slot.targetFinder.GetResults().FirstOrDefault<HurtBox>();
             IL_134:
                 slot.currentTarget = new EquipmentSlot.UserTargetInfo(source);

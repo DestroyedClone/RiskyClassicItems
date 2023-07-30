@@ -15,6 +15,7 @@ namespace ClassicItemsReturns.Equipment
     {
         public override string EquipmentName => "Jar of Souls";
 
+
         public override string EquipmentLangTokenName => "CREATEGHOSTTARGETING";
         public const int ghostDurationSecondsPlayer = 30;
         public const int ghostDurationSecondsEnemy = 25;
@@ -24,8 +25,12 @@ namespace ClassicItemsReturns.Equipment
         public int ghostsPerChampion = 1;
         public int maxGhosts = 9;
 
+        public HashSet<BodyIndex> bodyBlacklist = new HashSet<BodyIndex>();
+        public HashSet<BodyIndex> countAsBoss = new HashSet<BodyIndex>();
+
         //DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
         public static ConfigEntry<bool> limitSpawns;
+        public static ConfigEntry<bool> blacklistSS2UNemesis;
 
         public static NetworkSoundEventDef activationSound;
 
@@ -50,9 +55,19 @@ namespace ClassicItemsReturns.Equipment
             CreateEquipment();
             Hooks();
 
+            RoR2.RoR2Application.onLoad += GetBodyIndex;
+
             activationSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             activationSound.eventName = "Play_ClassicItemsReturns_JarSouls";
             ContentAddition.AddNetworkSoundEventDef(activationSound);
+        }
+
+        private void GetBodyIndex()
+        {
+            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("ShopkeeperBody")); //Was originally going to be CountAsBoss but it turns out the ghosts don't despawn.
+            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("VoidInfestorBody"));
+            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("WispSoulBody"));
+            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("UrchinTurretBody"));
         }
 
         public static GameObject commonTargetIndicator;
@@ -108,10 +123,25 @@ namespace ClassicItemsReturns.Equipment
             shouldShowOverride = false;
         }
 
+        public override void FilterTargetFinderHurtbox(EquipmentSlot slot, BullseyeSearch targetFinder)
+        {
+            base.FilterTargetFinderHurtbox(slot, targetFinder);
+            if (slot.equipmentIndex == EquipmentDef.equipmentIndex)
+            {
+                targetFinder.candidatesEnumerable =
+                    from v in targetFinder.candidatesEnumerable
+                    where v.hurtBox.healthComponent.body && !bodyBlacklist.Contains(v.hurtBox.healthComponent.body.bodyIndex) && !HasNemesisItem(v.hurtBox.healthComponent.body.inventory)
+                    select v;
+            }
+        }
+
         protected override void CreateConfig(ConfigFile config)
         {
             base.CreateConfig(config);
             limitSpawns = config.Bind(ConfigCategory, "Limit Spawns", true, $"If true, max ghosts per player will be set to {maxGhosts}.");
+
+            blacklistSS2UNemesis = config.Bind(ConfigCategory, "Blacklist SS2U Nemesis Bosses", true, "Jar of Souls cant target Nemesis Bosses from SS2U.");
+
             maxGhosts *= (limitSpawns.Value ? 1 : 999999);
         }
 
@@ -172,7 +202,7 @@ namespace ClassicItemsReturns.Equipment
                 component = slot.gameObject.AddComponent<JarGhostTrackerComponent>();
             }
 
-            int ghostsToSpawn = hurtBox.healthComponent.body.isChampion ? ghostsPerChampion : ghostsPerCommon;
+            int ghostsToSpawn = (hurtBox.healthComponent.body.isChampion|| countAsBoss.Contains(hurtBox.healthComponent.body.bodyIndex)) ? ghostsPerChampion : ghostsPerCommon;
             bool hasSpawnedGhost = false;
 
             if (component.CanSpawnGhost())
@@ -309,6 +339,16 @@ namespace ClassicItemsReturns.Equipment
             };
             effectData.SetHurtBoxReference(originBody.mainHurtBox);
             EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/HauntOrbEffect"), effectData, true);
+        }
+
+        private bool HasNemesisItem(Inventory inventory)
+        {
+            if (inventory)
+            {
+                ItemDef nem = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SS2UNemesisMarkerItem"));
+                if (nem && inventory.GetItemCount(nem) > 0) return true;
+            }
+            return false;
         }
     }
 

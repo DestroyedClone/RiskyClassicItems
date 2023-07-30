@@ -57,6 +57,11 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.0.3`
+	- Jar of Souls
+		- Blacklisted Void Infestor, Soul Wisp, Malachite Urchin, Newt
+		- Blacklisted SS2U Nemesis Bosses (can be re-enabled in the ClassicItemsReturns config)
+
 - `1.0.2`
 	- Bitter Root
 		- Can now trigger off of assists if RiskyMod is installed.
