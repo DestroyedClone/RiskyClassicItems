@@ -83,7 +83,7 @@ namespace ClassicItemsReturns.Items
             private void FixedUpdate()
             {
                 stopwatch -= Time.fixedDeltaTime;
-                if (stopwatch <= 0)
+                if (stopwatch <= 0 && !SceneExitController.isRunning)
                 {
                     stopwatch = Instance.intervalSeconds;
                     var stackEffect = (Utils.ItemHelpers.StackingLinear(this.stack, Instance.gold, Instance.goldStack));

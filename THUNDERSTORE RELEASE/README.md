@@ -57,6 +57,10 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.0.4`
+	- Life Savings
+		- No longer gives gold when exiting a stage to prevent softlocks.
+
 - `1.0.3`
 	- Jar of Souls
 		- Blacklisted Void Infestor, Soul Wisp, Malachite Urchin, Newt
