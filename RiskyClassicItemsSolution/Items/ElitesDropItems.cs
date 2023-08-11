@@ -75,7 +75,10 @@ namespace ClassicItemsReturns.Items
             if (!NetworkServer.active)
                 return;
 
-            var checks = damageReport.victimBody && damageReport.victimBody.isElite;
+            var checks = damageReport.victimBody && damageReport.victimBody.isElite
+                && damageReport.attacker
+                && damageReport.attackerTeamIndex != damageReport.victimTeamIndex
+                && !damageReport.victimBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless);
             if (!checks)
                 return;
 

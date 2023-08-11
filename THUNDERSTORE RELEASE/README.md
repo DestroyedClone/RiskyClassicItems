@@ -57,6 +57,11 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.0.5`
+	- 56 Leaf Clover
+		- No longer procs if there is no valid killer.
+		- No longer procs on teamkills.
+
 - `1.0.4`
 	- Life Savings
 		- No longer gives gold when exiting a stage to prevent softlocks.
