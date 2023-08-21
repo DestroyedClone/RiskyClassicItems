@@ -27,7 +27,7 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "1.0.5";
+        public const string ModVer = "1.0.6";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
@@ -209,9 +209,12 @@ namespace ClassicItemsReturns
         /// <param name="equipmentList">The list you would like to add this to if it passes the config check.</param>
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
         {
-            if (Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?").Value)
+            var equipConfig = Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?");
+
+            if (equipConfig.Value)
             {
                 equipmentList.Add(equipment);
+
                 return true;
             }
             return false;

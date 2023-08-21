@@ -22,7 +22,10 @@ namespace ClassicItemsReturns.Equipment
 
         public GameObject projectilePrefab;
 
-        public override float Cooldown => 60;
+        public override bool EnigmaCompatible { get; } = true;
+        public override bool CanBeRandomlyTriggered { get; } = true;
+
+        public override float Cooldown => 45f;
         public override object[] EquipmentFullDescriptionParams => new object[]
         {
             projectileCount,

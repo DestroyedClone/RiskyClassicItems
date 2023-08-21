@@ -57,6 +57,26 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.0.6`
+	- Adjusted Enigma/Chaos settings. Previously everything was set to True.
+		- Lost Doll
+			- Enigma: False
+			- Chaos: False
+		- Jar of Souls
+			- Enigma: True
+			- Chaos: False
+		- Prescriptions
+			- Enigma: True
+			- Chaos: True
+		- Gigantic Amethyst
+			- Enigma: True
+			- Chaos: True
+		- Thqwibs
+			- Enigma: True
+			- Chaos: True
+	- Thqwibs
+		- Reduced cooldown from 60s -> 45s
+
 - `1.0.5`
 	- 56 Leaf Clover
 		- No longer procs if there is no valid killer.

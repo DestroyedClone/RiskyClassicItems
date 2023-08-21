@@ -10,6 +10,9 @@ namespace ClassicItemsReturns.Equipment
         public override string EquipmentName => "Gigantic Amethyst";
         public override string EquipmentLangTokenName => "RESETSKILLCOOLDOWN";
 
+        public override bool EnigmaCompatible { get; } = true;
+        public override bool CanBeRandomlyTriggered { get; } = true;
+
         public override GameObject EquipmentModel => LoadItemModel("Crystal");
 
         public override Sprite EquipmentIcon => LoadItemSprite("Crystal");

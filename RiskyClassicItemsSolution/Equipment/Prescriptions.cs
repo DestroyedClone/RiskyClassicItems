@@ -14,6 +14,9 @@ namespace ClassicItemsReturns.Equipment
         public const float buffDamageMultiplier = 0.2f;
         public const float buffAttackSpeed = 0.4f;
 
+        public override bool EnigmaCompatible { get; } = true;
+        public override bool CanBeRandomlyTriggered { get; } = true;
+
         public override object[] EquipmentFullDescriptionParams => new object[]
         {
             buffDuration,

@@ -34,6 +34,9 @@ namespace ClassicItemsReturns.Equipment
 
         public static NetworkSoundEventDef activationSound;
 
+        public override bool EnigmaCompatible { get; } = true;
+        public override bool CanBeRandomlyTriggered { get; } = false;
+
         public override object[] EquipmentFullDescriptionParams => new object[] {
             (boostDamageItemCount * 10),
             ghostDurationSecondsPlayer

@@ -67,7 +67,7 @@ namespace ClassicItemsReturns.Equipment.EliteEquipment
         public virtual float Cooldown { get; } = 60f;
 
         public virtual bool EnigmaCompatible { get; } = false;
-        public virtual bool CanBeRandomlyTriggered { get; } = true;
+        public virtual bool CanBeRandomlyTriggered { get; } = false;
 
         public virtual bool IsBoss { get; } = false;
 

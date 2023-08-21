@@ -14,6 +14,9 @@ namespace ClassicItemsReturns.Equipment
     {
         public override string EquipmentName => "Lost Doll";
 
+        public override bool EnigmaCompatible { get; } = false;
+        public override bool CanBeRandomlyTriggered { get; } = false;
+
         public override string EquipmentLangTokenName => "LOSTDOLL";
 
         public const float selfHurtCoefficient = 0.33f;
