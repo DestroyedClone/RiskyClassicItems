@@ -20,13 +20,13 @@ namespace ClassicItemsReturns.Equipment
         public override string EquipmentLangTokenName => "LOSTDOLL";
 
         public const float selfHurtCoefficient = 0.25f;
-        public const float damageCoefficient = 4f;
+        public const float healthCoefficient = 4f;
         public const float durationDelay = 0.5f;
 
         public override object[] EquipmentFullDescriptionParams => new object[]
         {
             (selfHurtCoefficient*100),
-            (damageCoefficient*100),
+            (healthCoefficient*100),
         };
 
         public override GameObject EquipmentModel => LoadItemModel("Doll");
@@ -242,7 +242,7 @@ namespace ClassicItemsReturns.Equipment
                 attacker = slot.gameObject,
                 attackerCharacterBody = slot.characterBody,
                 damageColorIndex = DamageColorIndex.Item,
-                damageValue = slot.characterBody.healthComponent.fullCombinedHealth * damageCoefficient,
+                damageValue = slot.characterBody.healthComponent.fullCombinedHealth * healthCoefficient,
                 isCrit = Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master),
                 procChainMask = default,
                 procCoefficient = 1f,

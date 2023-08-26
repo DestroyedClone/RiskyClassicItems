@@ -20,7 +20,8 @@ namespace ClassicItemsReturns.Equipment
         public const int ghostDurationSecondsPlayer = 30;
         public const int ghostDurationSecondsEnemy = 25;
         public const int boostDamageItemCount = 10;
-
+        public const int boostDamageChampionItemCount = 20;
+        
         public int ghostsPerCommon = 3;
         public int ghostsPerChampion = 1;
         public int maxGhosts = 9;
@@ -295,7 +296,7 @@ namespace ClassicItemsReturns.Equipment
 
                     if (ownerBody && ownerBody.teamComponent && ownerBody.teamComponent.teamIndex == TeamIndex.Player)
                     {
-                        inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, boostDamageItemCount);
+                        inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, ownerBody.isChampion ? boostDamageChampionItemCount : boostDamageItemCount);
                         //inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
                         if (ModSupport.ModCompatRiskyMod.loaded)
                         {

@@ -6,7 +6,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 |:--:|:--:|--|
 | Common | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicRoot.png) | Bitter Root | Increase **base health regeneration** by **3 hp/s** for **3s** *(+3s per stack)* after killing an enemy. Scales with level.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicFireShield.png) | Fire Shield | After taking more than **10% of your health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicFireShield.png) | Fire Shield | After taking more than **10% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texWeakenOnContactIcon.png) | The Toxin | **Touching** an enemy makes it **vulnerable** to your next attack, **reducing** its **armor** by **20** for **3 seconds** *(+3 seconds per stack)*.
@@ -60,16 +60,20 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 - `1.1.0`
 	- Fire Shield
-		- Now is guaranteed to proc after taking more than 10% of your health, instead of scaling with health lost.
-		- Increased Blast Radius from 12m -> 20m
-		
-		*Left out RoRR's knockback force scaling since it would antisynergize with melee characters.*
+		- Now is guaranteed to proc after taking more than 10% of your max health, instead of scaling with health lost.
+		- Increased Blast Radius from 12m -> 16m
+		- Ignite now procs before the blast attack.
 		
 	- Snake Eyes
 		- Same implementation as in RoRR. 7% (+7%) crit chance on Shrine fail, stacks up to 6 times. Resets each map (but persists between respawns).
 	
 	- Golden Gun
 		- Fixed buff being cleansable by Blast Shower.
+		
+	- Jar of Souls
+		- Boss ghost damage increased from 200% -> 300%
+		
+		*Noticed most boss ghosts severely underperforming compared to normal mobs.*
 	
 	- Lost Doll
 		- Reduced cost from 33% HP -> 25% HP

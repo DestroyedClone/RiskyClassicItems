@@ -38,7 +38,7 @@ namespace ClassicItemsReturns.Items
 
         public static float explosionDamageCoefficient = 2f;
         public static float igniteDamageCoefficient = 2f;
-        public static float blastRadius = 20f;
+        public static float blastRadius = 16f;
 
         public override void Hooks()
         {
@@ -57,21 +57,6 @@ namespace ClassicItemsReturns.Items
             float percentDamageTaken = damageInfo.damage / self.fullCombinedHealth;
             if (percentDamageTaken < 0.1f) return;
 
-            new BlastAttack
-            {
-                radius = blastRadius,
-                baseDamage = victimBody.damage * explosionDamageCoefficient,
-                procCoefficient = 1f,
-                crit = Util.CheckRoll(victimBody.crit, victimBody.master),
-                damageColorIndex = DamageColorIndex.Item,
-                attackerFiltering = AttackerFiltering.NeverHitSelf,
-                falloffModel = BlastAttack.FalloffModel.None,
-                attacker = victimBody.gameObject,
-                teamIndex = victimTeam,
-                position = victimBody.corePosition,
-                baseForce = 2000f,
-                damageType = DamageType.Generic
-            }.Fire();
             EffectManager.SpawnEffect(GlobalEventManager.CommonAssets.igniteOnKillExplosionEffectPrefab, new EffectData
             {
                 origin = victimBody.corePosition,
@@ -93,6 +78,22 @@ namespace ClassicItemsReturns.Items
                 StrengthenBurnUtils.CheckDotForUpgrade(inventory, ref inflictDotInfo);
                 DotController.InflictDot(ref inflictDotInfo);
             }
+
+            new BlastAttack
+            {
+                radius = blastRadius,
+                baseDamage = victimBody.damage * explosionDamageCoefficient,
+                procCoefficient = 1f,
+                crit = Util.CheckRoll(victimBody.crit, victimBody.master),
+                damageColorIndex = DamageColorIndex.Item,
+                attackerFiltering = AttackerFiltering.NeverHitSelf,
+                falloffModel = BlastAttack.FalloffModel.None,
+                attacker = victimBody.gameObject,
+                teamIndex = victimTeam,
+                position = victimBody.corePosition,
+                baseForce = 2000f,
+                damageType = DamageType.Generic
+            }.Fire();
         }
     }
 }

@@ -8,8 +8,7 @@
 		
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Fire Shield",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "Ignite nearby enemies on taking heavy damage.",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "Chance on taking damage to <style=cIsDamage>ignite</style> all enemies within <style=cIsDamage>{0}m</style> for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage. Chance increases the more damage you take.",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "After taking more than <style=cIsHealth>10% of your health</style> as damage, explode for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "After taking more than <style=cIsHealth>10% of your maximum health</style> as damage, explode for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Bitter Root",
