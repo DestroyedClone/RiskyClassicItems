@@ -19,7 +19,7 @@ namespace ClassicItemsReturns.Equipment
 
         public override string EquipmentLangTokenName => "LOSTDOLL";
 
-        public const float selfHurtCoefficient = 0.33f;
+        public const float selfHurtCoefficient = 0.25f;
         public const float damageCoefficient = 4f;
         public const float durationDelay = 0.5f;
 

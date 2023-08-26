@@ -40,7 +40,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Lunar Equipment | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice **33% of your current health** to **damage** an enemy for **400% of your maximum health**.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice **25% of your current health** to **damage** an enemy for **400% of your maximum health**.
 
 ## Todo
 
@@ -72,8 +72,11 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		- Fixed buff being cleansable by Blast Shower.
 	
 	- Lost Doll
+		- Reduced cost from 33% HP -> 25% HP
 		- Activation sound is now networked.
-		- Temporarily disabled VFX due to concerns about networking.
+		- Disabled VFX due to concerns about networking (was set up in a nonstandard way).
+			- It only showed for the host, and not clients.
+			- Replaced it with a simple placeholder effect for now. Not sure if I'll get around to fixing it fully.
 
 - `1.0.6`
 	- Adjusted Enigma/Chaos settings. Previously everything was set to True.
