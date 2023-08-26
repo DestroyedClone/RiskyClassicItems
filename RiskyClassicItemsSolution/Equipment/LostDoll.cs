@@ -56,7 +56,8 @@ namespace ClassicItemsReturns.Equipment
 
         public void CreateAssets()
         {
-            dollActivationEffect = PrefabAPI.InstantiateClone(Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/PickupDeathProjectile.prefab"), Assets.prefabPrefix + "LostDollEffect");
+            dollActivationEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/DeathProjectile/DeathProjectileTickEffect.prefab").WaitForCompletion();
+            /*dollActivationEffect = PrefabAPI.InstantiateClone(Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/PickupDeathProjectile.prefab"), Assets.prefabPrefix + "LostDollEffect");
             var comp = dollActivationEffect.gameObject.AddComponent<ClassicItemsReturns_LostDollVisualEffect>();
             var spike = UnityEngine.Object.Instantiate<GameObject>(Assets.LoadAddressable<GameObject>("RoR2/Base/moon/AbyssSpike.prefab"));
             spike.name = "DollSpike";
@@ -91,7 +92,7 @@ namespace ClassicItemsReturns.Equipment
             //idk how to, people usually make one from asset or clone an existing one
             //var efcomp = spike.AddComponent<EffectComponent>();
             //ContentAddition.AddEffect(dollActivationEffect);
-            UnityEngine.Object.Destroy(spike);
+            UnityEngine.Object.Destroy(spike);*/
 
             dollActivationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Doll");
         }
@@ -251,16 +252,18 @@ namespace ClassicItemsReturns.Equipment
                 teamIndex = slot.characterBody.teamComponent.teamIndex,
             });
 
-            /* var effectData = new EffectData()
-             {
-                 origin = slot.characterBody.aimOrigin + Vector3.up * 3f
-             };*/
-            //EffectManager.SpawnEffect(dollActivationEffect, effectData, true);
-            var effect = UnityEngine.Object.Instantiate(dollActivationEffect);
+            var effectData = new EffectData()
+            {
+                origin = slot.characterBody.corePosition
+            };
+            EffectManager.SpawnEffect(dollActivationEffect, effectData, true);
+
+            //Disable this for now until an actual fix is found.
+            /*var effect = UnityEngine.Object.Instantiate(dollActivationEffect);
             effect.transform.SetParent(slot.transform, false);
             effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
+            NetworkServer.Spawn(effect);*/
 
-            //NetworkServer.Spawn(effect);  //Disable this for now until an actual fix is found.
             slot.InvalidateCurrentTarget();
             return true;
         }

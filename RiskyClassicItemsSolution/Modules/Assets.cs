@@ -78,6 +78,7 @@ namespace ClassicItemsReturns.Modules
             }
         }
 
+        //WHY DOES THIS EXIST???
         public static T LoadAddressable<T>(string path)
         {
             return Addressables.LoadAssetAsync<T>(path).WaitForCompletion();

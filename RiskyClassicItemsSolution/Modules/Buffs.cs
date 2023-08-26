@@ -19,6 +19,12 @@ namespace ClassicItemsReturns.Modules
         public static BuffDef ThalliumBuff;
         public static BuffDef WeakenOnContactBuff;
 
+        //Unique icon for each buff.
+        public static class SnakeEyesBuffs
+        {
+            public static BuffDef Snake1, Snake2, Snake3, Snake4, Snake5, Snake6;
+        }
+
         public static void Initialize()
         {
             InitializeBuffDefs();
@@ -71,7 +77,7 @@ namespace ClassicItemsReturns.Modules
                 }
                 else
                 {
-                    Debug.LogError("Starstorm 2 Unofficial: Failed to set up Chirr Friend Buff overlay IL Hook.");
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Toxin VFX.");
                 }
             };
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
@@ -144,7 +150,7 @@ namespace ClassicItemsReturns.Modules
             GoldenGunBuff = CreateBuffInternal("CIR_GoldenGun",
                 new Color32(219, 211,  77, 255), true,
                 null, Assets.LoadSprite("texBuffGoldGun_nomoney"),
-                true, false,
+                false, false,
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("CIR_Chilled",
                 Color.cyan, false,
@@ -164,6 +170,37 @@ namespace ClassicItemsReturns.Modules
                 new Color(0.784f, 0.937f, 0.427f, 1f), false,
                 null, Assets.LoadSprite("texBuffToxin"),
                 false, true, false, null);
+
+            SnakeEyesBuffs.Snake1 = CreateBuffInternal("CIR_Snake1",
+                new Color32(214, 58, 58, 255), false,
+                null, Assets.LoadSprite("texBuffSnake1"),
+                false, false,
+                false, null);
+            SnakeEyesBuffs.Snake2 = CreateBuffInternal("CIR_Snake2",
+                new Color32(214, 58, 58, 255), false,
+                null, Assets.LoadSprite("texBuffSnake2"),
+                false, false,
+                false, null);
+            SnakeEyesBuffs.Snake3 = CreateBuffInternal("CIR_Snake3",
+                new Color32(214, 58, 58, 255), false,
+                null, Assets.LoadSprite("texBuffSnake3"),
+                false, false,
+                false, null);
+            SnakeEyesBuffs.Snake4 = CreateBuffInternal("CIR_Snake4",
+                new Color32(214, 58, 58, 255), false,
+                null, Assets.LoadSprite("texBuffSnake4"),
+                false, false,
+                false, null);
+            SnakeEyesBuffs.Snake5 = CreateBuffInternal("CIR_Snake5",
+                new Color32(214, 58, 58, 255), false,
+                null, Assets.LoadSprite("texBuffSnake5"),
+                false, false,
+                false, null);
+            SnakeEyesBuffs.Snake6 = CreateBuffInternal("CIR_Snake6",
+                new Color32(214, 58, 58, 255), false,
+                null, Assets.LoadSprite("texBuffSnake6"),
+                false, false,
+                false, null);
         }
 
         public static BuffDef CreateBuffInternal(string name, Color buffColor, bool canStack, EliteDef eliteDef, Sprite iconSprite, bool isCooldown, bool isDebuff, bool isHidden, NetworkSoundEventDef startSfx)

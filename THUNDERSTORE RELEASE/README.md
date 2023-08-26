@@ -10,6 +10,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texWeakenOnContactIcon.png) | The Toxin | **Touching** an enemy makes it **vulnerable** to your next attack, **reducing** its **armor** by **20** for **3 seconds** *(+3 seconds per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texDiceIcon.png) | Snake Eyes | Failing a shrine increases critical chance by **7%** *(+7% per stack)*, up to **6 times**. Resets at the start of each stage.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -64,11 +65,15 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		
 		*Left out RoRR's knockback force scaling since it would antisynergize with melee characters.*
 		
-	- Snake Eyes (todo)
+	- Snake Eyes
+		- Same implementation as in RoRR. 7% (+7%) crit chance on Shrine fail, stacks up to 6 times. Resets each map (but persists between respawns).
+	
+	- Golden Gun
+		- Fixed buff being cleansable by Blast Shower.
 	
 	- Lost Doll
 		- Activation sound is now networked.
-			- VFX still doesnt show for clients.
+		- Temporarily disabled VFX due to concerns about networking.
 
 - `1.0.6`
 	- Adjusted Enigma/Chaos settings. Previously everything was set to True.

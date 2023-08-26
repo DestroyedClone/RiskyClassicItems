@@ -18,6 +18,14 @@ namespace ClassicItemsReturns.Utils
             return null;
         }
 
+        public static void TryRemoveBuff(CharacterBody body, BuffDef buff)
+        {
+            if (body.HasBuff(buff))
+            {
+                body.RemoveBuff(buff);
+            }
+        }
+
         /// <summary>
         /// Takes a collection and shuffle sorts it around randomly.
         /// </summary>

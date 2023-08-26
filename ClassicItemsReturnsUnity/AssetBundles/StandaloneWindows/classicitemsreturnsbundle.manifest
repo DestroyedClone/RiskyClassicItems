@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3951463314
+CRC: 2764999519
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2c01ff0f22c5c6d4801e69c534e34d2d
+    Hash: 9bd66895aa58fb0f6eab4d0d9f792532
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -34,6 +34,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Resources/Textures/Classic/texIconClassicSquib.png
+- Assets/Resources/Textures/Buffs/texBuffSnake4.png
 - Assets/Resources/Textures/Buffs/texBuffPills.png
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
 - Assets/Resources/Materials/Classic/matClassicDice.mat
@@ -42,6 +43,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicBear.mat
 - Assets/Resources/Textures/UI/texJarOfSoulsChampionTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicClover.png
+- Assets/Resources/Textures/Buffs/texBuffSnake5.png
 - Assets/Resources/Textures/UI/texHitListMarker.png
 - Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
 - Assets/Resources/Materials/Classic/matClassicDoll.mat
@@ -59,6 +61,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
+- Assets/Resources/Textures/Buffs/texBuffSnake1.png
 - Assets/Resources/Materials/matNodraw.mat
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
@@ -77,6 +80,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicClover.mat
 - Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
 - Assets/Resources/Materials/Classic/matClassicArmsRace.mat
+- Assets/Resources/Textures/Buffs/texBuffSnake3.png
 - Assets/Resources/Models/Classic/mdlClassicDice.prefab
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
@@ -85,11 +89,13 @@ Assets:
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
+- Assets/Resources/Textures/Buffs/texBuffSnake6.png
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Textures/Buffs/texBuffToxin.png
+- Assets/Resources/Textures/Buffs/texBuffSnake2.png
 - Assets/Resources/Textures/UI/texHitListBuffIcon.png
 - Assets/Resources/Models/Classic/mdlClassicShackles.prefab
 - Assets/Resources/Materials/Classic/matClassicVial.mat
