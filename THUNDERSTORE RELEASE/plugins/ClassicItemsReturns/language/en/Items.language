@@ -3,12 +3,13 @@
 		//[TIER1]
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
-		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>+{0} hp/s</style> <style=cStack>(+{1} hp/s per stack)</style>. <style=cIsHealing>Scales with level</style>.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>+{0} hp/s</style> <style=cStack>(+{1} hp/s per stack)</style>. Scales with level.",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_LORE": "",
 		
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Fire Shield",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "Ignite nearby enemies on taking heavy damage.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "Chance on taking damage to <style=cIsDamage>ignite</style> all enemies within <style=cIsDamage>{0}m</style> for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage. Chance increases the more damage you take.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "After taking more than <style=cIsHealth>10% of your health</style> as damage, explode for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Bitter Root",
@@ -19,12 +20,12 @@
 		//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME_ALT": "Bitter Root",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP_ALT": "Regenerate health on kill.",
-		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>{0} hp/s</style> for <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style> after killing an enemy. <style=cIsHealing>Scales with level</style>.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>{0} hp/s</style> for <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style> after killing an enemy. Scales with level.",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE_ALT": "",
 
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Life Savings",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Generate gold over time.",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} gold</style> <style=cStack>(+{1} gold per stack)</style> every <style=cIsUtility>{2} seconds</style>. Scales over time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0}<style=cStack>(+{1} per stack)</style> gold</style> every <style=cIsUtility>{2} seconds</style>. Scales with time.",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "The Toxin",

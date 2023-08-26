@@ -38,7 +38,7 @@ namespace ClassicItemsReturns.Items
 
         public static float explosionDamageCoefficient = 2f;
         public static float igniteDamageCoefficient = 2f;
-        public static float blastRadius = 12f;
+        public static float blastRadius = 20f;
 
         public override void Hooks()
         {
@@ -54,8 +54,8 @@ namespace ClassicItemsReturns.Items
             TeamIndex victimTeam = victimBody.teamComponent ? victimBody.teamComponent.teamIndex : TeamIndex.None;
             if (victimTeam == TeamIndex.None) return;
 
-            float percentDamageTaken = 2f * damageInfo.damage / self.fullCombinedHealth;    //Max out at 50% HP lost since this is a Common item that should proc semi-frequently.
-            if (!Util.CheckRoll(percentDamageTaken * 100f, victimBody.master)) return;
+            float percentDamageTaken = damageInfo.damage / self.fullCombinedHealth;
+            if (percentDamageTaken < 0.1f) return;
 
             new BlastAttack
             {
