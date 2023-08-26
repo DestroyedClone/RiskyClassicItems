@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1755216623
+CRC: 3951463314
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3d020196c458668bc8225f2bdf671398
+    Hash: 2c01ff0f22c5c6d4801e69c534e34d2d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -36,6 +36,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicSquib.png
 - Assets/Resources/Textures/Buffs/texBuffPills.png
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
+- Assets/Resources/Materials/Classic/matClassicDice.mat
 - Assets/Resources/Textures/Classic/texIconClassicBear.png
 - Assets/Resources/Models/Classic/mdlClassicJarSouls.prefab
 - Assets/Resources/Materials/Classic/matClassicBear.mat
@@ -76,6 +77,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicClover.mat
 - Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
 - Assets/Resources/Materials/Classic/matClassicArmsRace.mat
+- Assets/Resources/Models/Classic/mdlClassicDice.prefab
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
 - Assets/Resources/Textures/Classic/texIconClassicToxin.png
@@ -105,5 +107,6 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicPurse.png
 - Assets/Resources/Textures/texModLogo.png
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
+- Assets/Resources/Textures/Classic/texIconClassicDice.png
 - Assets/Resources/Models/Classic/mdlClassicSkullRing.prefab
 Dependencies: []
