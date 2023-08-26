@@ -66,9 +66,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		
 	- Snake Eyes (todo)
 	
-	- Lost Doll (todo)
-		- Network Sound
-		- Fix effect networking
+	- Lost Doll
+		- Activation sound is now networked.
+			- VFX still doesnt show for clients.
 
 - `1.0.6`
 	- Adjusted Enigma/Chaos settings. Previously everything was set to True.

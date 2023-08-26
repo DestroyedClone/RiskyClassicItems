@@ -37,6 +37,7 @@ namespace ClassicItemsReturns.Equipment
 
         public override bool IsLunar => true;
         public static GameObject dollActivationEffect;
+        public static NetworkSoundEventDef dollActivationSound;
         public override float Cooldown => 45;
 
         public override void Init(ConfigFile config)
@@ -91,6 +92,8 @@ namespace ClassicItemsReturns.Equipment
             //var efcomp = spike.AddComponent<EffectComponent>();
             //ContentAddition.AddEffect(dollActivationEffect);
             UnityEngine.Object.Destroy(spike);
+
+            dollActivationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Doll");
         }
 
         public class DollSpikeDisplayHelper : MonoBehaviour
@@ -132,7 +135,6 @@ namespace ClassicItemsReturns.Equipment
 
                 //Do this to make it darkened from the start.
                 if (dollMR && dollMat) dollMR.SetMaterial(dollMat);
-                Util.PlaySound("Play_ClassicItemsReturns_Doll", base.gameObject);
             }
 
             public void AddSpike(GameObject spike, Quaternion initialRotation, Vector3 startPosition, Vector3 endPosition)
@@ -231,6 +233,8 @@ namespace ClassicItemsReturns.Equipment
                 return false;
             }
 
+            RoR2.Audio.EntitySoundManager.EmitSoundServer(LostDoll.dollActivationSound.akId, slot.gameObject);
+
             slot.subcooldownTimer = 0.05f;
             RoR2.Orbs.OrbManager.instance.AddOrb(new Orbs.CIR_LostDollOrb()
             {
@@ -256,7 +260,7 @@ namespace ClassicItemsReturns.Equipment
             effect.transform.SetParent(slot.transform, false);
             effect.transform.position = slot.characterBody.corePosition + Vector3.up * 3f;
 
-            NetworkServer.Spawn(effect);
+            //NetworkServer.Spawn(effect);  //Disable this for now until an actual fix is found.
             slot.InvalidateCurrentTarget();
             return true;
         }
