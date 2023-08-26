@@ -65,7 +65,8 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		- Ignite now procs before the blast attack.
 		
 	- Snake Eyes
-		- Same implementation as in RoRR. 7% (+7%) crit chance on Shrine fail, stacks up to 6 times. Resets each map (but persists between respawns).
+		- Same implementation as in RoRR. 7% (+7%) crit chance on Shrine fail, stacks up to 6 times. Resets each map.
+			- Persists if you die and get revived on the same stage
 	
 	- Golden Gun
 		- Fixed buff being cleansable by Blast Shower.
@@ -78,7 +79,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 	- Lost Doll
 		- Reduced cost from 33% HP -> 25% HP
 		- Activation sound is now networked.
-		- Disabled VFX due to concerns about networking (was set up in a nonstandard way).
+		- Disabled VFX due to concerns about networking (it was set up in a nonstandard way).
 			- It only showed for the host, and not clients.
 			- Replaced it with a simple placeholder effect for now. Not sure if I'll get around to fixing it fully.
 

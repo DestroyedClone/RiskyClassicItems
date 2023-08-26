@@ -29,23 +29,6 @@ namespace ClassicItemsReturns.Modules
         {
             InitializeBuffDefs();
 
-            On.RoR2.CharacterBody.OnBuffFirstStackGained += CharacterBody_OnBuffFirstStackGained;
-            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
-            IL.RoR2.CharacterBody.UpdateAllTemporaryVisualEffects += (il) =>
-            {
-                ILCursor c = new ILCursor(il);
-                if (c.TryGotoNext(
-                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "CrocoRegen")
-                    ))
-                {
-                    c.Index += 2;
-                    c.Emit(OpCodes.Ldarg_0);
-                    c.EmitDelegate<Func<bool, CharacterBody, bool>>((hasBuff, self) =>
-                    {
-                        return hasBuff || self.HasBuff(BitterRootBuff);
-                    });
-                }
-            };
             IL.RoR2.CharacterBody.UpdateAllTemporaryVisualEffects += (il) =>
             {
                 ILCursor c = new ILCursor(il);
@@ -59,6 +42,26 @@ namespace ClassicItemsReturns.Modules
                     {
                         return hasBuff || self.HasBuff(WeakenOnContactBuff);
                     });
+                }
+                else
+                {
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Toxin VFX.");
+                }
+
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "CrocoRegen")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterBody, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || self.HasBuff(BitterRootBuff);
+                    });
+                }
+                else
+                {
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Bitter Root.");
                 }
             };
             IL.RoR2.CharacterModel.UpdateOverlays += (il) =>
@@ -77,7 +80,23 @@ namespace ClassicItemsReturns.Modules
                 }
                 else
                 {
-                    Debug.LogError("ClassicItemsReturns: Failed to set up Toxin VFX.");
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Toxin Overlay.");
+                }
+
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "FullCrit")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterModel, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || (self.body.HasBuff(DrugsBuff));
+                    });
+                }
+                else
+                {
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Prescriptions Overlay.");
                 }
             };
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
@@ -91,41 +110,6 @@ namespace ClassicItemsReturns.Modules
                     damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
             }
             orig(self, damageInfo);
-        }
-
-        private static void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
-        {
-            orig(self);
-            void AddOverlays(Material overlayMaterial, bool condition)
-            {
-                if (self.activeOverlayCount >= CharacterModel.maxOverlays)
-                {
-                    return;
-                }
-                if (condition)
-                {
-                    Material[] array = self.currentOverlays;
-                    int num = self.activeOverlayCount;
-                    self.activeOverlayCount = num + 1;
-                    array[num] = overlayMaterial;
-                }
-            }
-            if (self.body)
-            {
-                AddOverlays(CharacterModel.fullCritMaterial, self.body.HasBuff(DrugsBuff));
-            }
-        }
-
-        private static void CharacterBody_OnBuffFirstStackGained(On.RoR2.CharacterBody.orig_OnBuffFirstStackGained orig, CharacterBody self, BuffDef buffDef)
-        {
-            orig(self, buffDef);
-            //an NSE would play it every time it's applied, which gets too loud from sound stacking
-            //so better to play on first stack
-            if (buffDef == ShacklesBuff)
-            {
-                //Util.PlaySound("Play_gravekeeper_attack2_shoot_singleChain", self.gameObject);
-                //TODO: Find less harsh sound
-            }
         }
 
         private static void InitializeBuffDefs()
