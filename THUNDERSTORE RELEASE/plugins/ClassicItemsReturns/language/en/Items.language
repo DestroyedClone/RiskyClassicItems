@@ -24,7 +24,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Life Savings",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Generate gold over time.",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0}<style=cStack>(+{1} per stack)</style> gold</style> every <style=cIsUtility>{2} seconds</style>. Scales with time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} <style=cStack>(+{1} per stack)</style> gold</style> every <style=cIsUtility>{2} seconds</style>. Scales with time.",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "The Toxin",

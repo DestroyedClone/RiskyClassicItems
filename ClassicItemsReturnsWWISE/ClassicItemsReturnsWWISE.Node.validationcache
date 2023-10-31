@@ -5,7 +5,7 @@
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Switches\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\States\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\SoundBanks\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\SoundBanks\Default Work Unit.wwu" DateLow="1690499144" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Queries\Factory Queries.wwu" DateLow="1646551843" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Queries\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Presets\Factory Spatial Audio.wwu" DateLow="1646551843" DateHigh="0"/>
@@ -14,8 +14,8 @@
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Mixing Sessions\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Game Parameters\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Events\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Game Parameters\Default Work Unit.wwu" DateLow="1690498980" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Events\Default Work Unit.wwu" DateLow="1690499144" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Effects\Factory Effects.wwu" DateLow="1646551843" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Effects\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
@@ -23,7 +23,8 @@
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Conversion Settings\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Control Surface Sessions\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\ClassicItemsReturnsWWISE.wproj" DateLow="1690497557" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\ClassicItemsReturnsWWISE.Node.wsettings" DateLow="1690503284" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Audio Devices\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Attenuations\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1690497557" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Attenuations\Default Work Unit.wwu" DateLow="1690499007" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Node\RoR2 Mods\RiskyClassicItems\ClassicItemsReturnsWWISE\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1690500937" DateHigh="0"/>
 </ValidationCache>
