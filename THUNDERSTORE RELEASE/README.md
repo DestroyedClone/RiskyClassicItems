@@ -58,6 +58,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.1.1`
+	- Fixed missing space in Life Savings description.
+
 - `1.1.0`
 	- Fire Shield
 		- Now is guaranteed to proc after taking more than 10% of your max health, instead of scaling with health lost.
