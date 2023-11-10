@@ -1,0 +1,5 @@
+Resize canvas to 40
+Multiply by 3
+Fill in to 128
+
+^ This preserves scale and prevents weird issues due to NP-2 textures.
