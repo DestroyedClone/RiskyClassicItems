@@ -91,8 +91,9 @@ namespace ClassicItemsReturns.Items
 
         private void CooldownOnCrit(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory)
         {
+            if (!damageInfo.crit || damageInfo.procCoefficient <= 0f || !attackerBody.skillLocator) return;
             int itemCount = attackerInventory.GetItemCount(ItemDef);
-            if (itemCount <= 0 || !damageInfo.crit || damageInfo.procCoefficient <= 0f || !attackerBody.skillLocator) return;
+            if (itemCount <= 0) return;
 
             int itemStack = itemCount - 1;
             float totalReduction = cdr + itemStack * cdrStack;

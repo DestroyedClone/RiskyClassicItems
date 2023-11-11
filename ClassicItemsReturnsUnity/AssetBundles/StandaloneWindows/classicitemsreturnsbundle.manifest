@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4280277642
+CRC: 3263662797
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 061ff8388ebc8e7cce3fe61225799a24
+    Hash: 1157be787f15a932ae9fcd0e70ab3c61
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -154,6 +154,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
 - Assets/Resources/Materials/Returns/matClover.mat
 - Assets/Resources/Materials/Classic/matClassicPurse.mat
+- Assets/Resources/Textures/Classic/texIconClassicToxin.png
 - Assets/Resources/Models/Returns/mdlPig.prefab
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
@@ -175,5 +176,6 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
 - Assets/Resources/Models/Returns/mdlGoldGun.prefab
 - Assets/Resources/Textures/Classic/texIconClassicDice.png
+- Assets/Resources/Textures/Classic/texIconClassicPenny.png
 - Assets/Resources/Models/Classic/mdlClassicSkullRing.prefab
 Dependencies: []
