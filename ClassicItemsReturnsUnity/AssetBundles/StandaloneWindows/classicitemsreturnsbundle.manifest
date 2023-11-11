@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3299568287
+CRC: 4280277642
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 69794f85b2bcb161a7c90b577a8d3ab4
+    Hash: 061ff8388ebc8e7cce3fe61225799a24
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -33,6 +33,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Resources/Models/Returns/mdlPenny.prefab
 - Assets/Resources/Textures/Classic/texIconClassicSquib.png
 - Assets/Resources/Textures/Returns/texIconPills.png
 - Assets/Resources/Models/Returns/mdlJarSouls.prefab
@@ -61,6 +62,7 @@ Assets:
 - Assets/Resources/Textures/Buffs/texBuffGoldGun_nomoney.png
 - Assets/Resources/Textures/Returns/texIconJarSouls.png
 - Assets/Resources/Materials/Classic/matClassicPills.mat
+- Assets/Resources/Textures/Returns/texIconPenny.png
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
@@ -81,6 +83,7 @@ Assets:
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
 - Assets/Resources/Textures/Buffs/texBuffSnake1.png
 - Assets/Resources/Materials/matNodraw.mat
+- Assets/Resources/Materials/Returns/matPenny.mat
 - Assets/Resources/Textures/Returns/texIconBear.png
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
@@ -112,6 +115,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicThallium.prefab
 - Assets/Resources/Models/Returns/mdlToxin.prefab
 - Assets/Resources/Materials/Classic/matClassicClover.mat
+- Assets/Resources/Materials/Classic/mdlClassicPenny.mat
 - Assets/Resources/Materials/Returns/matDoll.mat
 - Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
 - Assets/Resources/Materials/Classic/matClassicArmsRace.mat

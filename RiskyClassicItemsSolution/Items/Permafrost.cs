@@ -12,7 +12,7 @@ namespace ClassicItemsReturns.Items
 
         //util.amplification only accepts one value
         //and figuring out the formula will dent my brain durther
-        private float procChancePercentage = 5f;
+        private float procChancePercentage = 3f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
