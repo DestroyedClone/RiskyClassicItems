@@ -31,7 +31,7 @@ namespace ClassicItemsReturns.Items
             ItemTag.InteractableRelated
         };
 
-        public float critChance = 7f;
+        public float critChance = 7.5f;
 
 
         public override object[] ItemFullDescriptionParams => new object[]

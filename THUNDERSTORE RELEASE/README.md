@@ -10,7 +10,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texWeakenOnContactIcon.png) | The Toxin | **Touching** an enemy makes it **vulnerable** to your next attack, **reducing** its **armor** by **20** for **3 seconds** *(+3 seconds per stack)*.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicDice.png) | Snake Eyes | Using a shrine increases critical chance by **7%** *(+7% per stack)*, up to **6 times**. Resets at the start of each stage.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicDice.png) | Snake Eyes | Using a shrine increases critical chance by **7.5%** *(+7.5% per stack)*, up to **6 times**. Resets at the start of each stage.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -64,6 +64,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		
 	- Snake Eyes
 		- Now triggers on any shrine use.
+		- Increased crit from 7% (+7%) -> 7.5% (+7.5%)
 		
 		*Failing a Chance Shrine is too conditional and straight up doesn't work with Sacrifice. Will see how the item performs before determining if further buffs are needed.*
 
