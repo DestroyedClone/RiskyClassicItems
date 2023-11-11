@@ -64,7 +64,7 @@ namespace ClassicItemsReturns.Modules
                     //Main.ModDebugLog($"DoTBehav: V.dmg: {victimDamage} vs A.dmg: {attackerDamage}");
 
                     damageToDeal = Mathf.Max(attackerDamage, victimDamage);
-                    damageToDeal *= thallium.enemyAttackDamageCoef * thallium.dotInterval / thallium.duration;
+                    damageToDeal *= thallium.enemyAttackDamageCoef; //* thallium.dotInterval / thallium.duration;
 
                     //use replacement or original damage, whichever is higher
                     //it will always be higher, while the damageCoefficient is 0.333

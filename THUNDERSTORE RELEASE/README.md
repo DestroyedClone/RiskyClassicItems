@@ -26,7 +26,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 |:--:|:--:|--|
 | Legendary | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicIceCube.png) | Permafrost | **5%** *(+5% per stack)* chance on hit to **freeze** for **2 seconds**.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicThallium.png) | Thallium | On hit, **5% chance** to **poison** for **500% of victim's damage** and slow by **100% movement speed** over **3 seconds** *(+1.5 seconds per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicThallium.png) | Thallium | On hit, **10% chance** to **poison** for **2x300% of victim's damage per second** and slow by **100% movement speed** over **3 seconds** *(+1.5 seconds per stack)*.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/items/texIconClassicSkullRing.png) | Wicked Ring | **Reduce skill cooldowns** by **1s** *(+0.5s per stack)* on kill.
 
 | Icon | Item | Desc |
@@ -67,6 +67,12 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		- Increased crit from 7% (+7%) -> 7.5% (+7.5%)
 		
 		*Failing a Chance Shrine is too conditional and straight up doesn't work with Sacrifice. Will see how the item performs before determining if further buffs are needed.*
+		
+	- Thallium
+		- Buffed chance from 5% -> 10% to match Returns.
+		- Buffed damage from 500% total damage  -> 2x300% per second (Returns is 2x500% per second but takes time to ramp up to the full amount)
+		
+		*I'll figure out how the math actually works later.*
 
 - `1.1.1`
 	- Fixed missing space in Life Savings description.

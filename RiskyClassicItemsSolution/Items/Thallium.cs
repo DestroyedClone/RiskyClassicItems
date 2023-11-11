@@ -8,8 +8,8 @@ namespace ClassicItemsReturns.Items
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/Thallium.cs
     public class Thallium : ItemBase<Thallium>
     {
-        public float chance = 5f;
-        public float enemyAttackDamageCoef = 5f;
+        public float chance = 10f;
+        public float enemyAttackDamageCoef = 3f;
         public float enemyMoveSpeedCoef = 1f;
         public float duration = 3f;
         public float durationPerStack = 1.5f;

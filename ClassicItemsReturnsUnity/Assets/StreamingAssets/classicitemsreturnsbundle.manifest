@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4293802100
+CRC: 3299568287
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dee285f752b284b802ab35a1041c168d
+    Hash: 69794f85b2bcb161a7c90b577a8d3ab4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -85,6 +85,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
 - Assets/Resources/Textures/Returns/texIconToxin.png
+- Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Materials/Returns/matCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
@@ -101,7 +102,6 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicPurse.prefab
 - Assets/Resources/Textures/Returns/texIconVial.png
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
-- Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Models/Classic/mdlClassicFireShield.prefab
 - Assets/Resources/Models/Returns/mdlRoot.prefab
 - Assets/Resources/Textures/Returns/texIconThallium.png
@@ -119,7 +119,6 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicDice.prefab
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Textures/Returns/texIconArmsRace.png
-- Assets/Resources/Textures/Classic/texIconClassicToxin.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
 - Assets/Resources/Materials/Returns/matShackles.mat
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
@@ -155,7 +154,6 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Returns/matSquib.mat
-- Assets/Resources/Materials/Classic/matClassicToxin.mat
 - Assets/Resources/Materials/Classic/matClassicSquib.mat
 - Assets/Resources/Textures/Returns/texIconGoldGun.png
 - Assets/Resources/Models/Returns/mdlBear.prefab
