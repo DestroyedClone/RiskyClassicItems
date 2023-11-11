@@ -33,8 +33,8 @@
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "",
 		
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "Snake Eyes",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "Failing shrines increases 'Critical Strike' chance.",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Failing a shrine</style> increases <style=cIsDamage>critical chance</style> by <style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style>, up to <style=cIsDamage>6 times</style>. Resets at the start of each stage.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "Using shrines increases 'Critical Strike' chance.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Using a shrine</style> increases <style=cIsDamage>critical chance</style> by <style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style>, up to <style=cIsDamage>6 times</style>. Resets at the start of each stage.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "",
 
 		//[TIER2]

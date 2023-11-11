@@ -45,9 +45,28 @@ namespace ClassicItemsReturns.Items
             base.Hooks();
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
             Inventory.onInventoryChangedGlobal += Inventory_onInventoryChangedGlobal;
-            ShrineChanceBehavior.onShrineChancePurchaseGlobal += DiceOnShrineFail;
+            //ShrineChanceBehavior.onShrineChancePurchaseGlobal += DiceOnShrineFail;
+            On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrineUse;
             RoR2.Stage.onStageStartGlobal += ResetCountOnStageStart;
             RoR2.CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
+        }
+
+        private void DiceOnShrineUse(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
+        {
+            //Duplicated check, ugly
+            bool canBeAfforded = self.CanBeAffordedByInteractor(activator);
+
+            orig(self, activator);
+
+            if (canBeAfforded && (self.isShrine || self.isGoldShrine))
+            {
+                CharacterBody body = activator.GetComponent<CharacterBody>();
+                if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(this.ItemDef) <= 0) return;
+
+                MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
+                if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
+                mset.Increment(body);
+            }
         }
 
         private void CharacterBody_onBodyStartGlobal(CharacterBody body)
@@ -71,7 +90,7 @@ namespace ClassicItemsReturns.Items
             }
         }
 
-        private void DiceOnShrineFail(bool failed, Interactor interactor)
+        /*private void DiceOnShrineFail(bool failed, Interactor interactor)
         {
             if (!failed) return;
 
@@ -81,7 +100,7 @@ namespace ClassicItemsReturns.Items
             MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
             if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
             mset.Increment(body);
-        }
+        }*/
 
         private void Inventory_onInventoryChangedGlobal(Inventory inventory)
         {
