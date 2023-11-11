@@ -41,6 +41,11 @@
 		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "Slightly increased critical chance. 'Critical Strikes' give you gold.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "Gain <style=cIsDamage>{0}% <style=cStack>(+{0}% per stack)</style> critical chance</style>. <style=cIsDamage>Critical strikes</style> drop <style=cIsUtility>${1} <style=cStack>(+${1} per stack)</style> gold</style>.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "",
+		
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "Arcane Blades",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "Move faster after activating the Teleporter.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>{0}  <style=cStack>(+{0}% per stack)</style></style> after the <style=cIsHealth>Teleporter</style> has been activated.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "",
 
 		//[TIER2]
 

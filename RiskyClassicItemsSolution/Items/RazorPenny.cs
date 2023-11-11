@@ -36,7 +36,6 @@ namespace ClassicItemsReturns.Items
             critChance, goldOnHit
         };
 
-        //Way the buffs are handled is very ugly.
         public override void Hooks()
         {
             base.Hooks();

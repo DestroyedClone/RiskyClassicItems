@@ -12,6 +12,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconToxin.png) | The Toxin | **Touching** an enemy makes it **vulnerable** to your next attack, **reducing** its **armor** by **20** for **3 seconds** *(+3 seconds per stack)*.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconDice.png) | Snake Eyes | Using a shrine increases critical chance by **7.5%** *(+7.5% per stack)*, up to **6 times**. Resets at the start of each stage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconPenny.png) | Razor Penny | Gain **5%** *(+5% per stack)* critical chance. Critical strikes drop **$1** *(+$1 per stack)* **gold**.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconArcaneBlades.png) | Arcane Blades | Increases **movement speed** by **20%** *(+20% per stack)* after the **Teleporter** has been activated.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -57,6 +58,15 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 - `1.2.0`
 	- Added Risk of Rain Returns sprites.
 		- Classic sprites available in config.
+		
+	- New Items
+		- Razor Penny
+			- 5% (+5%) critical chance. Gain $1 (+$1) on crit.
+				- Gold does NOT scale with time.
+
+		- Arcane Blades
+			- 20% (+20%) movement speed after activating the Teleporter.
+				- In Simulacrum, it is active during waves and inactive when the bubble is moving.
 		
 	- Snake Eyes
 		- Now triggers on any shrine use.

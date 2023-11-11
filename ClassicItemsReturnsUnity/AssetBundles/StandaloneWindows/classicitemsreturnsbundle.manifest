@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3263662797
+CRC: 1417646845
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1157be787f15a932ae9fcd0e70ab3c61
+    Hash: 3905a641fbdcb435d7548d791bba3358
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -87,11 +87,13 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconBear.png
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
+- Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
 - Assets/Resources/Textures/Returns/texIconToxin.png
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Materials/Returns/matCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
+- Assets/Resources/Models/Classic/mdlClassicArcaneBlades.prefab
 - Assets/Resources/Materials/Returns/matRoot.mat
 - Assets/Resources/Materials/Returns/matIceCube.mat
 - Assets/Resources/Textures/Returns/texIconPig.png
@@ -104,6 +106,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
 - Assets/Resources/Models/Classic/mdlClassicPurse.prefab
 - Assets/Resources/Textures/Returns/texIconVial.png
+- Assets/Resources/Materials/Returns/matArcaneBlades.mat
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
 - Assets/Resources/Models/Classic/mdlClassicFireShield.prefab
 - Assets/Resources/Models/Returns/mdlRoot.prefab
@@ -124,11 +127,13 @@ Assets:
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Textures/Returns/texIconArmsRace.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
+- Assets/Resources/Textures/Classic/texIconClassicArcaneBlades.png
 - Assets/Resources/Materials/Returns/matShackles.mat
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
 - Assets/Resources/Models/Returns/mdlPurse.prefab
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
+- Assets/Resources/Textures/Returns/texIconArcaneBlades.png
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake6.png
