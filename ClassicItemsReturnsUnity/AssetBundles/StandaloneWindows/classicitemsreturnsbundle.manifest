@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 903732155
+CRC: 4293802100
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f25d392f535a5f23c7bef139565cbb64
+    Hash: dee285f752b284b802ab35a1041c168d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -53,6 +53,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconFireShield.png
 - Assets/Resources/Textures/Buffs/texBuffSnake5.png
 - Assets/Resources/Materials/Returns/matGoldGun.mat
+- Assets/Resources/Models/Returns/mdlVial.prefab
 - Assets/Resources/Textures/UI/texHitListMarker.png
 - Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
 - Assets/Resources/Textures/Returns/texIconSquib.png
@@ -73,6 +74,7 @@ Assets:
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicFireShield.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
+- Assets/Resources/Materials/Returns/matVial.mat
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Returns/texIconCrystal.png
@@ -97,6 +99,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconIceCube.png
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
 - Assets/Resources/Models/Classic/mdlClassicPurse.prefab
+- Assets/Resources/Textures/Returns/texIconVial.png
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Models/Classic/mdlClassicFireShield.prefab
