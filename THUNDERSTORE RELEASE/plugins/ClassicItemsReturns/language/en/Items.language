@@ -83,7 +83,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of victim's damage per second</style> and slow by <style=cIsDamage>{2}% movement speed</style> over <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of victim's damage per second</style> and slow by <style=cIsDamage>{2}% movement speed</style> for <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "",
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
