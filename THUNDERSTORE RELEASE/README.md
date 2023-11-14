@@ -42,7 +42,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Lunar Equipment | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/RiskyClassicItemsUnityProject/Assets/Sprites/Icons/texLostDollIcon.png) | Lost Doll | Sacrifice **25% of your current health** to **damage** an enemy for **400% of your maximum health**.
+| ![](https://github.com/DestroyedClone/RiskyClassicItems/blob/master/Art%20Assets/returns%20resize/texIconDoll.png) | Lost Doll | Sacrifice **25% of your current health** to **damage** an enemy for **400% of your maximum health**.
 
 ## Credits
 
@@ -54,6 +54,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 - whitedude: Artifact of Clovers
 
 ## Changelog
+
+- `1.2.1`
+	- Fixed missing material for The Toxin.
 
 - `1.2.0`
 	- Added Risk of Rain Returns sprites.
@@ -82,6 +85,8 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		
 	- Permafrost
 		- Reduced chance from 5% -> 3%
+		
+<detail>
 
 - `1.1.1`
 	- Fixed missing space in Life Savings description.
@@ -192,3 +197,5 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 - `0.1.0`
 	- Release
+
+</detail>
