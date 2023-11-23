@@ -55,6 +55,11 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.3.0`
+	- Fixed Lost Doll being invisible (todo)
+	- Investigate if Arcane Blades should be active during boss (todo)
+	- Add Locked Jewel (todo)
+
 - `1.2.1`
 	- Fixed missing material for The Toxin.
 
