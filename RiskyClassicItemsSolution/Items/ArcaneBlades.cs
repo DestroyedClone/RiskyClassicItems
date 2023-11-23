@@ -48,6 +48,20 @@ namespace ClassicItemsReturns.Items
             On.RoR2.TeleporterInteraction.ChargedState.OnEnter += ChargedState_OnEnter;
             On.EntityStates.InfiniteTowerSafeWard.Active.OnEnter += Active_OnEnter;
             On.EntityStates.InfiniteTowerSafeWard.Travelling.OnEnter += Travelling_OnEnter;
+            On.EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState.OnEnter += BrotherEncounterPhaseBaseState_OnEnter;
+            On.RoR2.VoidRaidEncounterController.Start += VoidRaidEncounterController_Start;
+        }
+
+        private void VoidRaidEncounterController_Start(On.RoR2.VoidRaidEncounterController.orig_Start orig, VoidRaidEncounterController self)
+        {
+            orig(self);
+            ArcaneBlades.teleporterActivated = true;
+        }
+
+        private void BrotherEncounterPhaseBaseState_OnEnter(On.EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState self)
+        {
+            orig(self);
+            ArcaneBlades.teleporterActivated = true;
         }
 
         private void ChargedState_OnEnter(On.RoR2.TeleporterInteraction.ChargedState.orig_OnEnter orig, EntityStates.BaseState self)
