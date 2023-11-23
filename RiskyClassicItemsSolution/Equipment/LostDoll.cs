@@ -1,6 +1,5 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using Rewired.ComponentControls.Effects;
 using ClassicItemsReturns.Modules;
 using RoR2;
 using System.Collections.Generic;
@@ -95,102 +94,6 @@ namespace ClassicItemsReturns.Equipment
             UnityEngine.Object.Destroy(spike);*/
 
             dollActivationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Doll");
-        }
-
-        public class DollSpikeDisplayHelper : MonoBehaviour
-        {
-            private string output = "";
-
-            public void FixedUpdate()
-            {
-                var transform = gameObject.transform;
-                output = $"comp.AddSpike(spikeCopy(), new Quaternion{transform.rotation}, new Vector3{transform.localPosition}, Vector3.zero);";
-            }
-        }
-
-        public class ClassicItemsReturns_LostDollVisualEffect : MonoBehaviour
-        {
-            public float delayStopwatch = 0;
-
-            public bool activatedEffect = false;
-            public float effectStopwatch = 0;
-            public float effectDuration = 0.05f;
-
-            public bool terminatingEffect = false;
-            public float terminationStopwatch = 0.2f;
-
-            public List<GameObject> spikes = new List<GameObject>();
-            public List<Vector3> startPositions = new List<Vector3>();
-            public List<Vector3> endPositions = new List<Vector3>();
-            public Material dollMat;
-            public Material blackMat;
-            //public Material spikeMat;
-
-            public MeshRenderer dollMR;
-
-            public void Awake()
-            {
-                delayStopwatch = durationDelay;
-                effectStopwatch = 0;
-                //terminationStopwatch = 0.4f;
-
-                //Do this to make it darkened from the start.
-                if (dollMR && dollMat) dollMR.SetMaterial(dollMat);
-            }
-
-            public void AddSpike(GameObject spike, Quaternion initialRotation, Vector3 startPosition, Vector3 endPosition)
-            {
-                spikes.Add(spike);
-                startPositions.Add(startPosition);
-                endPositions.Add(endPosition);
-                spike.transform.localPosition = startPosition;
-                spike.transform.rotation = initialRotation;
-                //spike.GetComponent<MeshRenderer>().SetMaterial(spikeMat);
-            }
-
-            public void Update()
-            {
-                if (!activatedEffect)
-                {
-                    delayStopwatch -= Time.deltaTime;
-                    if (delayStopwatch <= 0)
-                    {
-                        //Chat.AddMessage("State: Start");
-                        activatedEffect = true;
-                    }
-                    return;
-                }
-
-                if (terminatingEffect)
-                {
-                    //Chat.AddMessage($"Terminating: Time Remaining: {terminationStopwatch}");
-                    terminationStopwatch -= Time.deltaTime;
-                    if (terminationStopwatch <= 0)
-                    {
-                        enabled = false;
-                        Destroy(gameObject);
-                    }
-                }
-                else
-                {
-                    effectStopwatch += Time.deltaTime;
-                    //Chat.AddMessage($"Progress: {effectStopwatch / effectDuration}");
-                    for (int i = 0; i < spikes.Count; i++)
-                    {
-                        GameObject spike = spikes[i];
-                        spike.transform.localPosition = Vector3.Lerp(startPositions[i], endPositions[i], effectStopwatch / effectDuration);
-                    }
-                    if (effectStopwatch >= effectDuration)
-                    {
-                        foreach (var spike in spikes)
-                        {
-                            spike.GetComponent<MeshRenderer>().SetMaterial(blackMat);
-                        }
-                        dollMR.SetMaterial(blackMat);
-                        terminatingEffect = true;
-                    }
-                }
-            }
         }
 
         /// <summary>

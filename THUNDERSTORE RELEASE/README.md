@@ -56,9 +56,13 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 ## Changelog
 
 - `1.3.0`
-	- Fixed Lost Doll being invisible (todo)
+	- Fixed Lost Doll being invisible.
+	- Fixed Razor Penny  being invisible when using Classic sprites.
 	- Investigate if Arcane Blades should be active during boss (todo)
 	- Add Locked Jewel (todo)
+	
+	- Arcane Blades
+		- Now active during Mithrix and Voidling
 
 - `1.2.1`
 	- Fixed missing material for The Toxin.

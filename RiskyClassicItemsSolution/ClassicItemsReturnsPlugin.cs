@@ -20,14 +20,13 @@ namespace ClassicItemsReturns
 {
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
-    [BepInDependency(ModSupport.ModCompatBetterUI.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     public class ClassicItemsReturnsPlugin : BaseUnityPlugin
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "1.2.0";
+        public const string ModVer = "1.3.0";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
@@ -63,7 +62,6 @@ namespace ClassicItemsReturns
             LanguageOverrides.Initialize();
             Deployables.Initialize();
             Buffs.Initialize();
-            RiskyVisuals.Init(Config);
             Orbs.Initialize();
             AddToAssembly();
             Dots.Initialize();

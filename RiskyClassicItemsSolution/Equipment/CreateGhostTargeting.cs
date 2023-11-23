@@ -1,6 +1,5 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using Rewired.ComponentControls.Effects;
 using ClassicItemsReturns.Modules;
 using RoR2;
 using System.Collections.Generic;
