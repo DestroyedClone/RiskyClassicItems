@@ -25,6 +25,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_ClassicItemsReturns_Jewel" ID="{D3678D1A-3EC7-41B6-A1AC-9C1B32AE56D4}">
+					<ChildrenList>
+						<Action Name="" ID="{4D611458-07AF-482A-8D6C-E51394A44B89}" ShortID="419916210">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wJewel" ID="{1664C4AD-9583-480F-9771-923EC96B56DE}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

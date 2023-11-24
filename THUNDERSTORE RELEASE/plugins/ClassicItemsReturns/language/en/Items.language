@@ -78,6 +78,12 @@
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_PICKUP": "Increase armor.",
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_DESCRIPTION": "Grants <style=cIsHealing>+{0} armor</style> <style=cStack>(+{1} per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_LORE": "",
+				
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_NAME": "Locked Jewel",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_PICKUP": "Activating an interactable grants barrier and gold.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "Activating an interactable grants a <style=cIsHealing>temporary barrier</style> for <style=cIsHealing>{0}%</style> <style=cStack>(+{1}% per stack)</style> of your <style=cIsHealing>maximum health</style> as well as <style=cIsUtility>${2}</style>. Scales with time.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_LORE": "",
+
 
 		//[TIER3]
 

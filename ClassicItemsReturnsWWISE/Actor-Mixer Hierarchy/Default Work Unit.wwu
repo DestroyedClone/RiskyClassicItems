@@ -104,9 +104,38 @@
 												<MediaID ID="880444803"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="wDoll" ID="{3F8C7638-ACE3-411A-A574-AA0BE3211C1E}">
+											<Language>SFX</Language>
+											<AudioFile>wDoll.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="862402117"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="wJarSouls" ID="{CF4FB737-B82C-43E0-AAC1-97CE5F168481}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="wJewel" ID="{1664C4AD-9583-480F-9771-923EC96B56DE}" ShortID="114799644">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="wJewel" ID="{1BB89D8F-F511-427D-87D9-F14C4C4EE192}">
+											<Language>SFX</Language>
+											<AudioFile>wJewel.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="373529261"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="wJewel" ID="{1BB89D8F-F511-427D-87D9-F14C4C4EE192}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1139680307
+CRC: 1887565565
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8c9515d13496f37917605b5692a842bd
+    Hash: b272158f523464cf4535b65ff9934d0e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -79,6 +79,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matVial.mat
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
+- Assets/Resources/Textures/Returns/texIconJewel.png
 - Assets/Resources/Textures/Returns/texIconCrystal.png
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
 - Assets/Resources/Textures/Buffs/texBuffSnake1.png
@@ -87,6 +88,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matPenny.mat
 - Assets/Resources/Textures/Returns/texIconBear.png
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
+- Assets/Resources/Models/Classic/mdlClassicJewel.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
 - Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
 - Assets/Resources/Textures/Returns/texIconToxin.png
@@ -132,6 +134,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicArcaneBlades.png
 - Assets/Resources/Materials/Returns/matShackles.mat
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
+- Assets/Resources/Models/Returns/mdlJewel.prefab
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
 - Assets/Resources/Models/Returns/mdlPurse.prefab
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
@@ -142,6 +145,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Textures/Returns/texIconSkullRing.png
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
+- Assets/Resources/Materials/Returns/matJewel.mat
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat

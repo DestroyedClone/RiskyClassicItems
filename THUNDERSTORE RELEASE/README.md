@@ -2,6 +2,8 @@
 
 This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
+**Looking for a modeler! Contact us on the Github page if interested.**
+
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
@@ -23,6 +25,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconShackles.png) | Prison Shackles | **Shackle** enemies on hit for **-30% attack speed** for **2s** *(+2s per stack)*.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconPurse.png) | Smart Shopper | Enemies drop an extra **25%** *(+25% per stack)* gold on kill.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconBear.png) | Tough Times | Grants **+14 armor** *(+14 per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconJewel.png) | Locked Jewel | Activating an interactable grants **35%** *(+15% per stack)* of your **maximum health** as barrier as well as **$8**. Scales with time.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -56,13 +59,19 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 ## Changelog
 
 - `1.3.0`
-	- Fixed Lost Doll being invisible.
-	- Fixed Razor Penny  being invisible when using Classic sprites.
-	- Investigate if Arcane Blades should be active during boss (todo)
-	- Add Locked Jewel (todo)
-	
+	- New items
+		- 
+		
 	- Arcane Blades
 		- Now active during Mithrix and Voidling
+		
+	- Fixes
+		- Fixed Lost Doll being invisible.
+		- Fixed Razor Penny  being invisible when using Classic sprites.
+		
+	**Looking for a modeler! Contact me on the Github page if interested!**
+
+<details>
 
 - `1.2.1`
 	- Fixed missing material for The Toxin.
@@ -94,8 +103,6 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		
 	- Permafrost
 		- Reduced chance from 5% -> 3%
-		
-<details>
 
 - `1.1.1`
 	- Fixed missing space in Life Savings description.
