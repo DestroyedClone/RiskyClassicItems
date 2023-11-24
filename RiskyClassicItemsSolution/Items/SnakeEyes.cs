@@ -27,8 +27,8 @@ namespace ClassicItemsReturns.Items
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.AIBlacklist,
-            ItemTag.InteractableRelated
+            ItemTag.InteractableRelated,
+            ItemTag.AIBlacklist
         };
 
         public float critChance = 7.5f;

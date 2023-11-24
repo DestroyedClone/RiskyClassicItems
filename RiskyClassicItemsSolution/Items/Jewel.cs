@@ -28,7 +28,9 @@ namespace ClassicItemsReturns.Items
         }
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Utility
+            ItemTag.Utility,
+            ItemTag.InteractableRelated,
+            ItemTag.AIBlacklist
         };
 
         public static NetworkSoundEventDef activationSound;

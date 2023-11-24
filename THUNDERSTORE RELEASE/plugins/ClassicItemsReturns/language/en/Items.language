@@ -46,6 +46,11 @@
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "Move faster after activating the Teleporter.",
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>{0} <style=cStack>(+{0}% per stack)</style></style> after the <style=cIsHealth>Teleporter</style> has been activated.",
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "",
+		
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_NAME": "Mu Construct",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_PICKUP": "Heal periodically after activating the Teleporter.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_DESCRIPTION": "Heal for <style=cIsHealing>{0}</style> of your <style=cIsHealing>health</style> every <style=cIsHealing>{1}</style> <style=cStack>(-{2}% per stack)</style> seconds after the <style=cIsHealth>Teleporter</style> has been activated.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_LORE": "",
 
 		//[TIER2]
 

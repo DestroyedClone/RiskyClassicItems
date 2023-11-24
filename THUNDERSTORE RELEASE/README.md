@@ -15,6 +15,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconDice.png) | Snake Eyes | Using a shrine increases critical chance by **7.5%** *(+7.5% per stack)*, up to **6 times**. Resets at the start of each stage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconPenny.png) | Razor Penny | Gain **5%** *(+5% per stack)* critical chance. Critical strikes drop **$1** *(+$1 per stack)* **gold**.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconArcaneBlades.png) | Arcane Blades | Increases **movement speed** by **20%** *(+20% per stack)* after the **Teleporter** has been activated.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconMuConstruct.png) | Mu Construct | Heal for **2.5%** of your **health** every **5** *(-25% per stack)* seconds after the **Teleporter** has been activated.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
@@ -60,16 +61,19 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 - `1.3.0`
 	- New items
-		- 
+		- Mu Construct
+			- Heal for **2.5%** of your **health** every **5** *(-25% per stack)* seconds after the **Teleporter** has been activated.
+		- Locked Jewel
+			- Activating an interactable grants **35%** *(+15% per stack)* of your **maximum health** as barrier as well as **$8**. Scales with time.
 		
-	- Arcane Blades
-		- Now active during Mithrix and Voidling
+	- Arcane Blades/Mu Construct
+		- Now active during Mithrix and Voidling.
 		
 	- Fixes
 		- Fixed Lost Doll being invisible.
-		- Fixed Razor Penny  being invisible when using Classic sprites.
+		- Fixed Razor Penny being invisible when using Classic sprites.
 		
-	**Looking for a modeler! Contact me on the Github page if interested!**
+	**Looking for a modeler! Contact us on the Github page if interested!**
 
 <details>
 

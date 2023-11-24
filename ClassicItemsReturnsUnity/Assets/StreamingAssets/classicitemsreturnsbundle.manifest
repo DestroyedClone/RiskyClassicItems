@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1887565565
+CRC: 1102229756
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b272158f523464cf4535b65ff9934d0e
+    Hash: ce321a4dcc4f8b3e64f29573dda22b40
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -40,6 +40,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlShackles.prefab
 - Assets/Resources/Textures/Buffs/texBuffSnake4.png
 - Assets/Resources/Textures/Buffs/texBuffPills.png
+- Assets/Resources/Models/Classic/mdlClassicMuConstruct.prefab
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
 - Assets/Resources/Models/Returns/mdlIceCube.prefab
 - Assets/Resources/Materials/Classic/matClassicDice.mat
@@ -77,6 +78,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicFireShield.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Materials/Returns/matVial.mat
+- Assets/Resources/Textures/Returns/texIconMuConstruct.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Returns/texIconJewel.png
@@ -139,6 +141,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlPurse.prefab
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
 - Assets/Resources/Textures/Returns/texIconArcaneBlades.png
+- Assets/Resources/Models/Returns/mdlMuConstruct.prefab
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake6.png
@@ -149,6 +152,7 @@ Assets:
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat
+- Assets/Resources/Materials/Returns/matMuConstruct.mat
 - Assets/Resources/Materials/Returns/matSkullRing.mat
 - Assets/Resources/Textures/Buffs/texBuffToxin.png
 - Assets/Resources/Materials/Returns/matPig.mat

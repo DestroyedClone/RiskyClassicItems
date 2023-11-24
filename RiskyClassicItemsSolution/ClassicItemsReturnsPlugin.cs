@@ -13,6 +13,7 @@ using System.Reflection;
 
 //https://github.com/Bubbet/Risk-Of-Rain-Mods/blob/04540d86404e5ab8609742be568ed579e0176ac0/BubbetsItems/BubbetsItemsPlugin.cs
 using SearchableAttribute = HG.Reflection.SearchableAttribute;
+using ClassicItemsReturns.Utils;
 
 [assembly: SearchableAttribute.OptIn]
 
@@ -68,6 +69,7 @@ namespace ClassicItemsReturns
             SharedHooks.TakeDamage.Initialize();
             SharedHooks.OnHitEnemy.Initialize();
             SharedHooks.OnCharacterDeath.Initialize();
+            new IsTeleActivatedTracker();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
         }
