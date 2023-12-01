@@ -133,7 +133,11 @@ namespace ClassicItemsReturns.Equipment
             {
                 targetFinder.candidatesEnumerable =
                     from v in targetFinder.candidatesEnumerable
-                    where v.hurtBox.healthComponent.body && !bodyBlacklist.Contains(v.hurtBox.healthComponent.body.bodyIndex) && !HasNemesisItem(v.hurtBox.healthComponent.body.inventory)
+                    where v.hurtBox.healthComponent.body
+                    && !v.hurtBox.healthComponent.body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless)
+                    && v.hurtBox.healthComponent.body.master
+                    && !bodyBlacklist.Contains(v.hurtBox.healthComponent.body.bodyIndex)
+                    && !HasNemesisItem(v.hurtBox.healthComponent.body.inventory)
                     select v;
             }
         }

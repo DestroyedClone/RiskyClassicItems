@@ -59,6 +59,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.3.1`
+	- Fixed Jar of Souls being able to target the rocks on Sky Meadow.
+
 - `1.3.0`
 	- New items
 		- Mu Construct
