@@ -32,7 +32,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 |:--:|:--:|--|
 | Legendary | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconIceCube.png) | Permafrost | **3%** *(+3% per stack)* chance on hit to **freeze** for **2 seconds**.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconThallium.png) | Thallium | On hit, **10% chance** to **poison** for **2x300% of victim's damage per second** and slow by **100% movement speed** for **3 seconds** *(+1.5 seconds per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconThallium.png) | Thallium | On hit, **10% chance** to **poison** for **2x300% of victim's base damage per second** and slow for **-100% movement speed** for **3 seconds** *(+1.5 seconds per stack)*.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconSkullRing.png) | Wicked Ring | **Reduce skill cooldowns** by **1s** *(+0.5s per stack)* on kill.
 
 | Icon | Item | Desc |
