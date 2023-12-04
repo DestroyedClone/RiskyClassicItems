@@ -54,17 +54,17 @@ namespace ClassicItemsReturns.Items
             ContentAddition.AddNetworkSoundEventDef(activationSound);
         }
 
-        public override void Hooks()
-        {
-            base.Hooks();
-            GlobalEventManager.OnInteractionsGlobal += GlobalEventManager_OnInteractionsGlobal;
-        }
-
         public override void CreateConfig(ConfigFile config)
         {
             disableInBazaar = config.Bind(ConfigCategory, "Disable in Bazaar", true, "Disable this item in the Bazaar.");
         }
 
+
+        public override void Hooks()
+        {
+            base.Hooks();
+            GlobalEventManager.OnInteractionsGlobal += GlobalEventManager_OnInteractionsGlobal;
+        }
 
         private void GlobalEventManager_OnInteractionsGlobal(Interactor interactor, IInteractable interactable, GameObject interactableObject)
         {

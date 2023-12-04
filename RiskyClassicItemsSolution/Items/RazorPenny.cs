@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using BepInEx.Configuration;
+using R2API;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace ClassicItemsReturns.Items
 {
     public class RazorPenny : ItemBase<RazorPenny>
     {
+        public static ConfigEntry<bool> disableInBazaar;
         public override string ItemName => "Razor Penny";
 
         public override string ItemLangTokenName => "PENNY";
@@ -36,6 +38,12 @@ namespace ClassicItemsReturns.Items
             critChance, goldOnHit
         };
 
+        public override void CreateConfig(ConfigFile config)
+        {
+            disableInBazaar = config.Bind(ConfigCategory, "Disable in Bazaar", true, "Disable money gain from this item in the Bazaar.");
+        }
+
+
         public override void Hooks()
         {
             base.Hooks();
@@ -57,6 +65,7 @@ namespace ClassicItemsReturns.Items
             if (!damageInfo.crit || !attackerBody.master) return;
             int itemCount = attackerInventory.GetItemCount(this.ItemDef);
             if (itemCount <= 0) return;
+            if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
 
             attackerBody.master.GiveMoney((uint)(goldOnHit * itemCount));
         }

@@ -59,6 +59,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.3.3`
+	- Added config to disable Razor Penny in Bazaar. (default: true)
+
 - `1.3.2`
 	- Added config to disable Locked Jewel in Bazaar. (default: true)
 
