@@ -12,6 +12,8 @@ namespace ClassicItemsReturns.Items
 {
     public class Jewel : ItemBase<Jewel>
     {
+        public static ConfigEntry<bool> disableInBazaar;
+
         public override string ItemName => "Locked Jewel";
 
         public override string ItemLangTokenName => "JEWEL";
@@ -58,8 +60,15 @@ namespace ClassicItemsReturns.Items
             GlobalEventManager.OnInteractionsGlobal += GlobalEventManager_OnInteractionsGlobal;
         }
 
+        public override void CreateConfig(ConfigFile config)
+        {
+            disableInBazaar = config.Bind(ConfigCategory, "Disable in Bazaar", true, "Disable this item in the Bazaar.");
+        }
+
+
         private void GlobalEventManager_OnInteractionsGlobal(Interactor interactor, IInteractable interactable, GameObject interactableObject)
         {
+            if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
             InteractionProcFilter ipf = interactableObject.GetComponent<InteractionProcFilter>();
             if (ipf && !ipf.shouldAllowOnInteractionBeginProc) return;
             if (interactableObject.GetComponent<GenericPickupController>()) return;

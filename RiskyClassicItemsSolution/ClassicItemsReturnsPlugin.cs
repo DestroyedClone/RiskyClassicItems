@@ -14,6 +14,8 @@ using System.Reflection;
 //https://github.com/Bubbet/Risk-Of-Rain-Mods/blob/04540d86404e5ab8609742be568ed579e0176ac0/BubbetsItems/BubbetsItemsPlugin.cs
 using SearchableAttribute = HG.Reflection.SearchableAttribute;
 using ClassicItemsReturns.Utils;
+using UnityEngine.AddressableAssets;
+using RoR2;
 
 [assembly: SearchableAttribute.OptIn]
 
@@ -27,7 +29,7 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "1.3.1";
+        public const string ModVer = "1.3.2";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
@@ -39,6 +41,8 @@ namespace ClassicItemsReturns
         public static List<ItemBase> Items = new List<ItemBase>();
         public static List<EquipmentBase> Equipments = new List<EquipmentBase>();
         public static List<EliteEquipmentBase> EliteEquipments = new List<EliteEquipmentBase>();
+
+        public static SceneDef bazaarScene = Addressables.LoadAssetAsync<SceneDef>("RoR2/Base/bazaar/bazaar.asset").WaitForCompletion();
 
         //Provides a direct access to this plugin's logger for use in any of your other classes.
         public static BepInEx.Logging.ManualLogSource ModLogger;
