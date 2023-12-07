@@ -38,7 +38,7 @@ namespace ClassicItemsReturns.Items
         public static NetworkSoundEventDef activationSound;
 
         public int moneyToGrant = 8;
-        public float barrierInitial = 0.35f;
+        public float barrierInitial = 0.25f;
         public float barrierStack = 0.15f;
 
         public override object[] ItemFullDescriptionParams => new object[]

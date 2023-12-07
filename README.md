@@ -26,7 +26,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconShackles.png) | Prison Shackles | **Shackle** enemies on hit for **-30% attack speed** for **2s** *(+2s per stack)*.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconPurse.png) | Smart Shopper | Enemies drop an extra **25%** *(+25% per stack)* gold on kill.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconBear.png) | Tough Times | Grants **+14 armor** *(+14 per stack)*.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconJewel.png) | Locked Jewel | Activating an interactable grants **35%** *(+15% per stack)* of your **maximum health** as barrier as well as **$8**. Scales with time.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconJewel.png) | Locked Jewel | Activating an interactable grants **25%** *(+15% per stack)* of your **maximum health** as barrier as well as **$8**. Scales with time.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
