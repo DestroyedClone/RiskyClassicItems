@@ -66,7 +66,7 @@ namespace ClassicItemsReturns.Items
 
         private void Run_onRunStartGlobal(Run run)
         {
-            if (NetworkServer.active) treasureRng.ResetSeed(run.treasureRng.nextUlong);
+            if (NetworkServer.active && run.treasureRng != null) treasureRng.ResetSeed(run.treasureRng.nextUlong);
         }
 
         private void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
