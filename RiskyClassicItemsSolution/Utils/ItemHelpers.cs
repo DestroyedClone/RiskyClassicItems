@@ -60,7 +60,7 @@ namespace ClassicItemsReturns.Utils
         /// <param name="shippingMethod">Specific instructions on how to handle it, delimited by /. E.g. Light / Fragile</param>
         /// <param name="orderDetails">The actual lore snippet for the item or equipment.</param>
         /// <returns>A string formatted with all of the above in the style of Risk of Rain 1's manifests.</returns>
-        public static string OrderManifestLoreFormatter(string deviceName, string estimatedDelivery, string sentTo, string trackingNumber, string devicePickupDesc, string shippingMethod, string orderDetails)
+        /*public static string OrderManifestLoreFormatter(string deviceName, string estimatedDelivery, string sentTo, string trackingNumber, string devicePickupDesc, string shippingMethod, string orderDetails)
         {
             string[] Manifest =
             {
@@ -85,7 +85,7 @@ namespace ClassicItemsReturns.Utils
                 "<style=cStack>Delivery being brought to you by the brand new </style><style=cIsUtility>Orbital Drop-Crate System (TM)</style>. <style=cStack><u>No refunds.</u></style>"
             };
             return String.Join("\n", Manifest);
-        }
+        }*/
 
         /// <summary>
         /// Refreshes stacks of a timed buff on a body for a specified duration. Will refresh the entire stack pool of the buff at once.
