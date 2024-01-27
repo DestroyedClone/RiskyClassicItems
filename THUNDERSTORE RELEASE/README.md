@@ -59,6 +59,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.3.5`
+	- Fixed a nullref with Golden Gun.
+
 - `1.3.4`
 	- Locked Jewel
 		- Reduced barrier from 35% (+15%) -> 25% (+15%)

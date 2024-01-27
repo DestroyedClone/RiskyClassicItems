@@ -99,9 +99,10 @@ namespace ClassicItemsReturns.Items
                 }
             }
 
+            //Nullref somewhere in here
             private void FixedUpdate()
             {
-                if (NetworkServer.active)
+                if (NetworkServer.active && Run.instance && body.master)
                 {
                     int singleStackCost = Stage.instance ? Run.instance.GetDifficultyScaledCost((int)goldCap, Stage.instance.entryDifficultyCoefficient) : Run.instance.GetDifficultyScaledCost((int)goldCap);
 
