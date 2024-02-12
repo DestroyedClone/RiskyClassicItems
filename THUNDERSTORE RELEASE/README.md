@@ -2,6 +2,8 @@
 
 This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
+I highly recommend installing AI Blacklist (https://thunderstore.io/package/Moffein/AI_Blacklist/) to prevent Scavengers from getting Jar of Souls as an equipment.
+
 **Looking for a modeler! Contact us on the Github page if interested.**
 
 | Icon | Item | Desc |
@@ -65,6 +67,9 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 		
 	- Wicked Ring
 		- Default setting changed to the RoR1 version. (existing config unaffected)
+		
+	- Jar of Souls
+		- Added link to AI Blacklist (https://thunderstore.io/package/Moffein/AI_Blacklist/) to README due to reports of Scavengers receiving this equipment and instant-ending runs.
 
 - `1.3.6`
 	- Fixed a nullref with Clover.
