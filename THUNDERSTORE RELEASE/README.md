@@ -59,6 +59,13 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Changelog
 
+- `1.3.7`
+	- Fire Shield
+		- Activation threshold reduced from 10% -> 8% to match up with Personal Shield Generator.
+		
+	- Wicked Ring
+		- Default setting changed to the RoR1 version. (existing config unaffected)
+
 - `1.3.6`
 	- Fixed a nullref with Clover.
 

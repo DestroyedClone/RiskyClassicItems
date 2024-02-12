@@ -55,7 +55,7 @@ namespace ClassicItemsReturns.Items
             if (victimTeam == TeamIndex.None) return;
 
             float percentDamageTaken = damageInfo.damage / self.fullCombinedHealth;
-            if (percentDamageTaken < 0.1f) return;
+            if (percentDamageTaken < 0.079f) return;    //A tiny bit less than 8% just to be safe.
 
             EffectManager.SpawnEffect(GlobalEventManager.CommonAssets.igniteOnKillExplosionEffectPrefab, new EffectData
             {

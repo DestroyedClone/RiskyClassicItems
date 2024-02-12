@@ -49,7 +49,7 @@ namespace ClassicItemsReturns.Items
 
         public override void CreateConfig(ConfigFile config)
         {
-            useAlternateVersion = config.Bind(ConfigCategory, "Use Rework", true, "Reworks the item into giving CDR on kill. If false, gives CDR on crit like in Risk of Rain 1.");
+            useAlternateVersion = config.Bind(ConfigCategory, "Use Rework", false, "Reworks the item into giving CDR on kill. If false, gives CDR on crit like in Risk of Rain 1.");
         }
 
         protected override void CreateLang()
