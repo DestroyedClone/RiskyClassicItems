@@ -17,7 +17,7 @@ namespace ClassicItemsReturns.Equipment
 
         public override string EquipmentLangTokenName => "CREATEGHOSTTARGETING";
         public const int ghostDurationSecondsPlayer = 30;
-        public const int ghostDurationSecondsEnemy = 25;
+        public const int ghostDurationSecondsEnemy = 10;
         public const int boostDamageItemCount = 10;
         public const int boostDamageChampionItemCount = 20;
         
@@ -31,6 +31,8 @@ namespace ClassicItemsReturns.Equipment
         //DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
         public static ConfigEntry<bool> limitSpawns;
         public static ConfigEntry<bool> blacklistSS2UNemesis;
+        public static ConfigEntry<bool> drainHP;
+        public static ConfigEntry<string> bodyBlacklistString;
 
         public static NetworkSoundEventDef activationSound;
 
@@ -67,10 +69,12 @@ namespace ClassicItemsReturns.Equipment
 
         private void GetBodyIndex()
         {
-            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("ShopkeeperBody")); //Was originally going to be CountAsBoss but it turns out the ghosts don't despawn.
-            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("VoidInfestorBody"));
-            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("WispSoulBody"));
-            bodyBlacklist.Add(BodyCatalog.FindBodyIndex("UrchinTurretBody"));
+            string[] bodyNames = bodyBlacklistString.Value.Split(',');
+            foreach (string str in bodyNames)
+            {
+                BodyIndex index = BodyCatalog.FindBodyIndex(str.Trim());
+                if (index != BodyIndex.None) bodyBlacklist.Add(index);
+            }
         }
 
         public static GameObject commonTargetIndicator;
@@ -146,8 +150,9 @@ namespace ClassicItemsReturns.Equipment
         {
             base.CreateConfig(config);
             limitSpawns = config.Bind(ConfigCategory, "Limit Spawns", true, $"If true, max ghosts per player will be set to {maxGhosts}.");
-
+            drainHP = config.Bind(ConfigCategory, "Drain HP", true, "Ghosts drain HP over their lifetime. Mainly used so that boss ghosts properly trigger their attacks that require certain HP thresholds.");
             blacklistSS2UNemesis = config.Bind(ConfigCategory, "Blacklist SS2U Nemesis Bosses", true, "Jar of Souls cant target Nemesis Bosses from SS2U.");
+            bodyBlacklistString = config.Bind(ConfigCategory, "Body Blacklist", "ShopkeeperBody, VoidInfestorBody, WispSoulBody, UrchinTurretBody, MinorConstructAttachableBody", "Prevents the listed enemies from being targeted. Case-sensitive, use DebugToolKit list_bodies command to see full bodylist.");
 
             maxGhosts *= (limitSpawns.Value ? 1 : 999999);
         }
@@ -210,6 +215,8 @@ namespace ClassicItemsReturns.Equipment
             }
 
             int ghostsToSpawn = (hurtBox.healthComponent.body.isChampion|| countAsBoss.Contains(hurtBox.healthComponent.body.bodyIndex)) ? ghostsPerChampion : ghostsPerCommon;
+            if ((slot.teamComponent && slot.teamComponent.teamIndex != TeamIndex.Player) && !(slot.characterBody && slot.characterBody.isPlayerControlled)) ghostsToSpawn = 1;
+
             bool hasSpawnedGhost = false;
 
             if (component.CanSpawnGhost())
@@ -312,11 +319,20 @@ namespace ClassicItemsReturns.Equipment
                         inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsEnemy);
                         mst.lifeTimer = ghostDurationSecondsEnemy;
                     }
+
+
+                    if (drainHP.Value)
+                    {
+                        int drainHpCount = inventory.GetItemCount(RoR2Content.Items.HealthDecay);
+                        if (drainHpCount > 0) inventory.RemoveItem(RoR2Content.Items.HealthDecay, drainHpCount);
+                        inventory.GiveItem(RoR2Content.Items.HealthDecay, Mathf.CeilToInt(mst.lifeTimer));
+                    }
                 }
             }
             CharacterBody body = characterMaster2.GetBody();
             if (body)
             {
+                if (drainHP.Value) body.gameObject.AddComponent<FixHealth>();
                 foreach (EntityStateMachine entityStateMachine in body.GetComponents<EntityStateMachine>())
                 {
                     entityStateMachine.initialStateType = entityStateMachine.mainStateType;
@@ -360,4 +376,16 @@ namespace ClassicItemsReturns.Equipment
     }
 
     public class DontSplitOnDeath : MonoBehaviour { }
+    public class FixHealth : MonoBehaviour
+    {
+        private void Start()
+        {
+            if (NetworkServer.active)
+            {
+                HealthComponent hc = base.GetComponent<HealthComponent>();
+                if (hc) hc.Networkhealth = hc.fullHealth;
+            }
+            Destroy(this);
+        }
+    }
 }
