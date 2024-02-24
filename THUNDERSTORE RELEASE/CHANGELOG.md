@@ -1,3 +1,8 @@
+- `2.0.0`
+
+- Added 3d models for:
+	- Razor Penny
+
 - `1.3.8`
 	- Jar of Souls
 		- Added body blacklist config option.

@@ -29,13 +29,14 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "1.3.8";
+        public const string ModVer = "2.0.0";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
 
         public static PluginInfo PInfo { get; private set; }
         public static bool useClassicSprites = false;
+        public static bool use3dModels = true;
 
         public static List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public static List<ItemBase> Items = new List<ItemBase>();
@@ -57,7 +58,8 @@ namespace ClassicItemsReturns
 
         private void Awake()
         {
-            useClassicSprites = Config.Bind("General", "Use Classic Sprites", false, "Use the original Risk of Rain sprites instead of the Returns sprites.").Value;
+            use3dModels = Config.Bind("General", "Use 3d Models", true, "Use 3d models instead of sprites.").Value;
+            useClassicSprites = Config.Bind("General", "Use Classic Sprites", false, "Use the original Risk of Rain sprites instead of the Returns sprites. (Requires Use 3d Models = false)").Value;
 
             PInfo = Info;
             ModLogger = Logger;

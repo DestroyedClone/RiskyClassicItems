@@ -56,5 +56,6 @@ I highly recommend installing AI Blacklist (https://thunderstore.io/package/Moff
 - ClassicItems: Some item implementations
 - DestroyedClone: Coding
 - Moffein: Coding and Unity stuff
+- FORCED_REASSEMBLY: Models
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers

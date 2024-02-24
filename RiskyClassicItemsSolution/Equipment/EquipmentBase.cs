@@ -6,6 +6,7 @@ using RoR2;
 using RoR2.ExpansionManagement;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -299,13 +300,35 @@ namespace ClassicItemsReturns.Equipment
 
         public GameObject LoadItemModel(string modelName)
         {
-            GameObject go = Assets.LoadObject("mdl" + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + modelName);
-            if (go == Assets.NullModel)
+            GameObject mdl3d = Assets.LoadObject("mdl3d" + modelName);
+            GameObject mdlRet = Assets.LoadObject("mdl" + modelName);
+            GameObject mdlClassic = Assets.LoadObject("mdlClassic" + modelName);
+            Queue<GameObject> modelQueue = new Queue<GameObject>();
+
+            if (ClassicItemsReturnsPlugin.use3dModels)
             {
-                Debug.LogError("Could not find " + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic Model" : "Model") + " for " + modelName);
-                go = Assets.LoadObject("mdl" + (!ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + modelName);
+                if (mdl3d) return mdl3d;
+                if (mdlRet) return mdlRet;
+                if (mdlClassic) return mdlClassic;
             }
-            return go;
+            else
+            {
+                if (!ClassicItemsReturnsPlugin.useClassicSprites)
+                {
+                    if (mdlRet) return mdlRet;
+                    if (mdlClassic) return mdlClassic;
+                }
+                else
+                {
+                    if (mdlClassic) return mdlClassic;
+                    if (mdlRet) return mdlRet;
+                }
+
+                if (mdl3d) return mdl3d;
+            }
+
+            Debug.LogError("ClassicItemsReturns: Could not find ANY model for "+ modelName);
+            return null;
         }
 
         public virtual void Hooks()

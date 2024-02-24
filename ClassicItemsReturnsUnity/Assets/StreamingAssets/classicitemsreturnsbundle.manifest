@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1102229756
+CRC: 2421906674
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ce321a4dcc4f8b3e64f29573dda22b40
+    Hash: 33c1e7eae84d0486a7676a56e6851d22
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -62,6 +62,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicDoll.mat
 - Assets/Resources/Textures/Buffs/texBuffGoldGun_nomoney.png
 - Assets/Resources/Textures/Returns/texIconJarSouls.png
+- Assets/Resources/Materials/3d/mat3dPenny.mat
 - Assets/Resources/Materials/Classic/matClassicPills.mat
 - Assets/Resources/Textures/Returns/texIconPenny.png
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
@@ -135,6 +136,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
 - Assets/Resources/Textures/Classic/texIconClassicArcaneBlades.png
 - Assets/Resources/Materials/Returns/matShackles.mat
+- Assets/Resources/Textures/3d/texRazorPenny.png
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
 - Assets/Resources/Models/Returns/mdlJewel.prefab
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
@@ -146,6 +148,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake6.png
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
+- Assets/Resources/Models/3d/mdl3dPenny.prefab
 - Assets/Resources/Textures/Returns/texIconSkullRing.png
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Materials/Returns/matJewel.mat
