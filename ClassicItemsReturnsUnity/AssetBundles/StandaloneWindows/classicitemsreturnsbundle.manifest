@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2421906674
+CRC: 3702861176
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 33c1e7eae84d0486a7676a56e6851d22
+    Hash: 890561d4ceaf015eec571ca984d2fe6e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -134,6 +134,7 @@ Assets:
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Textures/Returns/texIconArmsRace.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
+- Assets/Resources/Textures/3d/texSnakeEyes.png
 - Assets/Resources/Textures/Classic/texIconClassicArcaneBlades.png
 - Assets/Resources/Materials/Returns/matShackles.mat
 - Assets/Resources/Textures/3d/texRazorPenny.png
@@ -146,6 +147,8 @@ Assets:
 - Assets/Resources/Models/Returns/mdlMuConstruct.prefab
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
+- Assets/Resources/Models/3d/mdl3dDice.prefab
+- Assets/Resources/Materials/3d/mat3dDice.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake6.png
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Models/3d/mdl3dPenny.prefab
