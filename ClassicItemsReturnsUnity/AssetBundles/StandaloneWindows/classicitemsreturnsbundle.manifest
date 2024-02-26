@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3702861176
+CRC: 2454251969
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 890561d4ceaf015eec571ca984d2fe6e
+    Hash: bdf748080f1ac0e64bd09771272c52e8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -47,6 +47,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matArmsRace.mat
 - Assets/Resources/Models/Returns/mdlSquib.prefab
 - Assets/Resources/Textures/Classic/texIconClassicBear.png
+- Assets/Resources/Textures/3d/texGoldenGun.png
 - Assets/Resources/Models/Classic/mdlClassicJarSouls.prefab
 - Assets/Resources/Materials/Classic/matClassicBear.mat
 - Assets/Resources/Textures/UI/texJarOfSoulsChampionTargetIndicator.png
@@ -111,6 +112,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicThallium.png
 - Assets/Resources/Textures/Returns/texIconIceCube.png
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
+- Assets/Resources/Models/3d/mdl3dGoldGun.prefab
 - Assets/Resources/Models/Classic/mdlClassicPurse.prefab
 - Assets/Resources/Textures/Returns/texIconVial.png
 - Assets/Resources/Materials/Returns/matArcaneBlades.mat
@@ -193,6 +195,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matFireShield.mat
 - Assets/Resources/Models/Returns/mdlDice.prefab
 - Assets/Resources/Textures/Returns/texIconClover.png
+- Assets/Resources/Materials/3d/mat3dGoldGun.mat
 - Assets/Resources/Textures/texModLogo.png
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
 - Assets/Resources/Models/Returns/mdlGoldGun.prefab
