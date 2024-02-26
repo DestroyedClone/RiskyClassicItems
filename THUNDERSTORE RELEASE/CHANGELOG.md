@@ -1,7 +1,8 @@
 - `2.0.0`
-
 - Added 3d models for:
 	- Razor Penny
+	- Snake Eyes
+	- Golden Gun
 
 - `1.3.8`
 	- Jar of Souls
@@ -20,9 +21,6 @@
 			*This is just a bandaid fix, I highly recommend using AI Blacklist to disable it.*
 			
 - `1.3.7`
-	- Jar of Souls
-		- Ghosts now decay HP over time. Lifetime remains the same.
-			- Certain enemies can teamkill, I recommend installing rel
 	- Fire Shield
 		- Activation threshold reduced from 10% -> 8% to match up with Personal Shield Generator.
 		
