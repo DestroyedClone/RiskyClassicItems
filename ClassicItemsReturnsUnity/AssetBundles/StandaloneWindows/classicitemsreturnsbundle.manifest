@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2454251969
+CRC: 874224828
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bdf748080f1ac0e64bd09771272c52e8
+    Hash: 8570a2ec3998444437f71ee3a84f0963
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -85,6 +85,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Returns/texIconJewel.png
 - Assets/Resources/Textures/Returns/texIconCrystal.png
+- Assets/Resources/Textures/3d/TexEmissiveThallium.png
 - Assets/Resources/Textures/Buffs/texBuffThallium.png
 - Assets/Resources/Textures/Buffs/texBuffSnake1.png
 - Assets/Resources/Models/Classic/mdlClassicPenny.prefab
@@ -135,7 +136,9 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicDice.prefab
 - Assets/Resources/Textures/UI/texLostDollTargetIndicator.png
 - Assets/Resources/Textures/Returns/texIconArmsRace.png
+- Assets/Resources/Textures/3d/TexThallium.png
 - Assets/Resources/Materials/Classic/matClassicGoldGun.mat
+- Assets/Resources/Materials/3d/mat3dThallium.mat
 - Assets/Resources/Textures/3d/texSnakeEyes.png
 - Assets/Resources/Textures/Classic/texIconClassicArcaneBlades.png
 - Assets/Resources/Materials/Returns/matShackles.mat
@@ -179,6 +182,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicPurse.mat
 - Assets/Resources/Textures/Classic/texIconClassicToxin.png
 - Assets/Resources/Models/Returns/mdlPig.prefab
+- Assets/Resources/Models/3d/mdl3dThallium.prefab
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Returns/matSquib.mat
