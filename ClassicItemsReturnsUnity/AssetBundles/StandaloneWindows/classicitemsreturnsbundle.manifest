@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 874224828
+CRC: 4160194217
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8570a2ec3998444437f71ee3a84f0963
+    Hash: 5ae443aace0352bf530c8dbd7e8a5afe
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -82,6 +82,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matVial.mat
 - Assets/Resources/Textures/Returns/texIconMuConstruct.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
+- Assets/Resources/Materials/3d/mat3dArmsRace.mat
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Returns/texIconJewel.png
 - Assets/Resources/Textures/Returns/texIconCrystal.png
@@ -95,6 +96,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Models/Classic/mdlClassicJewel.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
+- Assets/Resources/Textures/3d/ArmsRaceTex.png
 - Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
 - Assets/Resources/Textures/Returns/texIconToxin.png
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
@@ -177,6 +179,7 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicVial.mat
 - Assets/Resources/Materials/Classic/matClassicPig.mat
 - Assets/Resources/Textures/Returns/texIconShackles.png
+- Assets/Resources/Models/3d/mdl3dArmsRace.prefab
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
 - Assets/Resources/Materials/Returns/matClover.mat
 - Assets/Resources/Materials/Classic/matClassicPurse.mat
