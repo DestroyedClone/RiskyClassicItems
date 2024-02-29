@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4160194217
+CRC: 1673334643
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5ae443aace0352bf530c8dbd7e8a5afe
+    Hash: 9e6a19be3b80d7f37161163efd71ceb8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -67,13 +67,16 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicPills.mat
 - Assets/Resources/Textures/Returns/texIconPenny.png
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
+- Assets/Resources/Models/3d/mdl3dPills.prefab
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
+- Assets/Resources/Materials/3d/Mat3dPills.mat
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
 - Assets/Resources/Materials/Classic/matClassicShackles.mat
 - Assets/Resources/Materials/Classic/matClassicSkullRing.mat
 - Assets/Resources/Textures/Returns/texIconRoot.png
 - Assets/Resources/Textures/Classic/texIconClassicDoll.png
 - Assets/Resources/Materials/Returns/matBear.mat
+- Assets/Resources/Textures/3d/DrugsTex.png
 - Assets/Resources/Textures/Returns/texIconDice.png
 - Assets/Resources/Models/Classic/mdlClassicRoot.prefab
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
