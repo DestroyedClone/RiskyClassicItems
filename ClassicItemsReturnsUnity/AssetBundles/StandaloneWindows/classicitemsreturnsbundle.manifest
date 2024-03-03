@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1673334643
+CRC: 2886952540
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9e6a19be3b80d7f37161163efd71ceb8
+    Hash: d7427fa7e539c16040f61cac3ba67437
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -40,6 +40,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlShackles.prefab
 - Assets/Resources/Textures/Buffs/texBuffSnake4.png
 - Assets/Resources/Textures/Buffs/texBuffPills.png
+- Assets/Resources/Models/3d/mdl3dMuConstruct.prefab
 - Assets/Resources/Models/Classic/mdlClassicMuConstruct.prefab
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
 - Assets/Resources/Models/Returns/mdlIceCube.prefab
@@ -69,7 +70,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
 - Assets/Resources/Models/3d/mdl3dPills.prefab
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
-- Assets/Resources/Materials/3d/Mat3dPills.mat
+- Assets/Resources/Materials/3d/mat3dPills.mat
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
 - Assets/Resources/Materials/Classic/matClassicShackles.mat
 - Assets/Resources/Materials/Classic/matClassicSkullRing.mat
@@ -83,6 +84,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicFireShield.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Materials/Returns/matVial.mat
+- Assets/Resources/Materials/3d/mat3dPig.mat
 - Assets/Resources/Textures/Returns/texIconMuConstruct.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/3d/mat3dArmsRace.mat
@@ -102,9 +104,11 @@ Assets:
 - Assets/Resources/Textures/3d/ArmsRaceTex.png
 - Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
 - Assets/Resources/Textures/Returns/texIconToxin.png
+- Assets/Resources/Models/3d/mdl3dPig.prefab
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Materials/Returns/matCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
+- Assets/Resources/Textures/3d/MuConstructTex.png
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
 - Assets/Resources/Models/Classic/mdlClassicArcaneBlades.prefab
 - Assets/Resources/Materials/Returns/matRoot.mat
@@ -127,6 +131,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlRoot.prefab
 - Assets/Resources/Textures/Returns/texIconThallium.png
 - Assets/Resources/Models/Classic/mdlClassicDoll.prefab
+- Assets/Resources/Models/3d/mdl3dSquib.prefab
 - Assets/Resources/Textures/Returns/texIconPurse.png
 - Assets/Resources/Materials/Returns/matToxin.mat
 - Assets/Resources/Materials/Classic/matClassicJarSouls.mat
@@ -153,6 +158,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
 - Assets/Resources/Models/Returns/mdlPurse.prefab
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
+- Assets/Resources/Materials/3d/mat3dSquib.mat
 - Assets/Resources/Textures/Returns/texIconArcaneBlades.png
 - Assets/Resources/Models/Returns/mdlMuConstruct.prefab
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
@@ -166,10 +172,12 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Materials/Returns/matJewel.mat
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
+- Assets/Resources/Textures/3d/MuConstructTexEmission.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat
 - Assets/Resources/Materials/Returns/matMuConstruct.mat
 - Assets/Resources/Materials/Returns/matSkullRing.mat
+- Assets/Resources/Materials/3d/mat3dMuConstruct.mat
 - Assets/Resources/Textures/Buffs/texBuffToxin.png
 - Assets/Resources/Materials/Returns/matPig.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake2.png
@@ -184,6 +192,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconShackles.png
 - Assets/Resources/Models/3d/mdl3dArmsRace.prefab
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
+- Assets/Resources/Textures/3d/ThqwibTex.png
 - Assets/Resources/Materials/Returns/matClover.mat
 - Assets/Resources/Materials/Classic/matClassicPurse.mat
 - Assets/Resources/Textures/Classic/texIconClassicToxin.png
@@ -205,6 +214,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matFireShield.mat
 - Assets/Resources/Models/Returns/mdlDice.prefab
 - Assets/Resources/Textures/Returns/texIconClover.png
+- Assets/Resources/Textures/3d/LifeSavingsTex.png
 - Assets/Resources/Materials/3d/mat3dGoldGun.mat
 - Assets/Resources/Textures/texModLogo.png
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
