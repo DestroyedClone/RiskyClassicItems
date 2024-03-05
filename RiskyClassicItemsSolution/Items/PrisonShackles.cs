@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using ClassicItemsReturns.Modules;
+using R2API;
 using RoR2;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace ClassicItemsReturns.Items
 
         public override string ItemLangTokenName => "PRISONSHACKLES";
 
-        public static float attackSpeedSlowMultiplier = 0.3f;
+        public static float attackSpeedSlowMultiplier = 0.4f;
 
         public static int duration = 2;
 
@@ -42,7 +43,7 @@ namespace ClassicItemsReturns.Items
 
         public override void Hooks()
         {
-            GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
+            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryAndVictimBodyActions += ApplyShackles;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
@@ -54,11 +55,16 @@ namespace ClassicItemsReturns.Items
             }
         }
 
-        private void GlobalEventManager_onServerDamageDealt(DamageReport obj)
+        private void ApplyShackles(GlobalEventManager globalEventManager, DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody, Inventory attackerInventory)
         {
-            if (!obj.attackerBody || !obj.victimBody || !TryGetCount(obj.attackerBody, out var count))
-                return;
-            obj.victimBody.AddTimedBuff(Modules.Buffs.ShacklesBuff, Utils.ItemHelpers.StackingLinear(count, duration, durationStack));
+            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+
+            int itemStack = itemCount - 1;
+            float totalDuration = (duration + itemStack * durationStack) * damageInfo.procCoefficient;
+            if (totalDuration <= 0f) return;
+
+            victimBody.AddTimedBuff(Buffs.ShacklesBuff, totalDuration);
         }
     }
 }

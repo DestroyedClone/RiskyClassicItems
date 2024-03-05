@@ -3,6 +3,20 @@
 	- Razor Penny
 	- Snake Eyes
 	- Golden Gun
+	
+- The Toxin
+	- Increased armor reduction from 20 -> 30
+	
+	*Keeping stacking behavior different from Returns since pure damage stacking overlaps too much with Focus Crystal.*
+	
+- Prison Shackles
+	- Increased slow factor from 30 -> 40 (This ends up being a true -30% attack speed)
+	- Duration now scales off of proc coefficient.
+	- Fixed self-procs on 0 proc coefficient attacks. (TODO: Test)
+
+- Thallium
+	- Proc chance now scales off of proc coefficient.
+	- Fixed self-procs on 0 proc coefficient attacks. (TODO: Test)
 
 - `1.3.8`
 	- Jar of Souls

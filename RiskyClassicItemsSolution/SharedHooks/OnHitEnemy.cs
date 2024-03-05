@@ -9,6 +9,9 @@ namespace ClassicItemsReturns.SharedHooks
         public delegate void OnHitEnemyAttackerInventory(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory);
         public static OnHitEnemyAttackerInventory OnHitEnemyAttackerInventoryActions;
 
+        public delegate void OnHitEnemyAttackerInventoryAndVictimBody(GlobalEventManager globalEventManager, DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody, Inventory attackerInventory);
+        public static OnHitEnemyAttackerInventoryAndVictimBody OnHitEnemyAttackerInventoryAndVictimBodyActions;
+
         public static void Initialize()
         {
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
@@ -18,12 +21,18 @@ namespace ClassicItemsReturns.SharedHooks
         {
             orig(globalEventManager, damageInfo, victim);
 
-            if (!NetworkServer.active) return;
+            if (!NetworkServer.active || damageInfo.rejected || damageInfo.procCoefficient <= 0f || !damageInfo.attacker) return;
 
-            if (damageInfo.attacker)
+            CharacterBody attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
+            if (attackerBody && attackerBody.inventory)
             {
-                CharacterBody attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                if (attackerBody && attackerBody.inventory) OnHitEnemyAttackerInventoryActions?.Invoke(globalEventManager, damageInfo, victim, attackerBody, attackerBody.inventory);
+                OnHitEnemyAttackerInventoryActions?.Invoke(globalEventManager, damageInfo, victim, attackerBody, attackerBody.inventory);
+
+                if (victim)
+                {
+                    CharacterBody victimBody = victim.GetComponent<CharacterBody>();
+                    if (victimBody) OnHitEnemyAttackerInventoryAndVictimBodyActions?.Invoke(globalEventManager, damageInfo, victimBody, attackerBody, attackerBody.inventory);
+                }
             }
         }
     }

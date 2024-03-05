@@ -90,7 +90,7 @@ namespace ClassicItemsReturns.Items
             int itemCount = attackerInventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
 
-            if (!Util.CheckRoll(chance, attackerBody.master)) return;
+            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
 
             int itemStack = itemCount - 1;
             float totalDuration = Utils.ItemHelpers.StackingLinear(itemCount, Thallium.Instance.duration, durationPerStack);
