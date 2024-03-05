@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2886952540
+CRC: 702649740
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d7427fa7e539c16040f61cac3ba67437
+    Hash: 9deda3897b0e258dc0890f59aef4407c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50c3716ef67f83d320dd092cbeeb109f
@@ -44,6 +44,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicMuConstruct.prefab
 - Assets/Resources/Models/Classic/mdlClassicGoldGun.prefab
 - Assets/Resources/Models/Returns/mdlIceCube.prefab
+- Assets/Resources/Materials/3d/mat3dShackles.mat
 - Assets/Resources/Materials/Classic/matClassicDice.mat
 - Assets/Resources/Materials/Returns/matArmsRace.mat
 - Assets/Resources/Models/Returns/mdlSquib.prefab
@@ -97,6 +98,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicPenny.prefab
 - Assets/Resources/Materials/matNodraw.mat
 - Assets/Resources/Materials/Returns/matPenny.mat
+- Assets/Resources/Models/3d/mdl3dShackles.prefab
 - Assets/Resources/Textures/Returns/texIconBear.png
 - Assets/Resources/Models/Classic/mdlClassicSquib.prefab
 - Assets/Resources/Models/Classic/mdlClassicJewel.prefab
@@ -110,6 +112,8 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
 - Assets/Resources/Textures/3d/MuConstructTex.png
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
+- Assets/Resources/Models/3d/mdl3dCrystal.prefab
+- Assets/Resources/Materials/3d/mat3dCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicArcaneBlades.prefab
 - Assets/Resources/Materials/Returns/matRoot.mat
 - Assets/Resources/Materials/Returns/matIceCube.mat
@@ -176,6 +180,7 @@ Assets:
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat
 - Assets/Resources/Materials/Returns/matMuConstruct.mat
+- Assets/Resources/Textures/3d/AmethystTex.png
 - Assets/Resources/Materials/Returns/matSkullRing.mat
 - Assets/Resources/Materials/3d/mat3dMuConstruct.mat
 - Assets/Resources/Textures/Buffs/texBuffToxin.png
@@ -184,6 +189,7 @@ Assets:
 - Assets/Resources/Textures/UI/texHitListBuffIcon.png
 - Assets/Resources/Materials/Returns/matDice.mat
 - Assets/Resources/Models/Returns/mdlPills.prefab
+- Assets/Resources/Textures/3d/ShackleTex.png
 - Assets/Resources/Models/Returns/mdlClover.prefab
 - Assets/Resources/Models/Classic/mdlClassicShackles.prefab
 - Assets/Resources/Models/Returns/mdlArmsRace.prefab
