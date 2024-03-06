@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 702649740
+CRC: 534049765
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9deda3897b0e258dc0890f59aef4407c
+    Hash: 19d08962072fc86b50c2f6f45a164b41
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 50c3716ef67f83d320dd092cbeeb109f
+    Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -29,11 +29,14 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 8fd125b7e52f45340a7d4808449e9811, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Resources/Models/Returns/mdlPenny.prefab
+- Assets/Resources/Textures/3d/JewelTexEmission.png
 - Assets/Resources/Textures/Classic/texIconClassicSquib.png
 - Assets/Resources/Textures/Returns/texIconPills.png
 - Assets/Resources/Models/Returns/mdlJarSouls.prefab
@@ -67,6 +70,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconJarSouls.png
 - Assets/Resources/Materials/3d/mat3dPenny.mat
 - Assets/Resources/Materials/Classic/matClassicPills.mat
+- Assets/Resources/Materials/3d/mat3dPurse.mat
 - Assets/Resources/Textures/Returns/texIconPenny.png
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
 - Assets/Resources/Models/3d/mdl3dPills.prefab
@@ -89,6 +93,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconMuConstruct.png
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/3d/mat3dArmsRace.mat
+- Assets/Resources/Textures/3d/JewelTex.png
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
 - Assets/Resources/Textures/Returns/texIconJewel.png
 - Assets/Resources/Textures/Returns/texIconCrystal.png
@@ -123,11 +128,13 @@ Assets:
 - Assets/Resources/Models/Returns/mdlThallium.prefab
 - Assets/Resources/Materials/Returns/matPurse.mat
 - Assets/Resources/Models/Returns/mdlDoll.prefab
+- Assets/Resources/Textures/3d/PurseTex.png
 - Assets/Resources/Textures/Classic/texIconClassicThallium.png
 - Assets/Resources/Textures/Returns/texIconIceCube.png
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
 - Assets/Resources/Models/3d/mdl3dGoldGun.prefab
 - Assets/Resources/Models/Classic/mdlClassicPurse.prefab
+- Assets/Resources/Models/3d/mdl3dJewel.prefab
 - Assets/Resources/Textures/Returns/texIconVial.png
 - Assets/Resources/Materials/Returns/matArcaneBlades.mat
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
@@ -196,6 +203,8 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicVial.mat
 - Assets/Resources/Materials/Classic/matClassicPig.mat
 - Assets/Resources/Textures/Returns/texIconShackles.png
+- Assets/Resources/Materials/3d/mat3dJewel.mat
+- Assets/Resources/Models/3d/mdl3dPurse.prefab
 - Assets/Resources/Models/3d/mdl3dArmsRace.prefab
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
 - Assets/Resources/Textures/3d/ThqwibTex.png
