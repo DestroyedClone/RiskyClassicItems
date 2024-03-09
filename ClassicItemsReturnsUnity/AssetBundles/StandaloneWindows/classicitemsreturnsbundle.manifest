@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 457187054
+CRC: 2625287684
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bd8238d3e11d0e02f1d37cc1563036d5
+    Hash: 4279ac1a0a5c83b42ce4560a709a251b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -61,6 +61,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicClover.png
 - Assets/Resources/Textures/Returns/texIconFireShield.png
 - Assets/Resources/Textures/Buffs/texBuffSnake5.png
+- Assets/Resources/Textures/3d/BladesTex.png
 - Assets/Resources/Materials/Returns/matGoldGun.mat
 - Assets/Resources/Models/Returns/mdlVial.prefab
 - Assets/Resources/Textures/UI/texHitListMarker.png
@@ -93,6 +94,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matVial.mat
 - Assets/Resources/Materials/3d/mat3dPig.mat
 - Assets/Resources/Textures/Returns/texIconMuConstruct.png
+- Assets/Resources/Models/3d/mdl3dArcaneBlades.prefab
 - Assets/Resources/Textures/Classic/texIconClassicGoldGun.png
 - Assets/Resources/Materials/3d/mat3dArmsRace.mat
 - Assets/Resources/Textures/3d/JewelTex.png
@@ -115,6 +117,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconToxin.png
 - Assets/Resources/Materials/3d/mat3dFireShield.mat
 - Assets/Resources/Models/3d/mdl3dPig.prefab
+- Assets/Resources/Materials/3d/mat3dArcaneBlades.mat
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Materials/Returns/matCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicPig.prefab
