@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 534049765
+CRC: 457187054
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 19d08962072fc86b50c2f6f45a164b41
+    Hash: bd8238d3e11d0e02f1d37cc1563036d5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -37,6 +37,7 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Resources/Models/Returns/mdlPenny.prefab
 - Assets/Resources/Textures/3d/JewelTexEmission.png
+- Assets/Resources/Models/3d/mdl3dFireShield.prefab
 - Assets/Resources/Textures/Classic/texIconClassicSquib.png
 - Assets/Resources/Textures/Returns/texIconPills.png
 - Assets/Resources/Models/Returns/mdlJarSouls.prefab
@@ -87,6 +88,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicRoot.prefab
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicFireShield.png
+- Assets/Resources/Textures/3d/ShieldTex.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Materials/Returns/matVial.mat
 - Assets/Resources/Materials/3d/mat3dPig.mat
@@ -111,6 +113,7 @@ Assets:
 - Assets/Resources/Textures/3d/ArmsRaceTex.png
 - Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
 - Assets/Resources/Textures/Returns/texIconToxin.png
+- Assets/Resources/Materials/3d/mat3dFireShield.mat
 - Assets/Resources/Models/3d/mdl3dPig.prefab
 - Assets/Resources/Models/Classic/mdlClassicToxin.prefab
 - Assets/Resources/Materials/Returns/matCrystal.mat
@@ -184,6 +187,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matJewel.mat
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/3d/MuConstructTexEmission.png
+- Assets/Resources/Textures/3d/BearTex.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat
 - Assets/Resources/Materials/Returns/matMuConstruct.mat
@@ -217,6 +221,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Returns/matSquib.mat
 - Assets/Resources/Materials/Classic/matClassicSquib.mat
+- Assets/Resources/Materials/3d/mat3dBear.mat
 - Assets/Resources/Textures/Returns/texIconGoldGun.png
 - Assets/Resources/Models/Returns/mdlBear.prefab
 - Assets/Resources/Textures/Artifact/texArtifactCloverEnabled.png
@@ -224,6 +229,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlSkullRing.prefab
 - Assets/Resources/Textures/Returns/texIconDoll.png
 - Assets/Resources/Textures/Classic/texIconClassicPig.png
+- Assets/Resources/Models/3d/mdl3dBear.prefab
 - Assets/Resources/Materials/Classic/matClassicThallium.mat
 - Assets/Resources/Textures/Classic/texIconClassicPurse.png
 - Assets/Resources/Materials/Returns/matFireShield.mat
