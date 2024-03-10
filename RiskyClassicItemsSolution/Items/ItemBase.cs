@@ -396,6 +396,7 @@ namespace ClassicItemsReturns.Items
 
                             if (mesh.name == "UseGlassShader")
                             {
+                                Debug.Log("ClassicItemsReturns: Swapping shader to Glass Shader");
                                 mesh.material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGIntersectionCloudRemap.shader").WaitForCompletion();
                             }
                             else
