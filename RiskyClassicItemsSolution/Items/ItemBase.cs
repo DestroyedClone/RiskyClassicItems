@@ -393,7 +393,15 @@ namespace ClassicItemsReturns.Items
                         foreach (MeshRenderer mesh in meshes)
                         {
                             if (!mesh.material) continue;
-                            mesh.material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGStandard.shader").WaitForCompletion();
+
+                            if (mesh.name == "UseGlassShader")
+                            {
+                                mesh.material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGIntersectionCloudRemap.shader").WaitForCompletion();
+                            }
+                            else
+                            {
+                                mesh.material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGStandard.shader").WaitForCompletion();
+                            }
                         }
                         break;
                 }
