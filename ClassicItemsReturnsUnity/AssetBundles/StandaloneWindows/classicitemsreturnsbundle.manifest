@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2625287684
+CRC: 2960444349
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4279ac1a0a5c83b42ce4560a709a251b
+    Hash: b0e2757c09a034e15489c8a4c0712b69
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -43,6 +43,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlJarSouls.prefab
 - Assets/Resources/Models/Returns/mdlShackles.prefab
 - Assets/Resources/Textures/Buffs/texBuffSnake4.png
+- Assets/Resources/Materials/3d/mat3dVial.mat
 - Assets/Resources/Textures/Buffs/texBuffPills.png
 - Assets/Resources/Models/3d/mdl3dMuConstruct.prefab
 - Assets/Resources/Models/Classic/mdlClassicMuConstruct.prefab
@@ -134,6 +135,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlThallium.prefab
 - Assets/Resources/Materials/Returns/matPurse.mat
 - Assets/Resources/Models/Returns/mdlDoll.prefab
+- Assets/Resources/Textures/3d/texInfusionDiffuse.png
 - Assets/Resources/Textures/3d/PurseTex.png
 - Assets/Resources/Textures/Classic/texIconClassicThallium.png
 - Assets/Resources/Textures/Returns/texIconIceCube.png
@@ -171,6 +173,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matShackles.mat
 - Assets/Resources/Textures/3d/texRazorPenny.png
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
+- Assets/Resources/Models/3d/mdl3dVial.prefab
 - Assets/Resources/Models/Returns/mdlJewel.prefab
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
 - Assets/Resources/Models/Returns/mdlPurse.prefab
