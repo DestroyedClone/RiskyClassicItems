@@ -2,8 +2,6 @@
 
 This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
-**Looking for a modeler! Contact us on the Github page if interested.**
-
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
@@ -56,3 +54,4 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 - Moffein: Coding and Unity stuff
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers
+- Models from FORCED_REASSEMBLY, redacted, Glasus
