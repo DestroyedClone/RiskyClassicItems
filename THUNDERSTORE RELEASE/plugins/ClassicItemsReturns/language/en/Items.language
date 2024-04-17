@@ -44,7 +44,7 @@
 		
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "Arcane Blades",
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "Move faster after activating the Teleporter.",
-		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>{0} <style=cStack>(+{0}% per stack)</style></style> after the <style=cIsHealth>Teleporter</style> has been activated.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>{0}% <style=cStack>(+{0}% per stack)</style></style> after the <style=cIsHealth>Teleporter</style> has been activated.",
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "",
 		
 		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_NAME": "Mu Construct",
