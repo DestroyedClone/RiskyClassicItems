@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1227667314
+CRC: 1863295554
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 10758b067457523fed5fe650ef2293fe
+    Hash: 4252ccac220c7837f6227972a04878b4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -66,7 +66,9 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconFireShield.png
 - Assets/Resources/Textures/Buffs/texBuffSnake5.png
 - Assets/Resources/Textures/3d/BladesTex.png
+- Assets/Resources/Textures/3d/JarOfSoulsTexEmission.png
 - Assets/Resources/Materials/Returns/matGoldGun.mat
+- Assets/Resources/Textures/3d/VialTex.png
 - Assets/Resources/Models/Returns/mdlVial.prefab
 - Assets/Resources/Textures/UI/texHitListMarker.png
 - Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
@@ -103,6 +105,7 @@ Assets:
 - Assets/Resources/Materials/3d/mat3dArmsRace.mat
 - Assets/Resources/Textures/3d/JewelTex.png
 - Assets/Resources/Materials/Classic/matClassicFireShield.mat
+- Assets/Resources/Materials/3d/mat3dJarSouls.mat
 - Assets/Resources/Textures/Returns/texIconJewel.png
 - Assets/Resources/Textures/Returns/texIconCrystal.png
 - Assets/Resources/Textures/3d/TexEmissiveThallium.png
@@ -117,7 +120,9 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicJewel.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
 - Assets/Resources/Textures/3d/ArmsRaceTex.png
+- Assets/Resources/Models/3d/mdl3dJarSouls.prefab
 - Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
+- Assets/Resources/Textures/3d/JarOfSoulsTex.png
 - Assets/Resources/Textures/Returns/texIconToxin.png
 - Assets/Resources/Materials/3d/mat3dFireShield.mat
 - Assets/Resources/Models/3d/mdl3dPig.prefab
@@ -154,7 +159,6 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicDoll.prefab
 - Assets/Resources/Models/3d/mdl3dSquib.prefab
 - Assets/Resources/Textures/Returns/texIconPurse.png
-- Assets/Resources/Textures/3d/GlassTest.png
 - Assets/Resources/Materials/Returns/matToxin.mat
 - Assets/Resources/Materials/Classic/matClassicJarSouls.mat
 - Assets/Resources/Models/Classic/mdlClassicThallium.prefab
@@ -181,6 +185,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlPurse.prefab
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
 - Assets/Resources/Materials/3d/mat3dSquib.mat
+- Assets/Resources/Textures/3d/texInfusionDiffuse.png
 - Assets/Resources/Textures/Returns/texIconArcaneBlades.png
 - Assets/Resources/Models/Returns/mdlMuConstruct.prefab
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
@@ -188,7 +193,6 @@ Assets:
 - Assets/Resources/Models/3d/mdl3dDice.prefab
 - Assets/Resources/Materials/3d/mat3dDice.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake6.png
-- Assets/Resources/Textures/3d/texInfusionDiffuse.png
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Models/3d/mdl3dPenny.prefab
 - Assets/Resources/Textures/Returns/texIconSkullRing.png

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99b0e4924d66dc6489da53ab1dc78c01
+guid: 8386af50599a574498e8186f9b29e028
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
+      name: VialMat
     second: {fileID: 2100000, guid: b3a12f60baf10bc428d12da41cdd70ca, type: 2}
   materials:
     materialImportMode: 1
