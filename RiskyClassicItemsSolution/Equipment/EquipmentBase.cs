@@ -7,6 +7,7 @@ using RoR2.ExpansionManagement;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -301,6 +302,31 @@ namespace ClassicItemsReturns.Equipment
         public GameObject LoadItemModel(string modelName)
         {
             GameObject mdl3d = Assets.LoadObject("mdl3d" + modelName);
+            if (mdl3d)
+            {
+                //Vial and some other models WILL need a special case for how their materials are handled.
+                switch (modelName)
+                {
+                    default:
+                        MeshRenderer[] meshes = mdl3d.GetComponentsInChildren<MeshRenderer>();
+                        foreach (MeshRenderer mesh in meshes)
+                        {
+                            if (!mesh.material) continue;
+
+                            if (mesh.name == "UseGlassShader")
+                            {
+                                Debug.Log("ClassicItemsReturns: Swapping shader to Glass Shader");
+                                mesh.material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Infusion/matInfusionGlass.mat").WaitForCompletion();
+                            }
+                            else
+                            {
+                                mesh.material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGStandard.shader").WaitForCompletion();
+                            }
+                        }
+                        break;
+                }
+            }
+
             GameObject mdlRet = Assets.LoadObject("mdl" + modelName);
             GameObject mdlClassic = Assets.LoadObject("mdlClassic" + modelName);
             Queue<GameObject> modelQueue = new Queue<GameObject>();
