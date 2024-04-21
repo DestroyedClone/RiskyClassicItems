@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f94f09bfd8aa61a4baf7993222d53988
+guid: 72ce645c0a4210247b4f6dbc3a8445e2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 22851f74b13b3f54c9278e70f4b8bd09, type: 2}
+      name: LostDoll
+    second: {fileID: 2100000, guid: 1e33598ba9cf2e047a44a7cfd1b2e38f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

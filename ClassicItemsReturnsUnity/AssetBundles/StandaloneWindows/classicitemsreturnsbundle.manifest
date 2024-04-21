@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2960444349
+CRC: 1227667314
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b0e2757c09a034e15489c8a4c0712b69
+    Hash: 10758b067457523fed5fe650ef2293fe
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -35,6 +35,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Resources/Models/3d/mdl3dVial.prefab
 - Assets/Resources/Models/Returns/mdlPenny.prefab
 - Assets/Resources/Textures/3d/JewelTexEmission.png
 - Assets/Resources/Models/3d/mdl3dFireShield.prefab
@@ -51,6 +52,8 @@ Assets:
 - Assets/Resources/Models/Returns/mdlIceCube.prefab
 - Assets/Resources/Materials/3d/mat3dShackles.mat
 - Assets/Resources/Materials/Classic/matClassicDice.mat
+- Assets/Resources/Textures/3d/LostDollTex.png
+- Assets/Resources/Models/3d/mdl3dDoll.prefab
 - Assets/Resources/Materials/Returns/matArmsRace.mat
 - Assets/Resources/Models/Returns/mdlSquib.prefab
 - Assets/Resources/Textures/Classic/texIconClassicBear.png
@@ -135,7 +138,6 @@ Assets:
 - Assets/Resources/Models/Returns/mdlThallium.prefab
 - Assets/Resources/Materials/Returns/matPurse.mat
 - Assets/Resources/Models/Returns/mdlDoll.prefab
-- Assets/Resources/Textures/3d/texInfusionDiffuse.png
 - Assets/Resources/Textures/3d/PurseTex.png
 - Assets/Resources/Textures/Classic/texIconClassicThallium.png
 - Assets/Resources/Textures/Returns/texIconIceCube.png
@@ -152,6 +154,7 @@ Assets:
 - Assets/Resources/Models/Classic/mdlClassicDoll.prefab
 - Assets/Resources/Models/3d/mdl3dSquib.prefab
 - Assets/Resources/Textures/Returns/texIconPurse.png
+- Assets/Resources/Textures/3d/GlassTest.png
 - Assets/Resources/Materials/Returns/matToxin.mat
 - Assets/Resources/Materials/Classic/matClassicJarSouls.mat
 - Assets/Resources/Models/Classic/mdlClassicThallium.prefab
@@ -173,7 +176,6 @@ Assets:
 - Assets/Resources/Materials/Returns/matShackles.mat
 - Assets/Resources/Textures/3d/texRazorPenny.png
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
-- Assets/Resources/Models/3d/mdl3dVial.prefab
 - Assets/Resources/Models/Returns/mdlJewel.prefab
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
 - Assets/Resources/Models/Returns/mdlPurse.prefab
@@ -186,6 +188,7 @@ Assets:
 - Assets/Resources/Models/3d/mdl3dDice.prefab
 - Assets/Resources/Materials/3d/mat3dDice.mat
 - Assets/Resources/Textures/Buffs/texBuffSnake6.png
+- Assets/Resources/Textures/3d/texInfusionDiffuse.png
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Models/3d/mdl3dPenny.prefab
 - Assets/Resources/Textures/Returns/texIconSkullRing.png
@@ -193,6 +196,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matJewel.mat
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/3d/MuConstructTexEmission.png
+- Assets/Resources/Materials/3d/mat3dDoll.mat
 - Assets/Resources/Textures/3d/BearTex.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat
