@@ -2,10 +2,6 @@
 
 This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
-I highly recommend installing AI Blacklist (https://thunderstore.io/package/Moffein/AI_Blacklist/) to prevent Scavengers from getting Jar of Souls as an equipment.
-
-**Looking for a modeler! Contact us on the Github page if interested.**
-
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
@@ -56,6 +52,6 @@ I highly recommend installing AI Blacklist (https://thunderstore.io/package/Moff
 - ClassicItems: Some item implementations
 - DestroyedClone: Coding
 - Moffein: Coding and Unity stuff
-- FORCED_REASSEMBLY: Models
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers
+- Models from FORCED_REASSEMBLY, redacted, Glasus
