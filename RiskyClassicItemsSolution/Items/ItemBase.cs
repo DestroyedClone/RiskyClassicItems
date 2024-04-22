@@ -380,7 +380,6 @@ namespace ClassicItemsReturns.Items
             return spr;
         }
 
-        private static Material hopooGlassMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/Infusion/matInfusionGlass.mat").WaitForCompletion();
         public GameObject LoadItemModel(string modelName)
         {
             GameObject mdl3d = Assets.LoadObject("mdl3d" + modelName);
@@ -398,7 +397,7 @@ namespace ClassicItemsReturns.Items
                             if (mesh.name == "UseGlassShader")
                             {
                                 Debug.Log("ClassicItemsReturns: Swapping shader to Glass Shader");
-                                mesh.material = hopooGlassMat;
+                                mesh.material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Infusion/matInfusionGlass.mat").WaitForCompletion();
                             }
                             else
                             {
