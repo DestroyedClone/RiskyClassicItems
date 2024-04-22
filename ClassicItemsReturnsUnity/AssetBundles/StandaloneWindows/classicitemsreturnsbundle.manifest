@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1863295554
+CRC: 921408507
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4252ccac220c7837f6227972a04878b4
+    Hash: 697d1c309abe3f7635870bfef3dc94de
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -66,7 +66,6 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconFireShield.png
 - Assets/Resources/Textures/Buffs/texBuffSnake5.png
 - Assets/Resources/Textures/3d/BladesTex.png
-- Assets/Resources/Textures/3d/JarOfSoulsTexEmission.png
 - Assets/Resources/Materials/Returns/matGoldGun.mat
 - Assets/Resources/Textures/3d/VialTex.png
 - Assets/Resources/Models/Returns/mdlVial.prefab
@@ -144,6 +143,7 @@ Assets:
 - Assets/Resources/Materials/Returns/matPurse.mat
 - Assets/Resources/Models/Returns/mdlDoll.prefab
 - Assets/Resources/Textures/3d/PurseTex.png
+- Assets/Resources/Textures/3d/JarOfSoulsTexEmission.png
 - Assets/Resources/Textures/Classic/texIconClassicThallium.png
 - Assets/Resources/Textures/Returns/texIconIceCube.png
 - Assets/Resources/Textures/Classic/texIconClassicPills.png
