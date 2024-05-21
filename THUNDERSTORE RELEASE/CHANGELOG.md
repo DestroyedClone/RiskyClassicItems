@@ -1,8 +1,12 @@
 - `2.0.1`
 
-	- Fixed Locked Jewel not proccing on chests due to the Devotion update.
+	- Added lore.
+	- Locked Jewel
+		- Fixed the item not proccing on chests due to the Devotion update.
 	- Arms Race
 		- Reduced missile damage from 200% -> 100%
+	- Gigantic Amethyst
+		- Reduced cooldown from 20s -> 12s
 
 - `2.0.0`
 

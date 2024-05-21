@@ -17,7 +17,7 @@ namespace ClassicItemsReturns.Equipment
 
         public override Sprite EquipmentIcon => LoadItemSprite("Crystal");
 
-        public override float Cooldown => 20f;
+        public override float Cooldown => 12f;
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
