@@ -1,3 +1,9 @@
+- `2.0.1`
+
+	- Fixed Locked Jewel not proccing on chests due to the Devotion update.
+	- Arms Race
+		- Reduced missile damage from 200% -> 100%
+
 - `2.0.0`
 
 	- Fixed for Devotion update.

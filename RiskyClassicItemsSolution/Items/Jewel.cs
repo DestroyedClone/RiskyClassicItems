@@ -73,7 +73,10 @@ namespace ClassicItemsReturns.Items
             if (ipf && !ipf.shouldAllowOnInteractionBeginProc) return;
             if (interactableObject.GetComponent<GenericPickupController>()) return;
             if (interactableObject.GetComponent<VehicleSeat>()) return;
-            if (interactableObject.GetComponent<NetworkUIPromptController>()) return;
+            if (interactableObject.GetComponent<NetworkUIPromptController>())
+            {
+                if (!interactableObject.GetComponent<PurchaseInteraction>()) return;
+            }
 
             CharacterBody interactorBody = interactor.GetComponent<CharacterBody>();
             if (!interactorBody || !interactorBody.inventory) return;

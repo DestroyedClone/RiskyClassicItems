@@ -11,7 +11,7 @@ namespace ClassicItemsReturns.Items
         public float cooldown = 10;
         public int missileCount = 4;
         public int missileCountPerStack = 4;
-        public float damageCoeff = 2;
+        public float damageCoeff = 1;
 
         public static ConfigEntry<bool> requireMechanical;
 
