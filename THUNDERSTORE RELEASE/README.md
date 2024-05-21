@@ -2,6 +2,8 @@
 
 This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
+***We are looking for modelers! Contact me on the GitHub for more info!***
+
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
@@ -45,6 +47,23 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 |:--:|:--:|--|
 | Lunar Equipment | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconDoll.png) | Lost Doll | Sacrifice **25% of your current health** to **damage** an enemy for **400% of your maximum health**.
+
+## TODO List
+
+- Make models shiny.
+- Make pickup icons for the models.
+
+- Polish models for:
+	- Razor Penny
+	- Mysterious Vial
+	- Jar of Souls
+
+- Make models for:
+	- Bitter Root
+	- The Toxin
+	- 56 Leaf Clover
+	- Permafrost
+	- Wicked Ring
 
 ## Credits
 

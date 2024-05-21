@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using BepInEx.Configuration;
+using R2API;
 using RoR2;
 using RoR2.Items;
 using UnityEngine;
@@ -11,6 +12,9 @@ namespace ClassicItemsReturns.Items
         public int missileCount = 4;
         public int missileCountPerStack = 4;
         public float damageCoeff = 2;
+
+        public static ConfigEntry<bool> requireMechanical;
+
         public override string ItemName => "Arms Race";
         public override string ItemLangTokenName => "ARMSRACE";
         public override object[] ItemFullDescriptionParams => new object[]
@@ -39,6 +43,11 @@ namespace ClassicItemsReturns.Items
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
+        }
+
+        public override void CreateConfig(ConfigFile config)
+        {
+            ArmsRace.requireMechanical = config.Bind(ConfigCategory, "Mechanical Allies Only", true, "Arms Race only applies to Drones and other Mechanical allies.");
         }
 
         public class ArmsRaceBehavior : BaseItemBodyBehavior
@@ -127,7 +136,7 @@ namespace ClassicItemsReturns.Items
 
             private void UpdateMinionInventory(Inventory inventory, CharacterBody.BodyFlags bodyFlags, int newStack)
             {
-                if (inventory && newStack > 0 && (bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)
+                if (inventory && newStack > 0 && (!ArmsRace.requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
                 {
                     int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
                     //Need to use a seperate display cause the display add/removal conflicts with spare drone parts

@@ -6,6 +6,7 @@ using static ClassicItemsReturns.ClassicItemsReturnsPlugin;
 
 namespace ClassicItemsReturns.Modules
 {
+    //TODO: FIXME
     internal class DLCSupport
     {
         internal static void Initialize()
@@ -17,7 +18,7 @@ namespace ClassicItemsReturns.Modules
         {
             public static void Initialize()
             {
-                On.RoR2.Items.ContagiousItemManager.Init += SetupContagiousItemManager;
+               // On.RoR2.Items.ContagiousItemManager.Init += SetupContagiousItemManager;
             }
 
             public static RoR2.ExpansionManagement.ExpansionDef sotvExpansionDef;
@@ -32,6 +33,7 @@ namespace ClassicItemsReturns.Modules
 
             public static Dictionary<ItemDef, ItemDef> voidConversions = new Dictionary<ItemDef, ItemDef>();
 
+            /*
             internal static void SetupContagiousItemManager(On.RoR2.Items.ContagiousItemManager.orig_Init orig)
             {
                 foreach (var itemPair in voidConversions)
@@ -42,11 +44,12 @@ namespace ClassicItemsReturns.Modules
                         itemDef1 = itemPair.Key,
                         itemDef2 = itemPair.Value
                     };
-                    RoR2.ItemCatalog.itemRelationships[RoR2.DLC1Content.ItemRelationshipTypes.ContagiousItem] = ItemCatalog.itemRelationships[DLC1Content.ItemRelationshipTypes.ContagiousItem].AddToArray(transformation);
+                    RoR2.ItemCatalog.itemRelationships[RoR2.DLC1Content.ItemRelationshipTypes.ContagiousItem] = ItemCatalog.itemRelationships[DLC1Content.ItemRelationshipTypes.ContagiousItem]
+                        .AddToArray(transformation);
                 }
 
                 orig();
-            }
+            }*/
         }
     }
 }

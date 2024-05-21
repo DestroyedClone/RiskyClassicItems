@@ -1,22 +1,57 @@
 - `2.0.0`
-- Added 3d models for:
-	- Razor Penny
-	- Snake Eyes
-	- Golden Gun
-	
-- The Toxin
-	- Increased armor reduction from 20 -> 30
-	
-	*Keeping stacking behavior different from Returns since pure damage stacking overlaps too much with Focus Crystal.*
-	
-- Prison Shackles
-	- Increased slow factor from 30 -> 40 (This ends up being a true -30% attack speed)
-	- Duration now scales off of proc coefficient.
-	- Fixed self-procs on 0 proc coefficient attacks. (TODO: Test)
 
-- Thallium
-	- Proc chance now scales off of proc coefficient.
-	- Fixed self-procs on 0 proc coefficient attacks. (TODO: Test)
+	- Fixed for Devotion update.
+
+	- Added 3d models for:
+		- Razor Penny (WIP)
+		- Mysterious Vial (WIP)
+		- Life Savings
+		- Arcane Blades
+		- Fire Shield
+		- Snake Eyes
+		- Mu Construct
+			- TODO: Add follower when active.
+		
+		- Tough Times
+		- Arms Race
+		- Golden Gun
+		- Locked Jewel
+		- Prison Shackles
+		- Smart Shopper
+		
+		- Thallium
+		
+		- Jar of Souls (WIP)
+		- Prescriptions
+		- Gigantic Amethyst
+		- Thqwibs
+		- Lost Doll
+		
+	- TODO:
+		- Bitter Root
+		- The Toxin
+		- 56 Leaf Clover
+		- Permafrost
+		- Wicked Ring
+		
+		***Contact me on the GitHub if you are interested in contributing models or touching up the existing models!***
+		
+	- The Toxin
+		- Increased armor reduction from 20 -> 30
+		
+		*Keeping stacking behavior different from Returns since pure damage stacking overlaps too much with Focus Crystal.*
+		
+	- Arms Race
+		- Added config option to enable it on non-mechanical allies. (Disabled by default)
+		
+	- Prison Shackles
+		- Increased slow factor from 30 -> 40 (This ends up being a true -30% attack speed)
+		- Duration now scales off of proc coefficient.
+		- Fixed self-procs on 0 proc coefficient attacks.
+
+	- Thallium
+		- Proc chance now scales off of proc coefficient.
+		- Fixed self-procs on 0 proc coefficient attacks.
 
 - `1.3.8`
 	- Jar of Souls
