@@ -4,7 +4,11 @@
 	
 	- Snake Eyes
 		- Stacks now persist when entering Hidden Realms and Final Stages.
-
+		
+	- Jar of Souls
+		- Reduced max active uses count from 3 -> 2
+		- Replaced Limit Spawns config with Max Uses config, so you can now specifically set how many active uses of the equipment should be allowed.
+		- Added Voidling to default blacklist due to general jankiness. (Existing config unaffected)
 
 - `2.0.1`
 

@@ -23,13 +23,11 @@ namespace ClassicItemsReturns.Equipment
         
         public int ghostsPerCommon = 3;
         public int ghostsPerChampion = 1;
-        public int maxGhosts = 9;
+        public int maxGhosts = 6;
 
         public HashSet<BodyIndex> bodyBlacklist = new HashSet<BodyIndex>();
         public HashSet<BodyIndex> countAsBoss = new HashSet<BodyIndex>();
 
-        //DeployableSlot DS_GhostAlly => Deployables.DS_GhostAlly;
-        public static ConfigEntry<bool> limitSpawns;
         public static ConfigEntry<bool> blacklistSS2UNemesis;
         public static ConfigEntry<bool> drainHP;
         public static ConfigEntry<string> bodyBlacklistString;
@@ -149,12 +147,12 @@ namespace ClassicItemsReturns.Equipment
         protected override void CreateConfig(ConfigFile config)
         {
             base.CreateConfig(config);
-            limitSpawns = config.Bind(ConfigCategory, "Limit Spawns", true, $"If true, max ghosts per player will be set to {maxGhosts}.");
+            int maxUses = config.Bind(ConfigCategory, "Max Uses", 2, "Max amount of active uses (each use spawns 3 normal enemies or 1 boss).").Value;
             drainHP = config.Bind(ConfigCategory, "Drain HP", true, "Ghosts drain HP over their lifetime. Mainly used so that boss ghosts properly trigger their attacks that require certain HP thresholds.");
-            blacklistSS2UNemesis = config.Bind(ConfigCategory, "Blacklist SS2U Nemesis Bosses", true, "Jar of Souls cant target Nemesis Bosses from SS2U.");
-            bodyBlacklistString = config.Bind(ConfigCategory, "Body Blacklist", "ShopkeeperBody, VoidInfestorBody, WispSoulBody, UrchinTurretBody, MinorConstructAttachableBody", "Prevents the listed enemies from being targeted. Case-sensitive, use DebugToolKit list_bodies command to see full bodylist.");
+            blacklistSS2UNemesis = config.Bind(ConfigCategory, "Blacklist SS2U Nemesis Bosses", true, "Jar of Souls cannot target Nemesis Bosses from SS2U.");
+            bodyBlacklistString = config.Bind(ConfigCategory, "Body Blacklist", "ShopkeeperBody, VoidInfestorBody, WispSoulBody, UrchinTurretBody, MinorConstructAttachableBody, VoidRaidCrabBody, MiniVoidRaidCrabBodyPhase1, MiniVoidRaidCrabBodyPhase2, MiniVoidRaidCrabBodyPhase3", "Prevents the listed enemies from being targeted. Case-sensitive, use DebugToolKit list_bodies command to see full bodylist.");
 
-            maxGhosts *= (limitSpawns.Value ? 1 : 999999);
+            maxGhosts = maxUses * ghostsPerCommon;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
