@@ -1,3 +1,8 @@
+- `2.0.2`
+	
+	- Fixed incompatibility with Refightilization.
+
+
 - `2.0.1`
 
 	- Added lore.

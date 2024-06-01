@@ -104,7 +104,7 @@ namespace ClassicItemsReturns.Items
 
         private void Inventory_onInventoryChangedGlobal(Inventory inventory)
         {
-            if (!NetworkServer.active) return;
+            if (!NetworkServer.active || !inventory) return;
 
             CharacterMaster master = inventory.GetComponent<CharacterMaster>();
             if (!master) return;
