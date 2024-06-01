@@ -83,6 +83,12 @@ namespace ClassicItemsReturns.Items
         {
             if (!NetworkServer.active) return;
 
+            SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
+            if (currentScene)
+            {
+                if (currentScene.isFinalStage || currentScene.blockOrbitalSkills) return;
+            }
+
             foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
             {
                 MasterSnakeEyesTracker mset = characterMaster.GetComponent<MasterSnakeEyesTracker>();

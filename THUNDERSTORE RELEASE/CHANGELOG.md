@@ -1,6 +1,9 @@
 - `2.0.2`
 	
 	- Fixed incompatibility with Refightilization.
+	
+	- Snake Eyes
+		- Stacks now persist when entering Hidden Realms and Final Stages.
 
 
 - `2.0.1`
