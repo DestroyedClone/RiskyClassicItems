@@ -407,6 +407,7 @@ namespace ClassicItemsReturns.Items
                         {
                             hgs = mesh.gameObject.AddComponent<HGStandardController>();
                             hgs.Renderer = mesh;
+                            hgs.Material = mesh.material;
                         }
                     }
                 }
