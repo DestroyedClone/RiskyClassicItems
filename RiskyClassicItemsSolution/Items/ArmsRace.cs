@@ -3,6 +3,7 @@ using R2API;
 using RoR2;
 using RoR2.Items;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items
 {
@@ -63,57 +64,65 @@ namespace ClassicItemsReturns.Items
 
             private Xoroshiro128Plus rng;
 
+            private Inventory inventory;
+            private CharacterMaster master;
+
             private void OnEnable()
             {
                 ulong seed = Run.instance.seed ^ (ulong)((long)Run.instance.stageClearCount);
                 this.rng = new Xoroshiro128Plus(seed);
-                this.UpdateAllMinions(this.stack);
                 MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
 
+                if (body.inventory)
+                {
+                    inventory = body.inventory;
+                    inventory.onInventoryChanged += Inv_onInventoryChanged;
+                }
+
+                if (body.master) master = body.master;
+
                 minionOwnership = body.GetComponent<MinionOwnership>();
+                UpdateAllMinions(inventory.GetItemCount(ArmsRace.Instance.ItemDef));
+            }
+
+            private void Inv_onInventoryChanged()
+            {
+                UpdateAllMinions(inventory.GetItemCount(ArmsRace.Instance.ItemDef));
             }
 
             private void OnDisable()
             {
                 MasterSummon.onServerMasterSummonGlobal -= MasterSummon_onServerMasterSummonGlobal;
-                this.UpdateAllMinions(0);
-            }
-
-            private void FixedUpdate()
-            {
-                if (this.previousStack != this.stack)
+                if (inventory)
                 {
-                    this.UpdateAllMinions(this.stack);
+                    inventory.onInventoryChanged -= Inv_onInventoryChanged;
                 }
+                this.UpdateAllMinions(0);
             }
 
             private void UpdateAllMinions(int newStack)
             {
-                if (this.body)
+                if (NetworkServer.active && master)
                 {
-                    CharacterBody body = this.body;
-                    if ((body != null) ? body.master : null)
+                    MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(master.netId);
+                    if (minionGroup != null)
                     {
-                        MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(this.body.master.netId);
-                        if (minionGroup != null)
+                        foreach (MinionOwnership minionOwnership in minionGroup.members)
                         {
-                            foreach (MinionOwnership minionOwnership in minionGroup.members)
+                            if (minionOwnership)
                             {
-                                if (minionOwnership)
+                                CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
+                                if (component && component.inventory)
                                 {
-                                    CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
-                                    if (component && component.inventory)
+                                    CharacterBody body2 = component.GetBody();
+                                    if (body2)
                                     {
-                                        CharacterBody body2 = component.GetBody();
-                                        if (body2)
-                                        {
-                                            this.UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
-                                        }
+                                        this.UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
                                     }
                                 }
                             }
-                            this.previousStack = newStack;
                         }
+                        this.previousStack = newStack;
                     }
                 }
             }
@@ -136,19 +145,20 @@ namespace ClassicItemsReturns.Items
 
             private void UpdateMinionInventory(Inventory inventory, CharacterBody.BodyFlags bodyFlags, int newStack)
             {
-                if (inventory && newStack > 0 && (!ArmsRace.requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
+                if (newStack < 0) newStack = 0;
+                if (inventory && (!ArmsRace.requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
                 {
                     int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
                     //Need to use a seperate display cause the display add/removal conflicts with spare drone parts
                     //int itemCount2 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay1);
                     //int itemCount3 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay2);
-                    if (itemCount < this.stack)
+                    if (itemCount < newStack)
                     {
-                        inventory.GiveItem(ArmsRaceDroneItemDef, this.stack - itemCount);
+                        inventory.GiveItem(ArmsRaceDroneItemDef, newStack - itemCount);
                     }
-                    else if (itemCount > this.stack)
+                    else if (itemCount > newStack)
                     {
-                        inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - this.stack);
+                        inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - newStack);
                     }
                     /*if (itemCount2 + itemCount3 <= 0)
                     {

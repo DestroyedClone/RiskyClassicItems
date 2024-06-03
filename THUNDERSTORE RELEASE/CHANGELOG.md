@@ -1,3 +1,6 @@
+- `2.0.3`
+	- Fixed Arms Race not getting removed from existing minions after scrapping the item.
+
 - `2.0.2`
 	
 	- Fixed incompatibility with Refightilization.

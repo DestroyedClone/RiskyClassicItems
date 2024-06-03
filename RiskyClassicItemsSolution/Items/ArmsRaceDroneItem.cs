@@ -105,10 +105,19 @@ namespace ClassicItemsReturns.Items
             {
                 if (body && body.master && body.master.minionOwnership && body.master.minionOwnership.ownerMaster && ArmsRace.Instance.TryGetCount(body.master.minionOwnership.ownerMaster, out int ownerArmsRaceItemCount))
                 {
-                    missilesPerBarrage = ItemHelpers.StackingLinear(ownerArmsRaceItemCount, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
-                    return;
+                    if (ownerArmsRaceItemCount > 0)
+                    {
+                        missilesPerBarrage = ItemHelpers.StackingLinear(ownerArmsRaceItemCount, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
+                    }
+                    else
+                    {
+                        missilesPerBarrage = 0;
+                    }
                 }
-                missilesPerBarrage = ItemHelpers.StackingLinear(stack, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
+                else
+                {
+                    ItemHelpers.StackingLinear(stack, ArmsRace.Instance.missileCount, ArmsRace.Instance.missileCountPerStack);
+                }
             }
 
             public bool AcquireTarget()
