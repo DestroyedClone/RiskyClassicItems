@@ -65,9 +65,13 @@ namespace ClassicItemsReturns.Utils
 
                 if (renderer.name == "UseGlassShader")
                 {
-                    Debug.Log("ClassicItemsReturns: Swapping material to Glass material for " + model.name);
-                    //RoR2/DLC1/HealingPotion/matHealingPotionGlass.mat
+                    Debug.Log("ClassicItemsReturns: Swapping material to Infusion Glass material for " + model.name);
                     renderer.material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Infusion/matInfusionGlass.mat").WaitForCompletion();
+                }
+                else if (renderer.name == "UseGlass2Shader")
+                {
+                    Debug.Log("ClassicItemsReturns: Swapping material to Elixir Glass material for " + model.name);
+                    renderer.material = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/HealingPotion/matHealingPotionGlass.mat").WaitForCompletion();
                 }
                 else
                 {
