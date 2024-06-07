@@ -9,6 +9,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using static ClassicItemsReturns.Utils.Components.MaterialControllerComponents;
+using ClassicItemsReturns.Utils;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -305,33 +306,7 @@ namespace ClassicItemsReturns.Equipment
             GameObject mdl3d = Assets.LoadObject("mdl3d" + modelName);
             if (mdl3d)
             {
-                //Vial and some other models WILL need a special case for how their materials are handled.
-                MeshRenderer[] meshes = mdl3d.GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer mesh in meshes)
-                {
-                    if (!mesh.material) continue;
-
-                    if (mesh.name == "UseGlassShader")
-                    {
-                        Debug.Log("ClassicItemsReturns: Swapping material to Glass material for " + modelName);
-                        //RoR2/Base/Infusion/matInfusionGlass.mat
-                        mesh.material = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/HealingPotion/matHealingPotionGlass.mat").WaitForCompletion();
-                    }
-                    else
-                    {
-                        mesh.material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGStandard.shader").WaitForCompletion();
-
-                        HGStandardController hgs = mesh.gameObject.GetComponent<HGStandardController>();
-                        if (!hgs)
-                        {
-                            hgs = mesh.gameObject.AddComponent<HGStandardController>();
-                            hgs.Renderer = mesh;
-                            hgs.Material = mesh.material;
-                        }
-                    }
-                }
-
-
+                ItemHelpers.LoadModel(mdl3d);
             }
 
             GameObject mdlRet = Assets.LoadObject("mdl" + modelName);

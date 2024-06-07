@@ -4,12 +4,17 @@ using RoR2;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
+using static ClassicItemsReturns.Utils.Components.MaterialControllerComponents;
 
 namespace ClassicItemsReturns.Utils
 {
     public static class ItemHelpers
     {
+        private static Shader hopooShader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HGStandard.shader").WaitForCompletion();
+        private static List<Material> cachedMaterials = new List<Material>();
+
         /// <summary>
         /// A helper that will set up the RendererInfos of a GameObject that you pass in.
         /// <para>This allows it to go invisible when your character is not visible, as well as letting overlays affect it.</para>
@@ -48,6 +53,83 @@ namespace ClassicItemsReturns.Utils
 
             return renderInfos;
         }
+
+        public static void LoadModel(GameObject model)
+        {
+            //Vial and some other models WILL need a special case for how their materials are handled.
+
+            Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
+            foreach (Renderer renderer in renderers)
+            {
+                if (!renderer.material) continue;
+
+                if (renderer.name == "UseGlassShader")
+                {
+                    Debug.Log("ClassicItemsReturns: Swapping material to Glass material for " + model.name);
+                    //RoR2/DLC1/HealingPotion/matHealingPotionGlass.mat
+                    renderer.material = Addressables.LoadAssetAsync<Material>("RoR2/Base/Infusion/matInfusionGlass.mat").WaitForCompletion();
+                }
+                else
+                {
+                    renderer.sharedMaterial = SetHopooMaterial(renderer.sharedMaterial);
+                }
+            }
+        }
+
+        //Copied from Henry
+        public static Material SetHopooMaterial(this Material tempMat)
+        {
+            if (cachedMaterials.Contains(tempMat))
+                return tempMat;
+
+            float? bumpScale = null;
+            Color? emissionColor = null;
+
+            //grab values before the shader changes
+            if (tempMat.IsKeywordEnabled("_NORMALMAP"))
+            {
+                bumpScale = tempMat.GetFloat("_BumpScale");
+            }
+            if (tempMat.IsKeywordEnabled("_EMISSION"))
+            {
+                emissionColor = tempMat.GetColor("_EmissionColor");
+            }
+
+            //set shader
+            tempMat.shader = hopooShader;
+
+            //apply values after shader is set
+            tempMat.SetColor("_Color", tempMat.GetColor("_Color"));
+            tempMat.SetTexture("_MainTex", tempMat.GetTexture("_MainTex"));
+            tempMat.SetTexture("_EmTex", tempMat.GetTexture("_EmissionMap"));
+            tempMat.EnableKeyword("DITHER");
+
+            if (bumpScale != null)
+            {
+                tempMat.SetFloat("_NormalStrength", (float)bumpScale);
+            }
+            if (emissionColor != null)
+            {
+                tempMat.SetColor("_EmColor", (Color)emissionColor);
+                tempMat.SetFloat("_EmPower", 1);
+            }
+
+            //set this keyword in unity if you want your model to show backfaces
+            //in unity, right click the inspector tab and choose Debug
+            if (tempMat.IsKeywordEnabled("NOCULL"))
+            {
+                tempMat.SetInt("_Cull", 0);
+            }
+            //set this keyword in unity if you've set up your model for limb removal item displays (eg. goat hoof) by setting your model's vertex colors
+            if (tempMat.IsKeywordEnabled("LIMBREMOVAL"))
+            {
+                tempMat.SetInt("_LimbRemovalOn", 1);
+            }
+
+            cachedMaterials.Add(tempMat);
+            return tempMat;
+        }
+
 
         /// <summary>
         /// A complicated helper method that sets up strings entered into it to be formatted similar to Risk of Rain 1's manifest style.
