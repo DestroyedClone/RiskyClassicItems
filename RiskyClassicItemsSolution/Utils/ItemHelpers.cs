@@ -61,7 +61,7 @@ namespace ClassicItemsReturns.Utils
             Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
             foreach (Renderer renderer in renderers)
             {
-                if (!renderer.material) continue;
+                if (!renderer.material || !(renderer.material.shader && renderer.material.shader.name == "Standard")) continue;
 
                 if (renderer.name == "UseGlassShader")
                 {
@@ -88,11 +88,35 @@ namespace ClassicItemsReturns.Utils
 
             float? bumpScale = null;
             Color? emissionColor = null;
+            float? parallax = null;
+
+            bool hasNormal = tempMat.IsKeywordEnabled("_NORMALMAP");
+            bool hasParallax = tempMat.IsKeywordEnabled("_PARALLAXMAP");
+
+            Texture parallaxTex = null;
+            Vector2 parallaxTexScale = Vector2.one;
+            Vector2 parallaxTexOffset = Vector2.zero;
+
+            Texture bumpTex = null;
+            Vector2 bumpTexScale = Vector2.one;
+            Vector2 bumpTexOffset = Vector2.zero;
+
 
             //grab values before the shader changes
-            if (tempMat.IsKeywordEnabled("_NORMALMAP"))
+            if (hasParallax)
+            {
+                parallaxTex = tempMat.GetTexture("_ParallaxMap");
+                parallaxTexScale = tempMat.GetTextureScale("_ParallaxMap");
+                parallaxTexOffset = tempMat.GetTextureOffset("_ParallaxMap");
+                parallax = tempMat.GetFloat("_Parallax");
+            }
+
+            if (hasNormal)
             {
                 bumpScale = tempMat.GetFloat("_BumpScale");
+                bumpTex = tempMat.GetTexture("_BumpMap");
+                bumpTexScale = tempMat.GetTextureScale("_BumpMap");
+                bumpTexOffset = tempMat.GetTextureOffset("_BumpMap");
             }
             if (tempMat.IsKeywordEnabled("_EMISSION"))
             {
@@ -108,10 +132,29 @@ namespace ClassicItemsReturns.Utils
             tempMat.SetTexture("_EmTex", tempMat.GetTexture("_EmissionMap"));
             tempMat.EnableKeyword("DITHER");
 
-            if (bumpScale != null)
+            if (hasParallax)
             {
-                tempMat.SetFloat("_NormalStrength", (float)bumpScale);
+                tempMat.SetTexture("_ParallaxMap", parallaxTex);
+                tempMat.SetTextureScale("_ParallaxMap", parallaxTexScale);
+                tempMat.SetTextureOffset("_ParallaxMap", parallaxTexOffset);
+                if (parallax != null) tempMat.SetFloat("_Parallax", (float)parallax);
             }
+
+            if (hasNormal)
+            {
+                if (bumpScale != null)
+                {
+                    tempMat.SetFloat("_NormalStrength", (float)bumpScale);
+                }
+                tempMat.SetTexture("_BumpMap", bumpTex);
+                tempMat.SetTextureScale("_BumpMap", bumpTexScale);
+                tempMat.SetTextureOffset("_BumpMap", bumpTexOffset);
+
+                tempMat.SetTexture("_NormalTex", bumpTex);
+                tempMat.SetTextureScale("_NormalTex", bumpTexScale);
+                tempMat.SetTextureOffset("_NormalTex", bumpTexOffset);
+            }
+
             if (emissionColor != null)
             {
                 tempMat.SetColor("_EmColor", (Color)emissionColor);

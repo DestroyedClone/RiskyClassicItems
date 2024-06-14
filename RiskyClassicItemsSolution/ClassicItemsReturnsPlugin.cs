@@ -22,7 +22,7 @@ using RoR2;
 namespace ClassicItemsReturns
 {
     [BepInPlugin(ModGuid, ModName, ModVer)]
-    [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
+    [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     public class ClassicItemsReturnsPlugin : BaseUnityPlugin
@@ -64,6 +64,7 @@ namespace ClassicItemsReturns
             PInfo = Info;
             ModLogger = Logger;
             Assets.Init();
+
             DLCSupport.Initialize();
             ModSupport.CheckForModSupport();
             LanguageOverrides.Initialize();
@@ -79,6 +80,7 @@ namespace ClassicItemsReturns
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
         }
+
         private void Start()
         {
             SoundBanks.Init();

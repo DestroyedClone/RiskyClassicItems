@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3032863878
+CRC: 2429989604
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d7641d73ddc2eb3250e012cb7889e897
+    Hash: b914d90f61f27f6946b5764182c1db4e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -85,7 +85,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
 - Assets/Resources/Models/3d/mdl3dPills.prefab
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
-- Assets/Resources/Materials/3d/mat3dPills.mat
+- Assets/Resources/Materials/3d/Mat3dPills.mat
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
 - Assets/Resources/Materials/Classic/matClassicShackles.mat
 - Assets/Resources/Textures/3d/icecube_bitmap.png

@@ -100,21 +100,6 @@ namespace ClassicItemsReturns.Modules
         public static void PopulateAssets()
         {
             mainAssetBundle = AssetBundle.LoadFromFile(AssetBundlePath);
-            /*
-            if (mainAssetBundle == null)
-            {
-                try
-                {
-                    using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("RiskyClassicItems.classicitemsreturnsbundle"))
-                    {
-                        mainAssetBundle = AssetBundle.LoadFromStream(assetStream);
-                    }
-                }
-                catch
-                {
-                    Main.ModLogger.LogError($"Assets.PopulateAssets failed to load assetbundle!");
-                }
-            }*/
         }
 
         public static Sprite LoadSprite(string path)
