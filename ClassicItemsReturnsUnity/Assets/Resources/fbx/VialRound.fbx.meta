@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a957122ee7102a4db0b6127b924c146
+guid: b07726b8b091fff4c8ebca64f9e234b3
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 2b0844a4f447c22478dcca0c01e9cb0b, type: 2}
+      name: Vial
+    second: {fileID: 2100000, guid: b3a12f60baf10bc428d12da41cdd70ca, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
