@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 430184326
+CRC: 4162597863
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f2c3c0bfda8ed7c203e76a92efe07ae
+    Hash: f6547b92afae98dc39ec58bfd747ff4a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -70,6 +70,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicClover.png
 - Assets/Resources/Textures/Returns/texIconFireShield.png
 - Assets/Resources/Textures/Buffs/texBuffSnake5.png
+- Assets/Resources/Textures/3d/icons/texIconJarSouls.png
 - Assets/Resources/Textures/3d/BladesTex.png
 - Assets/Resources/Materials/Returns/matGoldGun.mat
 - Assets/Resources/Textures/3d/VialTex.png
@@ -155,6 +156,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconPig.png
 - Assets/Resources/Models/Classic/mdlClassicArmsRace.prefab
 - Assets/Resources/Materials/3d/mat3dRoot.mat
+- Assets/Resources/GameObjects/MuConstructFollower.prefab
 - Assets/Resources/Textures/Buffs/texBuffGoldGun.png
 - Assets/Resources/Models/Returns/mdlThallium.prefab
 - Assets/Resources/Materials/Returns/matPurse.mat

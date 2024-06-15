@@ -1,4 +1,6 @@
-﻿using ClassicItemsReturns.Utils;
+﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Modules;
+using ClassicItemsReturns.Utils;
 using R2API;
 using RoR2;
 using System;
@@ -21,6 +23,8 @@ namespace ClassicItemsReturns.Items
 
         public override Sprite ItemIcon => LoadItemSprite("MuConstruct");
 
+        public static ConfigEntry<bool> disableFollower;
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
@@ -35,6 +39,19 @@ namespace ClassicItemsReturns.Items
              MuConstructBehavior.healAmount * 100f,  MuConstructBehavior.initialCooldown,  MuConstructBehavior.cooldownReduction * 100f
         };
 
+
+        public override void Init(ConfigFile config)
+        {
+            base.Init(config);
+            MuConstructBehavior.followerPrefab = Assets.LoadObject("MuConstructFollower");
+            ItemHelpers.SetupMaterials(MuConstructBehavior.followerPrefab);
+        }
+
+        public override void CreateConfig(ConfigFile config)
+        {
+            disableFollower = config.Bind(ConfigCategory, "Disable Follower", false, "Disable the follower visual.");
+        }
+
         public override void Hooks()
         {
             base.Hooks();
@@ -44,7 +61,6 @@ namespace ClassicItemsReturns.Items
 
         private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
         {
-            //No network check because visuals will also be handled by this.
             body.AddItemBehavior<MuConstructBehavior>(body.inventory.GetItemCount(this.ItemDef));
         }
     }
@@ -56,6 +72,13 @@ namespace ClassicItemsReturns.Items
         public static float cooldownReduction = 0.25f;
 
         private float cooldown = 0f;
+
+        public static float followerRotationTime = 8f;  //time it takes to fully rotate
+        private float followerRotationStopwatch = 0f;
+        public static GameObject followerPrefab;
+        public GameObject followerInstance;
+        private float followerHeightOffset = 0f;
+        private float followerSideOffset = 0f;
 
         private void FixedUpdate()
         {
@@ -72,5 +95,68 @@ namespace ClassicItemsReturns.Items
                 cooldown = 5f / (Mathf.Max(1f, 1f + cooldownReduction * (this.stack - 1)));
             }
         }
+
+        #region follower
+        public void InitFollower()
+        {
+            if (followerInstance || !followerPrefab || MuConstruct.disableFollower.Value) return;
+            followerInstance = GameObject.Instantiate(followerPrefab);
+            followerInstance.transform.position = body.transform.position;
+
+            Vector3 desiredPosition = GetDesiredPosition();
+            followerInstance.transform.position = desiredPosition;
+
+            //Debug.Log("Body Radius: " + body.radius);
+            followerHeightOffset = 1.3f;
+            followerSideOffset = 1.5f;
+        }
+
+        private void OnDisable()
+        {
+            if (followerInstance) UnityEngine.Object.Destroy(followerInstance);
+        }
+
+        private void Start()
+        {
+            InitFollower();
+            if (followerInstance) followerInstance.SetActive(Utils.IsTeleActivatedTracker.teleporterActivated);
+        }
+
+        private void Update()
+        {
+            if (!followerInstance) return;
+
+            followerInstance.SetActive(Utils.IsTeleActivatedTracker.teleporterActivated);
+
+            if (body.modelLocator && body.modelLocator.modelTransform)
+            {
+                followerInstance.transform.rotation = body.modelLocator.modelTransform.rotation;
+            }
+
+            followerRotationStopwatch += Time.deltaTime;
+            if (followerRotationStopwatch >= followerRotationTime) followerRotationStopwatch -= followerRotationTime;
+            followerInstance.transform.Rotate(Vector3.forward, 360f * followerRotationStopwatch/followerRotationTime, Space.Self);
+
+            Vector3 desiredPosition = GetDesiredPosition();
+            followerInstance.transform.position = Vector3.SmoothDamp(followerInstance.transform.position, desiredPosition, ref this.velocity, 0.05f);
+
+            followerInstance.transform.position += velocity * Time.deltaTime;
+        }
+
+        private Vector3 GetDesiredPosition()
+        {
+
+            Vector3 basePosition = body.transform.position;
+            Vector3 offset = body.inputBank ? body.inputBank.aimDirection : Vector3.forward;
+            offset.y = 0;
+            offset.Normalize();
+            offset = Quaternion.AngleAxis(90f, Vector3.up) * offset * -followerSideOffset;
+            offset.y = followerHeightOffset;
+
+            return basePosition + offset;
+        }
+
+        private Vector3 velocity = Vector3.zero;
+        #endregion
     }
 }

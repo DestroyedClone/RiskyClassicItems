@@ -381,7 +381,7 @@ namespace ClassicItemsReturns.Items
             GameObject mdl3d = Assets.LoadObject("mdl3d" + modelName);
             if (mdl3d)
             {
-                ItemHelpers.LoadModel(mdl3d);
+                ItemHelpers.SetupMaterials(mdl3d);
             }
 
             GameObject mdlRet = Assets.LoadObject("mdl" + modelName);

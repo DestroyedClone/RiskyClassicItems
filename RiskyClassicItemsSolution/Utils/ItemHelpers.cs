@@ -54,10 +54,8 @@ namespace ClassicItemsReturns.Utils
             return renderInfos;
         }
 
-        public static void LoadModel(GameObject model)
+        public static void SetupMaterials(GameObject model)
         {
-            //Vial and some other models WILL need a special case for how their materials are handled.
-
             Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
             foreach (Renderer renderer in renderers)
             {
