@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2429989604
+CRC: 3871614319
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b914d90f61f27f6946b5764182c1db4e
+    Hash: 5c4cbf55fcbfa3d777e018e1a2390aee
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -54,6 +54,7 @@ Assets:
 - Assets/Resources/Materials/3d/mat3dToxin.mat
 - Assets/Resources/Materials/3d/mat3dShackles.mat
 - Assets/Resources/Materials/Classic/matClassicDice.mat
+- Assets/Resources/Textures/3d/icons/texIcon3dToxin.png
 - Assets/Resources/Textures/3d/LostDollTex.png
 - Assets/Resources/Models/3d/mdl3dDoll.prefab
 - Assets/Resources/Materials/Returns/matArmsRace.mat
@@ -62,6 +63,7 @@ Assets:
 - Assets/Resources/Textures/3d/texGoldenGun.png
 - Assets/Resources/Models/Classic/mdlClassicJarSouls.prefab
 - Assets/Resources/Models/3d/mdl3dIceCube.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dPenny.png
 - Assets/Resources/Materials/Classic/matClassicBear.mat
 - Assets/Resources/Textures/UI/texJarOfSoulsChampionTargetIndicator.png
 - Assets/Resources/Materials/Returns/matThallium.mat
@@ -76,6 +78,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicJarSouls.png
 - Assets/Resources/Textures/Returns/texIconSquib.png
 - Assets/Resources/Materials/Classic/matClassicDoll.mat
+- Assets/Resources/Textures/3d/VirusTexEmission.png
 - Assets/Resources/Textures/Buffs/texBuffGoldGun_nomoney.png
 - Assets/Resources/Textures/Returns/texIconJarSouls.png
 - Assets/Resources/Materials/3d/mat3dPenny.mat
@@ -85,7 +88,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlFireShield.prefab
 - Assets/Resources/Models/3d/mdl3dPills.prefab
 - Assets/Resources/Textures/Classic/texIconClassicShackles.png
-- Assets/Resources/Materials/3d/Mat3dPills.mat
+- Assets/Resources/Materials/3d/mat3dPills.mat
 - Assets/Resources/Textures/Classic/texIconClassicIceCube.png
 - Assets/Resources/Materials/Classic/matClassicShackles.mat
 - Assets/Resources/Textures/3d/icecube_bitmap.png
@@ -97,9 +100,11 @@ Assets:
 - Assets/Resources/Textures/3d/DrugsTex.png
 - Assets/Resources/Textures/Returns/texIconDice.png
 - Assets/Resources/Models/Classic/mdlClassicRoot.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dArmsRace.png
 - Assets/Resources/Textures/UI/texJarOfSoulsTargetIndicator.png
 - Assets/Resources/Textures/Classic/texIconClassicFireShield.png
 - Assets/Resources/Textures/3d/ShieldTex.png
+- Assets/Resources/Textures/3d/icons/texIcon3dFireShield.png
 - Assets/Resources/Textures/Classic/texIconClassicCrystal.png
 - Assets/Resources/Textures/3d/VirusTex.png
 - Assets/Resources/Materials/Returns/matVial.mat
@@ -125,11 +130,13 @@ Assets:
 - Assets/Resources/Models/3d/mdl3dClover.prefab
 - Assets/Resources/Models/Classic/mdlClassicJewel.prefab
 - Assets/Resources/Materials/Returns/matJarSouls.mat
+- Assets/Resources/Textures/3d/icons/texIcon3dSkullRing.png
 - Assets/Resources/Textures/3d/ArmsRaceTex.png
 - Assets/Resources/Models/3d/mdl3dJarSouls.prefab
 - Assets/Resources/Models/Returns/mdlArcaneBlades.prefab
 - Assets/Resources/Textures/3d/JarOfSoulsTex.png
 - Assets/Resources/Textures/Returns/texIconToxin.png
+- Assets/Resources/Textures/3d/VialTexEmissive.png
 - Assets/Resources/Materials/3d/mat3dFireShield.mat
 - Assets/Resources/Models/3d/mdl3dPig.prefab
 - Assets/Resources/Materials/3d/mat3dArcaneBlades.mat
@@ -139,6 +146,7 @@ Assets:
 - Assets/Resources/Textures/3d/MuConstructTex.png
 - Assets/Resources/Models/Classic/mdlClassicIceCube.prefab
 - Assets/Resources/Models/3d/mdl3dCrystal.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dRoot.png
 - Assets/Resources/Materials/3d/mat3dCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicArcaneBlades.prefab
 - Assets/Resources/Materials/Returns/matRoot.mat
@@ -162,8 +170,11 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconVial.png
 - Assets/Resources/Materials/Returns/matArcaneBlades.mat
 - Assets/Resources/Models/Classic/mdlClassicCrystal.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dShackles.png
+- Assets/Resources/Textures/3d/icons/texIcon3dSquib.png
 - Assets/Resources/Models/Classic/mdlClassicFireShield.prefab
 - Assets/Resources/Models/Returns/mdlRoot.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dClover.png
 - Assets/Resources/Textures/Returns/texIconThallium.png
 - Assets/Resources/Models/Classic/mdlClassicDoll.prefab
 - Assets/Resources/Models/3d/mdl3dSquib.prefab
@@ -175,6 +186,7 @@ Assets:
 - Assets/Resources/Models/Returns/mdlToxin.prefab
 - Assets/Resources/Materials/Classic/matClassicClover.mat
 - Assets/Resources/Materials/Classic/mdlClassicPenny.mat
+- Assets/Resources/Textures/3d/icons/texIcon3dMuConstruct.png
 - Assets/Resources/Materials/Returns/matDoll.mat
 - Assets/Resources/Textures/Classic/texIconClassicArmsRace.png
 - Assets/Resources/Materials/Classic/matClassicArmsRace.mat
@@ -194,9 +206,12 @@ Assets:
 - Assets/Resources/Models/Returns/mdlCrystal.prefab
 - Assets/Resources/Models/Returns/mdlJewel.prefab
 - Assets/Resources/Textures/Classic/texIconClassicRoot.png
+- Assets/Resources/Textures/3d/icons/texIcon3dPills.png
 - Assets/Resources/Models/Returns/mdlPurse.prefab
 - Assets/Resources/Textures/Buffs/texBuffGinseng.png
+- Assets/Resources/Textures/3d/icons/texIcon3dPig.png
 - Assets/Resources/Materials/3d/mat3dSquib.mat
+- Assets/Resources/Textures/3d/icons/texIcon3dJewel.png
 - Assets/Resources/Textures/3d/texInfusionDiffuse.png
 - Assets/Resources/Textures/Returns/texIconArcaneBlades.png
 - Assets/Resources/Models/Returns/mdlMuConstruct.prefab
@@ -208,12 +223,15 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicSkullRing.png
 - Assets/Resources/Models/3d/mdl3dPenny.prefab
 - Assets/Resources/Textures/Returns/texIconSkullRing.png
+- Assets/Resources/Textures/3d/icons/texIcon3dPurse.png
+- Assets/Resources/Textures/3d/icons/texIcon3dBear.png
 - Assets/Resources/Models/Classic/mdlClassicPills.prefab
 - Assets/Resources/Materials/Returns/matJewel.mat
 - Assets/Resources/Textures/Buffs/texBuffShackles.png
 - Assets/Resources/Textures/3d/MuConstructTexEmission.png
 - Assets/Resources/Materials/3d/mat3dDoll.mat
 - Assets/Resources/Textures/3d/BearTex.png
+- Assets/Resources/Textures/3d/icons/texIcon3dIceCube.png
 - Assets/Resources/Textures/Artifact/texArtifactCloverDisabled.png
 - Assets/Resources/Materials/Returns/matPills.mat
 - Assets/Resources/Materials/Returns/matMuConstruct.mat
@@ -249,16 +267,19 @@ Assets:
 - Assets/Resources/Materials/Classic/matClassicCrystal.mat
 - Assets/Resources/Models/Classic/mdlClassicBear.prefab
 - Assets/Resources/Materials/Returns/matSquib.mat
-- Assets/Resources/Textures/3d/souljartemp_normal.jpg
 - Assets/Resources/Materials/Classic/matClassicSquib.mat
 - Assets/Resources/Materials/3d/mat3dBear.mat
 - Assets/Resources/Textures/Returns/texIconGoldGun.png
+- Assets/Resources/Textures/3d/icons/texIcon3dVial.png
 - Assets/Resources/Models/Returns/mdlBear.prefab
 - Assets/Resources/Textures/Artifact/texArtifactCloverEnabled.png
 - Assets/Resources/Models/Classic/mdlClassicClover.prefab
 - Assets/Resources/Models/Returns/mdlSkullRing.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dGoldGun.png
+- Assets/Resources/Textures/3d/icons/texIcon3dThallium.png
 - Assets/Resources/Textures/Returns/texIconDoll.png
 - Assets/Resources/Textures/Classic/texIconClassicPig.png
+- Assets/Resources/Textures/3d/icons/texIcon3dDice.png
 - Assets/Resources/Models/3d/mdl3dBear.prefab
 - Assets/Resources/Materials/Classic/matClassicThallium.mat
 - Assets/Resources/Textures/Classic/texIconClassicPurse.png
@@ -273,7 +294,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
 - Assets/Resources/Models/Returns/mdlGoldGun.prefab
 - Assets/Resources/Textures/Classic/texIconClassicDice.png
-- Assets/Resources/Textures/3d/jarsoulstemp_bitmap.png
 - Assets/Resources/Textures/Classic/texIconClassicPenny.png
 - Assets/Resources/Models/Classic/mdlClassicSkullRing.prefab
+- Assets/Resources/Textures/3d/icons/texIcon3dArcaneBlades.png
 Dependencies: []

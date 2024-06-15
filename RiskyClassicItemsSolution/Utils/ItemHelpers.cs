@@ -73,9 +73,42 @@ namespace ClassicItemsReturns.Utils
                     Debug.Log("ClassicItemsReturns: Swapping material to Elixir Glass material for " + model.name);
                     renderer.material = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/HealingPotion/matHealingPotionGlass.mat").WaitForCompletion();
                 }
+                else if (renderer.name == "UseGlass3Shader")
+                {
+                    Debug.Log("ClassicItemsReturns: Swapping material to Vending Machine Glass material for " + model.name);
+                    renderer.material = Addressables.LoadAssetAsync<Material>("RoR2/DLC1/VendingMachine/matVendingMachineGlass.mat").WaitForCompletion();
+                }
                 else
                 {
                     renderer.sharedMaterial = SetHopooMaterial(renderer.sharedMaterial);
+                }
+            }
+        }
+        public static Sprite LoadItemSprite(string spriteName)
+        {
+            Sprite sprite3d = Assets.LoadSprite("texIcon3d" + spriteName);
+            Sprite spriteReturns = Assets.LoadSprite("texIcon" + spriteName);
+            Sprite spriteClassic = Assets.LoadSprite("texIconClassic" + spriteName);
+
+            if (ClassicItemsReturns.ClassicItemsReturnsPlugin.use3dModels)
+            {
+                if (sprite3d) return sprite3d;
+                if (spriteReturns) return spriteReturns;
+                return spriteClassic;
+            }
+            else
+            {
+                if (!ClassicItemsReturnsPlugin.useClassicSprites)
+                {
+                    if (spriteReturns) return spriteReturns;
+                    if (spriteClassic) return spriteClassic;
+                    return sprite3d;
+                }
+                else
+                {
+                    if (spriteClassic) return spriteClassic;
+                    if (spriteReturns) return spriteReturns;
+                    return sprite3d;
                 }
             }
         }

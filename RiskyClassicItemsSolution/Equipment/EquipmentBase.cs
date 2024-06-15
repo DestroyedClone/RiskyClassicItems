@@ -292,13 +292,7 @@ namespace ClassicItemsReturns.Equipment
 
         public Sprite LoadItemSprite(string spriteName)
         {
-            Sprite spr = Assets.LoadSprite("texIcon" + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + spriteName);
-            if (spr == Assets.NullSprite)
-            {
-                Debug.LogError("Could not find " + (ClassicItemsReturnsPlugin.useClassicSprites ? "Classic Sprite" : "Icon") + " for " + spriteName);
-                spr = Assets.LoadSprite("texIcon" + (!ClassicItemsReturnsPlugin.useClassicSprites ? "Classic" : string.Empty) + spriteName);
-            }
-            return spr;
+            return Utils.ItemHelpers.LoadItemSprite(spriteName);
         }
 
         public GameObject LoadItemModel(string modelName)

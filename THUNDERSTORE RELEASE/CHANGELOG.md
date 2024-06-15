@@ -1,5 +1,7 @@
-- `2.0.4`
-	- Fixed emissive textures.
+- `3.0.0`
+	- Fully implemented models for all items.
+		
+		*Huge thanks to FORCED_REASSEMBLY and hollowman104 for their hard work!*
 
 - `2.0.3`
 	- Fixed Arms Race not getting removed from existing minions after scrapping the item.
