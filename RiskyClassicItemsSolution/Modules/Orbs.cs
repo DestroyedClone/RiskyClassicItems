@@ -32,7 +32,7 @@ namespace ClassicItemsReturns.Modules
                     crit = false,
                     damage = attackerCharacterBody.healthComponent.combinedHealth * Equipment.LostDoll.selfHurtCoefficient,
                     damageColorIndex = DamageColorIndex.Default,
-                    damageType = (DamageType.NonLethal | DamageType.BypassArmor),
+                    damageType = DamageType.NonLethal,
                     inflictor = null,
                     position = attackerCharacterBody.corePosition,
                     procCoefficient = 0,

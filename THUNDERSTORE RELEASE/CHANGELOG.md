@@ -31,13 +31,13 @@
 		*I'm under the impression that this doesn't get taken mainly because it's boring rather than because it's weak, but a bit of a buff won't hurt.*
 		
 	- Lost Doll
+		- Self-damage is no longer unblockable.
 		- Now uses that one unused Mithrix log.
 			- Original log available in config.
 			
 	- TODO:
 		- Shiny Textures (Amethyst isn't done because of this. Might need to revise older icons like Fire Shield as well)
 		- Mu Construct follower
-		- Golden Gun classic verison (fixed damage boost, stacks make it cheaper)
 		- update readme images
 
 - `2.0.3`
