@@ -7,13 +7,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.AddressableAssets;
+using ClassicItemsReturns.Utils;
 
 namespace ClassicItemsReturns.Equipment
 {
     internal class CreateGhostTargeting : EquipmentBase<CreateGhostTargeting>
     {
         public override string EquipmentName => "Jar of Souls";
-
 
         public override string EquipmentLangTokenName => "CREATEGHOSTTARGETING";
         public const int ghostDurationSecondsPlayer = 25;
@@ -146,7 +146,6 @@ namespace ClassicItemsReturns.Equipment
 
         protected override void CreateConfig(ConfigFile config)
         {
-            base.CreateConfig(config);
             int maxUses = config.Bind(ConfigCategory, "Max Uses", 2, "Max amount of active uses (each use spawns 3 normal enemies or 1 boss).").Value;
             drainHP = config.Bind(ConfigCategory, "Drain HP", true, "Ghosts drain HP over their lifetime. Mainly used so that boss ghosts properly trigger their attacks that require certain HP thresholds.");
             blacklistSS2UNemesis = config.Bind(ConfigCategory, "Blacklist SS2U Nemesis Bosses", true, "Jar of Souls cannot target Nemesis Bosses from SS2U.");
@@ -280,12 +279,16 @@ namespace ClassicItemsReturns.Equipment
             MasterSummon masterSummon = new MasterSummon();
             masterSummon.masterPrefab = characterMaster.gameObject;
             masterSummon.ignoreTeamMemberLimit = true;
-            masterSummon.position = targetBody.footPosition;
             CharacterDirection component = targetBody.GetComponent<CharacterDirection>();
             masterSummon.rotation = (component ? Quaternion.Euler(0f, component.yaw, 0f) : targetBody.transform.rotation);
             masterSummon.summonerBodyObject = (ownerBody ? ownerBody.gameObject : null);
             masterSummon.inventoryToCopy = targetBody.inventory;
             masterSummon.useAmbientLevel = null;
+
+            //Try to find a safe spawn position
+            HullClassification hc = targetBody.isChampion ? HullClassification.BeetleQueen : HullClassification.Golem;
+            masterSummon.position = MiscUtils.FindSafeTeleportPosition(targetBody.corePosition, hc, targetBody.isFlying, 30f, DirectorPlacementRule.PlacementMode.Approximate);
+
             CharacterMaster characterMaster2 = masterSummon.Perform();
             if (!characterMaster2)
             {

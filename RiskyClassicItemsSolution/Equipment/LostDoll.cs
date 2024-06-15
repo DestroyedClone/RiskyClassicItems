@@ -53,7 +53,6 @@ namespace ClassicItemsReturns.Equipment
 
         protected override void CreateConfig(ConfigFile config)
         {
-            base.CreateConfig(config);
             useAltLore = config.Bind(ConfigCategory, "Alt Lore", true, "Uses an unused Lunar lore entry instead of the original RoR1 one.").Value;
             RoR2Application.onLoad += SetLore;
         }

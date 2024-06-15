@@ -3,11 +3,53 @@ using RoR2.Navigation;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Utils
 {
     public static class MiscUtils
     {
+
+        private static GameObject teleportHelperPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/DirectorSpawnProbeHelperPrefab.prefab").WaitForCompletion();
+        public static Vector3 FindSafeTeleportPosition(Vector3 position, HullClassification hullSize, bool isFlying, float maxDistance, DirectorPlacementRule.PlacementMode placementMode)
+        {
+            Vector3 spawnPos = position;
+            SpawnCard spawnCard = ScriptableObject.CreateInstance<SpawnCard>();
+            spawnCard.hullSize = hullSize;
+            spawnCard.nodeGraphType = (isFlying ? MapNodeGroup.GraphType.Air : MapNodeGroup.GraphType.Ground);
+            spawnCard.prefab = teleportHelperPrefab;
+
+            float minDistance = 0f;
+            switch(hullSize)
+            {
+                case HullClassification.Human:
+                    minDistance = 4f;
+                    break;
+                case HullClassification.Golem:
+                    minDistance = 8f;
+                        break;
+                case HullClassification.BeetleQueen:
+                    minDistance = 16f;
+                    break;
+            }
+
+            GameObject gameObject = DirectorCore.instance.TrySpawnObject(new DirectorSpawnRequest(spawnCard, new DirectorPlacementRule
+            {
+                placementMode = placementMode,
+                position = position,
+                minDistance = minDistance,
+                maxDistance = maxDistance
+            }, RoR2Application.rng));
+
+            if (gameObject)
+            {
+                spawnPos = gameObject.transform.position;
+                UnityEngine.Object.Destroy(gameObject);
+            }
+            UnityEngine.Object.Destroy(spawnCard);
+            return spawnPos;
+        }
+
         //Sourced from source code, couldn't access because it was private, modified a little
         public static Vector3? RaycastToDirection(Vector3 position, float maxDistance, Vector3 direction, int layer)
         {

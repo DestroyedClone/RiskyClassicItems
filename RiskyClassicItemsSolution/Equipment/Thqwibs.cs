@@ -57,6 +57,7 @@ namespace ClassicItemsReturns.Equipment
 
             ProjectileImpactExplosion pie = projectilePrefab.GetComponent<ProjectileImpactExplosion>();
             pie.destroyOnEnemy = true;
+            pie.falloffModel = BlastAttack.FalloffModel.None;
             ContentAddition.AddProjectile(projectilePrefab);
         }
 

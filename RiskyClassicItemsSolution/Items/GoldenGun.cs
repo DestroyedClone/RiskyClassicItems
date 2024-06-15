@@ -34,10 +34,6 @@ namespace ClassicItemsReturns.Items
 
         public override Sprite ItemIcon => LoadItemSprite("GoldGun");
 
-        public override void CreateConfig(ConfigFile config)
-        {
-        }
-
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
@@ -99,15 +95,12 @@ namespace ClassicItemsReturns.Items
                 }
             }
 
-            //Nullref somewhere in here
             private void FixedUpdate()
             {
                 if (NetworkServer.active && Run.instance && body.master)
                 {
                     int singleStackCost = Stage.instance ? Run.instance.GetDifficultyScaledCost((int)goldCap, Stage.instance.entryDifficultyCoefficient) : Run.instance.GetDifficultyScaledCost((int)goldCap);
 
-                    //int maxCost = singleStackCost + ((int)(0.5f * goldCap) * stack - 1);
-                    //int maxBuffs = (int)goldNeeded + ((int)(0.5f * goldNeeded) * stack - 1);
                     int maxCost = (int)Utils.ItemHelpers.StackingLinear(stack, singleStackCost, goldCapPerStack);
                     int maxBuffs = (int)Utils.ItemHelpers.StackingLinear(stack, goldNeeded, goldNeededPerStack);
 

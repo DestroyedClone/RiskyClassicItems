@@ -11,7 +11,7 @@
 	- Thallium
 		- Debuff now only displays 1 stack. (Purely a visual change, internally it's capped at 1 stack per player)
 		
-	- Permafrost (TODO: TEST)
+	- Permafrost
 		- Fixed chance not being affected by Luck.
 		- Now scales linearly instead of having Stun Grenade scaling.
 		- No longer works on Champions.
@@ -20,6 +20,7 @@
 	- Jar of Souls
 		- Increased cooldown from 90s -> 100s
 		- Reduced ghost lifetime from 30s -> 25s
+		- Ghosts no longer spawn directly inside their source enemy, which should fix the item being able to instakill most flying enemies. There's probably a few edge cases where this si still possible.
 		
 		*Same stats of The Back-Up as a baseline.*
 		
@@ -36,8 +37,6 @@
 	- TODO:
 		- Shiny Textures (Amethyst isn't done because of this. Might need to revise older icons like Fire Shield as well)
 		- Mu Construct follower
-		- Jar of Souls anti splat.
-		- Check numbers on Thqwibs
 		- Golden Gun classic verison (fixed damage boost, stacks make it cheaper)
 		- update readme images
 

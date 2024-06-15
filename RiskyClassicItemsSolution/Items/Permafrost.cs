@@ -42,7 +42,6 @@ namespace ClassicItemsReturns.Items
 
         public override void CreateConfig(ConfigFile config)
         {
-            base.CreateConfig(config);
             allowFreezeBoss = config.Bind(ConfigCategory, "Freeze Bosses", false, "Allow this item to freeze bosses.").Value;
         }
 
