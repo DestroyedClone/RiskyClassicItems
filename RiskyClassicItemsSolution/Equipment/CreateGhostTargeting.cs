@@ -16,7 +16,7 @@ namespace ClassicItemsReturns.Equipment
 
 
         public override string EquipmentLangTokenName => "CREATEGHOSTTARGETING";
-        public const int ghostDurationSecondsPlayer = 30;
+        public const int ghostDurationSecondsPlayer = 25;
         public const int ghostDurationSecondsEnemy = 10;
         public const int boostDamageItemCount = 10;
         public const int boostDamageChampionItemCount = 20;
@@ -48,7 +48,7 @@ namespace ClassicItemsReturns.Equipment
 
         public override TargetFinderType EquipmentTargetFinderType => TargetFinderType.Enemies;
 
-        public override float Cooldown => 90;
+        public override float Cooldown => 100;
 
         public override void Init(ConfigFile config)
         {

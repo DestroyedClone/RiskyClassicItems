@@ -5,6 +5,10 @@
 		
 	- Thallium
 		- Debuff now only shows 1 stack. (Purely a visual change, internally it's capped at 1 stack per unique player)
+		
+	- Jar of Souls
+		- Increased cooldown from 90s -> 100s
+		- Reduced ghost lifetime from 30s -> 25s
 
 - `2.0.3`
 	- Fixed Arms Race not getting removed from existing minions after scrapping the item.
