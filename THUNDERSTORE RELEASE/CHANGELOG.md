@@ -3,6 +3,11 @@
 		
 		*Huge thanks to FORCED_REASSEMBLY and hollowman104 for their hard work!*
 		
+	- Bitter Root
+		- Reduced regen duration from 3s -> 2s
+		
+		*This puts it in-line with Monster Tooth.*
+		
 	- Thallium
 		- Debuff now only shows 1 stack. (Purely a visual change, internally it's capped at 1 stack per unique player)
 		
