@@ -11,8 +11,8 @@ namespace ClassicItemsReturns.Equipment
 
         public override string EquipmentLangTokenName => "DRUGS";
         public const float buffDuration = 8f;
-        public const float buffDamageMultiplier = 0.2f;
-        public const float buffAttackSpeed = 0.4f;
+        public const float buffDamageMultiplier = 0.25f;
+        public const float buffAttackSpeed = 0.5f;
 
         public override bool EnigmaCompatible { get; } = true;
         public override bool CanBeRandomlyTriggered { get; } = true;
