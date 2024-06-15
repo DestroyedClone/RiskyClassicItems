@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4162597863
+CRC: 2125065521
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f6547b92afae98dc39ec58bfd747ff4a
+    Hash: 9367446a6bd4c351fbe8f3147a449437
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -298,6 +298,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicVial.png
 - Assets/Resources/Models/Returns/mdlGoldGun.prefab
 - Assets/Resources/Textures/Classic/texIconClassicDice.png
+- Assets/Resources/Textures/3d/icons/texIcon3dCrystal.png
 - Assets/Resources/Textures/Classic/texIconClassicPenny.png
 - Assets/Resources/Models/Classic/mdlClassicSkullRing.prefab
 - Assets/Resources/Textures/3d/icons/texIcon3dArcaneBlades.png

@@ -37,8 +37,6 @@
 			
 	- TODO:
 		- Shiny Textures (Amethyst isn't done because of this. Might need to revise older icons like Fire Shield as well)
-		- Mu Construct follower
-		- update readme images
 
 - `2.0.3`
 	- Fixed Arms Race not getting removed from existing minions after scrapping the item.

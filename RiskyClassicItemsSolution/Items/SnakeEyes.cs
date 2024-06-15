@@ -96,18 +96,6 @@ namespace ClassicItemsReturns.Items
             }
         }
 
-        /*private void DiceOnShrineFail(bool failed, Interactor interactor)
-        {
-            if (!failed) return;
-
-            CharacterBody body = interactor.GetComponent<CharacterBody>();
-            if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(this.ItemDef) <= 0) return;
-
-            MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
-            if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
-            mset.Increment(body);
-        }*/
-
         private void Inventory_onInventoryChangedGlobal(Inventory inventory)
         {
             if (!NetworkServer.active || !inventory) return;

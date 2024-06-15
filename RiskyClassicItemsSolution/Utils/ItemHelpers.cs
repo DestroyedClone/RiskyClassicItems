@@ -120,6 +120,7 @@ namespace ClassicItemsReturns.Utils
             float? bumpScale = null;
             Color? emissionColor = null;
             float? parallax = null;
+            float? metallic = tempMat.GetFloat("_Metallic");
 
             bool hasNormal = tempMat.IsKeywordEnabled("_NORMALMAP");
             bool hasParallax = tempMat.IsKeywordEnabled("_PARALLAXMAP");
@@ -162,6 +163,11 @@ namespace ClassicItemsReturns.Utils
             tempMat.SetTexture("_MainTex", tempMat.GetTexture("_MainTex"));
             tempMat.SetTexture("_EmTex", tempMat.GetTexture("_EmissionMap"));
             tempMat.EnableKeyword("DITHER");
+
+            if (metallic != null)
+            {
+                tempMat.SetFloat("_SpecularStrength", 1f);
+            }
 
             if (hasParallax)
             {
