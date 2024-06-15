@@ -9,7 +9,13 @@
 		*This puts it in-line with Monster Tooth.*
 		
 	- Thallium
-		- Debuff now only shows 1 stack. (Purely a visual change, internally it's capped at 1 stack per unique player)
+		- Debuff now only displays 1 stack. (Purely a visual change, internally it's capped at 1 stack per player)
+		
+	- Permafrost (TODO: TEST)
+		- Fixed chance not being affected by Luck.
+		- Now scales linearly instead of having Stun Grenade scaling.
+		- No longer works on Champions.
+			- If RiskyMod is installed, it will apply the Freeze debuff.
 		
 	- Jar of Souls
 		- Increased cooldown from 90s -> 100s
@@ -30,7 +36,6 @@
 	- TODO:
 		- Shiny Textures (Amethyst isn't done because of this. Might need to revise older icons like Fire Shield as well)
 		- Mu Construct follower
-		- Permafrost anti-Mithrix (with RiskyMod support)
 		- Jar of Souls anti splat.
 		- Check numbers on Thqwibs
 		- Golden Gun classic verison (fixed damage boost, stacks make it cheaper)

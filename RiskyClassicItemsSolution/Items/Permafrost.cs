@@ -1,5 +1,7 @@
-﻿using R2API;
+﻿using BepInEx.Configuration;
+using R2API;
 using RoR2;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ClassicItemsReturns.Items
@@ -10,8 +12,6 @@ namespace ClassicItemsReturns.Items
 
         public override string ItemLangTokenName => "PERMAFROST";
 
-        //util.amplification only accepts one value
-        //and figuring out the formula will dent my brain durther
         private float procChancePercentage = 3f;
 
         public override object[] ItemFullDescriptionParams => new object[]
@@ -25,6 +25,10 @@ namespace ClassicItemsReturns.Items
 
         public override Sprite ItemIcon => LoadItemSprite("IceCube");
 
+        //This is used to handle boss freezing
+        public bool allowFreezeBoss = false;
+        public static HashSet<BuffIndex> ModdedFreezeDebuffs = new HashSet<BuffIndex>();
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility,
@@ -36,21 +40,52 @@ namespace ClassicItemsReturns.Items
             return new ItemDisplayRuleDict();
         }
 
-        public override void Hooks()
+        public override void CreateConfig(ConfigFile config)
         {
-            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            base.CreateConfig(config);
+            allowFreezeBoss = config.Bind(ConfigCategory, "Freeze Bosses", false, "Allow this item to freeze bosses.").Value;
         }
 
-        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        public override void Hooks()
         {
-            if (damageInfo.attacker && damageInfo.attacker.TryGetComponent(out CharacterBody attackerBody) && TryGetCount(attackerBody, out int itemCount))
+            RoR2Application.onLoad += GetModdedFreezeDebuffs;
+            On.RoR2.SetStateOnHurt.OnTakeDamageServer += SetStateOnHurt_OnTakeDamageServer;
+        }
+
+        private void SetStateOnHurt_OnTakeDamageServer(On.RoR2.SetStateOnHurt.orig_OnTakeDamageServer orig, SetStateOnHurt self, DamageReport damageReport)
+        {
+            orig(self, damageReport);
+
+            if (!self.targetStateMachine || !self.spawnedOverNetwork || damageReport.damageInfo.procCoefficient <= 0f || !damageReport.attackerMaster || !damageReport.attackerMaster.inventory) return;
+
+            DamageInfo damageInfo = damageReport.damageInfo;
+            Inventory attackerInventory = damageReport.attackerMaster.inventory;
+
+            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+
+            if (!Util.CheckRoll(procChancePercentage * itemCount, damageReport.attackerMaster)) return;
+
+            float duration = 2f * damageReport.damageInfo.procCoefficient;
+
+            if (self.canBeFrozen && (!damageReport.victimIsChampion || allowFreezeBoss))
             {
-                if (Util.CheckRoll(Util.ConvertAmplificationPercentageIntoReductionPercentage(procChancePercentage * itemCount)))
+                self.SetFrozen(duration);
+            }
+            else if (damageReport.victimBody)
+            {
+                foreach (BuffIndex buff in ModdedFreezeDebuffs)
                 {
-                    damageInfo.damageType |= DamageType.Freeze2s;
+                    damageReport.victimBody.AddTimedBuff(buff, duration);
                 }
             }
-            orig(self, damageInfo);
+        }
+
+        private void GetModdedFreezeDebuffs()
+        {
+            ModdedFreezeDebuffs.Add(BuffCatalog.FindBuffIndex("RiskyMod_FreezeDebuff"));
+            ModdedFreezeDebuffs.Add(BuffCatalog.FindBuffIndex("Freeze Debuff"));
+            if (ModdedFreezeDebuffs.Contains(BuffIndex.None)) ModdedFreezeDebuffs.Remove(BuffIndex.None);
         }
     }
 }
