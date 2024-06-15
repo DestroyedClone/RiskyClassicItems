@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3376685398
+CRC: 685833522
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1e5fd8227943524b96ecb6b1db148280
+    Hash: 69dc75a5be6aad5fc10c32b7647ae0b7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -216,6 +216,7 @@ Assets:
 - Assets/Resources/Textures/Returns/texIconArcaneBlades.png
 - Assets/Resources/Models/Returns/mdlMuConstruct.prefab
 - Assets/Resources/Materials/Classic/matClassicRoot.mat
+- Assets/Resources/Textures/3d/icons/texIcon3dDoll.png
 - Assets/Resources/Materials/Classic/matClassicIceCube.mat
 - Assets/Resources/Models/3d/mdl3dDice.prefab
 - Assets/Resources/Materials/3d/mat3dDice.mat
@@ -257,6 +258,7 @@ Assets:
 - Assets/Resources/Models/3d/mdl3dPurse.prefab
 - Assets/Resources/Models/3d/mdl3dArmsRace.prefab
 - Assets/Resources/Models/Classic/mdlClassicVial.prefab
+- Assets/Resources/Textures/3d/LostDollTexEmission.png
 - Assets/Resources/Textures/3d/ThqwibTex.png
 - Assets/Resources/Materials/Returns/matClover.mat
 - Assets/Resources/Materials/Classic/matClassicPurse.mat

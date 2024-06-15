@@ -16,6 +16,8 @@ namespace ClassicItemsReturns.Equipment
         public override bool EnigmaCompatible { get; } = false;
         public override bool CanBeRandomlyTriggered { get; } = false;
 
+        public bool useAltLore = true;
+
         public override string EquipmentLangTokenName => "LOSTDOLL";
 
         public const float selfHurtCoefficient = 0.25f;
@@ -51,6 +53,16 @@ namespace ClassicItemsReturns.Equipment
 
         protected override void CreateConfig(ConfigFile config)
         {
+            useAltLore = config.Bind(ConfigCategory, "Alt Lore", true, "Uses an unused Lunar lore entry instead of the original RoR1 one.").Value;
+            RoR2Application.onLoad += SetLore;
+        }
+
+        private void SetLore()
+        {
+            if (useAltLore)
+            {
+                EquipmentDef.loreToken += "_ALT";
+            }
         }
 
         public void CreateAssets()
