@@ -2,6 +2,9 @@
 	- Fully implemented models for all items.
 		
 		*Huge thanks to FORCED_REASSEMBLY and hollowman104 for their hard work!*
+		
+	- Thallium
+		- Debuff now only shows 1 stack. (Purely a visual change, internally it's capped at 1 stack per unique player)
 
 - `2.0.3`
 	- Fixed Arms Race not getting removed from existing minions after scrapping the item.

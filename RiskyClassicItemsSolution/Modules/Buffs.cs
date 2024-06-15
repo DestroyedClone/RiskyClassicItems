@@ -147,7 +147,7 @@ namespace ClassicItemsReturns.Modules
                 null, Assets.LoadSprite("texBuffShackles"),
                 false, true, false, null);
             ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",
-                rgb(123, 74, 149), true,
+                rgb(123, 74, 149), false,
                 null, Assets.LoadSprite("texBuffThallium"),
                 false, true, false, null);
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
