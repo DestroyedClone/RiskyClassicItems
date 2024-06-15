@@ -10,9 +10,15 @@
 		- Increased cooldown from 90s -> 100s
 		- Reduced ghost lifetime from 30s -> 25s
 		
+		*Same stats of The Back-Up as a baseline.*
+		
 	- Lost Doll
 		- Now uses that one unused Mithrix log.
 			- Original log available in config.
+			
+	- TODO:
+		- Jar of Souls anti splat.
+		- Check numbers on Thqwibs
 
 - `2.0.3`
 	- Fixed Arms Race not getting removed from existing minions after scrapping the item.
