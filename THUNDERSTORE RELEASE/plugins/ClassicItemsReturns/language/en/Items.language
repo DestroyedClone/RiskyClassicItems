@@ -86,7 +86,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of victim's base damage per second</style> and slow for <style=cIsDamage>-{2}% movement speed</style> for <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of the victim's base damage per second</style> and slow for <style=cIsDamage>-{2}% movement speed</style> for <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Order: Thallium\r\nTracking Number: 1344***********\r\nEstimated Delivery: 05\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 0909, K&K Union, Earth\r\nShipping Details:\r\n\r\nShe shouldn't notice.",
 
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",

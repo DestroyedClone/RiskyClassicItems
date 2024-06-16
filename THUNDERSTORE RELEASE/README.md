@@ -32,8 +32,8 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 |:--:|:--:|--|
 | Legendary | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dIceCube.png) | Permafrost | **3%** *(+3% per stack)* chance on hit to **freeze** for **2 seconds**.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dThallium.png) | Thallium | On hit, **10% chance** to **poison** for **2x300% of victim's base damage per second** and slow for **-100% movement speed** for **3 seconds** *(+1.5 seconds per stack)*.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dSkullRing.png) | Wicked Ring | **Reduce skill cooldowns** by **1s** *(+0.5s per stack)* on kill.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dThallium.png) | Thallium | On hit, **10% chance** to **poison** for **2x300% of the victim's base damage per second** and slow for **-100% movement speed** for **3 seconds** *(+1.5 seconds per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dSkullRing.png) | Wicked Ring | Gain **5% critical chance**. Critical strikes **reduce skill cooldowns** by **1s** *(+0.5s per stack)*.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
