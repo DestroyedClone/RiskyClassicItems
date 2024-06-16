@@ -31,12 +31,10 @@
 		*I'm under the impression that this doesn't get taken mainly because it's boring rather than because it's weak, but a bit of a buff won't hurt.*
 		
 	- Lost Doll
+		- Reduced cooldown from 45s -> 25s
 		- Self-damage is no longer unblockable.
 		- Now uses that one unused Mithrix log.
 			- Original log available in config.
-			
-	- TODO:
-		- Shiny Textures (Amethyst isn't done because of this. Might need to revise older icons like Fire Shield as well)
 
 - `2.0.3`
 	- Fixed Arms Race not getting removed from existing minions after scrapping the item.

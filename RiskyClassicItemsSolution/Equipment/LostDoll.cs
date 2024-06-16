@@ -39,7 +39,7 @@ namespace ClassicItemsReturns.Equipment
         public override bool IsLunar => true;
         public static GameObject dollActivationEffect;
         public static NetworkSoundEventDef dollActivationSound;
-        public override float Cooldown => 45;
+        public override float Cooldown => 25;
 
         public override void Init(ConfigFile config)
         {
