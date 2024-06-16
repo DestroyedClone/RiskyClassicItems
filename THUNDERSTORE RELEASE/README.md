@@ -7,8 +7,8 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dRoot.png) | Bitter Root | Increase **base health regeneration** by **3 hp/s** for **3s** *(+3s per stack)* after killing an enemy. Scales with level.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **10% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dRoot.png) | Bitter Root | Increase **base health regeneration** by **3 hp/s** for **2s** *(+2s per stack)* after killing an enemy. Scales with level.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **8% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dToxin.png) | The Toxin | **Touching** an enemy makes it **vulnerable** to your next attack, **reducing** its **armor** by **30** for **3 seconds** *(+3 seconds per stack)*.

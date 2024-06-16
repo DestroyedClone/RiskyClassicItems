@@ -7,8 +7,8 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dRoot.png) | Bitter Root | Increase **base health regeneration** by **3 hp/s** for **3s** *(+3s per stack)* after killing an enemy. Scales with level.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **10% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dRoot.png) | Bitter Root | Increase **base health regeneration** by **3 hp/s** for **2s** *(+2s per stack)* after killing an enemy. Scales with level.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **8% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dToxin.png) | The Toxin | **Touching** an enemy makes it **vulnerable** to your next attack, **reducing** its **armor** by **30** for **3 seconds** *(+3 seconds per stack)*.
@@ -20,13 +20,13 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Uncommon | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconClover.png) | 56 Leaf Clover | Elite enemies have a **4.5% chance** *(+1.5% chance per stack)* to **drop an item** on death.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconArmsRace.png) | Arms Race | Drones periodically fire a barrage of **4** *(+2 per stack)* missiles that deal **100%** damage each. Recharges every **10** seconds.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconGoldGun.png) | Golden Gun | Deal **extra damage** based on held **gold**, up to an extra **+40% damage** *(+20% per stack)* at **300 gold** *(+150 per stack, scaling with time)*.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconShackles.png) | Prison Shackles | **Shackle** enemies on hit for **-30% attack speed** for **2s** *(+2s per stack)*.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconPurse.png) | Smart Shopper | Enemies drop an extra **25%** *(+25% per stack)* gold on kill.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconBear.png) | Tough Times | Grants **+14 armor** *(+14 per stack)*.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/returns%20resize/texIconJewel.png) | Locked Jewel | Activating an interactable grants **25%** *(+15% per stack)* of your **maximum health** as barrier as well as **$8**. Scales with time.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dClover.png) | 56 Leaf Clover | Elite enemies have a **4.5% chance** *(+1.5% chance per stack)* to **drop an item** on death.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dArmsRace.png) | Arms Race | Drones periodically fire a barrage of **4** *(+2 per stack)* missiles that deal **100%** damage each. Recharges every **10** seconds.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dGoldGun.png) | Golden Gun | Deal **extra damage** based on held **gold**, up to an extra **+40% damage** *(+20% per stack)* at **300 gold** *(+150 per stack, scaling with time)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dShackles.png) | Prison Shackles | **Shackle** enemies on hit for **-30% attack speed** for **2s** *(+2s per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPurse.png) | Smart Shopper | Enemies drop an extra **25%** *(+25% per stack)* gold on kill.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dBear.png) | Tough Times | Grants **+14 armor** *(+14 per stack)*.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dJewel.png) | Locked Jewel | Activating an interactable grants **25%** *(+15% per stack)* of your **maximum health** as barrier as well as **$8**. Scales with time.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|
