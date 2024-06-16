@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3817565676
+CRC: 848913592
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 214d16749e663996d39648882447cac2
+    Hash: e2aeb9d2528aa201e48ff990da893742
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0ca95f0a00ce65e16af2d6b3e13249f4
@@ -70,7 +70,7 @@ Assets:
 - Assets/Resources/Textures/Classic/texIconClassicClover.png
 - Assets/Resources/Textures/Returns/texIconFireShield.png
 - Assets/Resources/Textures/Buffs/texBuffSnake5.png
-- Assets/Resources/Textures/3d/icons/texIconJarSouls.png
+- Assets/Resources/Textures/3d/icons/texIcon3dJarSouls.png
 - Assets/Resources/Textures/3d/BladesTex.png
 - Assets/Resources/Materials/Returns/matGoldGun.mat
 - Assets/Resources/Textures/3d/VialTex.png
