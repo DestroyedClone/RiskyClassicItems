@@ -37,6 +37,7 @@ namespace ClassicItemsReturns
         public static PluginInfo PInfo { get; private set; }
         public static bool useClassicSprites = false;
         public static bool use3dModels = true;
+        public static bool useUnfinished = false;
 
         public static List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public static List<ItemBase> Items = new List<ItemBase>();
@@ -60,6 +61,7 @@ namespace ClassicItemsReturns
         {
             use3dModels = Config.Bind("General", "Use 3d Models", true, "Use 3d models instead of sprites.").Value;
             useClassicSprites = Config.Bind("General", "Use Classic Sprites", false, "Use the original Risk of Rain sprites instead of the Returns sprites. (Requires Use 3d Models = false)").Value;
+            useUnfinished = Config.Bind("General", "Use Unfinished Content", false, "WARNING, may have issues.").Value;
 
             PInfo = Info;
             ModLogger = Logger;
@@ -198,6 +200,10 @@ namespace ClassicItemsReturns
         /// <param name="itemList">The list you would like to add this to if it passes the config check.</param>
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
+            if (item.Unfinished && !useUnfinished)
+            {
+                return false;
+            }
             var enabled = Config.Bind(item.ConfigCategory, "Enable Item?", true, "Should this item appear in runs?").Value;
             bool itemAlreadyHasBlacklist = item.ItemTags.Contains(RoR2.ItemTag.AIBlacklist);
             var aiBlacklist = Config.Bind(item.ConfigCategory, "Blacklist Item from AI Use?", itemAlreadyHasBlacklist, "Should the AI not be able to obtain this item?").Value;
@@ -219,6 +225,10 @@ namespace ClassicItemsReturns
         /// <param name="equipmentList">The list you would like to add this to if it passes the config check.</param>
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
         {
+            if (equipment.Unfinished && !useUnfinished)
+            {
+                return false;
+            }
             var equipConfig = Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?");
 
             if (equipConfig.Value)

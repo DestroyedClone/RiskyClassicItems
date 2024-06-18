@@ -135,6 +135,10 @@ namespace ClassicItemsReturns.Equipment
         ///The required ExpansionDef for this artifact.
         ///</summary>
         public virtual ExpansionDef ExpansionDef { get; }
+        /// <summary>
+        /// If true, then won't get enabled unless the config setting for unfinished is also enabled.
+        /// </summary>
+        public virtual bool Unfinished { get; } = false;
 
         /// <summary>
         /// This method structures your code execution of this class. An example implementation inside of it would be:
