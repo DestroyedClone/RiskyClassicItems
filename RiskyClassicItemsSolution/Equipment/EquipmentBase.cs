@@ -153,6 +153,7 @@ namespace ClassicItemsReturns.Equipment
         public virtual void Init(ConfigFile config)
         {
             CreateConfig(config);
+            CreateAssets(config);
             CreateLang();
             CreateEquipment();
             Hooks();
@@ -165,6 +166,8 @@ namespace ClassicItemsReturns.Equipment
                 return "Equipment: " + EquipmentName;
             }
         }
+        public virtual void CreateAssets(ConfigFile config)
+        { }
 
         protected virtual void CreateConfig(ConfigFile config)
         { }
