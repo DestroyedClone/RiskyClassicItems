@@ -16,7 +16,7 @@ namespace ClassicItemsReturns.Items
         float bounceRange = 40f;
         int bounceCount = 2;
         int bounceCountPerStack = 1;
-        public static GameObject orbEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/DroneWeapons/ChainGunOrbEffect.prefab").WaitForCompletion();
+        public static GameObject orbEffect;
 
         public override string ItemName => "Hyper-Threader";
 
@@ -24,13 +24,18 @@ namespace ClassicItemsReturns.Items
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
+            chance,
+            damageCoeff * 100,
+            bounceCount,
+            bounceCountPerStack,
         };
 
-        public override ItemTier Tier => ItemTier.Tier2;
+        public override ItemTier Tier => ItemTier.Tier3;
 
-        public override GameObject ItemModel => LoadItemModel("Thallium");
+        public override GameObject ItemModel => LoadItemModel("HyperThreader");
 
-        public override Sprite ItemIcon => LoadItemSprite("Thallium");
+        public override Sprite ItemIcon => LoadItemSprite("HyperThreader");
+        public override bool Unfinished => true;
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
@@ -44,6 +49,12 @@ namespace ClassicItemsReturns.Items
 
         public override void CreateAssets(ConfigFile config)
         {
+            orbEffect = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/DroneWeapons/ChainGunOrbEffect.prefab").WaitForCompletion(), "CIR_HyperThreaderOrbEffect", false);
+            var tr = orbEffect.transform.Find("TrailParent/Trail").GetComponent<TrailRenderer>();
+            tr.startColor = Color.red;
+            tr.endColor = Color.red;
+
+            ContentAddition.AddEffect(orbEffect);
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -66,13 +77,13 @@ namespace ClassicItemsReturns.Items
             int calcBounceCount = Utils.ItemHelpers.StackingLinear(itemCount, this.bounceCount, bounceCountPerStack);
             ChainGunOrb chainGunOrb = new ChainGunOrb(orbEffect);
             chainGunOrb.damageValue = attackerBody.damage * damageCoeff;
-            chainGunOrb.isCrit = attackerBody.RollCrit();
+            chainGunOrb.isCrit = damageInfo.crit;
             chainGunOrb.teamIndex = attackerBody.teamComponent.teamIndex;
             chainGunOrb.attacker = attackerBody.gameObject;
             chainGunOrb.procCoefficient = 0f;
-            chainGunOrb.procChainMask = default;//damageInfo.procChainMask;
-            chainGunOrb.origin = attackerBody.inputBank.aimOrigin;
-            chainGunOrb.speed = 600f;   //Drone Parts is 600f
+            chainGunOrb.procChainMask = damageInfo.procChainMask;//damageInfo.procChainMask;
+            chainGunOrb.origin = attackerBody.corePosition;
+            chainGunOrb.speed = 1000f;   //Drone Parts is 600f
             chainGunOrb.bouncesRemaining = calcBounceCount;
             chainGunOrb.bounceRange = bounceRange;
             chainGunOrb.damageCoefficientPerBounce = 1f;
