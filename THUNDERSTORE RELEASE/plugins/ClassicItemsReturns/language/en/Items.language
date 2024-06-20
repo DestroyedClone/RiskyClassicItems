@@ -107,5 +107,10 @@
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Gain a weak jump!",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Gain <style=cIsUtility>+1</style> maximum <style=cIsUtility>jump count</style>. Your <style=cIsUtility>extra jump</style> has <style=cIsUtility>50% power</style> <style=cStack>(+10% power per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "",
+
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "Boxing Gloves",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "Chance to knock enemies backwards for extra damage.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "<style=cIsDamage>{0}% <style=cStack>(+{1}% per stack)</style> chance</style> on hitting enemies to <style=cIsUtility>knock them back</style> for <style=cIsDamage>{2}% TOTAL damage</style>.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "",
 	}
 }
