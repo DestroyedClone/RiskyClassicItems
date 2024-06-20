@@ -18,6 +18,7 @@ namespace ClassicItemsReturns.Modules
         public static BuffDef ShacklesBuff;
         public static BuffDef ThalliumBuff;
         public static BuffDef WeakenOnContactBuff;
+        public static BuffDef DroneRepairBuff;
 
         //Unique icon for each buff.
         public static class SnakeEyesBuffs
@@ -151,6 +152,10 @@ namespace ClassicItemsReturns.Modules
                 null, Assets.LoadSprite("texBuffThallium"),
                 false, true, false, null);
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
+                new Color(0.784f, 0.937f, 0.427f, 1f), false,
+                null, Assets.LoadSprite("texBuffToxin"),
+                false, true, false, null);
+            DroneRepairBuff = CreateBuffInternal("CIR_DroneRepairBuff",
                 new Color(0.784f, 0.937f, 0.427f, 1f), false,
                 null, Assets.LoadSprite("texBuffToxin"),
                 false, true, false, null);
