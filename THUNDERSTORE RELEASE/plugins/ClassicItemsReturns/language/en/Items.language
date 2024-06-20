@@ -119,11 +119,6 @@
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "<style=cIsDamage>{0}% <style=cStack>(+{1}% per stack)</style> chance</style> on hitting enemies to <style=cIsUtility>knock them back</style> for <style=cIsDamage>{2}% TOTAL damage</style>.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "",
 
-		"CLASSICITEMSRETURNS_ITEM_BUGSPRAY_NAME": "Insecticide",
-		"CLASSICITEMSRETURNS_ITEM_BUGSPRAY_PICKUP": "Chance to apply damage over time. Heal if the enemy dies.",
-		"CLASSICITEMSRETURNS_ITEM_BUGSPRAY_DESCRIPTION": "<style=cIsDamage>{0}% <style=cStack>(+{1}% per stack)</style></style> chance on hit to <style=cIsDamage>spray</style> an enemy dealing <style=cIsDamage>{2}% damage per second</style>. <style=cIsDamage>Spray</style> stacks up to {3} times. Killing enemies <style=cIsHealing>heals</style> for <style=cIsHealing>{4} <style=cStack>(+{5} per stack)</style></style> health per stack of <style=cIsDamage>spray</style>.",
-		"CLASSICITEMSRETURNS_ITEM_BUGSPRAY_LORE": "",
-
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Energy Cell",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>+{0}%</style> <style=cStack>(+{1}% per stack)</style>, increasing as your <style=cIsHealth>health decreases</style> up to <style=cIsDamage>{2}%</style> <style=cStack>(+{3}% per stack)</style> at <style=cIsHealth>{4}% health</style>.",
