@@ -10,7 +10,7 @@ namespace ClassicItemsReturns.Items
 {
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
-        public const float bonus = 0.2f;
+        public const float bonus = 0.5f;
         public const float bonusStack = 0.1f;
         public override string ItemName => "Rusty Jetpack";
 
@@ -58,8 +58,10 @@ namespace ClassicItemsReturns.Items
             var itemCount = GetCount(characterBody);
             if (itemCount > 0 && characterMotor.jumpCount == characterBody.maxJumpCount - 1)
             {
-                verticalBonus = 0.5f;
-                verticalBonus += Utils.ItemHelpers.StackingLinear(itemCount, bonus, bonusStack); //needs to be hyperbolic
+                verticalBonus = bonus;
+
+                if (itemCount > 1) //otherwise first stack will be scaled
+                    verticalBonus += Util.ConvertAmplificationPercentageIntoReductionPercentage(Utils.ItemHelpers.StackingLinear(itemCount, bonus, bonusStack));
             }
             orig(characterMotor, characterBody, horizontalBonus, verticalBonus, vault);
         }
