@@ -11,7 +11,7 @@ namespace ClassicItemsReturns.Items
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
         public const float bonus = 0.5f;
-        public const float bonusStack = 0.1f;
+        public const float bonusStack = 0.05f;
         public override string ItemName => "Rusty Jetpack";
 
         public override string ItemLangTokenName => "RUSTYJETPACK";
