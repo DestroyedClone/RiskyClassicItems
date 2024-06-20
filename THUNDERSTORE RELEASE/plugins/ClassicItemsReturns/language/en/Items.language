@@ -102,5 +102,10 @@
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME_ALT": "Wicked Ring",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "Kills reduce skill cooldowns.",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "<style=cIsUtility>Reduce skill cooldowns</style> by <style=cIsUtility>{0}s</style> <style=cStack>(+{1}s per stack)</style> on kill.",
+
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Gain a weak jump!",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Gain <style=cIsUtility>+1</style> maximum <style=cIsUtility>jump count</style>. Your <style=cIsUtility>extra jump</style> has <style=cIsUtility>50% power</style> <style=cStack>(+10% power per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "",
 	}
 }
