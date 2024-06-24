@@ -1,3 +1,7 @@
+- `3.0.1`
+	- Adjusted icons for some items to be closer to the in-game model.
+	- Fixed Prescriptions description listing the wrong numbers in the readme.
+
 - `3.0.0`
 	- Fully implemented models for all items.
 		
