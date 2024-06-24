@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /ClassicItemsReturnsWWISE/ClassicItemsReturnsWWISE.Lenovo.validationcache
+/ClassicItemsReturnsUnity/AssetBundles/StandaloneWindows/classicitemsreturnsbundle.manifest
+/ClassicItemsReturnsUnity/AssetBundles/StandaloneWindows/StandaloneWindows
+/ClassicItemsReturnsUnity/AssetBundles/StandaloneWindows/StandaloneWindows.manifest
