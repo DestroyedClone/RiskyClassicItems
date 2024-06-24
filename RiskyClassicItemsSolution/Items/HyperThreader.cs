@@ -18,7 +18,7 @@ namespace ClassicItemsReturns.Items
         int bounceCountPerStack = 1;
         public static GameObject orbEffect;
 
-        public override string ItemName => "HyperThreader";
+        public override string ItemName => "Hyper-Threader";
 
         public override string ItemLangTokenName => "HYPERTHREADER";
 
@@ -81,9 +81,9 @@ namespace ClassicItemsReturns.Items
             chainGunOrb.teamIndex = attackerBody.teamComponent.teamIndex;
             chainGunOrb.attacker = attackerBody.gameObject;
             chainGunOrb.procCoefficient = 0f;
-            chainGunOrb.procChainMask = damageInfo.procChainMask;//damageInfo.procChainMask;
+            chainGunOrb.procChainMask = damageInfo.procChainMask;
             chainGunOrb.origin = attackerBody.corePosition;
-            chainGunOrb.speed = 1000f;   //Drone Parts is 600f
+            chainGunOrb.speed = 600f;
             chainGunOrb.bouncesRemaining = calcBounceCount;
             chainGunOrb.bounceRange = bounceRange;
             chainGunOrb.damageCoefficientPerBounce = 1f;

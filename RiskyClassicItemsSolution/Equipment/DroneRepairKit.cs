@@ -25,9 +25,9 @@ namespace ClassicItemsReturns.Equipment
         {
         };
 
-        public override GameObject EquipmentModel => LoadItemModel("DroneRepairKit");
+        public override GameObject EquipmentModel => LoadItemModel("RepairKit");
 
-        public override Sprite EquipmentIcon => LoadItemSprite("DroneRepairKit");
+        public override Sprite EquipmentIcon => LoadItemSprite("RepairKit");
 
         public static BuffDef DroneRepairBuff => Buffs.DroneRepairBuff;
         public override bool Unfinished => true;

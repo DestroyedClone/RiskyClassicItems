@@ -22,9 +22,9 @@ namespace ClassicItemsReturns.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadItemModel("Bear");
+        public override GameObject ItemModel => LoadItemModel("Jetpack");
 
-        public override Sprite ItemIcon => LoadItemSprite("Bear");
+        public override Sprite ItemIcon => LoadItemSprite("Jetpack");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {

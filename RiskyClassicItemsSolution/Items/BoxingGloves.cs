@@ -26,9 +26,9 @@ namespace ClassicItemsReturns.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadItemModel("BoxingGloves");
+        public override GameObject ItemModel => LoadItemModel("Boxing");
 
-        public override Sprite ItemIcon => LoadItemSprite("BoxingGloves");
+        public override Sprite ItemIcon => LoadItemSprite("Boxing");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
@@ -57,8 +57,8 @@ namespace ClassicItemsReturns.Items
             int itemCount = attackerInventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
 
-            var ch = Utils.ItemHelpers.StackingLinear(itemCount, chance, chanceStack);
-            if (!Util.CheckRoll(ch * damageInfo.procCoefficient, attackerBody.master)) return;
+            float chance = Utils.ItemHelpers.StackingLinear(itemCount, this.chance, chanceStack);
+            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
 
             DamageInfo bgDamageInfo = new DamageInfo()
             {
@@ -73,7 +73,7 @@ namespace ClassicItemsReturns.Items
                 inflictor = damageInfo.inflictor,
                 position = damageInfo.position,
                 procChainMask = damageInfo.procChainMask,
-                procCoefficient = 0,// damageInfo.procCoefficient,
+                procCoefficient = 0f,
                 rejected = damageInfo.rejected,
             };
             victimBody.healthComponent.TakeDamage(bgDamageInfo);
