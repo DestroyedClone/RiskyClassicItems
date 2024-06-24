@@ -6,6 +6,8 @@ using UnityEngine;
 using RoR2.Orbs;
 using System;
 using UnityEngine.AddressableAssets;
+using ClassicItemsReturns.Equipment;
+using static RoR2.MasterSpawnSlotController;
 
 namespace ClassicItemsReturns.Items
 {
@@ -13,10 +15,11 @@ namespace ClassicItemsReturns.Items
     {
         float chance = 100;
         float damageCoeff = 0.6f;
-        float bounceRange = 40f;
+        float bounceRange = 30f;
         int bounceCount = 2;
         int bounceCountPerStack = 1;
         public static GameObject orbEffect;
+        public static NetworkSoundEventDef procSound;
 
         public override string ItemName => "Hyper-Threader";
 
@@ -55,6 +58,9 @@ namespace ClassicItemsReturns.Items
             tr.endColor = Color.red;
 
             ContentAddition.AddEffect(orbEffect);
+
+            procSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Reflect");
+
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -93,6 +99,8 @@ namespace ClassicItemsReturns.Items
 
             chainGunOrb.target = victimBody.mainHurtBox;
             OrbManager.instance.AddOrb(chainGunOrb);
+
+            RoR2.Audio.EntitySoundManager.EmitSoundServer(procSound.index, damageInfo.attacker);
         }
     }
 }

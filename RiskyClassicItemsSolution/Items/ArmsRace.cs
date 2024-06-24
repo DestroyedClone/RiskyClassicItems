@@ -109,16 +109,14 @@ namespace ClassicItemsReturns.Items
                     {
                         foreach (MinionOwnership minionOwnership in minionGroup.members)
                         {
-                            if (minionOwnership)
+                            if (!minionOwnership) continue;
+                            CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
+                            if (component && component.inventory)
                             {
-                                CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
-                                if (component && component.inventory)
+                                CharacterBody body2 = component.GetBody();
+                                if (body2)
                                 {
-                                    CharacterBody body2 = component.GetBody();
-                                    if (body2)
-                                    {
-                                        this.UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
-                                    }
+                                    this.UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
                                 }
                             }
                         }

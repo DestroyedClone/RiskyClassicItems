@@ -5,6 +5,7 @@ using UnityEngine;
 using BepInEx.Configuration;
 using EntityStates.AffixVoid;
 using UnityEngine.Networking;
+using UnityEngine.Timeline;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -16,7 +17,8 @@ namespace ClassicItemsReturns.Equipment
         public const float buffDuration = 8f;
         public const float buffAttackSpeed = 0.5f;
         public const float buffCDReduction = 0.5f;
-        public const float buffArmorFlat = 50;
+
+        public static NetworkSoundEventDef activationSound;
 
         public override bool EnigmaCompatible { get; } = true;
         public override bool CanBeRandomlyTriggered { get; } = true;
@@ -35,6 +37,8 @@ namespace ClassicItemsReturns.Equipment
         public override void CreateAssets(ConfigFile config)
         {
             base.CreateAssets(config);
+
+            activationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_RepairKit");
         }
 
         public override void Hooks()
@@ -44,12 +48,11 @@ namespace ClassicItemsReturns.Equipment
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            var buffCount = sender.GetBuffCount(DroneRepairBuff);
-            if (buffCount > 0)
+            bool hasBuff =  sender.HasBuff(DroneRepairBuff);
+            if (hasBuff)
             {
                 args.attackSpeedMultAdd += buffAttackSpeed;
                 args.cooldownReductionAdd += buffCDReduction;
-                args.armorAdd += buffArmorFlat;
             }
         }
 
@@ -60,23 +63,38 @@ namespace ClassicItemsReturns.Equipment
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
+            if (!slot.characterBody || !slot.characterBody.master) return false;
             int activationCount = 0;
-            foreach (var mechAlly in CharacterBody.readOnlyInstancesList)
+            MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(slot.characterBody.master.netId);
+            if (minionGroup != null)
             {
-                if (mechAlly.isPlayerControlled)
-                    continue;
-                if (mechAlly.teamComponent.teamIndex != slot.teamComponent.teamIndex)
-                    continue;
-                if (!mechAlly.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
-                    continue;
-                mechAlly.healthComponent.HealFraction(1f, default);
-                mechAlly.AddTimedBuff(DroneRepairBuff, buffDuration);
-                activationCount++;
+                foreach (MinionOwnership minion in minionGroup.members)
+                {
+                    if (!minion) continue;
+                    CharacterMaster master = minion.GetComponent<CharacterMaster>();
+                    if (master)
+                    {
+                        CharacterBody body = master.GetBody();
+                        if (body)
+                        {
+                            if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
+                            body.AddTimedBuff(DroneRepairBuff, buffDuration);
+                            body.AddTimedBuff(RoR2Content.Buffs.Immune, buffDuration);
+                            activationCount++;
+                        }
+                    }
+                }
             }
 
-            Util.PlaySound("Play_item_proc_healingPotion", slot.gameObject);
-            slot.subcooldownTimer = 0.5f;
-            return activationCount > 0;
+            bool activated = activationCount > 0;
+            if (activated)
+            {
+                RoR2.Audio.EntitySoundManager.EmitSoundServer(activationSound.index, slot.characterBody.gameObject);
+            }
+            //slot.subcooldownTimer = 0.5f;
+
+            //Always return true so that you don't get stuck with it in Enigma
+            return true;
         }
     }
 }

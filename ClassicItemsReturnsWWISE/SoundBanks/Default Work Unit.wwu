@@ -6,8 +6,10 @@
 				<SoundBank Name="ClassicItemsReturnsSoundbank" ID="{600DE807-8B33-41A7-8665-AE22BFA30F85}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_ClassicItemsReturns_Doll" ID="{19F590C9-2392-40EC-80FE-2EEBC5186ECB}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ClassicItemsReturns_Reflect" ID="{4F1423DA-B6ED-4105-BBA9-CBF8FFD41186}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ClassicItemsReturns_Jewel" ID="{D3678D1A-3EC7-41B6-A1AC-9C1B32AE56D4}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ClassicItemsReturns_JarSouls" ID="{006BF9D1-718D-42A2-9CEB-3E2007A68918}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ClassicItemsReturns_RepairKit" ID="{A5B6F2DD-D1FF-43A1-A66E-37864BFC8A45}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
