@@ -36,7 +36,7 @@ namespace ClassicItemsReturns.Items
             ItemTag.AIBlacklist
         };
 
-        public override bool Unfinished => true;
+        public override bool unfinished => true;
 
         public override void CreateAssets(ConfigFile config)
         {

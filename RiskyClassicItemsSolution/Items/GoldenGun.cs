@@ -61,10 +61,6 @@ namespace ClassicItemsReturns.Items
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => Instance.ItemDef;
 
-            public void OnEnable()
-            {
-            }
-
             public void OnDestroy()
             {
                 SetBuffCount(0);
@@ -72,6 +68,7 @@ namespace ClassicItemsReturns.Items
 
             public void SetBuffCount(int count)
             {
+                if (!body) return;
                 var userBuffCount = body.GetBuffCount(Buffs.GoldenGunBuff);
                 var difference = userBuffCount - count;
 

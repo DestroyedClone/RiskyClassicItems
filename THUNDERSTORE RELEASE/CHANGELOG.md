@@ -1,3 +1,11 @@
+- `3.1.0`
+	- New items
+		- Energy Cell
+			- Increases attack speed by 10% (+10%), increasing up to 40% (+40%) at low health.
+				- The 40% number includes the initial 10% number.
+		
+	- Fixed 56 Leaf Clover model having the wrong texture filtering settings.
+
 - `3.0.1`
 	- Adjusted icons for some items to be closer to the in-game model.
 	- Fixed Prescriptions description listing the wrong numbers in the readme.

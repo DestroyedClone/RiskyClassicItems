@@ -21,35 +21,36 @@ namespace ClassicItemsReturns.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadItemModel("EnergyCell");
+        public override GameObject ItemModel => LoadItemModel("Cell");
 
-        public override Sprite ItemIcon => LoadItemSprite("EnergyCell");
+        public override Sprite ItemIcon => LoadItemSprite("Cell");
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
         }
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage
         };
-
         public const float atkSpdIncrease = 0.1f;
-        public const float atkSpdIncreaseStack = 0.01f;
+        public const float atkSpdIncreaseStack = 0.1f;
         public const float atkSpdIncreaseLowHealth = 0.3f;
-        public const float atkSpdIncreaseLowHealthStack = 0.03f;
+        public const float atkSpdIncreaseLowHealthStack = 0.3f;
+
         public const float atkSpdIncreaseLowHealthThreshold = 0.25f;
-        public const float atkSpdIncreaseLowHealthThresholdInverse = 0.75f;
+        public const float atkSpdIncreaseLowHealthThresholdInverse = 1f - atkSpdIncreaseLowHealthThreshold;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
             atkSpdIncrease * 100,
             atkSpdIncreaseStack * 100,
-            atkSpdIncreaseLowHealth * 100,
-            atkSpdIncreaseLowHealthStack * 100,
-            atkSpdIncreaseLowHealthThreshold * 100
+            (atkSpdIncrease + atkSpdIncreaseLowHealth) * 100,
+            (atkSpdIncreaseStack + atkSpdIncreaseLowHealthStack) * 100
         };
-        public override bool Unfinished => true;
+
+        public override bool unfinished => true;
 
         public override void Hooks()
         {
@@ -62,50 +63,44 @@ namespace ClassicItemsReturns.Items
             var itemCount = GetCount(sender);
             if (itemCount == 0) return;
 
-            float calcAtkSpdPassive = Utils.ItemHelpers.StackingLinear(itemCount, atkSpdIncrease, atkSpdIncreaseStack);
+            float atkSpdPassive = Utils.ItemHelpers.StackingLinear(itemCount, atkSpdIncrease, atkSpdIncreaseStack);
 
-            float calcAtkSpdCap = Utils.ItemHelpers.StackingLinear(itemCount, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack);
+            float maxAtkSpd = Utils.ItemHelpers.StackingLinear(itemCount, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack);
 
             float boostPercent = (sender.healthComponent.combinedHealthFraction - atkSpdIncreaseLowHealthThreshold) / atkSpdIncreaseLowHealthThresholdInverse;
-            float calcAtkSpdConditional = itemCount * Mathf.Lerp(0f, calcAtkSpdCap, 1f - boostPercent);
+            float atkSpdConditional = Mathf.Lerp(0f, maxAtkSpd, 1f - boostPercent);
 
-            args.attackSpeedMultAdd += calcAtkSpdPassive;
-            args.attackSpeedMultAdd += calcAtkSpdConditional;
+            args.attackSpeedMultAdd += atkSpdPassive + Mathf.FloorToInt(atkSpdConditional * 100f) / 100f;
         }
+
         public class EnergyCellBehavior : BaseItemBodyBehavior
         {
-            [ItemDefAssociation(useOnClient = false, useOnServer = true)]
-            public static ItemDef GetItemDef() => EnergyCell.Instance.ItemDef;
-            public float lastAttackSpeedBoost = 0;
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => Instance.ItemDef;
 
-            public float attackSpeedMax = 1f;
+            private int lastAtkSpdToInt = 0;
+            private Inventory inventory;
 
-            public void OnEnable()
+            private void OnEnable()
             {
-                body.onInventoryChanged += Body_onInventoryChanged;
-                Body_onInventoryChanged();
+                inventory = body.inventory;
             }
 
-            private void Body_onInventoryChanged()
+            private void FixedUpdate()
             {
-                attackSpeedMax = Utils.ItemHelpers.StackingLinear(stack, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack);
-            }
+                if (!body.inventory) return;
 
-            private void FixedUpdate() => MarkStatsDirty();
+                float healthPercent = (body.healthComponent.combinedHealthFraction - atkSpdIncreaseLowHealthThreshold) / atkSpdIncreaseLowHealthThresholdInverse;
+                float totalBoost = Mathf.Lerp(0f,
+                    Utils.ItemHelpers.StackingLinear(stack, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack),
+                    1f - healthPercent);
 
-            public void MarkStatsDirty()
-            {
-                float boostPercent = (body.healthComponent.combinedHealthFraction - atkSpdIncreaseLowHealthThreshold) / atkSpdIncreaseLowHealthThresholdInverse;
-                float totalBoost = stack * Mathf.Lerp(0f, attackSpeedMax, 1f - boostPercent);
-                if (totalBoost == lastAttackSpeedBoost)
-                    return;
-                lastAttackSpeedBoost = totalBoost;
+                //Only mark stats dirty if boost changes in a 1% increment, to prevent it from being spammed every frame
+                int atkSpdToInt = Mathf.FloorToInt(totalBoost * 100);
+                if (atkSpdToInt == lastAtkSpdToInt) return;
+
+                lastAtkSpdToInt = atkSpdToInt;
                 body.statsDirty = true;
-            }
-
-            public void OnDisable()
-            {
-                body.onInventoryChanged -= Body_onInventoryChanged;
             }
         }
     }

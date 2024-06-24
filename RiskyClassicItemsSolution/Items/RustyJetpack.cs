@@ -31,7 +31,7 @@ namespace ClassicItemsReturns.Items
             ItemTag.Utility
         };
 
-        public override bool Unfinished => true;
+        public override bool unfinished => true;
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {

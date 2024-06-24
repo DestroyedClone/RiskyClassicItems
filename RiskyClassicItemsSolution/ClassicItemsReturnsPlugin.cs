@@ -61,7 +61,7 @@ namespace ClassicItemsReturns
         {
             use3dModels = Config.Bind("General", "Use 3d Models", true, "Use 3d models instead of sprites.").Value;
             useClassicSprites = Config.Bind("General", "Use Classic Sprites", false, "Use the original Risk of Rain sprites instead of the Returns sprites. (Requires Use 3d Models = false)").Value;
-            useUnfinished = Config.Bind("General", "Use Unfinished Content", false, "WARNING, may have issues.").Value;
+            useUnfinished = Config.Bind("General", "Enable Unfinished Content", false, "Enables unfinished content that lacks 3d models.").Value;
 
             PInfo = Info;
             ModLogger = Logger;
@@ -201,14 +201,14 @@ namespace ClassicItemsReturns
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
             string enabledDescription = "Should this item appear in runs?";
-            if (item.Unfinished)
+            if (item.unfinished)
             {
                 enabledDescription = "UNFINISHED! " + enabledDescription;
             }
             var enabled = Config.Bind(item.ConfigCategory, "Enable Item?", true, enabledDescription).Value;
             bool itemAlreadyHasBlacklist = item.ItemTags.Contains(RoR2.ItemTag.AIBlacklist);
             var aiBlacklist = Config.Bind(item.ConfigCategory, "Blacklist Item from AI Use?", itemAlreadyHasBlacklist, "Should the AI not be able to obtain this item?").Value;
-            if (item.Unfinished && !useUnfinished)
+            if (item.unfinished && !useUnfinished)
             {
                 return false;
             }

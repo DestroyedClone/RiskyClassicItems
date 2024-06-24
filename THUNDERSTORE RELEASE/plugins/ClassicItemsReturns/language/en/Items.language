@@ -83,6 +83,10 @@
 		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "Activating an interactable grants a <style=cIsHealing>temporary barrier</style> for <style=cIsHealing>{0}%</style> <style=cStack>(+{1}% per stack)</style> of your <style=cIsHealing>maximum health</style> as well as <style=cIsUtility>${2}</style>. Scales with time.",
 		"CLASSICITEMSRETURNS_ITEM_JEWEL_LORE": "Order: Locked Jewel\r\nTracking Number: 1065***********\r\nEstimated Delivery: 09\/15\/2056\r\nShipping Method: Priority\r\nShipping Address: Block 3 Delta Phobos, Amna 2, Unknown\r\nShipping Details:\r\n\r\ni hope this is arriving well i am not used to sending anything through here so hopefully i didn't mess it up....",
 
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Energy Cell",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style>, increasing up to <style=cIsDamage>{2}%</style> <style=cStack>(+{3}% per stack)</style> at <style=cIsHealth>low health</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/9\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
@@ -118,10 +122,5 @@
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "Chance to knock enemies backwards for extra damage.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "<style=cIsDamage>{0}% <style=cStack>(+{1}% per stack)</style> chance</style> on hitting enemies to <style=cIsUtility>knock them back</style> for <style=cIsDamage>{2}% TOTAL damage</style>.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "",
-
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Energy Cell",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>+{0}%</style> <style=cStack>(+{1}% per stack)</style>, increasing as your <style=cIsHealth>health decreases</style> up to <style=cIsDamage>{2}%</style> <style=cStack>(+{3}% per stack)</style> at <style=cIsHealth>{4}% health</style>.",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": ""
 	}
 }
