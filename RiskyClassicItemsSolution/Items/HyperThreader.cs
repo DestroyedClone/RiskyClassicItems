@@ -8,17 +8,17 @@ using System;
 using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Items
-{//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/Thallium.cs
+{
     public class HyperThreader : ItemBase<HyperThreader>
     {
         float chance = 100;
-        float damageCoeff = 0.4f;
+        float damageCoeff = 0.6f;
         float bounceRange = 40f;
         int bounceCount = 2;
         int bounceCountPerStack = 1;
         public static GameObject orbEffect;
 
-        public override string ItemName => "Hyper-Threader";
+        public override string ItemName => "HyperThreader";
 
         public override string ItemLangTokenName => "HYPERTHREADER";
 
