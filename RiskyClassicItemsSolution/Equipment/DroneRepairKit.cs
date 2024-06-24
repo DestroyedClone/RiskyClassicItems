@@ -3,9 +3,9 @@ using ClassicItemsReturns.Modules;
 using RoR2;
 using UnityEngine;
 using BepInEx.Configuration;
-using EntityStates.AffixVoid;
-using UnityEngine.Networking;
-using UnityEngine.Timeline;
+using MonoMod.Cil;
+using Mono.Cecil.Cil;
+using System;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -17,6 +17,7 @@ namespace ClassicItemsReturns.Equipment
         public const float buffDuration = 8f;
         public const float buffAttackSpeed = 0.5f;
         public const float buffCDReduction = 0.5f;
+        public const float buffArmor = 50f;
 
         public static NetworkSoundEventDef activationSound;
 
@@ -44,6 +45,20 @@ namespace ClassicItemsReturns.Equipment
         public override void Hooks()
         {
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+
+            IL.RoR2.CharacterModel.UpdateOverlays += (il) =>
+            {
+                ILCursor c = new ILCursor(il);
+                c.GotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "Immune")
+                    );
+                c.Index += 2;
+                c.Emit(OpCodes.Ldarg_0);
+                c.EmitDelegate<Func<bool, CharacterModel, bool>>((hasBuff, self) =>
+                {
+                    return hasBuff || (self.body.HasBuff(DroneRepairBuff));
+                });
+            };
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
@@ -53,6 +68,7 @@ namespace ClassicItemsReturns.Equipment
             {
                 args.attackSpeedMultAdd += buffAttackSpeed;
                 args.cooldownReductionAdd += buffCDReduction;
+                args.armorAdd += buffArmor;
             }
         }
 
@@ -79,7 +95,6 @@ namespace ClassicItemsReturns.Equipment
                         {
                             if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
                             body.AddTimedBuff(DroneRepairBuff, buffDuration);
-                            body.AddTimedBuff(RoR2Content.Buffs.Immune, buffDuration);
                             activationCount++;
                         }
                     }

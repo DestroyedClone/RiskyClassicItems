@@ -1,8 +1,21 @@
 - `3.1.0`
-	- New items
+	- New Items
 		- Energy Cell
 			- Increases attack speed by 10% (+10%), increasing up to 40% (+40%) at low health.
 				- The 40% number includes the initial 10% number.
+				
+		- Boxing Glove
+			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
+			
+		- Hyper-Threader
+			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
+			
+	- New Equipment
+		- Drone Repair Kit
+			- All drones are repaired to full health and empowered for 8s.
+				- +50% Attack Speed
+				- -50% Cooldown
+				- +50 Armor
 		
 	- Fixed 56 Leaf Clover model having the wrong texture filtering settings.
 
