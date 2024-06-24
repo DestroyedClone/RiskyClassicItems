@@ -60,7 +60,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Gold increases damage.",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack, scaling with time)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack)</style>. Scales with time.",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "Order: Golden Gun\r\nTracking Number: 1455***********\r\nEstimated Delivery: 12\/19\/1874\r\nShipping Method: Priority\r\nSent To: James B.\r\nShipping Address: ??\r\nShipping Details:\r\n\r\nWas this supposed to.. intimidate me? I do like its look, however; perhaps I'll set it above my fireplace.",
 
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
