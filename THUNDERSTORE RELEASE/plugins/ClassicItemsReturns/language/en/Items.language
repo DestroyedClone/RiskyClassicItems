@@ -98,6 +98,13 @@
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "<style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> chance on hitting enemies to <style=cIsUtility>knock them back</style> for <style=cIsDamage>{2}%</style> TOTAL damage.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "Order: Boxing Gloves\r\nTracking Number: 1438***********\r\nEstimated Delivery: 07\/07\/2056\r\nShipping Method: Priority\r\nShipping Address: O.B.-Gym, Slam Station, Venus\r\nShipping Details:\r\n\r\nThese should work fine for the kids you're training. A bit musty, though. It'll make your trainees hit like a pro, ha!",
 
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Gain a jetpack jump.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Gain a <style=cIsUtility>jetpack jump</style> with an additional <style=cIsUtility>0%</style> <style=cStack>(+{0}% per stack)</style> jump height.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
+		
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION_ALT": "Increase <style=cIsUtility>jump height</style> by <style=cIsUtility>{0}</style> <style=cStack>(+{1}% per stack)</style>.",
+
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to freeze enemies on hit.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
@@ -115,13 +122,5 @@
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": "Pew pew.",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "<style=cIsDamage>{0}%</style> chance on hit to <style=cIsDamage>fire a laser</style> that deals <style=cIsDamage>{1}% base damage</style> and <style=cIsDamage>bounces</style> to <style=cIsDamage>{2}</style> <style=cStack>(+{3} per stack)</style> enemies.",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "Order: Hyper-Threader\r\nTracking Number: 1360***********\r\nEstimated Delivery: 12\/08\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 6900 West, Advanced Warfare Center, Mars\r\nShipping Details:\r\n\r\nDespite its appearance, the FNA 200 'Hyper-Threader' Energy Subrifle is anything but fragile.\n\nUsing direct energy energy technology, the FNA 200 can fire superheated gases at a high fire rate. The FNA 200 also requires little to no charging, instead generating energy from the air around it.",
-
-
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Gain a jetpack jump.",
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Gain a <style=cIsUtility>jetpack jump</style> with an additional <style=cIsUtility>0%</style> <style=cStack>(+{0}% per stack)</style> jump height.",
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
-		
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION_ALT": "Increase <style=cIsUtility>jump height</style> by <style=cIsUtility>{0}</style> <style=cStack>(+{1}% per stack)</style>.",
 	}
 }
