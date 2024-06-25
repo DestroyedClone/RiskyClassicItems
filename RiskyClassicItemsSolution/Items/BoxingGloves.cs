@@ -39,7 +39,8 @@ namespace ClassicItemsReturns.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Damage
+            ItemTag.Damage,
+            ItemTag.Utility
         };
 
         public override bool unfinished => true;

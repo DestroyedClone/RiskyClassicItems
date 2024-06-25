@@ -155,6 +155,13 @@
 												<MediaID ID="662503472"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="wJetpack2Deactivate" ID="{45DB7610-E384-4FB8-8188-EAD4113B3B9C}">
+											<Language>SFX</Language>
+											<AudioFile>wJetpack2Deactivate.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="340570732"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="wReflect" ID="{FA018286-B0FF-4906-8070-CA2E9539B63D}" Platform="Linked"/>
@@ -209,6 +216,35 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="punch" ID="{8D0C72B6-73DC-4913-9C56-343659F02869}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="wJetpack2Deactivate" ID="{4EEC57D5-5A9E-486E-9BD0-61148B098FA5}" ShortID="649634551">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="wJetpack2Deactivate" ID="{95645667-06EE-4C00-BFDB-1F06BA4FD43E}">
+											<Language>SFX</Language>
+											<AudioFile>wJetpack2Deactivate.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="340570732"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="wJetpack2Deactivate" ID="{95645667-06EE-4C00-BFDB-1F06BA4FD43E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

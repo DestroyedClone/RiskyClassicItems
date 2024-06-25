@@ -1,11 +1,18 @@
 - `3.1.0`
 	- New Items
 		- Energy Cell
-			- Increases attack speed by 10% (+10%), increasing up to 40% (+40%) at low health.
-				- The 40% number includes the initial 10% number.
+			- Increases attack speed by 10%-40% (+10%-40%) based on health lost.
+				- 100% HP = 10%
+				- 25% HP = 40%
 				
 		- Boxing Glove
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
+			
+		- Rusty Jetpack
+			- Gain a jetpack jump with an additional 0% (+20%) jump height.
+				- Diminishing returns, each stack is reduced by 20% (20%, 16%, 12.8%, etc.)
+				
+			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
 			
 		- Hyper-Threader
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.

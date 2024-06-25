@@ -1,20 +1,24 @@
-﻿using R2API;
-using ClassicItemsReturns.Utils;
+﻿using EntityStates;
+using R2API;
 using RoR2;
 using UnityEngine;
-using static RoR2.Items.BaseItemBodyBehavior;
-using RoR2.Items;
-using EntityStates;
+using Mono.Cecil.Cil;
+using MonoMod.Cil;
+using System;
+using UnityEngine.AddressableAssets;
+using BepInEx.Configuration;
 
 namespace ClassicItemsReturns.Items
 {
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
-        public const float bonus = 0.5f;
-        public const float bonusStack = 0.05f;
+        public const float bonus = 0.2f;
+        public const float bonusStackMult = 0.8f;
         public override string ItemName => "Rusty Jetpack";
 
         public override string ItemLangTokenName => "RUSTYJETPACK";
+
+        public static GameObject jumpEffectPrefab;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
@@ -28,7 +32,8 @@ namespace ClassicItemsReturns.Items
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Utility
+            ItemTag.Utility,
+            ItemTag.AIBlacklist
         };
 
         public override bool unfinished => true;
@@ -38,52 +43,75 @@ namespace ClassicItemsReturns.Items
             return new ItemDisplayRuleDict();
         }
 
-        public override void Hooks()
+        public override void CreateAssets(ConfigFile config)
         {
-            //RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
-            //On.EntityStates.GenericCharacterMain.ProcessJump += GenericCharacterMain_ProcessJump;
-            On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += GenericCharacterMain_ApplyJumpVelocity;
-            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            base.CreateAssets(config);
+            jumpEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/OmniExplosionVFXQuick.prefab")
+                .WaitForCompletion()
+                .InstantiateClone("CIR_RustyJetpackEffect", false);
+
+            jumpEffectPrefab.transform.localScale = 3f * Vector3.one;
+
+            EffectComponent ec = jumpEffectPrefab.GetComponent<EffectComponent>();
+            ec.soundName = "Play_ClassicItemsReturns_Jetpack";
+
+            ContentAddition.AddEffect(jumpEffectPrefab);
         }
 
-        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        public override void Hooks()
         {
-            orig(self);
-            if (GetCount(self) > 0)
-                self.maxJumpCount++;
+            On.RoR2.CharacterBody.RecalculateStats += AddJumpCount;
+            On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += GenericCharacterMain_ApplyJumpVelocity;
+            IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
         }
 
         private void GenericCharacterMain_ApplyJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
         {
-            var itemCount = GetCount(characterBody);
-            if (itemCount > 0 && characterMotor.jumpCount == characterBody.maxJumpCount - 1)
+            if (characterBody)
             {
-                verticalBonus = bonus;
-
-                if (itemCount > 1) //otherwise first stack will be scaled
-                    verticalBonus += Util.ConvertAmplificationPercentageIntoReductionPercentage(Utils.ItemHelpers.StackingLinear(itemCount, bonus, bonusStack));
+                bool isLastJump = characterMotor && characterMotor.jumpCount == characterBody.maxJumpCount - 1;
+                int itemCount = 0;
+                if (characterBody.inventory) itemCount = characterBody.inventory.GetItemCount(ItemDef);
+                if (isLastJump && itemCount > 0)
+                {
+                    float heightBoost = 0f;
+                    int stack = itemCount - 1;
+                    for (int i = 0; i < stack; i++)
+                    {
+                        heightBoost += bonus * Mathf.Pow(bonusStackMult, i);
+                    }
+                    verticalBonus += heightBoost;
+                }
             }
             orig(characterMotor, characterBody, horizontalBonus, verticalBonus, vault);
         }
 
-        //called in authority
-        private void GenericCharacterMain_ProcessJump(On.EntityStates.GenericCharacterMain.orig_ProcessJump orig, GenericCharacterMain self)
+        private void ReplaceJumpEffect(MonoMod.Cil.ILContext il)
+        {
+            ILCursor c = new ILCursor(il);
+            c.GotoNext(MoveType.After, x => x.MatchLdstr("Prefabs/Effects/FeatherEffect"));
+            c.Index++;
+            c.Emit(OpCodes.Ldarg_0);
+            c.EmitDelegate<Func<GameObject, EntityStates.GenericCharacterMain, GameObject>>((origPrefab, self) =>
+            {
+                if (self.characterBody)
+                {
+                    bool isLastJump = self.characterMotor && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1;
+                    bool hasItem = self.characterBody.inventory && self.characterBody.inventory.GetItemCount(ItemDef) > 0;
+                    if (isLastJump && hasItem)
+                    {
+                        return jumpEffectPrefab;
+                    }
+                }
+                return origPrefab;
+            });
+        }
+
+        private void AddJumpCount(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
-            if (!self.hasCharacterMotor) return;
-
-            if (!self.jumpInputReceived || !self.characterBody || self.characterMotor.jumpCount >= self.characterBody.maxJumpCount)
-            {
-                return;
-            }
-            if (GetCount(self.characterBody) > 0 && self.characterMotor.jumpCount > 0 && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1)
-            {
-                EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/ImpactEffects/CharacterLandImpact"), new EffectData
-                {
-                    origin = self.characterBody.footPosition,
-                    scale = self.characterBody.radius
-                }, true);
-            }
+            if (GetCount(self) > 0)
+                self.maxJumpCount++;
         }
     }
 }
