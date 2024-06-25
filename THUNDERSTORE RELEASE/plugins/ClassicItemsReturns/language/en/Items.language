@@ -108,7 +108,6 @@
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "Gain <style=cIsDamage>{0}% critical chance</style>. <style=cIsDamage>Critical strikes</style> <style=cIsUtility>reduce skill cooldowns</style> by <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE": "Order: Wicked Ring\r\nTracking Number: 1372***********\r\nEstimated Delivery: 02\/22\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 1414 East, Fillmore, Venus\r\nShipping Details:\r\n\r\nWith how many rings he had, you would think more would have been found, eh? Nope, just this one. The King used to sacrifice one of his own sons to embue with dark spirits. He claimed that the spirits warded away any ill omen. The King lived until he was 104, so hey, maybe he was right.\n\nAs the last remaining Wicked Ring, I expect a hefty sum.",
 
-		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME_ALT": "Wicked Ring",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "Kills reduce skill cooldowns.",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "<style=cIsUtility>Reduce skill cooldowns</style> by <style=cIsUtility>{0}s</style> <style=cStack>(+{1}s per stack)</style> on kill.",
 
@@ -120,7 +119,9 @@
 
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Gain a jetpack jump.",
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Gain a <style=cIsUtility>jetpack jump</style> with an additional <style=cIsUtility>0%</style> <style=cStack>(+20% per stack)</style> jump height.",
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Gain a <style=cIsUtility>jetpack jump</style> with an additional <style=cIsUtility>0%</style> <style=cStack>(+{0}% per stack)</style> jump height.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
+		
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION_ALT": "Increase <style=cIsUtility>jump height</style> by <style=cIsUtility>{0}</style> <style=cStack>(+{1}% per stack)</style>.",
 	}
 }

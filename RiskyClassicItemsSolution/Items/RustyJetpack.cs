@@ -7,21 +7,27 @@ using MonoMod.Cil;
 using System;
 using UnityEngine.AddressableAssets;
 using BepInEx.Configuration;
+using ClassicItemsReturns.Utils;
 
 namespace ClassicItemsReturns.Items
 {
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
-        public const float bonus = 0.2f;
-        public const float bonusStackMult = 0.8f;
+        public const float classicJumpBonus = 0.1f;
+        public const float classicJumpBonusStack = 0.1f;
+
+        public const float jumpBonus = 0.1f;
+        public const float jumpBonusStackMult = 0.9f;
         public override string ItemName => "Rusty Jetpack";
 
         public override string ItemLangTokenName => "RUSTYJETPACK";
 
         public static GameObject jumpEffectPrefab;
+        public static ConfigEntry<bool> useRework;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
+            jumpBonus
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
@@ -37,6 +43,11 @@ namespace ClassicItemsReturns.Items
         };
 
         public override bool unfinished => true;
+
+        public override void CreateConfig(ConfigFile config)
+        {
+            useRework = config.Bind(ConfigCategory, "Use Rework", true, "Reworks the item into providing a double jump.");
+        }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -60,12 +71,30 @@ namespace ClassicItemsReturns.Items
 
         public override void Hooks()
         {
-            On.RoR2.CharacterBody.RecalculateStats += AddJumpCount;
-            On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += GenericCharacterMain_ApplyJumpVelocity;
-            IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
+            if (useRework.Value)
+            {
+                On.RoR2.CharacterBody.RecalculateStats += AddJumpCount;
+                On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ReworkJumpVelocity;
+                IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
+            }
+            else
+            {
+                On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ClassicJumpVelocity;
+            }
         }
 
-        private void GenericCharacterMain_ApplyJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
+        private void ClassicJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
+        {
+            if (characterBody && characterBody.inventory)
+            {
+                int itemCount = characterBody.inventory.GetItemCount(ItemDef);
+                if (itemCount > 0) verticalBonus += ItemHelpers.StackingLinear(itemCount, classicJumpBonus, classicJumpBonusStack);
+            }
+
+            orig(characterMotor, characterBody, horizontalBonus, verticalBonus, vault);
+        }
+
+        private void ReworkJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
         {
             if (characterBody)
             {
@@ -78,7 +107,7 @@ namespace ClassicItemsReturns.Items
                     int stack = itemCount - 1;
                     for (int i = 0; i < stack; i++)
                     {
-                        heightBoost += bonus * Mathf.Pow(bonusStackMult, i);
+                        heightBoost += jumpBonus * Mathf.Pow(jumpBonusStackMult, i);
                     }
                     verticalBonus += heightBoost;
                 }

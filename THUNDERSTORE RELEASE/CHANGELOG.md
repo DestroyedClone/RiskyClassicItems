@@ -9,8 +9,8 @@
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
 		- Rusty Jetpack
-			- Gain a jetpack jump with an additional 0% (+20%) jump height.
-				- Diminishing returns, each stack is reduced by 20% (20%, 16%, 12.8%, etc.)
+			- Gain a jetpack jump with an additional 0% (+10%) jump height.
+				- Diminishing returns, each stack is reduced by 10% (10%, 9%, 8.1%, etc.)
 				
 			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
 			
