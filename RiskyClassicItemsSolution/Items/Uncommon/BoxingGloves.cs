@@ -6,7 +6,7 @@ using UnityEngine;
 using System;
 using UnityEngine.AddressableAssets;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     public class BoxingGloves : ItemBase<BoxingGloves>
     {
@@ -27,7 +27,7 @@ namespace ClassicItemsReturns.Items
         public override object[] ItemFullDescriptionParams => new object[]
         {
             chance,
-            chanceStack, 
+            chanceStack,
             damageMult * 100
         };
 
@@ -97,7 +97,7 @@ namespace ClassicItemsReturns.Items
                 attackForce *= championMultiplier;
             }
 
-            if (victimBody.isFlying || (victimBody.characterMotor && !victimBody.characterMotor.isGrounded))
+            if (victimBody.isFlying || victimBody.characterMotor && !victimBody.characterMotor.isGrounded)
             {
                 attackForce *= airbornMultiplier;
             }

@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 using BepInEx.Configuration;
 using ClassicItemsReturns.Utils;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
@@ -115,13 +115,13 @@ namespace ClassicItemsReturns.Items
             orig(characterMotor, characterBody, horizontalBonus, verticalBonus, vault);
         }
 
-        private void ReplaceJumpEffect(MonoMod.Cil.ILContext il)
+        private void ReplaceJumpEffect(ILContext il)
         {
             ILCursor c = new ILCursor(il);
             c.GotoNext(MoveType.After, x => x.MatchLdstr("Prefabs/Effects/FeatherEffect"));
             c.Index++;
             c.Emit(OpCodes.Ldarg_0);
-            c.EmitDelegate<Func<GameObject, EntityStates.GenericCharacterMain, GameObject>>((origPrefab, self) =>
+            c.EmitDelegate<Func<GameObject, GenericCharacterMain, GameObject>>((origPrefab, self) =>
             {
                 if (self.characterBody)
                 {

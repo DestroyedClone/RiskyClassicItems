@@ -4,7 +4,7 @@ using ClassicItemsReturns.Modules;
 using RoR2;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Rare
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/Thallium.cs
     public class Thallium : ItemBase<Thallium>
     {
@@ -23,8 +23,8 @@ namespace ClassicItemsReturns.Items
         public override object[] ItemFullDescriptionParams => new object[]
         {
             chance,
-            (enemyAttackDamageCoef * 100f),
-            (enemyMoveSpeedCoef * 100),
+            enemyAttackDamageCoef * 100f,
+            enemyMoveSpeedCoef * 100,
             duration,
             durationPerStack
         };
@@ -56,7 +56,7 @@ namespace ClassicItemsReturns.Items
             var nps = thalliumTickEffect.AddComponent<NormalizeParticleScale>();
             nps.normalizeWithSkinnedMeshRendererInstead = true;*/
             //[Error: R2API.Prefab] ThalliumProcEffect(UnityEngine.GameObject) don't have a NetworkIdentity Component but was marked for network registration.
-            thalliumTickEffect = PrefabAPI.InstantiateClone(asset, "ThalliumProcEffect", false);
+            thalliumTickEffect = asset.InstantiateClone("ThalliumProcEffect", false);
             thalliumTickEffect.transform.localScale = Vector3.one * 0.5f;
             //thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().playbackSpeed = 4f;
             var main = thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().main;
@@ -93,7 +93,7 @@ namespace ClassicItemsReturns.Items
             if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
 
             int itemStack = itemCount - 1;
-            float totalDuration = Utils.ItemHelpers.StackingLinear(itemCount, Thallium.Instance.duration, durationPerStack);
+            float totalDuration = Utils.ItemHelpers.StackingLinear(itemCount, Instance.duration, durationPerStack);
             var inflictDotInfo = new InflictDotInfo()
             {
                 attackerObject = damageInfo.attacker,

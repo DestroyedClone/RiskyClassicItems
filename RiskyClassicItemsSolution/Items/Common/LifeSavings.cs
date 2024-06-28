@@ -5,10 +5,10 @@ using RoR2.Items;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static ClassicItemsReturns.Items.ArmsRace;
+using static ClassicItemsReturns.Items.Uncommon.ArmsRace;
 using static RoR2.Items.BaseItemBodyBehavior;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class LifeSavings : ItemBase<LifeSavings>
     {
@@ -86,7 +86,7 @@ namespace ClassicItemsReturns.Items
                 if (stopwatch <= 0 && !SceneExitController.isRunning)
                 {
                     stopwatch = Instance.intervalSeconds;
-                    var stackEffect = (Utils.ItemHelpers.StackingLinear(this.stack, Instance.gold, Instance.goldStack));
+                    var stackEffect = Utils.ItemHelpers.StackingLinear(stack, Instance.gold, Instance.goldStack);
                     var multiplier = Run.instance ? Run.instance.GetDifficultyScaledCost(stackEffect, Run.instance.difficultyCoefficient) : 1;
                     master.GiveMoney((uint)(stackEffect * multiplier));
                 }

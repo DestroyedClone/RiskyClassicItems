@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class RazorPenny : ItemBase<RazorPenny>
     {
@@ -55,7 +55,7 @@ namespace ClassicItemsReturns.Items
         {
             if (sender.inventory)
             {
-                int itemCount = sender.inventory.GetItemCount(this.ItemDef);
+                int itemCount = sender.inventory.GetItemCount(ItemDef);
                 args.critAdd += itemCount * critChance;
             }
         }
@@ -63,7 +63,7 @@ namespace ClassicItemsReturns.Items
         private void GoldOnCrit(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory)
         {
             if (!damageInfo.crit || !attackerBody.master) return;
-            int itemCount = attackerInventory.GetItemCount(this.ItemDef);
+            int itemCount = attackerInventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
             if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
 

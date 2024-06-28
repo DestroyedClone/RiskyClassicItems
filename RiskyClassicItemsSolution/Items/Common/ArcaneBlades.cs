@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class ArcaneBlades : ItemBase<ArcaneBlades>
     {
@@ -46,7 +46,7 @@ namespace ClassicItemsReturns.Items
         {
             if (IsTeleActivatedTracker.teleporterActivated && sender.inventory)
             {
-                int itemCount = sender.inventory.GetItemCount(this.ItemDef);
+                int itemCount = sender.inventory.GetItemCount(ItemDef);
                 args.moveSpeedMultAdd += itemCount * speedIncrease;
             }
         }

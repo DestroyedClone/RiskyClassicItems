@@ -5,7 +5,7 @@ using RoR2.Items;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     internal class ArmsRace : ItemBase<ArmsRace>
     {
@@ -23,7 +23,7 @@ namespace ClassicItemsReturns.Items
             cooldown,
             missileCount,
             missileCountPerStack,
-            (damageCoeff*100f)
+            damageCoeff*100f
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
@@ -48,13 +48,13 @@ namespace ClassicItemsReturns.Items
 
         public override void CreateConfig(ConfigFile config)
         {
-            ArmsRace.requireMechanical = config.Bind(ConfigCategory, "Mechanical Allies Only", true, "Arms Race only applies to Drones and other Mechanical allies.");
+            requireMechanical = config.Bind(ConfigCategory, "Mechanical Allies Only", true, "Arms Race only applies to Drones and other Mechanical allies.");
         }
 
         public class ArmsRaceBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
-            public static ItemDef GetItemDef() => ArmsRace.Instance.ItemDef;
+            public static ItemDef GetItemDef() => Instance.ItemDef;
 
             public MinionOwnership minionOwnership;
 
@@ -69,8 +69,8 @@ namespace ClassicItemsReturns.Items
 
             private void OnEnable()
             {
-                ulong seed = Run.instance.seed ^ (ulong)((long)Run.instance.stageClearCount);
-                this.rng = new Xoroshiro128Plus(seed);
+                ulong seed = Run.instance.seed ^ (ulong)(long)Run.instance.stageClearCount;
+                rng = new Xoroshiro128Plus(seed);
                 MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
 
                 if (body.inventory)
@@ -82,12 +82,12 @@ namespace ClassicItemsReturns.Items
                 if (body.master) master = body.master;
 
                 minionOwnership = body.GetComponent<MinionOwnership>();
-                UpdateAllMinions(inventory.GetItemCount(ArmsRace.Instance.ItemDef));
+                UpdateAllMinions(inventory.GetItemCount(Instance.ItemDef));
             }
 
             private void Inv_onInventoryChanged()
             {
-                UpdateAllMinions(inventory.GetItemCount(ArmsRace.Instance.ItemDef));
+                UpdateAllMinions(inventory.GetItemCount(Instance.ItemDef));
             }
 
             private void OnDisable()
@@ -97,7 +97,7 @@ namespace ClassicItemsReturns.Items
                 {
                     inventory.onInventoryChanged -= Inv_onInventoryChanged;
                 }
-                this.UpdateAllMinions(0);
+                UpdateAllMinions(0);
             }
 
             private void UpdateAllMinions(int newStack)
@@ -116,11 +116,11 @@ namespace ClassicItemsReturns.Items
                                 CharacterBody body2 = component.GetBody();
                                 if (body2)
                                 {
-                                    this.UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
+                                    UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
                                 }
                             }
                         }
-                        this.previousStack = newStack;
+                        previousStack = newStack;
                     }
                 }
             }
@@ -144,7 +144,7 @@ namespace ClassicItemsReturns.Items
             private void UpdateMinionInventory(Inventory inventory, CharacterBody.BodyFlags bodyFlags, int newStack)
             {
                 if (newStack < 0) newStack = 0;
-                if (inventory && (!ArmsRace.requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
+                if (inventory && (!requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
                 {
                     int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
                     //Need to use a seperate display cause the display add/removal conflicts with spare drone parts

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class FireShield : ItemBase<FireShield>
     {

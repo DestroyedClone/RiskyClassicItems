@@ -9,7 +9,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class MuConstruct : ItemBase<MuConstruct>
     {
@@ -61,7 +61,7 @@ namespace ClassicItemsReturns.Items
 
         private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
         {
-            body.AddItemBehavior<MuConstructBehavior>(body.inventory.GetItemCount(this.ItemDef));
+            body.AddItemBehavior<MuConstructBehavior>(body.inventory.GetItemCount(ItemDef));
         }
     }
 
@@ -92,7 +92,7 @@ namespace ClassicItemsReturns.Items
             if (cooldown <= 0f && body.healthComponent)
             {
                 body.healthComponent.HealFraction(healAmount, default);
-                cooldown = 5f / (Mathf.Max(1f, 1f + cooldownReduction * (this.stack - 1)));
+                cooldown = 5f / Mathf.Max(1f, 1f + cooldownReduction * (stack - 1));
             }
         }
 
@@ -100,7 +100,7 @@ namespace ClassicItemsReturns.Items
         public void InitFollower()
         {
             if (followerInstance || !followerPrefab || MuConstruct.disableFollower.Value) return;
-            followerInstance = GameObject.Instantiate(followerPrefab);
+            followerInstance = Instantiate(followerPrefab);
             followerInstance.transform.position = body.transform.position;
 
             Vector3 desiredPosition = GetDesiredPosition();
@@ -113,20 +113,20 @@ namespace ClassicItemsReturns.Items
 
         private void OnDisable()
         {
-            if (followerInstance) UnityEngine.Object.Destroy(followerInstance);
+            if (followerInstance) Destroy(followerInstance);
         }
 
         private void Start()
         {
             InitFollower();
-            if (followerInstance) followerInstance.SetActive(Utils.IsTeleActivatedTracker.teleporterActivated);
+            if (followerInstance) followerInstance.SetActive(IsTeleActivatedTracker.teleporterActivated);
         }
 
         private void Update()
         {
             if (!followerInstance) return;
 
-            followerInstance.SetActive(Utils.IsTeleActivatedTracker.teleporterActivated);
+            followerInstance.SetActive(IsTeleActivatedTracker.teleporterActivated);
 
             if (body.modelLocator && body.modelLocator.modelTransform)
             {
@@ -135,10 +135,10 @@ namespace ClassicItemsReturns.Items
 
             followerRotationStopwatch += Time.deltaTime;
             if (followerRotationStopwatch >= followerRotationTime) followerRotationStopwatch -= followerRotationTime;
-            followerInstance.transform.Rotate(Vector3.forward, 360f * followerRotationStopwatch/followerRotationTime, Space.Self);
+            followerInstance.transform.Rotate(Vector3.forward, 360f * followerRotationStopwatch / followerRotationTime, Space.Self);
 
             Vector3 desiredPosition = GetDesiredPosition();
-            followerInstance.transform.position = Vector3.SmoothDamp(followerInstance.transform.position, desiredPosition, ref this.velocity, 0.05f);
+            followerInstance.transform.position = Vector3.SmoothDamp(followerInstance.transform.position, desiredPosition, ref velocity, 0.05f);
 
             followerInstance.transform.position += velocity * Time.deltaTime;
         }

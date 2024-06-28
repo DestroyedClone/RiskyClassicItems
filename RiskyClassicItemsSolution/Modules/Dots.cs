@@ -35,7 +35,7 @@ namespace ClassicItemsReturns.Modules
 
             public static void Initialize()
             {
-                var thallium = Items.Thallium.Instance;
+                var thallium = Items.Rare.Thallium.Instance;
 
                 CIR_ThalliumEffectParams = new BurnEffectController.EffectParams()
                 {
@@ -150,7 +150,7 @@ namespace ClassicItemsReturns.Modules
                 orig(self, damageInfo);
                 if (NetworkServer.active && damageInfo.dotIndex == CIR_ThalliumDotIndex)
                 {
-                    EffectManager.SimpleEffect(Items.Thallium.thalliumTickEffect, damageInfo.position, Quaternion.identity, true);
+                    EffectManager.SimpleEffect(Items.Rare.Thallium.thalliumTickEffect, damageInfo.position, Quaternion.identity, true);
                 }
             }
         }

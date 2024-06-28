@@ -5,7 +5,7 @@ using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Rare
 {
     public class WickedRing : ItemBase<WickedRing>
     {

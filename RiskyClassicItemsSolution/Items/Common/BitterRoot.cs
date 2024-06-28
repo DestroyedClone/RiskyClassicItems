@@ -6,7 +6,7 @@ using RoR2;
 using UnityEngine;
 using System.Runtime.CompilerServices;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
     public class BitterRoot : ItemBase<BitterRoot>
     {
@@ -20,8 +20,8 @@ namespace ClassicItemsReturns.Items
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            (maxHealthMultiplier*100),
-            (maxHealthMultiplierStack*100),
+            maxHealthMultiplier*100,
+            maxHealthMultiplierStack*100,
         };
 
         public override ItemTier Tier => ItemTier.Tier1;
@@ -93,7 +93,7 @@ namespace ClassicItemsReturns.Items
 
         private void GetStatCoefficients_Alt(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            if (Utils.ItemHelpers.TryGetBuffCount(sender, Buffs.BitterRootBuff, out int buffCount))
+            if (ItemHelpers.TryGetBuffCount(sender, Buffs.BitterRootBuff, out int buffCount))
             {
                 float levelFactor = 1f + 0.2f * (sender.level - 1f);
                 args.baseRegenAdd += alt_regenIncrease * buffCount * levelFactor;

@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     public class SmartShopper : ItemBase<SmartShopper>
     {

@@ -8,7 +8,7 @@ using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class WeakenOnContact : ItemBase<WeakenOnContact>
     {
@@ -77,7 +77,7 @@ namespace ClassicItemsReturns.Items
             public SphereSearch sphereSearch = new SphereSearch();
 
             public float age = 0;
-            protected float timer = 1/8;
+            protected float timer = 1 / 8;
 
             //[Min(1E-45f)]
             public float tickRate = 1f;
@@ -90,18 +90,18 @@ namespace ClassicItemsReturns.Items
 
             public void OnEnable()
             {
-                this.sphereSearch.mask = LayerIndex.entityPrecise.mask;
-                this.sphereSearch.radius = body.radius * sizeCorrectionMultiplier;
-                this.sphereSearch.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
+                sphereSearch.mask = LayerIndex.entityPrecise.mask;
+                sphereSearch.radius = body.radius * sizeCorrectionMultiplier;
+                sphereSearch.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
 
-                lerp_denominator = (body.baseMoveSpeed * body.sprintingSpeedMultiplier * 2f) + body.baseMoveSpeed;
+                lerp_denominator = body.baseMoveSpeed * body.sprintingSpeedMultiplier * 2f + body.baseMoveSpeed;
                 //If I set it to just basespeed*sprintingspeedmultiplier*2, then the base movement, will just
                 //base = 7, which already makes the check frequency hit halfway, so gotta offset it
             }
 
             public void FixedUpdate()
             {
-                this.sphereSearch.radius = Mathf.Max(4f, body.radius * sizeCorrectionMultiplier);
+                sphereSearch.radius = Mathf.Max(4f, body.radius * sizeCorrectionMultiplier);
                 AdjustFrequencyBasedOnSpeed();
 
                 age -= Time.fixedDeltaTime;
@@ -112,27 +112,27 @@ namespace ClassicItemsReturns.Items
                     SearchForTargets(list);
                     if (list.Count == 0)
                         goto ReturnCollection;
-                    var duration = Utils.ItemHelpers.StackingLinear(stack, Instance.duration, Instance.durationPerStack);
+                    var duration = ItemHelpers.StackingLinear(stack, Instance.duration, Instance.durationPerStack);
                     foreach (var hurtBox in list)
                     {
                         if (!hurtBox)
                             continue;
                         hurtBox.healthComponent.body.AddTimedBuffAuthority(Buffs.WeakenOnContactBuff.buffIndex, duration);
                     }
-                    ReturnCollection:
-                        CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(list);
+                ReturnCollection:
+                    CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(list);
                 }
             }
 
             public void SearchForTargets(List<HurtBox> dest)
             {
-                this.sphereSearch.origin = body.corePosition;
-                this.sphereSearch.RefreshCandidates();
-                this.sphereSearch.FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(body.teamComponent.teamIndex));
-                this.sphereSearch.OrderCandidatesByDistance();
-                this.sphereSearch.FilterCandidatesByDistinctHurtBoxEntities();
-                this.sphereSearch.GetHurtBoxes(dest);
-                this.sphereSearch.ClearCandidates();
+                sphereSearch.origin = body.corePosition;
+                sphereSearch.RefreshCandidates();
+                sphereSearch.FilterCandidatesByHurtBoxTeam(TeamMask.GetEnemyTeams(body.teamComponent.teamIndex));
+                sphereSearch.OrderCandidatesByDistance();
+                sphereSearch.FilterCandidatesByDistinctHurtBoxEntities();
+                sphereSearch.GetHurtBoxes(dest);
+                sphereSearch.ClearCandidates();
             }
 
             public void AdjustFrequencyBasedOnSpeed()

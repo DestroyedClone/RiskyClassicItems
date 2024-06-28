@@ -3,7 +3,7 @@ using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     public class BearArmor : ItemBase<BearArmor>
     {

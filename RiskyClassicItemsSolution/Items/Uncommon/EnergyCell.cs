@@ -11,7 +11,7 @@ using UnityEngine.Networking;
 using RoR2.Items;
 using ClassicItemsReturns.Modules;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     public class EnergyCell : ItemBase<EnergyCell>
     {
@@ -63,9 +63,9 @@ namespace ClassicItemsReturns.Items
             var itemCount = GetCount(sender);
             if (itemCount == 0) return;
 
-            float atkSpdPassive = Utils.ItemHelpers.StackingLinear(itemCount, atkSpdIncrease, atkSpdIncreaseStack);
+            float atkSpdPassive = ItemHelpers.StackingLinear(itemCount, atkSpdIncrease, atkSpdIncreaseStack);
 
-            float maxAtkSpd = Utils.ItemHelpers.StackingLinear(itemCount, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack);
+            float maxAtkSpd = ItemHelpers.StackingLinear(itemCount, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack);
 
             float boostPercent = (sender.healthComponent.combinedHealthFraction - atkSpdIncreaseLowHealthThreshold) / atkSpdIncreaseLowHealthThresholdInverse;
             float atkSpdConditional = Mathf.Lerp(0f, maxAtkSpd, 1f - boostPercent);
@@ -92,7 +92,7 @@ namespace ClassicItemsReturns.Items
 
                 float healthPercent = (body.healthComponent.combinedHealthFraction - atkSpdIncreaseLowHealthThreshold) / atkSpdIncreaseLowHealthThresholdInverse;
                 float totalBoost = Mathf.Lerp(0f,
-                    Utils.ItemHelpers.StackingLinear(stack, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack),
+                    ItemHelpers.StackingLinear(stack, atkSpdIncreaseLowHealth, atkSpdIncreaseLowHealthStack),
                     1f - healthPercent);
 
                 //Only mark stats dirty if boost changes in a 1% increment, to prevent it from being spammed every frame

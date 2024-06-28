@@ -9,7 +9,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     internal class ArmsRaceDroneItem : ItemBase<ArmsRaceDroneItem>
     {
@@ -40,7 +40,7 @@ namespace ClassicItemsReturns.Items
         public class ArmsRaceDroneBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
-            public static ItemDef GetItemDef() => ArmsRaceDroneItem.Instance.ItemDef;
+            public static ItemDef GetItemDef() => Instance.ItemDef;
 
             public static float searchInterval = 1f;
             public static float maxActivationDistance = 80f;
@@ -65,7 +65,7 @@ namespace ClassicItemsReturns.Items
 
             private void Start()
             {
-                ModelLocator component = base.GetComponent<ModelLocator>();
+                ModelLocator component = GetComponent<ModelLocator>();
                 if (component)
                 {
                     Transform modelTransform = component.modelTransform;
@@ -84,7 +84,7 @@ namespace ClassicItemsReturns.Items
                                     Transform exists = component3.FindChild("MissileMuzzle");
                                     if (exists)
                                     {
-                                        this.missileMuzzleTransform = exists;
+                                        missileMuzzleTransform = exists;
                                         break;
                                     }
                                 }
@@ -96,7 +96,7 @@ namespace ClassicItemsReturns.Items
                 GetMissileBarrageCount();
                 missilesLoaded = missilesPerBarrage;
                 searchStopwatch = 0f;
-                cooldownStopwatch = UnityEngine.Random.Range(0.1f, 0.75f);
+                cooldownStopwatch = Random.Range(0.1f, 0.75f);
                 fireStopwatch = 0f;
                 fireInterval = baseFireInterval;
             }
@@ -137,7 +137,7 @@ namespace ClassicItemsReturns.Items
                 search.searchDirection = aimRay.direction;
                 search.RefreshCandidates();
 
-                targetHurtBox = search.GetResults().FirstOrDefault<HurtBox>();
+                targetHurtBox = search.GetResults().FirstOrDefault();
 
                 return targetHurtBox != null;
             }
@@ -197,7 +197,7 @@ namespace ClassicItemsReturns.Items
                     missileOrb.damageValue = body.damage * ArmsRace.Instance.damageCoeff;
                     missileOrb.isCrit = body.RollCrit();
                     missileOrb.teamIndex = TeamComponent.GetObjectTeam(body.gameObject);//body.teamComponent.teamIndex;
-                    missileOrb.attacker = base.gameObject;
+                    missileOrb.attacker = gameObject;
                     missileOrb.procChainMask = default;
                     missileOrb.procCoefficient = 1f;
                     missileOrb.damageColorIndex = DamageColorIndex.Default;
@@ -207,7 +207,7 @@ namespace ClassicItemsReturns.Items
 
                     if (EntityStates.Drone.DroneWeapon.FireMissileBarrage.effectPrefab)
                     {
-                        EffectManager.SimpleMuzzleFlash(EntityStates.Drone.DroneWeapon.FireMissileBarrage.effectPrefab, base.gameObject, "Muzzle", true);
+                        EffectManager.SimpleMuzzleFlash(EntityStates.Drone.DroneWeapon.FireMissileBarrage.effectPrefab, gameObject, "Muzzle", true);
                     }
 
                     //Technically animation is missing but no one will notice.

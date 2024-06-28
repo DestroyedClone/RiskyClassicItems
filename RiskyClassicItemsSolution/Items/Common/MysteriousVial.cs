@@ -4,7 +4,7 @@ using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/MysteriousVial.cs
     public class MysteriousVial : ItemBase<MysteriousVial>
     {

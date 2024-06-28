@@ -3,7 +3,7 @@ using R2API;
 using RoR2;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/PrisonShackles.cs
     public class PrisonShackles : ItemBase<PrisonShackles>
     {
@@ -19,7 +19,7 @@ namespace ClassicItemsReturns.Items
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            (attackSpeedSlowMultiplier*100),
+            attackSpeedSlowMultiplier*100,
             duration,
             durationStack,
         };
@@ -49,7 +49,7 @@ namespace ClassicItemsReturns.Items
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            if (sender.HasBuff(Modules.Buffs.ShacklesBuff))
+            if (sender.HasBuff(Buffs.ShacklesBuff))
             {
                 args.attackSpeedReductionMultAdd += attackSpeedSlowMultiplier;
             }

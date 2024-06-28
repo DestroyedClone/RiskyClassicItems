@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 using ClassicItemsReturns.Equipment;
 using static RoR2.MasterSpawnSlotController;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Rare
 {
     public class HyperThreader : ItemBase<HyperThreader>
     {
@@ -52,7 +52,7 @@ namespace ClassicItemsReturns.Items
 
         public override void CreateAssets(ConfigFile config)
         {
-            orbEffect = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/DroneWeapons/ChainGunOrbEffect.prefab").WaitForCompletion(), "CIR_HyperThreaderOrbEffect", false);
+            orbEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/DroneWeapons/ChainGunOrbEffect.prefab").WaitForCompletion().InstantiateClone("CIR_HyperThreaderOrbEffect", false);
             var tr = orbEffect.transform.Find("TrailParent/Trail").GetComponent<TrailRenderer>();
             tr.startColor = Color.red;
             tr.endColor = Color.red;
@@ -80,7 +80,7 @@ namespace ClassicItemsReturns.Items
 
             if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
 
-            int calcBounceCount = Utils.ItemHelpers.StackingLinear(itemCount, this.bounceCount, bounceCountPerStack);
+            int calcBounceCount = Utils.ItemHelpers.StackingLinear(itemCount, bounceCount, bounceCountPerStack);
             ChainGunOrb chainGunOrb = new ChainGunOrb(orbEffect);
             chainGunOrb.damageValue = attackerBody.damage * damageCoeff;
             chainGunOrb.isCrit = damageInfo.crit;

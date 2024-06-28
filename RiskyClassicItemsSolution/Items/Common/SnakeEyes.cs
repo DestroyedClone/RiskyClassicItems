@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Common
 {
     public class SnakeEyes : ItemBase<SnakeEyes>
     {
@@ -47,8 +47,8 @@ namespace ClassicItemsReturns.Items
             Inventory.onInventoryChangedGlobal += Inventory_onInventoryChangedGlobal;
             //ShrineChanceBehavior.onShrineChancePurchaseGlobal += DiceOnShrineFail;
             On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrineUse;
-            RoR2.Stage.onStageStartGlobal += ResetCountOnStageStart;
-            RoR2.CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
+            Stage.onStageStartGlobal += ResetCountOnStageStart;
+            CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
         }
 
         private void DiceOnShrineUse(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
@@ -61,7 +61,7 @@ namespace ClassicItemsReturns.Items
             if (canBeAfforded && (self.isShrine || self.isGoldShrine))
             {
                 CharacterBody body = activator.GetComponent<CharacterBody>();
-                if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(this.ItemDef) <= 0) return;
+                if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(ItemDef) <= 0) return;
 
                 MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
                 if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
@@ -103,7 +103,7 @@ namespace ClassicItemsReturns.Items
             CharacterMaster master = inventory.GetComponent<CharacterMaster>();
             if (!master) return;
 
-            bool hasItem = inventory.GetItemCount(this.ItemDef) > 0;
+            bool hasItem = inventory.GetItemCount(ItemDef) > 0;
             if (hasItem)
             {
                 MasterSnakeEyesTracker mset = master.GetComponent<MasterSnakeEyesTracker>();

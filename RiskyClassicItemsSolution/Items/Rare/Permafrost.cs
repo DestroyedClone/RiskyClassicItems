@@ -4,7 +4,7 @@ using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Rare
 {
     public class Permafrost : ItemBase<Permafrost>
     {

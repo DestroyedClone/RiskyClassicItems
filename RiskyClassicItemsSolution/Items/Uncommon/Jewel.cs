@@ -8,7 +8,7 @@ using System.Text;
 using UnityEngine;
 
 
-namespace ClassicItemsReturns.Items
+namespace ClassicItemsReturns.Items.Uncommon
 {
     public class Jewel : ItemBase<Jewel>
     {
@@ -81,7 +81,7 @@ namespace ClassicItemsReturns.Items
             CharacterBody interactorBody = interactor.GetComponent<CharacterBody>();
             if (!interactorBody || !interactorBody.inventory) return;
 
-            int itemCount = interactorBody.inventory.GetItemCount(this.ItemDef);
+            int itemCount = interactorBody.inventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
 
 
@@ -89,7 +89,7 @@ namespace ClassicItemsReturns.Items
             //JewelOrb extends GoldOrb to grant barrier as well
             if (Run.instance && Stage.instance)
             {
-               JewelOrb goldOrb = new JewelOrb();
+                JewelOrb goldOrb = new JewelOrb();
                 Orb orb = goldOrb;
                 GameObject purchasedObject = interactableObject;
                 Vector3? vector;
@@ -100,11 +100,11 @@ namespace ClassicItemsReturns.Items
                 else
                 {
                     Transform transform = purchasedObject.transform;
-                    vector = ((transform != null) ? new Vector3?(transform.position) : null);
+                    vector = transform != null ? new Vector3?(transform.position) : null;
                 }
-                orb.origin = (vector ?? interactorBody.corePosition);
+                orb.origin = vector ?? interactorBody.corePosition;
                 goldOrb.target = interactorBody.mainHurtBox;
-                goldOrb.goldAmount = (uint)RoR2.Run.instance.GetDifficultyScaledCost(moneyToGrant, RoR2.Stage.instance.entryDifficultyCoefficient);
+                goldOrb.goldAmount = (uint)Run.instance.GetDifficultyScaledCost(moneyToGrant, Stage.instance.entryDifficultyCoefficient);
                 goldOrb.barrierPercentGrant = barrierInitial + barrierStack * (itemCount - 1);
                 OrbManager.instance.AddOrb(goldOrb);
             }
@@ -117,15 +117,15 @@ namespace ClassicItemsReturns.Items
         public override void OnArrival()
         {
             base.OnArrival();
-            if (this.target)
+            if (target)
             {
-                if (this.target.healthComponent && barrierPercentGrant > 0f)
+                if (target.healthComponent && barrierPercentGrant > 0f)
                 {
-                    this.target.healthComponent.AddBarrier(barrierPercentGrant * this.target.healthComponent.fullCombinedHealth);
+                    target.healthComponent.AddBarrier(barrierPercentGrant * target.healthComponent.fullCombinedHealth);
                 }
-                if (this.target.transform && Jewel.activationSound)
+                if (target.transform && Jewel.activationSound)
                 {
-                    EffectManager.SimpleSoundEffect(Jewel.activationSound.index, this.target.transform.position, true);
+                    EffectManager.SimpleSoundEffect(Jewel.activationSound.index, target.transform.position, true);
                 }
             }
         }
