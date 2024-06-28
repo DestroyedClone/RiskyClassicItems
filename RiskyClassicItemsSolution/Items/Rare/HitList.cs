@@ -147,7 +147,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void InitializeHitListMinigameServer()
         {
-            if (!NetworkServer.active) return;
+            if (!NetworkServer.active || HitListMinigameController.instance) return;
 
             GameObject obj = new GameObject();
             obj.AddComponent<HitListMinigameController>();
