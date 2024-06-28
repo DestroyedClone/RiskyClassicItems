@@ -88,9 +88,9 @@ namespace ClassicItemsReturns.Items.Rare
             {
                 IncrementHitListServer();
 
-                if (MarkEnemyKilledSound)
+                if (markEnemyKilledSound)
                 {
-                    EffectManager.SimpleSoundEffect(MarkEnemyKilledSound.index, damageReport.victimBody.corePosition, true);
+                    EffectManager.SimpleSoundEffect(markEnemyKilledSound.index, damageReport.victimBody.corePosition, true);
                 }
             }
         }
@@ -111,7 +111,8 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void onServerStageBegin_InitMinigame(Stage obj)
         {
-            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0 && !HitListMinigameController.instance)
+            if (HitListMinigameController.instance) UnityEngine.Object.Destroy(HitListMinigameController.instance.gameObject);
+            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0)
             {
                 InitializeHitListMinigameServer();
             }
@@ -221,7 +222,7 @@ namespace ClassicItemsReturns.Items.Rare
             }
             else
             {
-                Debug.Log("ClassicItemsReturns: Failed to initialize HitListMinigameController");
+                //Debug.Log("ClassicItemsReturns: Failed to initialize HitListMinigameController");
                 Destroy(this.gameObject);
             }
         }
@@ -291,9 +292,9 @@ namespace ClassicItemsReturns.Items.Rare
                 validBodies.Remove(body);
                 toPick--;
 
-                if (HitList.MarkEnemySound)
+                if (HitList.markEnemySound)
                 {
-                    EffectManager.SimpleSoundEffect(HitList.MarkEnemySound.index, body.corePosition, true);
+                    EffectManager.SimpleSoundEffect(HitList.markEnemySound.index, body.corePosition, true);
                 }
             }
         }

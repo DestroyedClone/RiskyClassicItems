@@ -248,6 +248,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wHitlist" ID="{E1805EAC-57F7-42E8-8596-D712D1B9798B}" ShortID="891600258">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -270,6 +277,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wHitlistMark" ID="{517AA9F4-7C22-496D-BB67-864DFBE985D0}" ShortID="42588661">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
