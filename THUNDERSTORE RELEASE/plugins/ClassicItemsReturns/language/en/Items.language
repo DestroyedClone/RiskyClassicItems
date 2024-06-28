@@ -24,8 +24,8 @@
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "Order: Life Savings\r\nTracking Number: 1518***********\r\nEstimated Delivery: 02\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: moms house\r\nShipping Details:\r\n\r\nhi im billy and heer is money for mom thanks",
 
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "The Toxin",
-		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "Touching an enemy makes it vulnerable to your next attack",
-		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "<style=cIsDamage>Touching</style> an enemy makes it <style=cIsDamage>vulnerable</style> to your next attack, <style=cIsDamage>reducing</style> its <style=cIsDamage>armor</style> by <style=cIsDamage>{0}</style> for <style=cIsDamage>{1} seconds</style> <style=cStack>(+{2} seconds per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "Touch enemies to weaken them.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "<style=cIsDamage>Infect</style> enemies on contact for <style=cIsDamage>3</style> <style=cStack>(+1 per stack)</style> seconds, causing them to receive <style=cIsDamage>{0}% extra damage</style> from all sources.",
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "Order: The Toxin\r\nEstimated Delivery: 04\/30\/2056\r\nShipping Method: Unmarked\r\nShipping Address: EICO labs, City of Gold, Earth\r\nShipping Details:\r\n\r\nTEST SUMMARY\n[id.416c7068615468726565]\nSubject stabilized - Notable levels of arousal.\nIncreased disposition to disperse.\nSpecialized containment necessary if active.\nN31 applied, watch for adverse reactions.\nHandling prohibited for this phase.\nAOD: 53 75 6e 46 61 6c 6c",
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "Snake Eyes",

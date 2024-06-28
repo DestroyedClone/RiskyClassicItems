@@ -7,6 +7,7 @@ using RoR2;
 using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
+using ClassicItemsReturns.SharedHooks;
 
 namespace ClassicItemsReturns.Items.Common
 {
@@ -58,14 +59,17 @@ namespace ClassicItemsReturns.Items.Common
 
         public override void Hooks()
         {
-            RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+            SharedHooks.ModifyFinalDamage.ModifyFinalDamageActions += ModifyDamage;
         }
 
-        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        private static void ModifyDamage(SharedHooks.ModifyFinalDamage.DamageMult damageMult, DamageInfo damageInfo,
+            HealthComponent victim, CharacterBody victimBody,
+            CharacterBody attackerBody, Inventory attackerInventory)
         {
-            if (ItemHelpers.TryGetBuffCount(sender, Buffs.WeakenOnContactBuff, out var _))
+            if (victimBody.HasBuff(Buffs.WeakenOnContactBuff))
             {
-                args.armorAdd -= Instance.armorReduction;
+                damageMult.damageMult += 0.3f;
+                if (damageInfo.damageColorIndex == DamageColorIndex.Default) damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
             }
         }
 
@@ -95,8 +99,6 @@ namespace ClassicItemsReturns.Items.Common
                 sphereSearch.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
 
                 lerp_denominator = body.baseMoveSpeed * body.sprintingSpeedMultiplier * 2f + body.baseMoveSpeed;
-                //If I set it to just basespeed*sprintingspeedmultiplier*2, then the base movement, will just
-                //base = 7, which already makes the check frequency hit halfway, so gotta offset it
             }
 
             public void FixedUpdate()

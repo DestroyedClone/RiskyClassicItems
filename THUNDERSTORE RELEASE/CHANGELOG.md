@@ -22,6 +22,9 @@
 				- Moon Battery
 				- Void Locus Signal
 				- Void Fields Cell
+				
+		- The Toxin
+			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
 			
 	- Equipment
 		- Drone Repair Kit

@@ -78,6 +78,7 @@ namespace ClassicItemsReturns
             SharedHooks.TakeDamage.Initialize();
             SharedHooks.OnHitEnemy.Initialize();
             SharedHooks.OnCharacterDeath.Initialize();
+            SharedHooks.ModifyFinalDamage.Initialize();
             new IsTeleActivatedTracker();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };

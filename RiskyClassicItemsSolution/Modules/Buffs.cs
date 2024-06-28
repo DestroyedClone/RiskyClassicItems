@@ -6,6 +6,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
+//TODO: Need consistency. Should buffs be entirely defined here, or defined in their respective items?
 namespace ClassicItemsReturns.Modules
 {
     internal class Buffs
@@ -99,18 +100,23 @@ namespace ClassicItemsReturns.Modules
                 {
                     Debug.LogError("ClassicItemsReturns: Failed to set up Prescriptions Overlay.");
                 }
-            };
-            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
-        }
 
-        private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
-        {
-            if (self.body && self.body.HasBuff(WeakenOnContactBuff))
-            {
-                if (damageInfo.damageColorIndex == DamageColorIndex.Default)
-                    damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
-            }
-            orig(self, damageInfo);
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "Immune")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterModel, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || (self.body.HasBuff(DroneRepairBuff));
+                    });
+                }
+                else
+                {
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Drone Repair Kit Overlay.");
+                }
+            };
         }
 
         private static void InitializeBuffDefs()

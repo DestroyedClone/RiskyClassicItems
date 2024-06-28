@@ -32,7 +32,6 @@ namespace ClassicItemsReturns.Equipment
 
         public override Sprite EquipmentIcon => LoadItemSprite("RepairKit");
 
-        public static BuffDef DroneRepairBuff => Buffs.DroneRepairBuff;
         public override bool Unfinished => true;
 
         public override void CreateAssets(ConfigFile config)
@@ -45,25 +44,11 @@ namespace ClassicItemsReturns.Equipment
         public override void Hooks()
         {
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
-
-            IL.RoR2.CharacterModel.UpdateOverlays += (il) =>
-            {
-                ILCursor c = new ILCursor(il);
-                c.GotoNext(
-                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "Immune")
-                    );
-                c.Index += 2;
-                c.Emit(OpCodes.Ldarg_0);
-                c.EmitDelegate<Func<bool, CharacterModel, bool>>((hasBuff, self) =>
-                {
-                    return hasBuff || (self.body.HasBuff(DroneRepairBuff));
-                });
-            };
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            bool hasBuff =  sender.HasBuff(DroneRepairBuff);
+            bool hasBuff =  sender.HasBuff(Buffs.DroneRepairBuff);
             if (hasBuff)
             {
                 args.attackSpeedMultAdd += buffAttackSpeed;
@@ -94,7 +79,7 @@ namespace ClassicItemsReturns.Equipment
                         if (body)
                         {
                             if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
-                            body.AddTimedBuff(DroneRepairBuff, buffDuration);
+                            body.AddTimedBuff(Buffs.DroneRepairBuff, buffDuration);
                             activationCount++;
                         }
                     }
