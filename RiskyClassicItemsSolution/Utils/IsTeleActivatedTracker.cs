@@ -8,6 +8,11 @@ namespace ClassicItemsReturns.Utils
     public class IsTeleActivatedTracker
     {
         public static bool teleporterActivated = false;
+        public static List<string> alwaysActiveStages = new List<string>()
+        {
+            "voidraid",
+            "goldshores"
+        };
 
         public IsTeleActivatedTracker()
         {
@@ -17,10 +22,22 @@ namespace ClassicItemsReturns.Utils
             On.EntityStates.InfiniteTowerSafeWard.Active.OnEnter += Active_OnEnter;
             On.EntityStates.InfiniteTowerSafeWard.Travelling.OnEnter += Travelling_OnEnter;
             On.EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState.OnEnter += BrotherEncounterPhaseBaseState_OnEnter;
-            On.RoR2.VoidRaidEncounterController.Start += VoidRaidEncounterController_Start;
             On.RoR2.ArenaMissionController.BeginRound += ArenaMissionController_BeginRound;
-            On.RoR2.VoidStageMissionController.OnBatteryActivated += VoidStageMissionController_OnBatteryActivated;
             On.EntityStates.Missions.Moon.MoonBatteryActive.OnEnter += MoonBatteryActive_OnEnter;
+            On.EntityStates.ArtifactShell.StartHurt.OnEnter += StartHurt_OnEnter;
+            On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
+        }
+
+        private void StartHurt_OnEnter(On.EntityStates.ArtifactShell.StartHurt.orig_OnEnter orig, EntityStates.ArtifactShell.StartHurt self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
+        }
+
+        private void Charging_OnEnter(On.EntityStates.DeepVoidPortalBattery.Charging.orig_OnEnter orig, EntityStates.DeepVoidPortalBattery.Charging self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
         }
 
         private void MoonBatteryActive_OnEnter(On.EntityStates.Missions.Moon.MoonBatteryActive.orig_OnEnter orig, EntityStates.Missions.Moon.MoonBatteryActive self)
@@ -29,19 +46,7 @@ namespace ClassicItemsReturns.Utils
             IsTeleActivatedTracker.teleporterActivated = true;
         }
 
-        private void VoidStageMissionController_OnBatteryActivated(On.RoR2.VoidStageMissionController.orig_OnBatteryActivated orig, VoidStageMissionController self)
-        {
-            orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
-        }
-
         private void ArenaMissionController_BeginRound(On.RoR2.ArenaMissionController.orig_BeginRound orig, ArenaMissionController self)
-        {
-            orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
-        }
-
-        private void VoidRaidEncounterController_Start(On.RoR2.VoidRaidEncounterController.orig_Start orig, VoidRaidEncounterController self)
         {
             orig(self);
             IsTeleActivatedTracker.teleporterActivated = true;
@@ -80,6 +85,9 @@ namespace ClassicItemsReturns.Utils
         private void Stage_onStageStartGlobal(Stage obj)
         {
             IsTeleActivatedTracker.teleporterActivated = false;
+
+            SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
+            if (currentScene && alwaysActiveStages.Contains(currentScene.cachedName)) IsTeleActivatedTracker.teleporterActivated = true;
         }
     }
 }

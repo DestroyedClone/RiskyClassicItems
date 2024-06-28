@@ -25,8 +25,11 @@
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:
 				- Moon Battery
-				- Void Locus Signal
 				- Void Fields Cell
+				- Void Locus Signal
+				- Voidling
+				- Artifact Reliquary
+				- Golden Coast
 				
 		- The Toxin
 			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
