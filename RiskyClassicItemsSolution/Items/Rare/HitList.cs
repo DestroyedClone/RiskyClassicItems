@@ -20,9 +20,9 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override ItemTier Tier => ItemTier.Tier3;
 
-        public override GameObject ItemModel => LoadItemModel("HyperThreader");
+        public override GameObject ItemModel => LoadItemModel("HitList");
 
-        public override Sprite ItemIcon => LoadItemSprite("HyperThreader");
+        public override Sprite ItemIcon => LoadItemSprite("HitList");
 
         public override bool unfinished => true;
 
