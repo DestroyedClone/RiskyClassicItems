@@ -36,6 +36,12 @@ namespace ClassicItemsReturns.Items.Rare
             ItemTag.AIBlacklist
         };
 
+        public override object[] ItemFullDescriptionParams => new object[]
+        {
+            damagePerStack,
+            killsPerCycle
+        };
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
@@ -48,6 +54,20 @@ namespace ClassicItemsReturns.Items.Rare
             CharacterBody.onBodyInventoryChangedGlobal += onBodyInventoryChangedGlobal_RemoveBuffsServer;
             RoR2.Stage.onServerStageBegin += onServerStageBegin_InitMinigame;
             GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+            CharacterBody.onBodyStartGlobal += onBodyStartGlobal_InitBuffs;
+        }
+
+        private void onBodyStartGlobal_InitBuffs(CharacterBody body)
+        {
+            if (!NetworkServer.active) return;
+
+            if (body.master && body.master.inventory && body.master.inventory.GetItemCount(ItemDef) > 0)
+            {
+
+                var kc = body.master.gameObject.GetComponent<HitListKillCounterServer>();
+                if (!kc) kc = body.master.gameObject.AddComponent<HitListKillCounterServer>();
+                kc.SetBuffsServer();
+            }
         }
 
         private void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
@@ -281,12 +301,14 @@ namespace ClassicItemsReturns.Items.Rare
 
         public void SetBuffsServer()
         {
-            if (!NetworkServer.active) return;
+            if (!NetworkServer.active || killCount <= 0) return;
             if (!master)
             {
                 master = base.GetComponent<CharacterMaster>();
                 if (!master) return;
             }
+
+            if (!master.inventory || master.inventory.GetItemCount(HitList.Instance.ItemDef) <= 0) return;
 
             CharacterBody body = master.GetBody();
             if (!body) return;
