@@ -122,5 +122,10 @@
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": "Pew pew.",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "<style=cIsDamage>{0}%</style> chance on hit to <style=cIsDamage>fire a laser</style> that deals <style=cIsDamage>{1}% base damage</style> and <style=cIsDamage>bounces</style> to <style=cIsDamage>{2}</style> <style=cStack>(+{3} per stack)</style> enemies.",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "Order: Hyper-Threader\r\nTracking Number: 1360***********\r\nEstimated Delivery: 12\/08\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 6900 West, Advanced Warfare Center, Mars\r\nShipping Details:\r\n\r\nDespite its appearance, the FNA 200 'Hyper-Threader' Energy Subrifle is anything but fragile.\n\nUsing direct energy energy technology, the FNA 200 can fire superheated gases at a high fire rate. The FNA 200 also requires little to no charging, instead generating energy from the air around it.",
+
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "The Hit List",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "Killing marked enemies permanently increases damage.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "Randomly <style=cIsDamage>marks</style> up to <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> enemy. Killing a <style=cIsDamage>marked</style> enemy <style=cIsDamage>permanently</style> increases <style=cIsDamage>base damage</style> by <style=cIsDamage>{0}</style>. Every <style=cIsDamage>{1}</style> kills <style=cIsHealth>reduces</style> the damage gained from this item.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "Order: The Hit List\r\nTracking Number: 1362***********\r\nEstimated Delivery: 11\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: St Johns, Cluster 6, Venus\r\nShipping Details:\r\n\r\nDon't forget.. don't forget what they did..\n-A.Bn\n-Fr.Ntn\n-[CLEARED]\n-[CLEARED]\n-Random wildlife\n-[CLEARED]\n-Grvnmk\n-[CLEARED]",
 	}
 }
