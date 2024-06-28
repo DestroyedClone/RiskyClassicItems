@@ -205,13 +205,13 @@ namespace ClassicItemsReturns.Modules
 
             HitListEnemyMarker = CreateBuffInternal("CIR_HitListEnemyMarker",
                 new Color32(255, 232, 68, 255), false,
-                null, Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Bandit2/texBuffBanditSkullIcon.tif").WaitForCompletion(),
+                null, Assets.LoadSprite("texBuffHitListMark"),
                 false, false,
                 false, null);
 
             HitListPlayerBuff = CreateBuffInternal("CIR_HitListPlayerBuff",
                 new Color32(255, 232, 68, 255), true,
-                null, Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Bandit2/texBuffBanditSkullIcon.tif").WaitForCompletion(),
+                null, Assets.LoadSprite("texBuffHitListMark"),
                 false, false,
                 false, null);
         }

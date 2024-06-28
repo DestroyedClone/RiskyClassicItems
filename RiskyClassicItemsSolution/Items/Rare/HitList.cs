@@ -30,6 +30,8 @@ namespace ClassicItemsReturns.Items.Rare
         public int killsPerCycle = 20;
 
         public static NetworkSoundEventDef markEnemySound, markEnemyKilledSound;
+        public static GameObject markerPrefab;
+        public static GameObject checkPrefab;
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
@@ -51,7 +53,14 @@ namespace ClassicItemsReturns.Items.Rare
         public override void CreateAssets(ConfigFile config)
         {
             markEnemyKilledSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitList");
-            markEnemySound = Assets.CreateNetworkSoundEventDef("ay_ClassicItemsReturns_HitListMark");
+            markEnemySound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitListMark");
+
+            markerPrefab = Assets.LoadObject("HitListMarker");
+            markerPrefab.AddComponent<RoR2.Billboard>();
+
+            checkPrefab = Assets.LoadObject("HitListCheck");
+            checkPrefab.AddComponent<RoR2.Billboard>();
+            checkPrefab.AddComponent<FadeOverDuration>();
         }
 
         public override void Hooks()
@@ -62,6 +71,26 @@ namespace ClassicItemsReturns.Items.Rare
             RoR2.Stage.onServerStageBegin += onServerStageBegin_InitMinigame;
             GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
             CharacterBody.onBodyStartGlobal += onBodyStartGlobal_InitBuffs;
+            On.RoR2.CharacterBody.OnClientBuffsChanged += CharacterBody_OnClientBuffsChanged;
+        }
+
+        private void CharacterBody_OnClientBuffsChanged(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
+        {
+            orig(self);
+
+            var controller = self.GetComponent<BodyHitListMarkerController>();
+            if (self.HasBuff(Buffs.HitListEnemyMarker))
+            {
+                if (!controller)
+                {
+                    controller = self.gameObject.AddComponent<BodyHitListMarkerController>();
+                    controller.body = self;
+                }
+            }
+            else
+            {
+                if (controller) UnityEngine.Object.Destroy(controller);
+            }
         }
 
         private void onBodyStartGlobal_InitBuffs(CharacterBody body)
@@ -353,6 +382,74 @@ namespace ClassicItemsReturns.Items.Rare
             {
                 body.RemoveBuff(Buffs.HitListPlayerBuff);
             }
+        }
+    }
+
+    public class BodyHitListMarkerController : MonoBehaviour
+    {
+        private GameObject markerInstance;
+        public CharacterBody body;
+        private bool destroying = false;
+
+        private void Start()
+        {
+            if (!markerInstance)
+            {
+                markerInstance = GameObject.Instantiate(HitList.markerPrefab, base.transform);
+            }
+        }
+
+        //FixedUpdate allows this to run clientside
+        private void FixedUpdate()
+        {
+            if (destroying) return;
+
+            if (body && body.healthComponent && !body.healthComponent.alive)
+            {
+                destroying = true;
+                GameObject check = GameObject.Instantiate(HitList.checkPrefab);
+                check.transform.position = base.transform.position;
+                Destroy(this);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (markerInstance) Destroy(markerInstance);
+        }
+    }
+
+    public class FadeOverDuration : MonoBehaviour
+    {
+        public float initialDelay = 1f;
+        public float fadeTime = 1f;
+
+        private float stopwatch;
+        private float initialAlpha = 1f;
+        private SpriteRenderer renderer;
+
+        private void Awake()
+        {
+            stopwatch = 0f;
+            renderer = base.GetComponentInChildren<SpriteRenderer>();
+            if (!renderer)
+            {
+                Destroy(this);
+                return;
+            }
+            initialAlpha = renderer.color.a;
+        }
+
+        private void Update()
+        {
+            if (stopwatch >= initialDelay + fadeTime)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
+            stopwatch += Time.deltaTime;
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, Mathf.Lerp(1f, 0f, (stopwatch - initialAlpha) / fadeTime));
         }
     }
 }
