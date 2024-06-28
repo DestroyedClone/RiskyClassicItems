@@ -29,7 +29,7 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "3.0.0";
+        public const string ModVer = "3.1.0";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
@@ -37,6 +37,7 @@ namespace ClassicItemsReturns
         public static PluginInfo PInfo { get; private set; }
         public static bool useClassicSprites = false;
         public static bool use3dModels = true;
+        public static bool useUnfinished = false;
 
         public static List<ArtifactBase> Artifacts = new List<ArtifactBase>();
         public static List<ItemBase> Items = new List<ItemBase>();
@@ -60,6 +61,7 @@ namespace ClassicItemsReturns
         {
             use3dModels = Config.Bind("General", "Use 3d Models", true, "Use 3d models instead of sprites.").Value;
             useClassicSprites = Config.Bind("General", "Use Classic Sprites", false, "Use the original Risk of Rain sprites instead of the Returns sprites. (Requires Use 3d Models = false)").Value;
+            useUnfinished = Config.Bind("General", "Enable Unfinished Content", false, "Enables unfinished content that lacks 3d models.").Value;
 
             PInfo = Info;
             ModLogger = Logger;
@@ -76,6 +78,7 @@ namespace ClassicItemsReturns
             SharedHooks.TakeDamage.Initialize();
             SharedHooks.OnHitEnemy.Initialize();
             SharedHooks.OnCharacterDeath.Initialize();
+            SharedHooks.ModifyFinalDamage.Initialize();
             new IsTeleActivatedTracker();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
@@ -198,9 +201,18 @@ namespace ClassicItemsReturns
         /// <param name="itemList">The list you would like to add this to if it passes the config check.</param>
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
-            var enabled = Config.Bind(item.ConfigCategory, "Enable Item?", true, "Should this item appear in runs?").Value;
+            string enabledDescription = "Should this item appear in runs?";
+            if (item.unfinished)
+            {
+                enabledDescription = "UNFINISHED! " + enabledDescription;
+            }
+            var enabled = Config.Bind(item.ConfigCategory, "Enable Item?", true, enabledDescription).Value;
             bool itemAlreadyHasBlacklist = item.ItemTags.Contains(RoR2.ItemTag.AIBlacklist);
             var aiBlacklist = Config.Bind(item.ConfigCategory, "Blacklist Item from AI Use?", itemAlreadyHasBlacklist, "Should the AI not be able to obtain this item?").Value;
+            if (item.unfinished && !useUnfinished)
+            {
+                return false;
+            }
             if (enabled)
             {
                 itemList.Add(item);
@@ -219,9 +231,17 @@ namespace ClassicItemsReturns
         /// <param name="equipmentList">The list you would like to add this to if it passes the config check.</param>
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
         {
-            var equipConfig = Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?");
-
-            if (equipConfig.Value)
+            var enabledDescription = "Should this equipment appear in runs?";
+            if (equipment.Unfinished)
+            {
+                enabledDescription = "UNFINISHED! " + enabledDescription;
+            }
+            var enabled = Config.Bind(equipment.ConfigCategory, "Enable Equipment?", true, enabledDescription).Value;
+            if (equipment.Unfinished && !useUnfinished)
+            {
+                return false;
+            }
+            if (enabled)
             {
                 equipmentList.Add(equipment);
 

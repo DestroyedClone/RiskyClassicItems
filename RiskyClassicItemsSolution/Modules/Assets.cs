@@ -100,6 +100,9 @@ namespace ClassicItemsReturns.Modules
         public static void PopulateAssets()
         {
             mainAssetBundle = AssetBundle.LoadFromFile(AssetBundlePath);
+
+            //Async causes this to not work properly
+            ShaderSwapper.ShaderSwapper.UpgradeStubbedShaders(mainAssetBundle);
         }
 
         public static Sprite LoadSprite(string path)

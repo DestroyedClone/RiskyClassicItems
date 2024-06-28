@@ -6,6 +6,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
+//TODO: Need consistency. Should buffs be entirely defined here, or defined in their respective items?
 namespace ClassicItemsReturns.Modules
 {
     internal class Buffs
@@ -18,6 +19,10 @@ namespace ClassicItemsReturns.Modules
         public static BuffDef ShacklesBuff;
         public static BuffDef ThalliumBuff;
         public static BuffDef WeakenOnContactBuff;
+        public static BuffDef DroneRepairBuff;
+
+        public static BuffDef HitListEnemyMarker;
+        public static BuffDef HitListPlayerBuff;
 
         //Unique icon for each buff.
         public static class SnakeEyesBuffs
@@ -98,18 +103,23 @@ namespace ClassicItemsReturns.Modules
                 {
                     Debug.LogError("ClassicItemsReturns: Failed to set up Prescriptions Overlay.");
                 }
-            };
-            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
-        }
 
-        private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
-        {
-            if (self.body && self.body.HasBuff(WeakenOnContactBuff))
-            {
-                if (damageInfo.damageColorIndex == DamageColorIndex.Default)
-                    damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
-            }
-            orig(self, damageInfo);
+                if (c.TryGotoNext(
+                     x => x.MatchLdsfld(typeof(RoR2Content.Buffs), "Immune")
+                    ))
+                {
+                    c.Index += 2;
+                    c.Emit(OpCodes.Ldarg_0);
+                    c.EmitDelegate<Func<bool, CharacterModel, bool>>((hasBuff, self) =>
+                    {
+                        return hasBuff || (self.body.HasBuff(DroneRepairBuff));
+                    });
+                }
+                else
+                {
+                    Debug.LogError("ClassicItemsReturns: Failed to set up Drone Repair Kit Overlay.");
+                }
+            };
         }
 
         private static void InitializeBuffDefs()
@@ -146,13 +156,20 @@ namespace ClassicItemsReturns.Modules
                 new Color(0.918f, 0.408f, 0.420f, 1.000f), false,
                 null, Assets.LoadSprite("texBuffShackles"),
                 false, true, false, null);
+
             ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",
                 rgb(123, 74, 149), false,
                 null, Assets.LoadSprite("texBuffThallium"),
                 false, true, false, null);
+
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
                 new Color(0.784f, 0.937f, 0.427f, 1f), false,
                 null, Assets.LoadSprite("texBuffToxin"),
+                false, true, false, null);
+
+            DroneRepairBuff = CreateBuffInternal("CIR_DroneRepairBuff",
+                new Color(0.784f, 0.937f, 0.427f, 1f), false,
+                null, Addressables.LoadAssetAsync<Sprite>("RoR2/Base/ShockNearby/texBuffTeslaIcon.tif").WaitForCompletion(),
                 false, true, false, null);
 
             SnakeEyesBuffs.Snake1 = CreateBuffInternal("CIR_Snake1",
@@ -183,6 +200,18 @@ namespace ClassicItemsReturns.Modules
             SnakeEyesBuffs.Snake6 = CreateBuffInternal("CIR_Snake6",
                 new Color32(214, 58, 58, 255), false,
                 null, Assets.LoadSprite("texBuffSnake6"),
+                false, false,
+                false, null);
+
+            HitListEnemyMarker = CreateBuffInternal("CIR_HitListEnemyMarker",
+                new Color32(255, 232, 68, 255), false,
+                null, Assets.LoadSprite("texBuffHitListMark"),
+                false, false,
+                false, null);
+
+            HitListPlayerBuff = CreateBuffInternal("CIR_HitListPlayerBuff",
+                new Color32(255, 232, 68, 255), true,
+                null, Assets.LoadSprite("texBuffHitListMark"),
                 false, false,
                 false, null);
         }

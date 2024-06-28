@@ -36,6 +36,72 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_ClassicItemsReturns_RepairKit" ID="{A5B6F2DD-D1FF-43A1-A66E-37864BFC8A45}">
+					<ChildrenList>
+						<Action Name="" ID="{FB41D467-C84A-4857-99B3-797434A8EAF7}" ShortID="490245929">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wRepairKit" ID="{ADB2E2BD-BD98-4437-9DF7-2510A3AABD15}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ClassicItemsReturns_Reflect" ID="{4F1423DA-B6ED-4105-BBA9-CBF8FFD41186}">
+					<ChildrenList>
+						<Action Name="" ID="{36CBAB8A-2D07-4F3E-AFB2-84F78144F47D}" ShortID="138846509">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wReflect" ID="{9A95B534-9230-4881-BF12-69D3247FB23B}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ClassicItemsReturns_Punch" ID="{E99ECBCE-9C04-44C5-ABE8-C1DE52315A86}">
+					<ChildrenList>
+						<Action Name="" ID="{C876DCC1-86A1-471A-9999-C48A1F660FDD}" ShortID="140450759">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="punch" ID="{A30DB383-526F-4716-855C-7A23AD749D05}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ClassicItemsReturns_Jetpack" ID="{4AD44027-880C-49CC-8768-81E5C4226A6D}">
+					<ChildrenList>
+						<Action Name="" ID="{6D0F2506-D5B8-456F-A8BC-06374B37FB3C}" ShortID="863576577">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wJetpack2Deactivate" ID="{4EEC57D5-5A9E-486E-9BD0-61148B098FA5}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ClassicItemsReturns_HitList" ID="{E4987BE4-2279-49BF-A531-2E8BD183A28C}">
+					<ChildrenList>
+						<Action Name="" ID="{C7824E3A-6194-4D99-AC2B-11378BA8CD89}" ShortID="799075875">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wHitlist" ID="{E1805EAC-57F7-42E8-8596-D712D1B9798B}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ClassicItemsReturns_HitListMark" ID="{5354A19C-06EC-4581-9695-CD3F13D1EB24}">
+					<ChildrenList>
+						<Action Name="" ID="{E81840D6-61F9-4C7A-B9F9-36544344FB96}" ShortID="592208687">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wHitlistMark" ID="{517AA9F4-7C22-496D-BB67-864DFBE985D0}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -1,3 +1,48 @@
+- `3.1.0`
+	- Items
+		- Energy Cell (New)
+			- Increases attack speed by 10%-40% (+10%-40%) based on health lost.
+				- 100% HP = 10%
+				- 25% HP = 40%
+				
+		- Boxing Glove (New)
+			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
+			
+		- Rusty Jetpack (New)
+			- Gain a jetpack jump with an additional 0% (+10%) jump height.
+				- Diminishing returns, each stack is reduced by 10% (10%, 9%, 8.1%, etc.)
+				
+			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
+			
+		- Hyper-Threader (New)
+			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
+			
+		- The Hit List (New)
+			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 20 kills reduces the damage gained from this item.
+				- First 20 kills = 1 damage, next 20 = 0.5 (1/2), next 20 = 0.33 (1/3), etc.
+				- Procs for everyone who has the item.
+			
+		- Mu Construct/Arcane Blades
+			- Now can trigger from:
+				- Moon Battery
+				- Void Fields Cell
+				- Void Locus Signal
+				- Voidling
+				- Artifact Reliquary
+				- Golden Coast
+				
+		- The Toxin
+			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
+			
+	- Equipment
+		- Drone Repair Kit (New)
+			- All drones are repaired to full health and empowered for 8s.
+				- +50% Attack Speed
+				- -50% Cooldowns
+				- +50 Armor
+		
+	- Various minor tweaks to textures.
+
 - `3.0.1`
 	- Adjusted icons for some items to be closer to the in-game model.
 	- Fixed Prescriptions description listing the wrong numbers in the readme.
