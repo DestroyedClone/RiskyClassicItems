@@ -16,8 +16,8 @@ namespace ClassicItemsReturns.Items
         public const float classicJumpBonus = 0.1f;
         public const float classicJumpBonusStack = 0.1f;
 
-        public const float jumpBonus = 0.1f;
-        public const float jumpBonusStackMult = 0.9f;
+        public const float jumpBonus = 0.2f;
+        public const float jumpBonusStackMult = 0.8f;
         public override string ItemName => "Rusty Jetpack";
 
         public override string ItemLangTokenName => "RUSTYJETPACK";
