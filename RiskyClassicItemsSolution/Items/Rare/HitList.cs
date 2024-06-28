@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using BepInEx.Configuration;
 
 namespace ClassicItemsReturns.Items.Rare
 {
@@ -28,7 +29,7 @@ namespace ClassicItemsReturns.Items.Rare
         public float damagePerStack = 1f;
         public int killsPerCycle = 20;
 
-        public static NetworkSoundEventDef MarkEnemySound, MarkEnemyKilledSound;
+        public static NetworkSoundEventDef markEnemySound, markEnemyKilledSound;
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
@@ -45,6 +46,12 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
+        }
+
+        public override void CreateAssets(ConfigFile config)
+        {
+            markEnemyKilledSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitList");
+            markEnemySound = Assets.CreateNetworkSoundEventDef("ay_ClassicItemsReturns_HitListMark");
         }
 
         public override void Hooks()
@@ -80,6 +87,11 @@ namespace ClassicItemsReturns.Items.Rare
                 .HasTeam(damageReport.victimBody.teamComponent.teamIndex))
             {
                 IncrementHitListServer();
+
+                if (MarkEnemyKilledSound)
+                {
+                    EffectManager.SimpleSoundEffect(MarkEnemyKilledSound.index, damageReport.victimBody.corePosition, true);
+                }
             }
         }
 
@@ -176,12 +188,6 @@ namespace ClassicItemsReturns.Items.Rare
                     if (!kc) kc = member.body.master.gameObject.AddComponent<HitListKillCounterServer>();
                     kc.Increment();
                 }
-
-                if (MarkEnemyKilledSound)
-                {
-                    //This is a UI sound
-                    EffectManager.SimpleSoundEffect(MarkEnemyKilledSound.index, Vector3.zero, true);
-                }
             }
         }
     }
@@ -277,12 +283,6 @@ namespace ClassicItemsReturns.Items.Rare
 
             toPick = Mathf.Min(validBodies.Count, toPick);
 
-            if (toPick > 0 && HitList.MarkEnemySound)
-            {
-                //This is a UI sound
-                EffectManager.SimpleSoundEffect(HitList.MarkEnemySound.index, Vector3.zero, true);
-            }
-
             while (toPick > 0)
             {
                 int selectedIndex = rng.RangeInt(0, validBodies.Count);
@@ -290,6 +290,11 @@ namespace ClassicItemsReturns.Items.Rare
                 body.AddTimedBuff(Buffs.HitListEnemyMarker, HitListMinigameController.markDuration);
                 validBodies.Remove(body);
                 toPick--;
+
+                if (HitList.MarkEnemySound)
+                {
+                    EffectManager.SimpleSoundEffect(HitList.MarkEnemySound.index, body.corePosition, true);
+                }
             }
         }
     }

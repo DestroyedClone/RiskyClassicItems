@@ -11,6 +11,8 @@
 						<ObjectRef Name="Play_ClassicItemsReturns_JarSouls" ID="{006BF9D1-718D-42A2-9CEB-3E2007A68918}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ClassicItemsReturns_RepairKit" ID="{A5B6F2DD-D1FF-43A1-A66E-37864BFC8A45}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ClassicItemsReturns_Punch" ID="{E99ECBCE-9C04-44C5-ABE8-C1DE52315A86}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ClassicItemsReturns_HitListMark" ID="{5354A19C-06EC-4581-9695-CD3F13D1EB24}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ClassicItemsReturns_HitList" ID="{E4987BE4-2279-49BF-A531-2E8BD183A28C}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ClassicItemsReturns_Jetpack" ID="{4AD44027-880C-49CC-8768-81E5C4226A6D}" WorkUnitID="{7AAA125C-2380-4356-A515-8C32D5CD2B21}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
