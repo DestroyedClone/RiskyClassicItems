@@ -17,6 +17,11 @@
 		- Hyper-Threader (New)
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			
+		- The Hit List (New)
+			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 20 kills reduces the damage gained from this item.
+				- First 20 kills = 1 damage, next 20 = 0.5 (1/2), next 20 = 0.33 (1/3), etc.
+				- Procs for everyone who has the item.
+			
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:
 				- Moon Battery
@@ -27,7 +32,7 @@
 			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
 			
 	- Equipment
-		- Drone Repair Kit
+		- Drone Repair Kit (New)
 			- All drones are repaired to full health and empowered for 8s.
 				- +50% Attack Speed
 				- -50% Cooldowns
