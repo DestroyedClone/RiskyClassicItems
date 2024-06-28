@@ -191,10 +191,9 @@ namespace ClassicItemsReturns.Items.Rare
         //This makes it simpler, but prevents this from being used for multiple teams at once.
         public static HitListMinigameController instance;
 
-        //TODO: Verify actual timing used in Returns
         public TeamIndex teamIndex = TeamIndex.Player;
-        public static float markDuration = 30f;   //Time enemies are marked for
-        public static float markDelay = 30f;  //Delay between marks
+        public static float markDuration = 5f;   //Time enemies are marked for
+        public static float markDelay = 5f;  //Delay between marks
 
         private float timer;
         private Xoroshiro128Plus rng;
@@ -250,6 +249,13 @@ namespace ClassicItemsReturns.Items.Rare
         public void MarkEnemiesServer()
         {
             if (!NetworkServer.active) return;
+
+            if (GetTotalStacks() <= 0)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
             int toPick = GetTotalStacks();
 
             var validBodies = CharacterBody.readOnlyInstancesList.Where(body => {
