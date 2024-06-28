@@ -24,7 +24,7 @@
 				- -50% Cooldown
 				- +50 Armor
 		
-	- Fixed 56 Leaf Clover model having the wrong texture filtering settings.
+	- Various minor tweaks to textures.
 
 - `3.0.1`
 	- Adjusted icons for some items to be closer to the in-game model.

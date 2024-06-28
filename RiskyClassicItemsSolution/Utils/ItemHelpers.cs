@@ -59,7 +59,10 @@ namespace ClassicItemsReturns.Utils
             Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
             foreach (Renderer renderer in renderers)
             {
-                if (!renderer.material || !(renderer.material.shader && renderer.material.shader.name == "Standard")) continue;
+                bool isStandard = renderer.material.shader && renderer.material.shader.name == "Standard";
+                bool isGlass = renderer.name == "UseGlassShader" || renderer.name == "UseGlass2Shader" || renderer.name == "UseGlass3Shader";
+
+                if (!renderer.material || !(isStandard || isGlass)) continue;
 
                 if (renderer.name == "UseGlassShader")
                 {
