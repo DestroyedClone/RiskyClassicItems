@@ -18,6 +18,27 @@ namespace ClassicItemsReturns.Utils
             On.EntityStates.InfiniteTowerSafeWard.Travelling.OnEnter += Travelling_OnEnter;
             On.EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState.OnEnter += BrotherEncounterPhaseBaseState_OnEnter;
             On.RoR2.VoidRaidEncounterController.Start += VoidRaidEncounterController_Start;
+            On.RoR2.ArenaMissionController.BeginRound += ArenaMissionController_BeginRound;
+            On.RoR2.VoidStageMissionController.OnBatteryActivated += VoidStageMissionController_OnBatteryActivated;
+            On.EntityStates.Missions.Moon.MoonBatteryActive.OnEnter += MoonBatteryActive_OnEnter;
+        }
+
+        private void MoonBatteryActive_OnEnter(On.EntityStates.Missions.Moon.MoonBatteryActive.orig_OnEnter orig, EntityStates.Missions.Moon.MoonBatteryActive self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
+        }
+
+        private void VoidStageMissionController_OnBatteryActivated(On.RoR2.VoidStageMissionController.orig_OnBatteryActivated orig, VoidStageMissionController self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
+        }
+
+        private void ArenaMissionController_BeginRound(On.RoR2.ArenaMissionController.orig_BeginRound orig, ArenaMissionController self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
         }
 
         private void VoidRaidEncounterController_Start(On.RoR2.VoidRaidEncounterController.orig_Start orig, VoidRaidEncounterController self)

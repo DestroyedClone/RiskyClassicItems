@@ -1,27 +1,33 @@
 - `3.1.0`
-	- New Items
-		- Energy Cell
+	- Items
+		- Energy Cell (New)
 			- Increases attack speed by 10%-40% (+10%-40%) based on health lost.
 				- 100% HP = 10%
 				- 25% HP = 40%
 				
-		- Boxing Glove
+		- Boxing Glove (New)
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
-		- Rusty Jetpack
+		- Rusty Jetpack (New)
 			- Gain a jetpack jump with an additional 0% (+10%) jump height.
 				- Diminishing returns, each stack is reduced by 10% (10%, 9%, 8.1%, etc.)
 				
 			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
 			
-		- Hyper-Threader
+		- Hyper-Threader (New)
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			
-	- New Equipment
+		- Mu Construct/Arcane Blades
+			- Now can trigger from:
+				- Moon Battery
+				- Void Locus Signal
+				- Void Fields Cell
+			
+	- Equipment
 		- Drone Repair Kit
 			- All drones are repaired to full health and empowered for 8s.
 				- +50% Attack Speed
-				- -50% Cooldown
+				- -50% Cooldowns
 				- +50 Armor
 		
 	- Various minor tweaks to textures.
