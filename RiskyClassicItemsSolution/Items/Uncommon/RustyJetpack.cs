@@ -70,12 +70,22 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            On.RoR2.CharacterBody.RecalculateStats += AddJumpCount;
-            On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ReworkJumpVelocity;
+            On.RoR2.CharacterBody.RecalculateStats += RecalculateStats_AddJump;
+            On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ApplyJumpVelocity_DoShorthop;
             IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
+            RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
-        private void ReworkJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            if (!sender.inventory) return;
+            int itemCount = sender.inventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+
+            args.jumpPowerMultAdd += ItemHelpers.StackingLinear(itemCount, jumpBonus, jumpBonusStack);
+        }
+
+        private void ApplyJumpVelocity_DoShorthop(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
         {
             if (characterBody)
             {
@@ -85,16 +95,12 @@ namespace ClassicItemsReturns.Items.Uncommon
                 {
                     bool isLastJump = RustyJetpack.enableAirhop.Value
                         && characterMotor && characterMotor.jumpCount == characterBody.maxJumpCount - 1;
-                    if (!isLastJump)
+                    if (isLastJump)
                     {
-                        float heightBoost = ItemHelpers.StackingLinear(itemCount, jumpBonus, jumpBonusStack);
-                        verticalBonus += heightBoost;
-                    }
-                    else
-                    {
-                        //Prevent a negative verticalBonus
-                        float reduced = verticalBonus - 0.5f;
-                        verticalBonus = reduced >= 0f ? reduced : verticalBonus * 0.5f;
+                        //Copied from BaseState.SmallHop
+                        characterMotor.Motor.ForceUnground();
+                        characterMotor.velocity = new Vector3(characterMotor.velocity.x, 18f, characterMotor.velocity.z);
+                        return;
                     }
                 }
             }
@@ -123,7 +129,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             });
         }
 
-        private void AddJumpCount(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        private void RecalculateStats_AddJump(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
             if (GetCount(self) > 0)

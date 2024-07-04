@@ -11,7 +11,7 @@
 		- Rusty Jetpack (New)
 			- Increase jump height by 10% (+10%), and gain a short airhop.
 			
-			*Airhop has half the power of a full jump, and does not benefit from jump height bonus so it can be used to cancel a jump early. Opted for this instead of "hold-to-slow-descent" due to concerns about conflicts with characters that rely on the hold-jump input.*
+			*Airhop has less power than a full jump, and does not benefit from jump height bonus so it can be used to cancel a jump early. Opted for this instead of "hold-to-slow-descent" due to concerns about conflicts with characters that rely on the hold-jump input.*
 			
 		- Hyper-Threader (New)
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
