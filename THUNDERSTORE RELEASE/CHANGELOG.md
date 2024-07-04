@@ -34,6 +34,9 @@
 		- The Toxin
 			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
 			
+		- Bitter Root
+			- New buff stacks now reset the duration of existing buff stacks.
+			
 	- Equipment
 		- Drone Repair Kit (New)
 			- All drones are repaired to full health and empowered for 8s.
