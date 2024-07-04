@@ -17,9 +17,10 @@
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			
 		- The Hit List (New)
-			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 30 kills reduces the damage gained from this item.
-				- First 30 kills = 1 damage, next 30 = 0.5 (1/2), next 30 = 0.33 (1/3), etc.
+			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1.
 				- Procs for everyone who has the item.
+				
+			*Currently has no limits since theoretically it takes a long time to reach "red-tier damage" with this item (40 kills to reach +60%ish damage). Will keep my eye on this to see if it needs any changes.*
 			
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:

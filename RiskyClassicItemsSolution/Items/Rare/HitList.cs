@@ -27,7 +27,7 @@ namespace ClassicItemsReturns.Items.Rare
         public override bool unfinished => true;
 
         public float damagePerStack = 1f;
-        public int killsPerCycle = 30;
+        //public int killsPerCycle = 30;
 
         public static NetworkSoundEventDef markEnemySound, markEnemyKilledSound;
         public static GameObject markerPrefab;
@@ -42,7 +42,7 @@ namespace ClassicItemsReturns.Items.Rare
         public override object[] ItemFullDescriptionParams => new object[]
         {
             damagePerStack,
-            killsPerCycle
+            //killsPerCycle
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -167,7 +167,8 @@ namespace ClassicItemsReturns.Items.Rare
             int buffCount = sender.GetBuffCount(Buffs.HitListPlayerBuff);
             if (buffCount > 0)
             {
-                float damageBoost = 0f;
+                args.baseDamageAdd += damagePerStack * buffCount;
+                /*float damageBoost = 0f;
                 int cycleCount = 1;
                 while (buffCount > 0)
                 {
@@ -183,7 +184,7 @@ namespace ClassicItemsReturns.Items.Rare
                     buffCount -= killsPerCycle;
                     cycleCount++;
                 }
-                args.baseDamageAdd += damageBoost;
+                args.baseDamageAdd += damageBoost;*/
             }
         }
 

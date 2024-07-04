@@ -103,8 +103,6 @@
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Increase jump height by <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> and gain a <style=cIsUtility>short airhop</style>.",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
 		
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION_ALT": "Increase <style=cIsUtility>jump height</style> by <style=cIsUtility>{0}</style> <style=cStack>(+{1}% per stack)</style>.",
-
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to freeze enemies on hit.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
@@ -125,7 +123,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "The Hit List",
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "Killing marked enemies permanently increases damage.",
-		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "Randomly <style=cIsDamage>marks</style> up to <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> enemy. Killing a <style=cIsDamage>marked</style> enemy <style=cIsDamage>permanently</style> increases <style=cIsDamage>base damage</style> by <style=cIsDamage>{0}</style>. Every <style=cIsDamage>{1}</style> kills <style=cIsHealth>reduces</style> the damage gained from this item.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "Randomly <style=cIsDamage>marks</style> up to <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> enemy. Killing a <style=cIsDamage>marked</style> enemy <style=cIsDamage>permanently</style> increases <style=cIsDamage>base damage</style> by <style=cIsDamage>{0}</style>.",
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "Order: Hit List\r\nTracking Number: 1362***********\r\nEstimated Delivery: 11\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: St Johns, Cluster 6, Venus\r\nShipping Details:\r\n\r\nDon't forget.. don't forget what they did..\n-A.Bn\n-Fr.Ntn\n-[CLEARED]\n-[CLEARED]\n-Random wildlife\n-[CLEARED]\n-Grvnmk\n-[CLEARED]",
 	}
 }
