@@ -9,8 +9,7 @@
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
 		- Rusty Jetpack (New)
-			- Gain a jetpack jump with an additional 0% (+10%) jump height.
-				- Diminishing returns, each stack is reduced by 10% (10%, 9%, 8.1%, etc.)
+			- Gain a jetpack jump with an additional 0% (+20%) jump height.
 				
 			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
 			
@@ -19,7 +18,7 @@
 			
 		- The Hit List (New)
 			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 20 kills reduces the damage gained from this item.
-				- First 20 kills = 1 damage, next 20 = 0.5 (1/2), next 20 = 0.33 (1/3), etc.
+				- First 30 kills = 1 damage, next 30 = 0.5 (1/2), next 30 = 0.33 (1/3), etc.
 				- Procs for everyone who has the item.
 			
 		- Mu Construct/Arcane Blades

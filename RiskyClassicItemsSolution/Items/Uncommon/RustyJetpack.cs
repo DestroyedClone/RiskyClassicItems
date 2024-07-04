@@ -17,7 +17,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         public const float classicJumpBonusStack = 0.1f;
 
         public const float jumpBonus = 0.2f;
-        public const float jumpBonusStackMult = 0.8f;
+        //public const float jumpBonusStackMult = 0.8f;
         public override string ItemName => "Rusty Jetpack";
 
         public override string ItemLangTokenName => "RUSTYJETPACK";
@@ -105,10 +105,13 @@ namespace ClassicItemsReturns.Items.Uncommon
                 {
                     float heightBoost = 0f;
                     int stack = itemCount - 1;
-                    for (int i = 0; i < stack; i++)
+
+                    heightBoost += jumpBonus * stack;
+
+                    /*for (int i = 0; i < stack; i++)
                     {
                         heightBoost += jumpBonus * Mathf.Pow(jumpBonusStackMult, i);
-                    }
+                    }*/
                     verticalBonus += heightBoost;
                 }
             }

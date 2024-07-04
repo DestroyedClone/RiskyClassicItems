@@ -27,7 +27,7 @@ namespace ClassicItemsReturns.Items.Rare
         public override bool unfinished => true;
 
         public float damagePerStack = 1f;
-        public int killsPerCycle = 20;
+        public int killsPerCycle = 30;
 
         public static NetworkSoundEventDef markEnemySound, markEnemyKilledSound;
         public static GameObject markerPrefab;
