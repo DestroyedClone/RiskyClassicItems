@@ -97,9 +97,18 @@ namespace ClassicItemsReturns.Items.Uncommon
                         && characterMotor && characterMotor.jumpCount == characterBody.maxJumpCount - 1;
                     if (isLastJump)
                     {
-                        //Copied from BaseState.SmallHop
+                        //Based on ApplyJumpVelocity code
+                        Vector3 vector = characterMotor.moveDirection;
+                        vector.y = 0f;
+                        float magnitude = vector.magnitude;
+                        if (magnitude > 0f)
+                        {
+                            vector /= magnitude;
+                        }
+                        Vector3 velocity = vector * characterBody.moveSpeed * horizontalBonus;
+                        velocity.y = 18f;
+                        characterMotor.velocity = velocity;
                         characterMotor.Motor.ForceUnground();
-                        characterMotor.velocity = new Vector3(characterMotor.velocity.x, 18f, characterMotor.velocity.z);
                         return;
                     }
                 }

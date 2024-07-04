@@ -13,6 +13,12 @@
 			
 			*Airhop has less power than a full jump, and does not benefit from jump height bonus so it can be used to cancel a jump early. Opted for this instead of "hold-to-slow-descent" due to concerns about conflicts with characters that rely on the hold-jump input.*
 			
+		- Royal Medallion (New)
+			- 10% chance on hitting a boss monster to drop a buffing orb that improves health regen, attack speed, move speed, and base damage for 10s (+6s per stack).
+				- Gives +3% base damage, +6% attack speed, +2m/s move speed, +1 health regen (scales with level)
+				- Can stack up to 10 buffs at a time.
+				- New buff stacks reset the duration of existing buff stacks.
+			
 		- Hyper-Threader (New)
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			

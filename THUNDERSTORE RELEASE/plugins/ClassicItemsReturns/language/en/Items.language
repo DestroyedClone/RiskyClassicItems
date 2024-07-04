@@ -87,6 +87,11 @@
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>10%-40%</style> <style=cStack>(+10%-40% per stack)</style> based on <style=cIsHealth>health lost</style>.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/09\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
+		
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "Royal Medallion",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "Bosses drop powerful buffing orbs when hit.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "<style=cIsDamage>10%</style> chance on hitting a boss monster to <style=cIsUtility>drop a buffing orb</style> that <style=cIsDamage>improves health regen, attack speed, move speed, and base damage</style> for <style=cIsDamage>10s</style> <style=cStack>(+6s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "Order: Royal Medallion\r\nTracking Number: 2746***********\r\nEstimated Delivery: 05\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: #4 Visitors, Wing 4, Aeolus 2\r\nShipping Details:\r\n\r\nOn the outer orbits of our system lies a confederacy of people.\nWith kings and lords; knights and warriors, it's monarchical in nature.\nEach member of the major hierarchy carries a medallion, granting courage and fortitude.\nThis one belonged to a prince, his name buried under strife and accusations of treachery.\nStripped away from his belongings, his medallion remained as nothing more than a curiosity by the humble forager who found it, far from where it was worn.\nNow, I pass it on to you. Whether your destiny lies in the stars or your heart calls for home, your valor will be unrivaled. Keep fighting, son.",
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
