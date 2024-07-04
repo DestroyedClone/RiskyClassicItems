@@ -141,7 +141,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void onServerStageBegin_InitMinigame(Stage obj)
         {
             if (HitListMinigameController.instance) UnityEngine.Object.Destroy(HitListMinigameController.instance.gameObject);
-            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0)
+            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, true, true) > 0)
             {
                 InitializeHitListMinigameServer();
             }
@@ -238,7 +238,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         public int GetTotalStacks()
         {
-            return Util.GetItemCountForTeam(teamIndex, HitList.Instance.ItemDef.itemIndex, false, true);
+            return Util.GetItemCountForTeam(teamIndex, HitList.Instance.ItemDef.itemIndex, true, true);
         }
 
         private void Awake()

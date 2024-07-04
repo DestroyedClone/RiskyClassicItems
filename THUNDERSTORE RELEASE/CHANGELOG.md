@@ -43,6 +43,9 @@
 		- Bitter Root
 			- New buff stacks now reset the duration of existing buff stacks.
 			
+		- 56 Leaf Clover
+			- No longer rolls for dead/disconnected players.
+			
 	- Equipment
 		- Drone Repair Kit (New)
 			- All drones are repaired to full health and empowered for 8s.

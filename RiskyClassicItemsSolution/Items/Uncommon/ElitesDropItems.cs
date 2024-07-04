@@ -113,8 +113,12 @@ namespace ClassicItemsReturns.Items.Uncommon
                 var itemCount = GetCount(master);
                 if (itemCount > 0)
                 {
-                    var rollChance = Utils.ItemHelpers.StackingLinear(itemCount, cloverPercentageDropChance, cloverPercentageDropChancePerStack);
-                    return Util.CheckRoll(rollChance, 0);
+                    CharacterBody body = master.GetBody();
+                    if (body && body.healthComponent && body.healthComponent.alive)
+                    {
+                        var rollChance = Utils.ItemHelpers.StackingLinear(itemCount, cloverPercentageDropChance, cloverPercentageDropChancePerStack);
+                        return Util.CheckRoll(rollChance, 0);
+                    }
                 }
             }
             return false;
