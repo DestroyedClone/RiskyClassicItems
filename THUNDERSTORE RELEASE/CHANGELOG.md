@@ -9,15 +9,15 @@
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
 		- Rusty Jetpack (New)
-			- Gain a jetpack jump with an additional 0% (+20%) jump height.
-				
-			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
+			- Increase jump height by 10% (+10%), and gain a short airhop.
+			
+			*Airhop has half the power of a full jump, and does not benefit from jump height bonus so it can be used to cancel a jump early. Opted for this instead of "hold-to-slow-descent" due to concerns about conflicts with characters that rely on the hold-jump input.*
 			
 		- Hyper-Threader (New)
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			
 		- The Hit List (New)
-			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 20 kills reduces the damage gained from this item.
+			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 30 kills reduces the damage gained from this item.
 				- First 30 kills = 1 damage, next 30 = 0.5 (1/2), next 30 = 0.33 (1/3), etc.
 				- Procs for everyone who has the item.
 			
