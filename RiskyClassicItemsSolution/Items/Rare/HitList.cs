@@ -61,6 +61,8 @@ namespace ClassicItemsReturns.Items.Rare
             checkPrefab = Assets.LoadObject("HitListCheck");
             checkPrefab.AddComponent<RoR2.Billboard>();
             checkPrefab.AddComponent<FadeOverDuration>();
+            checkPrefab.AddComponent<NetworkIdentity>();
+            ContentAddition.AddNetworkedObject(checkPrefab);
         }
 
         public override void Hooks()
@@ -121,6 +123,13 @@ namespace ClassicItemsReturns.Items.Rare
                 {
                     EffectManager.SimpleSoundEffect(markEnemyKilledSound.index, damageReport.victimBody.corePosition, true);
                 }
+
+                if (HitList.checkPrefab)
+                {
+                    GameObject check = GameObject.Instantiate(HitList.checkPrefab);
+                    check.transform.position = damageReport.victimBody.corePosition;
+                    NetworkServer.Spawn(check);
+                }
             }
         }
 
@@ -141,7 +150,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void onServerStageBegin_InitMinigame(Stage obj)
         {
             if (HitListMinigameController.instance) UnityEngine.Object.Destroy(HitListMinigameController.instance.gameObject);
-            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, true, true) > 0)
+            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0)
             {
                 InitializeHitListMinigameServer();
             }
@@ -238,7 +247,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         public int GetTotalStacks()
         {
-            return Util.GetItemCountForTeam(teamIndex, HitList.Instance.ItemDef.itemIndex, true, true);
+            return Util.GetItemCountForTeam(teamIndex, HitList.Instance.ItemDef.itemIndex, false, true);
         }
 
         private void Awake()
@@ -408,8 +417,6 @@ namespace ClassicItemsReturns.Items.Rare
             if (body && body.healthComponent && !body.healthComponent.alive)
             {
                 destroying = true;
-                GameObject check = GameObject.Instantiate(HitList.checkPrefab);
-                check.transform.position = base.transform.position;
                 Destroy(this);
             }
         }
@@ -433,17 +440,19 @@ namespace ClassicItemsReturns.Items.Rare
         {
             stopwatch = 0f;
             renderer = base.GetComponentInChildren<SpriteRenderer>();
-            if (!renderer)
+            if (renderer)
+            {
+                initialAlpha = renderer.color.a;
+            }
+            if (!renderer && NetworkServer.active)
             {
                 Destroy(this);
-                return;
             }
-            initialAlpha = renderer.color.a;
         }
 
         private void Update()
         {
-            if (stopwatch >= initialDelay + fadeTime)
+            if (NetworkServer.active && stopwatch >= initialDelay + fadeTime)
             {
                 Destroy(this.gameObject);
                 return;

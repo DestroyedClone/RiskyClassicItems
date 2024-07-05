@@ -10,8 +10,9 @@
 			
 		- Rusty Jetpack (New)
 			- Increase jump height by 10% (+10%), and gain a short airhop.
+				- Airhop is not affected by jump height, so that you can always use it to break your fall.
 			
-			*Airhop has less power than a full jump, and does not benefit from jump height bonus so it can be used to cancel a jump early. Opted for this instead of "hold-to-slow-descent" due to concerns about conflicts with characters that rely on the hold-jump input.*
+			*Went with airhop instead of "hold to descend" due to potential conflicts with characters that use that input.*
 			
 		- Royal Medallion (New)
 			- 10% chance on hitting a boss monster to drop a buffing orb that improves health regen, attack speed, move speed, and base damage for 10s (+6s per stack).
@@ -54,6 +55,7 @@
 				- +50 Armor
 		
 	- Various minor tweaks to textures.
+	- Added Equipment Drone displays.
 
 - `3.0.1`
 	- Adjusted icons for some items to be closer to the in-game model.

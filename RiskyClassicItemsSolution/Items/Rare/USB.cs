@@ -26,7 +26,6 @@ namespace ClassicItemsReturns.Items.Rare
         public override bool unfinished => true;
 
         public static GameObject atlasCannonNetworkPrefab;
-        public static GameObject explosionEffectPrefab;
 
         private static bool cannonActivated = false;
 
@@ -54,11 +53,6 @@ namespace ClassicItemsReturns.Items.Rare
             var controller = atlasCannonNetworkPrefab.AddComponent<AtlasCannonController>();
             atlasCannonNetworkPrefab.AddComponent<DestroyOnTimer>().duration = controller.delayBeforeFiring + controller.lifetimeAfterFiring + 2f;
             ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
-
-            explosionEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/BFG/BeamSphereExplosion.prefab")
-                .WaitForCompletion().InstantiateClone("ClassicItemsReturns_AtlasCannonExplosionEffect", false);
-            explosionEffectPrefab.GetComponent<EffectComponent>().soundName = "";
-            ContentAddition.AddEffect(explosionEffectPrefab);
 
         }
 
@@ -206,11 +200,6 @@ namespace ClassicItemsReturns.Items.Rare
                     procChainMask = default,
                     procCoefficient = 0f
                 });
-
-                if (USB.explosionEffectPrefab)
-                {
-                    EffectManager.SimpleEffect(USB.explosionEffectPrefab, damagePosition, UnityEngine.Random.rotation, true);
-                }
             }
         }
 
