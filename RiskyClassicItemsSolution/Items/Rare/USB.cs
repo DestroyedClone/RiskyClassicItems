@@ -28,6 +28,7 @@ namespace ClassicItemsReturns.Items.Rare
         public static GameObject atlasCannonNetworkPrefab;
 
         private static bool cannonActivated = false;
+        private static bool addedTeleporterVisual = false;
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -86,6 +87,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void Stage_onStageStartGlobal(Stage obj)
         {
             cannonActivated = false;
+            addedTeleporterVisual = false;
         }
     }
 
