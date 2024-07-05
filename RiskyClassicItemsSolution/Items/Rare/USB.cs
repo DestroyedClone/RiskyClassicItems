@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using ClassicItemsReturns.Modules;
+using IL.RoR2.EntityLogic;
 using R2API;
 using RoR2;
 using System;
@@ -26,9 +27,12 @@ namespace ClassicItemsReturns.Items.Rare
         public override bool unfinished => true;
 
         public static GameObject atlasCannonNetworkPrefab;
+        public static GameObject teleporterVisualNetworkPrefab;
 
         private static bool cannonActivated = false;
         private static bool addedTeleporterVisual = false;
+
+        private static GameObject teleporterVisualNetworkInstance;
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -55,12 +59,48 @@ namespace ClassicItemsReturns.Items.Rare
             atlasCannonNetworkPrefab.AddComponent<DestroyOnTimer>().duration = controller.delayBeforeFiring + controller.lifetimeAfterFiring + 2f;
             ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
 
+            teleporterVisualNetworkPrefab = Assets.LoadObject("AtlasCannonTeleporterVisual");
+            teleporterVisualNetworkPrefab.AddComponent<NetworkIdentity>();
+            teleporterVisualNetworkPrefab.AddComponent<AtlasTeleporterBeamController>();
+            ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
         }
 
         public override void Hooks()
         {
             RoR2.Stage.onStageStartGlobal += Stage_onStageStartGlobal;
             On.RoR2.BossGroup.OnMemberAddedServer += BossGroup_OnMemberAddedServer;
+
+            On.RoR2.TeleporterInteraction.OnEnable += TeleporterInteraction_OnEnable;
+            On.RoR2.TeleporterInteraction.ChargingState.OnEnter += ChargingState_OnEnter;
+        }
+
+        private void TeleporterInteraction_OnEnable(On.RoR2.TeleporterInteraction.orig_OnEnable orig, TeleporterInteraction self)
+        {
+            orig(self);
+
+            if (!NetworkServer.active || !teleporterVisualNetworkPrefab) return;
+            if (teleporterVisualNetworkInstance)
+            {
+                UnityEngine.Object.Destroy(teleporterVisualNetworkInstance);
+                teleporterVisualNetworkInstance = null;
+            }
+
+            bool shouldSpawn = Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0;
+            if (!shouldSpawn) return;
+
+            //Component on this will resolve the positioning clientside.
+            teleporterVisualNetworkInstance = GameObject.Instantiate(teleporterVisualNetworkPrefab);
+            NetworkServer.Spawn(teleporterVisualNetworkInstance);
+        }
+
+        private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, EntityStates.BaseState self)
+        {
+            orig(self);
+            if (NetworkServer.active && teleporterVisualNetworkInstance)
+            {
+                UnityEngine.Object.Destroy(teleporterVisualNetworkInstance);
+                teleporterVisualNetworkInstance = null;
+            }
         }
 
         //TODO: NARROW DOWN ACTIVATION CONDITIONS ON THIS
@@ -238,6 +278,33 @@ namespace ClassicItemsReturns.Items.Rare
         private void OnDestroy()
         {
             if (!hasFiredLocal) AkSoundEngine.StopPlayingID(soundId);
+        }
+    }
+
+    public class AtlasTeleporterBeamController : MonoBehaviour
+    {
+        private LineRenderer lineRenderer;
+
+        private void Awake()
+        {
+            if (!TeleporterInteraction.instance)
+            {
+                if (NetworkServer.active)
+                {
+                    Destroy(base.gameObject);
+                }
+                return;
+            }
+
+            lineRenderer = base.GetComponent<LineRenderer>();
+            if (lineRenderer)
+            {
+                lineRenderer.SetPositions(new Vector3[]
+                {
+                TeleporterInteraction.instance.transform.position,
+                TeleporterInteraction.instance.transform.position + 1000f * Vector3.up
+                });
+            }
         }
     }
 }
