@@ -37,6 +37,7 @@
 				- Voidling
 				- Artifact Reliquary
 				- Golden Coast
+				- A Moment, Whole
 				
 		- The Toxin
 			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.

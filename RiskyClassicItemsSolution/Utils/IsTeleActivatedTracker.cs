@@ -11,7 +11,7 @@ namespace ClassicItemsReturns.Utils
         public static List<string> alwaysActiveStages = new List<string>()
         {
             "voidraid",
-            "goldshores"
+            "limbo"
         };
 
         public IsTeleActivatedTracker()
@@ -26,6 +26,13 @@ namespace ClassicItemsReturns.Utils
             On.EntityStates.Missions.Moon.MoonBatteryActive.OnEnter += MoonBatteryActive_OnEnter;
             On.EntityStates.ArtifactShell.StartHurt.OnEnter += StartHurt_OnEnter;
             On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
+            On.EntityStates.Missions.Goldshores.GoldshoresBossfight.SpawnBoss += GoldshoresBossfight_SpawnBoss;
+        }
+
+        private void GoldshoresBossfight_SpawnBoss(On.EntityStates.Missions.Goldshores.GoldshoresBossfight.orig_SpawnBoss orig, EntityStates.Missions.Goldshores.GoldshoresBossfight self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
         }
 
         private void StartHurt_OnEnter(On.EntityStates.ArtifactShell.StartHurt.orig_OnEnter orig, EntityStates.ArtifactShell.StartHurt self)

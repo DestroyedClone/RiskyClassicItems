@@ -31,6 +31,9 @@ namespace ClassicItemsReturns.Items.Rare
 
         private static bool cannonActivated = false;
         private static bool addedTeleporterVisual = false;
+        
+        //This is used for special stages that don't have a Teleporter interaction. Teleporter ignores this.
+        private static bool firedCannon = false;
 
         private static GameObject teleporterVisualNetworkInstance;
 
@@ -68,11 +71,82 @@ namespace ClassicItemsReturns.Items.Rare
         public override void Hooks()
         {
             RoR2.Stage.onStageStartGlobal += Stage_onStageStartGlobal;
-            On.RoR2.BossGroup.OnMemberAddedServer += BossGroup_OnMemberAddedServer;
 
             On.RoR2.TeleporterInteraction.ChargingState.OnEnter += ChargingState_OnEnter;
+
+            On.RoR2.TeleporterInteraction.Start += TeleporterInteraction_Start;
+
+            On.EntityStates.Missions.BrotherEncounter.Phase1.OnMemberAddedServer += Phase1_OnMemberAddedServer;
+            On.EntityStates.Missions.Goldshores.GoldshoresBossfight.SetBossImmunity += GoldshoresBossfight_SetBossImmunity;
+            On.RoR2.ScriptedCombatEncounter.Spawn += ScriptedCombatEncounter_Spawn;
         }
 
+        private void ScriptedCombatEncounter_Spawn(On.RoR2.ScriptedCombatEncounter.orig_Spawn orig, ScriptedCombatEncounter self, ref ScriptedCombatEncounter.SpawnInfo spawnInfo)
+        {
+            orig(self, ref spawnInfo);
+
+            //Don't like how hardcoded this is.
+            SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
+            if (currentScene && currentScene.cachedName == "voidraid" && !firedCannon)
+            {
+                firedCannon = true;
+                foreach (CharacterMaster master in CharacterMaster.readOnlyInstancesList)
+                {
+                    TargetCannon(master);
+                }
+            }
+        }
+
+        private void GoldshoresBossfight_SetBossImmunity(On.EntityStates.Missions.Goldshores.GoldshoresBossfight.orig_SetBossImmunity orig, EntityStates.Missions.Goldshores.GoldshoresBossfight self, bool newBossImmunity)
+        {
+            orig(self, newBossImmunity);
+
+            if (NetworkServer.active && !newBossImmunity && !firedCannon)
+            {
+                firedCannon = true;
+                foreach (CharacterMaster master in self.scriptedCombatEncounter.combatSquad.readOnlyMembersList)
+                {
+                    TargetCannon(master);
+                }
+            }
+        }
+
+        private void TeleporterInteraction_Start(On.RoR2.TeleporterInteraction.orig_Start orig, TeleporterInteraction self)
+        {
+            orig(self);
+            if (NetworkServer.active && self.bossGroup && self.bossGroup.combatSquad)
+            {
+                self.bossGroup.combatSquad.onMemberAddedServer += TargetCannon;
+            }
+        }
+
+        private void Phase1_OnMemberAddedServer(On.EntityStates.Missions.BrotherEncounter.Phase1.orig_OnMemberAddedServer orig, EntityStates.Missions.BrotherEncounter.Phase1 self, CharacterMaster master)
+        {
+            orig(self, master);
+            TargetCannon(master);
+        }
+
+        private void TargetCannon(CharacterMaster master)
+        {
+            if (!NetworkServer.active) return;
+            CharacterBody body = master.GetBody();
+            if (body
+                && (body.isChampion || body.isBoss)
+                && body.healthComponent
+                && body.teamComponent
+                && TeamMask.GetEnemyTeams(TeamIndex.Player).HasTeam(body.teamComponent.teamIndex))
+            {
+                GameObject cannonObject = UnityEngine.Object.Instantiate(atlasCannonNetworkPrefab, body.transform);
+                AtlasCannonController controller = cannonObject.GetComponent<AtlasCannonController>();
+                if (controller)
+                {
+                    controller.targetHealthComponent = body.healthComponent;
+                }
+                NetworkServer.Spawn(cannonObject);
+            }
+        }
+
+        //TODO: Tie this to activating the interactable
         public static void AddTeleporterVisualServer()
         {
             if (!NetworkServer.active) return;
@@ -101,31 +175,11 @@ namespace ClassicItemsReturns.Items.Rare
             }
         }
 
-        //TODO: NARROW DOWN ACTIVATION CONDITIONS ON THIS
-        private void BossGroup_OnMemberAddedServer(On.RoR2.BossGroup.orig_OnMemberAddedServer orig, BossGroup self, CharacterMaster memberMaster)
-        {
-            orig(self, memberMaster);
-
-            if (true)   //cannonActivated
-            {
-                CharacterBody body = memberMaster.GetBody();
-                if (body && body.healthComponent)
-                {
-                    GameObject cannonObject = UnityEngine.Object.Instantiate(atlasCannonNetworkPrefab, body.transform);
-                    AtlasCannonController controller = cannonObject.GetComponent<AtlasCannonController>();
-                    if (controller)
-                    {
-                        controller.targetHealthComponent = body.healthComponent;
-                    }
-                    NetworkServer.Spawn(cannonObject);
-                }
-            }
-        }
-
         private void Stage_onStageStartGlobal(Stage obj)
         {
             cannonActivated = false;
             addedTeleporterVisual = false;
+            firedCannon = false;
         }
     }
 
