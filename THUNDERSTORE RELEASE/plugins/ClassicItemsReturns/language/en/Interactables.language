@@ -1,0 +1,5 @@
+{
+	strings: {
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON" : "{0} has armed the <style=cShrine>Atlas Cannon</style>. Target acquired.",
+	}
+}

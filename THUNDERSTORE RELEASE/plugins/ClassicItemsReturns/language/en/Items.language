@@ -87,16 +87,6 @@
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>10%-40%</style> <style=cStack>(+10%-40% per stack)</style> based on <style=cIsHealth>health lost</style>.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/09\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
-		
-		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "Royal Medallion",
-		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "Bosses drop powerful buffing orbs when hit.",
-		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "<style=cIsDamage>10%</style> chance on hitting a boss monster to <style=cIsUtility>drop a buffing orb</style> that <style=cIsDamage>improves health regen, attack speed, move speed, and base damage</style> for <style=cIsDamage>10s</style> <style=cStack>(+6s per stack)</style>.",
-		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "Order: Royal Medallion\r\nTracking Number: 2746***********\r\nEstimated Delivery: 05\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: #4 Visitors, Wing 4, Aeolus 2\r\nShipping Details:\r\n\r\nOn the outer orbits of our system lies a confederacy of people.\nWith kings and lords; knights and warriors, it's monarchical in nature.\nEach member of the major hierarchy carries a medallion, granting courage and fortitude.\nThis one belonged to a prince, his name buried under strife and accusations of treachery.\nStripped away from his belongings, his medallion remained as nothing more than a curiosity by the humble forager who found it, far from where it was worn.\nNow, I pass it on to you. Whether your destiny lies in the stars or your heart calls for home, your valor will be unrivaled. Keep fighting, son.",
-
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of the victim's base damage per second</style> and slow for <style=cIsDamage>-{2}% movement speed</style> for <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Order: Thallium\r\nTracking Number: 1344***********\r\nEstimated Delivery: 05\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 0909, K&K Union, Earth\r\nShipping Details:\r\n\r\nShe shouldn't notice.",
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "Boxing Gloves",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "Chance to knock enemies backwards for extra damage.",
@@ -107,6 +97,16 @@
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Increase jump height and gain a short airhop.",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Increase jump height by <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> and gain a <style=cIsUtility>short airhop</style>.",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
+		
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "Royal Medallion",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "Bosses drop powerful buffing orbs when hit.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "<style=cIsDamage>10%</style> chance on hitting a boss monster to <style=cIsUtility>drop a buffing orb</style> that <style=cIsDamage>improves health regen, attack speed, move speed, and base damage</style> for <style=cIsDamage>10s</style> <style=cStack>(+6s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "Order: Royal Medallion\r\nTracking Number: 2746***********\r\nEstimated Delivery: 05\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: #4 Visitors, Wing 4, Aeolus 2\r\nShipping Details:\r\n\r\nOn the outer orbits of our system lies a confederacy of people.\nWith kings and lords; knights and warriors, it's monarchical in nature.\nEach member of the major hierarchy carries a medallion, granting courage and fortitude.\nThis one belonged to a prince, his name buried under strife and accusations of treachery.\nStripped away from his belongings, his medallion remained as nothing more than a curiosity by the humble forager who found it, far from where it was worn.\nNow, I pass it on to you. Whether your destiny lies in the stars or your heart calls for home, your valor will be unrivaled. Keep fighting, son.",
+
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of the victim's base damage per second</style> and slow for <style=cIsDamage>-{2}% movement speed</style> for <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Order: Thallium\r\nTracking Number: 1344***********\r\nEstimated Delivery: 05\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 0909, K&K Union, Earth\r\nShipping Details:\r\n\r\nShe shouldn't notice.",
 		
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to freeze enemies on hit.",
@@ -130,5 +130,10 @@
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "Killing marked enemies permanently increases damage.",
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "Randomly <style=cIsDamage>marks</style> up to <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> enemy. Killing a <style=cIsDamage>marked</style> enemy <style=cIsDamage>permanently</style> increases <style=cIsDamage>base damage</style> by <style=cIsDamage>{0}</style>.",
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "Order: Hit List\r\nTracking Number: 1362***********\r\nEstimated Delivery: 11\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: St Johns, Cluster 6, Venus\r\nShipping Details:\r\n\r\nDon't forget.. don't forget what they did..\n-A.Bn\n-Fr.Ntn\n-[CLEARED]\n-[CLEARED]\n-Random wildlife\n-[CLEARED]\n-Grvnmk\n-[CLEARED]",
+		
+		"CLASSICITEMSRETURNS_ITEM_USB_NAME": "Classified Access Codes",
+		"CLASSICITEMSRETURNS_ITEM_USB_PICKUP": "Access a deadly weapon against the Teleporter bosses.",
+		"CLASSICITEMSRETURNS_ITEM_USB_DESCRIPTION": "The <style=cIsDamage>Atlas Cannon</style> appears each stage, activating deals <style=cIsDamage>40%</style> <style=cStack>(+20% per stack)</style> of maximum health as damage to the <style=cIsDamage>teleporter boss</style> after it spawns.",
+		"CLASSICITEMSRETURNS_ITEM_USB_LORE": "Order: Classified Access Codes\r\nTracking Number: 3190***********\r\nEstimated Delivery: 10\/02\/2056\r\nShipping Method: High Priority\/Fragile\r\nSent To: Randy P.\r\nShipping Address: piece #24, [REDACTED], [REDACTED]\r\nShipping Details:\r\n\r\nItem necessary for current designated task.\nFollow all protocols as stated on you form [REDACTED]\nsend on [REDACTED].\nMonitoring available at [REDACTED], maintain secrecy at all costs.",
 	}
 }
