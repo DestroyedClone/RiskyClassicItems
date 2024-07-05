@@ -29,7 +29,7 @@ namespace ClassicItemsReturns.Items.Rare
         public float damagePerStack = 1f;
         //public int killsPerCycle = 30;
 
-        public static NetworkSoundEventDef markEnemySound, markEnemyKilledSound;
+        public static NetworkSoundEventDef markEnemySound;
         public static GameObject markerPrefab;
         public static GameObject checkPrefab;
 
@@ -52,7 +52,6 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void CreateAssets(ConfigFile config)
         {
-            markEnemyKilledSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitList");
             markEnemySound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitListMark");
 
             markerPrefab = Assets.LoadObject("HitListMarker");
@@ -61,8 +60,12 @@ namespace ClassicItemsReturns.Items.Rare
             checkPrefab = Assets.LoadObject("HitListCheck");
             checkPrefab.AddComponent<RoR2.Billboard>();
             checkPrefab.AddComponent<FadeOverDuration>();
-            checkPrefab.AddComponent<NetworkIdentity>();
-            ContentAddition.AddNetworkedObject(checkPrefab);
+            var effectComponent = checkPrefab.AddComponent<EffectComponent>();
+            effectComponent.soundName = "Play_ClassicItemsReturns_HitList";
+            var vfxAttributes = checkPrefab.AddComponent<VFXAttributes>();
+            vfxAttributes.vfxIntensity = VFXAttributes.VFXIntensity.Low;
+            vfxAttributes.vfxPriority = VFXAttributes.VFXPriority.Always;
+            ContentAddition.AddEffect(checkPrefab);
         }
 
         public override void Hooks()
@@ -119,16 +122,9 @@ namespace ClassicItemsReturns.Items.Rare
             {
                 IncrementHitListServer();
 
-                if (markEnemyKilledSound)
-                {
-                    EffectManager.SimpleSoundEffect(markEnemyKilledSound.index, damageReport.victimBody.corePosition, true);
-                }
-
                 if (HitList.checkPrefab)
                 {
-                    GameObject check = GameObject.Instantiate(HitList.checkPrefab);
-                    check.transform.position = damageReport.victimBody.corePosition;
-                    NetworkServer.Spawn(check);
+                    EffectManager.SimpleEffect(HitList.checkPrefab, damageReport.victimBody.corePosition, Quaternion.identity, true);
                 }
             }
         }
@@ -444,7 +440,7 @@ namespace ClassicItemsReturns.Items.Rare
             {
                 initialAlpha = renderer.color.a;
             }
-            if (!renderer && NetworkServer.active)
+            if (!renderer)
             {
                 Destroy(this);
             }
@@ -452,7 +448,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void Update()
         {
-            if (NetworkServer.active && stopwatch >= initialDelay + fadeTime)
+            if (stopwatch >= initialDelay + fadeTime)
             {
                 Destroy(this.gameObject);
                 return;
