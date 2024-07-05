@@ -70,28 +70,26 @@ namespace ClassicItemsReturns.Items.Rare
             RoR2.Stage.onStageStartGlobal += Stage_onStageStartGlobal;
             On.RoR2.BossGroup.OnMemberAddedServer += BossGroup_OnMemberAddedServer;
 
-            On.RoR2.TeleporterInteraction.OnEnable += TeleporterInteraction_OnEnable;
             On.RoR2.TeleporterInteraction.ChargingState.OnEnter += ChargingState_OnEnter;
         }
 
-        private void TeleporterInteraction_OnEnable(On.RoR2.TeleporterInteraction.orig_OnEnable orig, TeleporterInteraction self)
+        public static void AddTeleporterVisualServer()
         {
-            orig(self);
+            if (!NetworkServer.active) return;
 
-            if (!NetworkServer.active || !teleporterVisualNetworkPrefab) return;
+            if (!TeleporterInteraction.instance
+                || TeleporterInteraction.instance.currentState.GetType() != typeof(TeleporterInteraction.IdleState)) return;
+
             if (teleporterVisualNetworkInstance)
             {
                 UnityEngine.Object.Destroy(teleporterVisualNetworkInstance);
                 teleporterVisualNetworkInstance = null;
             }
 
-            bool shouldSpawn = Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0;
-            if (!shouldSpawn) return;
-
             //Component on this will resolve the positioning clientside.
             teleporterVisualNetworkInstance = GameObject.Instantiate(teleporterVisualNetworkPrefab);
             NetworkServer.Spawn(teleporterVisualNetworkInstance);
-        }
+    }
 
         private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, EntityStates.BaseState self)
         {
@@ -199,6 +197,12 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void FixedUpdateServer()
         {
+            if (!targetHealthComponent || !targetHealthComponent.alive)
+            {
+                Destroy(base.gameObject);
+                return;
+            }
+
             stopwatch += Time.fixedDeltaTime;
             if (!_hasFired)
             {
@@ -248,7 +252,6 @@ namespace ClassicItemsReturns.Items.Rare
         //Controls how fast the center thing rotates
         private void Update()
         {
-            
             if (!hasFiredLocal)
             {
                 if (laser)
