@@ -25,8 +25,8 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            10f*jumpBonus,
-            10f*jumpBonusStack
+            100f*jumpBonus,
+            100f*jumpBonusStack
         };
 
         public override ItemTier Tier => ItemTier.Tier2;

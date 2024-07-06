@@ -9,7 +9,6 @@ namespace ClassicItemsReturns.Utils
 {
     public static class MiscUtils
     {
-
         private static GameObject teleportHelperPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/DirectorSpawnProbeHelperPrefab.prefab").WaitForCompletion();
         public static Vector3 FindSafeTeleportPosition(Vector3 position, HullClassification hullSize, bool isFlying, float maxDistance, DirectorPlacementRule.PlacementMode placementMode)
         {
