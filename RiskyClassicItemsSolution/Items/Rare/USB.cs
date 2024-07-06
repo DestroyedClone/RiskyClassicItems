@@ -473,17 +473,17 @@ namespace ClassicItemsReturns.Items.Rare
         //Controls how fast the center thing rotates
         private void Update()
         {
-            if (!hasFiredLocal)
+            if (laser)
             {
-                if (laser)
+                laser.SetPositions(new Vector3[]
                 {
-                    laser.SetPositions(new Vector3[]
-                    {
                     base.transform.position + Vector3.up * 1000f,
                     base.transform.position + Vector3.down * 1000f,
-                    });
-                }
+                });
+            }
 
+            if (!hasFiredLocal)
+            {
                 if (rotatorTransform)
                 {
                     rotationStopwatch += Time.deltaTime;
@@ -557,6 +557,9 @@ namespace ClassicItemsReturns.Items.Rare
         private GameObject beamInstance;
         private PurchaseInteraction pi;
 
+        private float beamDestroyDelay = 5f;
+        private float beamDestroyStopwatch = 0f;
+
         private void Awake()
         {
             pi = base.GetComponent<PurchaseInteraction>();
@@ -573,8 +576,12 @@ namespace ClassicItemsReturns.Items.Rare
                 pi.available = false;
                 if (beamInstance)
                 {
-                    UnityEngine.Object.Destroy(beamInstance);
-                    beamInstance = null;
+                    beamDestroyStopwatch += Time.fixedDeltaTime;
+                    if (beamDestroyStopwatch >= beamDestroyDelay)
+                    {
+                        UnityEngine.Object.Destroy(beamInstance);
+                        beamInstance = null;
+                    }
                 }
             }
         }
