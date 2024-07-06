@@ -53,7 +53,7 @@ namespace ClassicItemsReturns.Items.Rare
         public static Dictionary<string, Vector3> atlasCannonInteractableManualPlacementDict = new Dictionary<string, Vector3>
         {
             {"voidraid" , new Vector3(0f, 217f, -443f)},
-            {"limbo" , new Vector3(-77f, -12f, -157f)}, //todo: fix cannon not triggering
+            //{"limbo" , new Vector3(-77f, -12f, -157f)}, //todo: fix cannon not triggering
         };
 
         public static bool cannonSpawned = false;
