@@ -34,6 +34,7 @@ namespace ClassicItemsReturns.Items.Rare
         public static GameObject teleporterVisualNetworkPrefab;
         public static GameObject atlasCannonInteractablePrefab;
         public static InteractableSpawnCard atlasCannonSpawnCard;
+        public static NetworkSoundEventDef atlasCannonFireSound;
 
         //By default, the cannon attempts to trigger on any Scripted Combat Encounter if the stage has no teleporter.
         public static HashSet<string> atlasCannonScriptedCombatEncounterSceneBlacklist = new HashSet<string>
@@ -100,6 +101,8 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void CreateAssets(ConfigFile config)
         {
+            atlasCannonFireSound = Assets.CreateNetworkSoundEventDef("Play_captain_utility_variant_impact");
+
             atlasCannonNetworkPrefab = Assets.LoadObject("AtlasCannonTarget");
             atlasCannonNetworkPrefab.AddComponent<RoR2.Billboard>();
             atlasCannonNetworkPrefab.AddComponent<NetworkIdentity>();
@@ -151,7 +154,7 @@ namespace ClassicItemsReturns.Items.Rare
             atlasCannonSpawnCard.prefab = atlasCannonInteractablePrefab;
             atlasCannonSpawnCard.slightlyRandomizeOrientation = false;
             atlasCannonSpawnCard.requiredFlags = RoR2.Navigation.NodeFlags.None;
-            atlasCannonSpawnCard.orientToFloor = true;
+            atlasCannonSpawnCard.orientToFloor = false; //Laser is always straight up.
             atlasCannonSpawnCard.hullSize = HullClassification.Human;
             atlasCannonSpawnCard.sendOverNetwork = false;
         }
@@ -364,7 +367,6 @@ namespace ClassicItemsReturns.Items.Rare
         private LineRenderer laser;
         private SpriteRenderer crosshairRenderer, rotatorRenderer;
         private Transform rotatorTransform;
-        private uint soundId;
 
         private float stopwatch;
         private float rotationStopwatch;
@@ -396,7 +398,6 @@ namespace ClassicItemsReturns.Items.Rare
             stopwatch = 0f;
             rotationStopwatch = 0f;
             laserFadeStopwatch = 0f;
-            soundId = Util.PlaySound("Play_captain_utility_variant_laser_loop", base.gameObject);
         }
 
         private void FixedUpdate()
@@ -405,8 +406,6 @@ namespace ClassicItemsReturns.Items.Rare
             if (_hasFired && !hasFiredLocal)
             {
                 hasFiredLocal = true;
-                AkSoundEngine.StopPlayingID(soundId);
-                Util.PlaySound("Play_captain_utility_variant_impact", base.gameObject);
                 if (crosshairRenderer) crosshairRenderer.enabled = false;
                 if (rotatorRenderer) rotatorRenderer.enabled = false;
                 laser.widthMultiplier = laserFireWidth;
@@ -467,6 +466,7 @@ namespace ClassicItemsReturns.Items.Rare
                     procChainMask = default,
                     procCoefficient = 0f
                 });
+                EffectManager.SimpleSoundEffect(USB.atlasCannonFireSound.index, damagePosition, true);
             }
         }
 
@@ -514,6 +514,12 @@ namespace ClassicItemsReturns.Items.Rare
 
         private Vector3 localPos;
 
+        public void SetPosServer(Vector3 pos)
+        {
+            if (!NetworkServer.active) return;
+            _serverPos = pos;
+        }
+
         private void Awake()
         {
             lineRenderer = base.GetComponent<LineRenderer>();
@@ -537,28 +543,80 @@ namespace ClassicItemsReturns.Items.Rare
                 {
                     lineRenderer.SetPositions(new Vector3[]
                     {
-                localPos,
-                localPos + 1000f * Vector3.up
+                        localPos,
+                        localPos + 1000f * Vector3.up
                     });
                 }
             }
         }
 
-        public void SetPosServer(Vector3 pos)
+        private void Update()
         {
-            if (!NetworkServer.active) return;
-            _serverPos = pos;
+            if (!lineRenderer || (expandDuration <= 0f && retractDuration <= 0f)) return;
+
+            expandStopwatch += Time.deltaTime;
+            if (!isRetracting)
+            {
+                lineRenderer.widthMultiplier = Mathf.Lerp(1f, endWidthMult, expandStopwatch / expandDuration);
+
+                if (expandDuration > 0f && expandStopwatch >= expandDuration)
+                {
+                    expandDuration = 0f;
+                    expandStopwatch = 0f;
+                    isRetracting = true;
+                }
+            }
+            else
+            {
+                lineRenderer.widthMultiplier = Mathf.Lerp(endWidthMult, 0f, expandStopwatch / retractDuration);
+                if (expandStopwatch >= retractDuration)
+                {
+                    retractDuration = 0f;
+                    expandStopwatch = 0f;
+                    isRetracting = false;
+
+                    if (NetworkServer.active)
+                    {
+                        EffectManager.SimpleSoundEffect(USB.atlasCannonFireSound.index, _serverPos, true);
+                        Destroy(base.gameObject);
+                    }
+                }
+            }
+        }
+
+        //These are used to make the beam expand/retract.
+        private float endWidthMult = 20f;
+        private float expandDuration = 0f;
+        private float retractDuration = 0f;
+        private float expandStopwatch = 0f;
+        private bool isRetracting = false;
+        private void TriggerBeamAnim()
+        {
+            expandDuration = 5f;
+            retractDuration = 1f;
+            isRetracting = false;
+            expandStopwatch = 0f;
+            endWidthMult = 20f;
+        }
+
+        [ClientRpc]
+        private void RpcTriggerBeamAnim()
+        {
+            TriggerBeamAnim();
+        }
+
+        public void TriggerBeamAnimServer()
+        {
+            if (NetworkServer.active) RpcTriggerBeamAnim();
         }
     }
 
     public class AtlasCannonInteractableController : MonoBehaviour
     {
-        public Vector3 beamOffset = 6f * Vector3.up;
         private GameObject beamInstance;
         private PurchaseInteraction pi;
 
-        private float beamDestroyDelay = 5f;
-        private float beamDestroyStopwatch = 0f;
+        private bool expandedBeam = false;
 
         private void Awake()
         {
@@ -574,14 +632,11 @@ namespace ClassicItemsReturns.Items.Rare
             if (NetworkServer.active && pi && USB.firedCannon)
             {
                 pi.available = false;
-                if (beamInstance)
+                if (beamInstance && !expandedBeam)
                 {
-                    beamDestroyStopwatch += Time.fixedDeltaTime;
-                    if (beamDestroyStopwatch >= beamDestroyDelay)
-                    {
-                        UnityEngine.Object.Destroy(beamInstance);
-                        beamInstance = null;
-                    }
+                    expandedBeam = true;
+                    var controller = beamInstance.GetComponent<AtlasTeleporterBeamController>();
+                    if (controller) controller.TriggerBeamAnimServer();
                 }
             }
         }
@@ -616,7 +671,14 @@ namespace ClassicItemsReturns.Items.Rare
                 var controller = beamInstance.GetComponent<AtlasTeleporterBeamController>();
                 if (controller)
                 {
-                    controller.SetPosServer(base.transform.position + beamOffset);
+                    Vector3 beamOffset = base.transform.position + 6f * Vector3.up;
+                    ChildLocator cl = base.GetComponent<ChildLocator>();
+                    if (cl)
+                    {
+                        Transform beamOrigin = cl.FindChild("BeamOrigin");
+                        beamOffset = beamOrigin.position;
+                    }
+                    controller.SetPosServer(beamOffset);
                 }
                 NetworkServer.Spawn(beamInstance);
             }
