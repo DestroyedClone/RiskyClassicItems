@@ -27,9 +27,9 @@ namespace ClassicItemsReturns.Items.Rare
         public override bool unfinished => true;
 
         public float damagePerStack = 1f;
-        public int killsPerCycle = 20;
+        //public int killsPerCycle = 30;
 
-        public static NetworkSoundEventDef markEnemySound, markEnemyKilledSound;
+        public static NetworkSoundEventDef markEnemySound;
         public static GameObject markerPrefab;
         public static GameObject checkPrefab;
 
@@ -42,7 +42,7 @@ namespace ClassicItemsReturns.Items.Rare
         public override object[] ItemFullDescriptionParams => new object[]
         {
             damagePerStack,
-            killsPerCycle
+            //killsPerCycle
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -52,7 +52,6 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void CreateAssets(ConfigFile config)
         {
-            markEnemyKilledSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitList");
             markEnemySound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitListMark");
 
             markerPrefab = Assets.LoadObject("HitListMarker");
@@ -61,6 +60,12 @@ namespace ClassicItemsReturns.Items.Rare
             checkPrefab = Assets.LoadObject("HitListCheck");
             checkPrefab.AddComponent<RoR2.Billboard>();
             checkPrefab.AddComponent<FadeOverDuration>();
+            var effectComponent = checkPrefab.AddComponent<EffectComponent>();
+            effectComponent.soundName = "Play_ClassicItemsReturns_HitList";
+            var vfxAttributes = checkPrefab.AddComponent<VFXAttributes>();
+            vfxAttributes.vfxIntensity = VFXAttributes.VFXIntensity.Low;
+            vfxAttributes.vfxPriority = VFXAttributes.VFXPriority.Always;
+            ContentAddition.AddEffect(checkPrefab);
         }
 
         public override void Hooks()
@@ -117,9 +122,9 @@ namespace ClassicItemsReturns.Items.Rare
             {
                 IncrementHitListServer();
 
-                if (markEnemyKilledSound)
+                if (HitList.checkPrefab)
                 {
-                    EffectManager.SimpleSoundEffect(markEnemyKilledSound.index, damageReport.victimBody.corePosition, true);
+                    EffectManager.SimpleEffect(HitList.checkPrefab, damageReport.victimBody.corePosition, Quaternion.identity, true);
                 }
             }
         }
@@ -167,7 +172,8 @@ namespace ClassicItemsReturns.Items.Rare
             int buffCount = sender.GetBuffCount(Buffs.HitListPlayerBuff);
             if (buffCount > 0)
             {
-                float damageBoost = 0f;
+                args.baseDamageAdd += damagePerStack * buffCount;
+                /*float damageBoost = 0f;
                 int cycleCount = 1;
                 while (buffCount > 0)
                 {
@@ -183,7 +189,7 @@ namespace ClassicItemsReturns.Items.Rare
                     buffCount -= killsPerCycle;
                     cycleCount++;
                 }
-                args.baseDamageAdd += damageBoost;
+                args.baseDamageAdd += damageBoost;*/
             }
         }
 
@@ -407,8 +413,6 @@ namespace ClassicItemsReturns.Items.Rare
             if (body && body.healthComponent && !body.healthComponent.alive)
             {
                 destroying = true;
-                GameObject check = GameObject.Instantiate(HitList.checkPrefab);
-                check.transform.position = base.transform.position;
                 Destroy(this);
             }
         }
@@ -432,12 +436,14 @@ namespace ClassicItemsReturns.Items.Rare
         {
             stopwatch = 0f;
             renderer = base.GetComponentInChildren<SpriteRenderer>();
+            if (renderer)
+            {
+                initialAlpha = renderer.color.a;
+            }
             if (!renderer)
             {
                 Destroy(this);
-                return;
             }
-            initialAlpha = renderer.color.a;
         }
 
         private void Update()

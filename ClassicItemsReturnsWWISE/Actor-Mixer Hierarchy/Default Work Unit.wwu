@@ -66,6 +66,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="wDoll" ID="{11CB4BF8-8369-40B0-99C9-E92AF1C778D5}" ShortID="651124597">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -88,6 +95,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wJarSouls" ID="{1B7CE877-8191-4D32-AE22-E23504E17C8F}" ShortID="1026148791">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -139,6 +153,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wReflect" ID="{9A95B534-9230-4881-BF12-69D3247FB23B}" ShortID="679863978">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -190,13 +211,6 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="punch" ID="{A30DB383-526F-4716-855C-7A23AD749D05}" ShortID="450162550">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -213,6 +227,13 @@
 												<MediaID ID="264972776"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="wMedallion" ID="{CBAB01FA-448C-45AA-B00B-DCC357F52F9A}">
+											<Language>SFX</Language>
+											<AudioFile>wMedallion.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="7293544"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="punch" ID="{8D0C72B6-73DC-4913-9C56-343659F02869}" Platform="Linked"/>
@@ -222,7 +243,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>6</Value>
+												<Value>10</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -303,6 +324,35 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="wHitlistMark" ID="{04FB57B7-AA7E-485A-A11C-CDB3A4E32A9C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="wMedallion" ID="{2C1A1FBC-B3B9-4D37-9F52-A32CA0E38D58}" ShortID="551854393">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="wMedallion" ID="{45E84575-7F3B-4320-8677-5FEDD1B3A33C}">
+											<Language>SFX</Language>
+											<AudioFile>wMedallion.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="7293544"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="wMedallion" ID="{45E84575-7F3B-4320-8677-5FEDD1B3A33C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

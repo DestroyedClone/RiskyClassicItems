@@ -39,6 +39,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
+            ItemTag.Damage,
             ItemTag.Utility
         };
 

@@ -34,7 +34,26 @@ namespace ClassicItemsReturns.Equipment
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
-            return new ItemDisplayRuleDict();
+            var dict = new ItemDisplayRuleDict();
+
+            //Don't set up displays if 3d model isn't available
+            GameObject display = EquipmentModel;
+            if (!display.name.Contains("mdl3d")) return dict;
+
+            dict.Add("EquipmentDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = EquipmentModel,
+                    childName = "GunBarrelBase",
+                    localPos = new Vector3(0F, 0F, 2.02558F),
+                    localAngles = new Vector3(270F, 0F, 0F),
+                    localScale = new Vector3(0.4F, 0.4F, 0.4F)
+                }
+            });
+
+            return dict;
         }
 
         public override void Init(ConfigFile config)
