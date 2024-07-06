@@ -498,11 +498,6 @@ namespace ClassicItemsReturns.Items.Rare
                 laser.widthMultiplier = laserFireWidth * laserFadePercent;
             }
         }
-
-        private void OnDestroy()
-        {
-            if (!hasFiredLocal) AkSoundEngine.StopPlayingID(soundId);
-        }
     }
 
     public class AtlasTeleporterBeamController : NetworkBehaviour
