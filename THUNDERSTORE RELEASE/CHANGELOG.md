@@ -27,7 +27,10 @@
 			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1.
 				- Procs for everyone who has the item.
 				
-			*Currently has no limits since theoretically it takes a long time to reach "red-tier damage" with this item (40 kills to reach +60%ish damage). Will keep my eye on this to see if it needs any changes.*
+			*Currently has no limits since theoretically it takes a long time to reach "red-tier damage" with this item (40 kills to reach +60%ish damage lategame). Will keep my eye on this to see if it needs any changes.*
+			
+		- Classified Access Codes (New)
+			- The Atlas Cannon appears each stage, activating deals 40% (+20%) of maximum health as damage to the teleporter boss after it spawns.
 			
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:
