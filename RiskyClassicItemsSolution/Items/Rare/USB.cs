@@ -264,7 +264,6 @@ namespace ClassicItemsReturns.Items.Rare
             if (NetworkServer.active && self.bossGroup && self.bossGroup.combatSquad)
             {
                 self.bossGroup.combatSquad.onMemberAddedServer += TargetCannonIgnoreBossCheck;
-                firedCannon = true;
             }
         }
 
@@ -306,6 +305,7 @@ namespace ClassicItemsReturns.Items.Rare
                 }
                 NetworkServer.Spawn(cannonObject);
             }
+            firedCannon = true;
         }
 
         public static void AddTeleporterVisualServer()
