@@ -1,0 +1,9 @@
+{
+	strings: {
+	
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_NAME" : "Atlas Cannon",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_CONTEXT" : "Activate Atlas Cannon",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE" : "<style=cShrine>{0} has armed the Atlas Cannon. Target acquired.</style>",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE_2P" : "<style=cShrine>You have armed the Atlas Cannon. Target acquired.</style>",
+	}
+}

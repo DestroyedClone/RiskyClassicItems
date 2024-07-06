@@ -9,18 +9,28 @@
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
 		- Rusty Jetpack (New)
-			- Gain a jetpack jump with an additional 0% (+10%) jump height.
-				- Diminishing returns, each stack is reduced by 10% (10%, 9%, 8.1%, etc.)
-				
-			*An extra way to get double jumps, since Feathers become hard to get on modded setups with lots of items.*
+			- Increase jump height by 10% (+10%), and gain a short airhop.
+				- Airhop is not affected by jump height, so that you can always use it to break your fall.
+			
+			*Went with airhop instead of "hold to descend" due to potential conflicts with characters that use that input.*
+			
+		- Royal Medallion (New)
+			- 10% chance on hitting a boss monster to drop a buffing orb that improves health regen, attack speed, move speed, and base damage for 10s (+6s per stack).
+				- Gives +3% base damage, +6% attack speed, +2m/s move speed, +1 health regen (scales with level)
+				- Can stack up to 10 buffs at a time.
+				- New buff stacks reset the duration of existing buff stacks.
 			
 		- Hyper-Threader (New)
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			
 		- The Hit List (New)
-			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1. Every 20 kills reduces the damage gained from this item.
-				- First 20 kills = 1 damage, next 20 = 0.5 (1/2), next 20 = 0.33 (1/3), etc.
+			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1.
 				- Procs for everyone who has the item.
+				
+			*Currently has no limits since theoretically it takes a long time to reach "red-tier damage" with this item (40 kills to reach +60%ish damage lategame). Will keep my eye on this to see if it needs any changes.*
+			
+		- Classified Access Codes (New)
+			- The Atlas Cannon appears each stage, activating deals 40% (+20%) of maximum health as damage to the teleporter boss after it spawns.
 			
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:
@@ -30,9 +40,16 @@
 				- Voidling
 				- Artifact Reliquary
 				- Golden Coast
+				- A Moment, Whole
 				
 		- The Toxin
 			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
+			
+		- Bitter Root
+			- New buff stacks now reset the duration of existing buff stacks.
+			
+		- 56 Leaf Clover
+			- No longer rolls for dead/disconnected players.
 			
 	- Equipment
 		- Drone Repair Kit (New)
@@ -42,6 +59,7 @@
 				- +50 Armor
 		
 	- Various minor tweaks to textures.
+	- Added Equipment Drone displays.
 
 - `3.0.1`
 	- Adjusted icons for some items to be closer to the in-game model.

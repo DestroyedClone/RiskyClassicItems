@@ -13,21 +13,20 @@ namespace ClassicItemsReturns.Items.Uncommon
 {
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
-        public const float classicJumpBonus = 0.1f;
-        public const float classicJumpBonusStack = 0.1f;
-
-        public const float jumpBonus = 0.2f;
-        public const float jumpBonusStackMult = 0.8f;
+        public const float jumpBonus = 0.1f;
+        public const float jumpBonusStack = 0.1f;
+        //public const float jumpBonusStackMult = 0.8f;
         public override string ItemName => "Rusty Jetpack";
 
         public override string ItemLangTokenName => "RUSTYJETPACK";
 
         public static GameObject jumpEffectPrefab;
-        public static ConfigEntry<bool> useRework;
+        public static ConfigEntry<bool> enableAirhop;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            jumpBonus
+            100f*jumpBonus,
+            100f*jumpBonusStack
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
@@ -46,7 +45,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void CreateConfig(ConfigFile config)
         {
-            useRework = config.Bind(ConfigCategory, "Use Rework", true, "Reworks the item into providing a double jump.");
+            enableAirhop = config.Bind(ConfigCategory, "Enable Airhop", true, "This item grants a short airhop.");
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -57,7 +56,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override void CreateAssets(ConfigFile config)
         {
             base.CreateAssets(config);
-            jumpEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/OmniExplosionVFXQuick.prefab")
+            jumpEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBombMini.prefab")
                 .WaitForCompletion()
                 .InstantiateClone("CIR_RustyJetpackEffect", false);
 
@@ -71,45 +70,47 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            if (useRework.Value)
-            {
-                On.RoR2.CharacterBody.RecalculateStats += AddJumpCount;
-                On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ReworkJumpVelocity;
-                IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
-            }
-            else
-            {
-                On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ClassicJumpVelocity;
-            }
+            On.RoR2.CharacterBody.RecalculateStats += RecalculateStats_AddJump;
+            On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ApplyJumpVelocity_DoShorthop;
+            IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
+            RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
-        private void ClassicJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            if (characterBody && characterBody.inventory)
-            {
-                int itemCount = characterBody.inventory.GetItemCount(ItemDef);
-                if (itemCount > 0) verticalBonus += ItemHelpers.StackingLinear(itemCount, classicJumpBonus, classicJumpBonusStack);
-            }
+            if (!sender.inventory) return;
+            int itemCount = sender.inventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
 
-            orig(characterMotor, characterBody, horizontalBonus, verticalBonus, vault);
+            args.jumpPowerMultAdd += ItemHelpers.StackingLinear(itemCount, jumpBonus, jumpBonusStack);
         }
 
-        private void ReworkJumpVelocity(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
+        private void ApplyJumpVelocity_DoShorthop(On.EntityStates.GenericCharacterMain.orig_ApplyJumpVelocity orig, CharacterMotor characterMotor, CharacterBody characterBody, float horizontalBonus, float verticalBonus, bool vault)
         {
             if (characterBody)
             {
-                bool isLastJump = characterMotor && characterMotor.jumpCount == characterBody.maxJumpCount - 1;
                 int itemCount = 0;
                 if (characterBody.inventory) itemCount = characterBody.inventory.GetItemCount(ItemDef);
-                if (isLastJump && itemCount > 0)
+                if (itemCount > 0)
                 {
-                    float heightBoost = 0f;
-                    int stack = itemCount - 1;
-                    for (int i = 0; i < stack; i++)
+                    bool isLastJump = RustyJetpack.enableAirhop.Value
+                        && characterMotor && characterMotor.jumpCount == characterBody.maxJumpCount - 1;
+                    if (isLastJump)
                     {
-                        heightBoost += jumpBonus * Mathf.Pow(jumpBonusStackMult, i);
+                        //Based on ApplyJumpVelocity code
+                        Vector3 vector = characterMotor.moveDirection;
+                        vector.y = 0f;
+                        float magnitude = vector.magnitude;
+                        if (magnitude > 0f)
+                        {
+                            vector /= magnitude;
+                        }
+                        Vector3 velocity = vector * characterBody.moveSpeed * horizontalBonus;
+                        velocity.y = 18f;
+                        characterMotor.velocity = velocity;
+                        characterMotor.Motor.ForceUnground();
+                        return;
                     }
-                    verticalBonus += heightBoost;
                 }
             }
             orig(characterMotor, characterBody, horizontalBonus, verticalBonus, vault);
@@ -125,7 +126,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             {
                 if (self.characterBody)
                 {
-                    bool isLastJump = self.characterMotor && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1;
+                    bool isLastJump = RustyJetpack.enableAirhop.Value
+                    && self.characterMotor && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1;
                     bool hasItem = self.characterBody.inventory && self.characterBody.inventory.GetItemCount(ItemDef) > 0;
                     if (isLastJump && hasItem)
                     {
@@ -136,7 +138,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             });
         }
 
-        private void AddJumpCount(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        private void RecalculateStats_AddJump(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
             if (GetCount(self) > 0)

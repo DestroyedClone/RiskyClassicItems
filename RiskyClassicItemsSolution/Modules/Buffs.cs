@@ -20,6 +20,7 @@ namespace ClassicItemsReturns.Modules
         public static BuffDef ThalliumBuff;
         public static BuffDef WeakenOnContactBuff;
         public static BuffDef DroneRepairBuff;
+        public static BuffDef RoyalMedallionBuff;
 
         public static BuffDef HitListEnemyMarker;
         public static BuffDef HitListPlayerBuff;
@@ -212,6 +213,12 @@ namespace ClassicItemsReturns.Modules
             HitListPlayerBuff = CreateBuffInternal("CIR_HitListPlayerBuff",
                 new Color32(255, 232, 68, 255), true,
                 null, Assets.LoadSprite("texBuffHitListMark"),
+                false, false,
+                false, null);
+
+            RoyalMedallionBuff = CreateBuffInternal("CIR_RoyalMedallionBuff",
+                new Color32(255, 232, 68, 255), true,
+                null, Addressables.LoadAssetAsync<Sprite>("RoR2/Base/WarCryOnMultiKill/texWarcryBuffIcon.tif").WaitForCompletion(),
                 false, false,
                 false, null);
         }

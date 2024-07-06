@@ -50,15 +50,8 @@ namespace ClassicItemsReturns.Items.Rare
         public override void CreateAssets(ConfigFile config)
         {
             var asset = Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/DeathProjectileTickEffect.prefab");
-            /*
-            thalliumTickEffect = PrefabAPI.InstantiateClone(asset.transform.Find("DarkWisps01Ring_Ps").gameObject, "ThalliumTickEffect");
-            thalliumTickEffect.AddComponent<DestroyOnTimer>().duration = 1;
-            var nps = thalliumTickEffect.AddComponent<NormalizeParticleScale>();
-            nps.normalizeWithSkinnedMeshRendererInstead = true;*/
-            //[Error: R2API.Prefab] ThalliumProcEffect(UnityEngine.GameObject) don't have a NetworkIdentity Component but was marked for network registration.
             thalliumTickEffect = asset.InstantiateClone("ThalliumProcEffect", false);
             thalliumTickEffect.transform.localScale = Vector3.one * 0.5f;
-            //thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().playbackSpeed = 4f;
             var main = thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().main;
             main.simulationSpeed *= 4f;
             Object.Destroy(thalliumTickEffect.transform.Find("FlarePersitant_Ps").gameObject);

@@ -107,7 +107,12 @@ namespace ClassicItemsReturns.Items.Common
                 var itemCount = GetCount(obj.attackerMaster);
                 if (itemCount > 0)
                 {
-                    obj.attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
+                    int currentBuffs = obj.attackerBody.GetBuffCount(Buffs.BitterRootBuff);
+                    if (currentBuffs > 0) obj.attackerBody.ClearTimedBuffs(Buffs.BitterRootBuff);
+                    for (int i = 0; i < currentBuffs + 1; i++)
+                    {
+                        obj.attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
+                    }
                 }
             }
         }
