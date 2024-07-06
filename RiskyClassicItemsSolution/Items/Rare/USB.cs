@@ -5,9 +5,11 @@ using R2API;
 using RoR2;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items.Rare
@@ -28,8 +30,11 @@ namespace ClassicItemsReturns.Items.Rare
 
         public static GameObject atlasCannonNetworkPrefab;
         public static GameObject teleporterVisualNetworkPrefab;
+        public static GameObject atlasCannonInteractablePrefab;
+        public static InteractableSpawnCard atlasCannonSpawnCard;
 
-        private static bool cannonActivated = false;
+        public static bool cannonSpawned = false;
+        public static bool cannonActivated = false;
         private static bool addedTeleporterVisual = false;
         
         //This is used for special stages that don't have a Teleporter interaction. Teleporter ignores this.
@@ -66,6 +71,46 @@ namespace ClassicItemsReturns.Items.Rare
             teleporterVisualNetworkPrefab.AddComponent<NetworkIdentity>();
             teleporterVisualNetworkPrefab.AddComponent<AtlasTeleporterBeamController>();
             ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
+
+            atlasCannonInteractablePrefab = Assets.LoadObject("AtlasCannonInteractable");
+            atlasCannonInteractablePrefab.layer = LayerIndex.CommonMasks.interactable;
+            atlasCannonInteractablePrefab.AddComponent<NetworkIdentity>();
+            ChildLocator cl = atlasCannonInteractablePrefab.GetComponent<ChildLocator>();
+            Transform modelTransform = cl.FindChild("Model");
+
+            Highlight highlight = atlasCannonInteractablePrefab.AddComponent<Highlight>();
+            highlight.targetRenderer = modelTransform.GetComponent<Renderer>();
+            highlight.strength = 1f;
+            highlight.highlightColor = Highlight.HighlightColor.interactive;
+            highlight.isOn = false;
+
+            PurchaseInteraction pi = atlasCannonInteractablePrefab.AddComponent<PurchaseInteraction>();
+            pi.cost = 0;
+            pi.costType = CostTypeIndex.None;
+            pi.displayNameToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_NAME";
+            pi.contextToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_CONTEXT";
+            pi.setUnavailableOnTeleporterActivated = true;
+            pi.isShrine = false;
+            pi.isGoldShrine = false;
+            pi.ignoreSpherecastForInteractability = false;
+            pi.available = true;
+
+            atlasCannonInteractablePrefab.AddComponent<AtlasCannonInteractableController>();
+
+            EntityLocator el = atlasCannonInteractablePrefab.AddComponent<EntityLocator>();
+            el.entity = atlasCannonInteractablePrefab;
+
+            ContentAddition.AddNetworkedObject(atlasCannonInteractablePrefab);
+
+            atlasCannonSpawnCard = ScriptableObject.CreateInstance<InteractableSpawnCard>();
+            atlasCannonSpawnCard.maxSpawnsPerStage = 1;
+            atlasCannonSpawnCard.occupyPosition = true;
+            atlasCannonSpawnCard.prefab = atlasCannonInteractablePrefab;
+            atlasCannonSpawnCard.slightlyRandomizeOrientation = false;
+            atlasCannonSpawnCard.requiredFlags = RoR2.Navigation.NodeFlags.None;
+            atlasCannonSpawnCard.orientToFloor = true;
+            atlasCannonSpawnCard.hullSize = HullClassification.Human;
+            atlasCannonSpawnCard.sendOverNetwork = false;
         }
 
         public override void Hooks()
@@ -79,6 +124,29 @@ namespace ClassicItemsReturns.Items.Rare
             On.EntityStates.Missions.BrotherEncounter.Phase1.OnMemberAddedServer += Phase1_OnMemberAddedServer;
             On.EntityStates.Missions.Goldshores.GoldshoresBossfight.SetBossImmunity += GoldshoresBossfight_SetBossImmunity;
             On.RoR2.ScriptedCombatEncounter.Spawn += ScriptedCombatEncounter_Spawn;
+            On.RoR2.SceneDirector.PopulateScene += SceneDirector_PopulateScene;
+            On.RoR2.CharacterBody.OnInventoryChanged += CharacterBody_OnInventoryChanged;
+        }
+
+        private void CharacterBody_OnInventoryChanged(On.RoR2.CharacterBody.orig_OnInventoryChanged orig, CharacterBody self)
+        {
+            orig(self);
+            if (NetworkServer.active && !cannonSpawned && self.inventory.GetItemCount(ItemDef) > 0)
+            {
+                //TODO
+            }
+        }
+
+        private void SceneDirector_PopulateScene(On.RoR2.SceneDirector.orig_PopulateScene orig, SceneDirector self)
+        {
+            orig(self);
+            if (NetworkServer.active
+                && !cannonSpawned
+                && TeleporterInteraction.instance
+                && Util.GetItemCountForTeam(TeamIndex.Player, ItemDef.itemIndex, false, true) > 0)
+            {
+                PlaceAtlasCannonInteractable(self.rng);
+            }
         }
 
         private void ScriptedCombatEncounter_Spawn(On.RoR2.ScriptedCombatEncounter.orig_Spawn orig, ScriptedCombatEncounter self, ref ScriptedCombatEncounter.SpawnInfo spawnInfo)
@@ -87,7 +155,7 @@ namespace ClassicItemsReturns.Items.Rare
 
             //Don't like how hardcoded this is.
             SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
-            if (currentScene && currentScene.cachedName == "voidraid" && !firedCannon)
+            if (currentScene && currentScene.cachedName == "voidraid" && !TeleporterInteraction.instance && !firedCannon && cannonActivated)
             {
                 firedCannon = true;
                 foreach (CharacterMaster master in CharacterMaster.readOnlyInstancesList)
@@ -101,7 +169,7 @@ namespace ClassicItemsReturns.Items.Rare
         {
             orig(self, newBossImmunity);
 
-            if (NetworkServer.active && !newBossImmunity && !firedCannon)
+            if (NetworkServer.active && !newBossImmunity && !firedCannon && cannonActivated)
             {
                 firedCannon = true;
                 foreach (CharacterMaster master in self.scriptedCombatEncounter.combatSquad.readOnlyMembersList)
@@ -123,12 +191,12 @@ namespace ClassicItemsReturns.Items.Rare
         private void Phase1_OnMemberAddedServer(On.EntityStates.Missions.BrotherEncounter.Phase1.orig_OnMemberAddedServer orig, EntityStates.Missions.BrotherEncounter.Phase1 self, CharacterMaster master)
         {
             orig(self, master);
-            TargetCannon(master);
+            if (cannonActivated) TargetCannon(master);
         }
 
         private void TargetCannon(CharacterMaster master)
         {
-            if (!NetworkServer.active) return;
+            if (!NetworkServer.active || !cannonActivated) return;
             CharacterBody body = master.GetBody();
             if (body
                 && (body.isChampion || body.isBoss)
@@ -180,6 +248,24 @@ namespace ClassicItemsReturns.Items.Rare
             cannonActivated = false;
             addedTeleporterVisual = false;
             firedCannon = false;
+            cannonSpawned = false;
+        }
+
+        public static void PlaceAtlasCannonInteractable(Xoroshiro128Plus rng)
+        {
+            DirectorPlacementRule placementRule = new DirectorPlacementRule
+            {
+                placementMode = DirectorPlacementRule.PlacementMode.Random
+            };
+            GameObject result = DirectorCore.instance.TrySpawnObject(new DirectorSpawnRequest(atlasCannonSpawnCard, placementRule, rng));
+            if (result)
+            {
+                Debug.Log("ClassicItemsReturns: Placed Atlas Cannon interactable.");
+            }
+            else
+            {
+                Debug.LogError("ClassicItemsReturns: Failed to place Atlas Cannon interactable.");
+            }
         }
     }
 
@@ -362,6 +448,37 @@ namespace ClassicItemsReturns.Items.Rare
                 TeleporterInteraction.instance.transform.position + 1000f * Vector3.up
                 });
             }
+        }
+    }
+
+    public class AtlasCannonInteractableController : MonoBehaviour
+    {
+        private PurchaseInteraction pi;
+        private void Awake()
+        {
+            pi = base.GetComponent<PurchaseInteraction>();
+            if (pi)
+            {
+                pi.onPurchase.AddListener(new UnityAction<Interactor>(AtlasCannonOnPurchase));
+            }
+        }
+
+        private void AtlasCannonOnPurchase(Interactor interactor)
+        {
+            if (USB.cannonActivated) return;
+
+            if (pi)
+            {
+                pi.lastActivator = interactor;
+                pi.available = false;
+            }
+           
+            USB.cannonActivated = true;
+            Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
+            {
+                subjectAsCharacterBody = interactor.GetComponent<CharacterBody>(),
+                baseToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE"
+            });
         }
     }
 }
