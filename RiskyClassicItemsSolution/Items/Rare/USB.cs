@@ -106,12 +106,14 @@ namespace ClassicItemsReturns.Items.Rare
             atlasCannonNetworkPrefab.AddComponent<NetworkIdentity>();
             var controller = atlasCannonNetworkPrefab.AddComponent<AtlasCannonController>();
             atlasCannonNetworkPrefab.AddComponent<DestroyOnTimer>().duration = controller.delayBeforeFiring + controller.lifetimeAfterFiring + 2f;
-            ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
+            PrefabAPI.RegisterNetworkPrefab(atlasCannonNetworkPrefab);
+            //ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
 
             teleporterVisualNetworkPrefab = Assets.LoadObject("AtlasCannonTeleporterVisual");
             teleporterVisualNetworkPrefab.AddComponent<NetworkIdentity>();
             teleporterVisualNetworkPrefab.AddComponent<AtlasTeleporterBeamController>();
-            ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
+            PrefabAPI.RegisterNetworkPrefab(teleporterVisualNetworkPrefab);
+            //ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
 
             atlasCannonInteractablePrefab = Assets.LoadObject("AtlasCannonInteractable");
 
@@ -144,7 +146,8 @@ namespace ClassicItemsReturns.Items.Rare
             EntityLocator el = atlasCannonInteractablePrefab.AddComponent<EntityLocator>();
             el.entity = atlasCannonInteractablePrefab;
 
-            ContentAddition.AddNetworkedObject(atlasCannonInteractablePrefab);
+            PrefabAPI.RegisterNetworkPrefab(atlasCannonInteractablePrefab);
+            //ContentAddition.AddNetworkedObject(atlasCannonInteractablePrefab);
 
             atlasCannonSpawnCard = ScriptableObject.CreateInstance<InteractableSpawnCard>();
             atlasCannonSpawnCard.maxSpawnsPerStage = 1;
@@ -262,6 +265,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void TeleporterInteraction_Start(On.RoR2.TeleporterInteraction.orig_Start orig, TeleporterInteraction self)
         {
             orig(self);
+            cannonSpawned = true;   //Prevent cannon from spawning after TP activates
             if (NetworkServer.active && self.bossGroup && self.bossGroup.combatSquad)
             {
                 self.bossGroup.combatSquad.onMemberAddedServer += TargetCannonIgnoreBossCheck;
@@ -578,7 +582,7 @@ namespace ClassicItemsReturns.Items.Rare
         }
 
         //These are used to make the beam expand/retract.
-        private float endWidthMult = 20f;
+        private float endWidthMult = 5f;
         private float expandDuration = 0f;
         private float retractDuration = 0f;
         private float expandStopwatch = 0f;
@@ -589,7 +593,7 @@ namespace ClassicItemsReturns.Items.Rare
             retractDuration = 1f;
             isRetracting = false;
             expandStopwatch = 0f;
-            endWidthMult = 20f;
+            endWidthMult = 5f;
         }
 
         [ClientRpc]

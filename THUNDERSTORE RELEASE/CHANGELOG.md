@@ -32,6 +32,8 @@
 		- Classified Access Codes (New)
 			- The Atlas Cannon appears each stage, activating deals 40% (+20%) of maximum health as damage to the teleporter boss after it spawns.
 				- Nonlinear stacking, check RoRR wiki.
+				
+			*This is pure jank code, report bugs if they arise.*
 			
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:
