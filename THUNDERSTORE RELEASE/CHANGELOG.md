@@ -45,7 +45,7 @@
 				
 		- The Toxin
 			- Changed from -30 Armor to +30% Damage Received like in Returns since armor reduction has diminishing returns.
-			- Reduced duration from 3s (+3s) -> 3s (+1.5s) since it was too high for a Common item.
+			- Reduced duration from 3s (+3s) -> 3s (+1.5s) since it's really easy to stack due to being a Common item.
 			
 		- Bitter Root
 			- New buff stacks now reset the duration of existing buff stacks.

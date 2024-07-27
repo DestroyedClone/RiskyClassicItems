@@ -134,7 +134,7 @@ namespace ClassicItemsReturns.Items.Rare
             pi.displayNameToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_NAME";
             pi.contextToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_CONTEXT";
             pi.setUnavailableOnTeleporterActivated = true;
-            pi.isShrine = false;
+            pi.isShrine = true; //affects icon
             pi.isGoldShrine = false;
             pi.ignoreSpherecastForInteractability = false;
             pi.available = true;
