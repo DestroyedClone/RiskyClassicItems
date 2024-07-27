@@ -98,37 +98,40 @@ namespace ClassicItemsReturns.Equipment
             }
             else
             {
-                float y = Quaternion.LookRotation(slot.GetAimRay().direction).eulerAngles.y;
-                Quaternion rotation = Quaternion.Euler(0f, y, 0f);
-                CharacterMaster characterMaster = new MasterSummon
+                if (slot.characterBody.isPlayerControlled || (slot.characterBody.teamComponent && slot.characterBody.teamComponent.teamIndex == TeamIndex.Player))
                 {
-                    masterPrefab = DroneRepairKit.summonMasterPrefab,
-                    position = slot.transform.position + rotation * Vector3.forward * 3f + Vector3.up * 3f,
-                    rotation = rotation,
-                    summonerBodyObject = slot.gameObject,
-                    ignoreTeamMemberLimit = true,
-                    useAmbientLevel = true
-                }.Perform();
-                if (characterMaster)
-                {
-                    summonTracker.summonMasterInstance = characterMaster.gameObject;
-                    CharacterBody cb = characterMaster.GetBody();
-                    if (cb && cb.healthComponent)
+                    float y = Quaternion.LookRotation(slot.GetAimRay().direction).eulerAngles.y;
+                    Quaternion rotation = Quaternion.Euler(0f, y, 0f);
+                    CharacterMaster characterMaster = new MasterSummon
                     {
-                        MasterSuicideOnTimer msot = characterMaster.gameObject.AddComponent<MasterSuicideOnTimer>();
-                        msot.lifeTimer = DroneRepairKit.buffDuration;
-                    }
-
-                    if (characterMaster.teamIndex == TeamIndex.Player && characterMaster.inventory)
+                        masterPrefab = DroneRepairKit.summonMasterPrefab,
+                        position = slot.transform.position + rotation * Vector3.forward * 3f + Vector3.up * 3f,
+                        rotation = rotation,
+                        summonerBodyObject = slot.gameObject,
+                        ignoreTeamMemberLimit = true,
+                        useAmbientLevel = true
+                    }.Perform();
+                    if (characterMaster)
                     {
-                        if (Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef)
+                        summonTracker.summonMasterInstance = characterMaster.gameObject;
+                        CharacterBody cb = characterMaster.GetBody();
+                        if (cb && cb.healthComponent)
                         {
-                            characterMaster.inventory.GiveItem(Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef);
+                            MasterSuicideOnTimer msot = characterMaster.gameObject.AddComponent<MasterSuicideOnTimer>();
+                            msot.lifeTimer = DroneRepairKit.buffDuration;
                         }
 
-                        if (ModSupport.ModCompatRiskyMod.loaded)
+                        if (characterMaster.teamIndex == TeamIndex.Player && characterMaster.inventory)
                         {
-                            Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(characterMaster.inventory, true);
+                            if (Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef)
+                            {
+                                characterMaster.inventory.GiveItem(Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef);
+                            }
+
+                            if (ModSupport.ModCompatRiskyMod.loaded)
+                            {
+                                Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(characterMaster.inventory, true);
+                            }
                         }
                     }
                 }
