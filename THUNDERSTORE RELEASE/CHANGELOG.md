@@ -1,6 +1,6 @@
 - `3.1.0`
 
-	*Huge thanks to FORCED_REASSEMBLY for the models!*
+	*Huge thanks to FORCED_REASSEMBLY for the models! Haven't had much time to test, so report any bugs if they arise.*
 
 	- Items
 		- Energy Cell (New)
