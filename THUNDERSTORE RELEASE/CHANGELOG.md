@@ -1,4 +1,7 @@
 - `3.1.0`
+
+	*Huge thanks to FORCED_REASSEMBLY for the models!*
+
 	- Items
 		- Energy Cell (New)
 			- Increases attack speed by 10%-40% (+10%-40%) based on health lost.
@@ -21,10 +24,10 @@
 			- 100% chance on hit to fire a laser that deals 60% base damage and bounces to 2 (+1) enemies.
 			
 		- The Hit List (New)
-			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 1.
-				- Procs for everyone who has the item.
+			- Randomly marks up to 1 (+1 per stack) enemy. Killing a marked enemy permanently increases base damage by 0.5
+				- Kills count for everyone holding the item.
 				
-			*Currently has no limits since theoretically it takes a long time to reach "red-tier damage" with this item (40 kills to reach +60%ish damage lategame). Will keep my eye on this to see if it needs any changes.*
+			*Currently has no limits since theoretically it takes a long time to reach "red-tier damage" with this item. Will keep my eye on this to see if it needs any changes.*
 			
 		- Classified Access Codes (New)
 			- The Atlas Cannon appears each stage, activating deals 40% (+20%) of maximum health as damage to the teleporter boss after it spawns.
@@ -42,6 +45,7 @@
 				
 		- The Toxin
 			- Changed from -30 Armor to +30% Damage Received like in Returns since armor reduction has diminishing returns.
+			- Reduced duration from 3s (+3s) -> 3s (+1.5s) since it was too high for a Common item.
 			
 		- Bitter Root
 			- New buff stacks now reset the duration of existing buff stacks.
@@ -52,19 +56,17 @@
 		- Arms Race
 			- Added Drone displays.
 			
-	- Unfinished Items (Disabled by default)
-		- Boxing Glove (New)
-			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
-			
 	- Equipment
+		- Added Equipment Drone displays for all equipment.
 		- Drone Repair Kit (New)
-			- All drones are repaired to full health and empowered for 8s.
+			- All drones are repaired to full health and empowered for 8s. Summons a unique drone.
 				- +50% Attack Speed
 				- -50% Cooldowns
 				- +50 Armor
-		
-	- Various minor tweaks to textures.
-	- Added Equipment Drone displays.
+			
+	- Unfinished Items (Disabled by default)
+		- Boxing Glove (New)
+			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 
 - `3.0.1`
 	- Adjusted icons for some items to be closer to the in-game model.

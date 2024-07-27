@@ -24,7 +24,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override Sprite ItemIcon => LoadItemSprite("HitList");
 
-        public float damagePerStack = 1f;
+        public float damagePerStack = 0.5f;
         //public int killsPerCycle = 30;
 
         public static NetworkSoundEventDef markEnemySound;

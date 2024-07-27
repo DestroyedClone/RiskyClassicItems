@@ -1,11 +1,9 @@
-﻿using R2API;
+﻿using BepInEx.Configuration;
 using ClassicItemsReturns.Modules;
+using R2API;
 using RoR2;
 using UnityEngine;
-using BepInEx.Configuration;
-using MonoMod.Cil;
-using Mono.Cecil.Cil;
-using System;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -31,6 +29,8 @@ namespace ClassicItemsReturns.Equipment
         public override GameObject EquipmentModel => LoadItemModel("RepairKit");
 
         public override Sprite EquipmentIcon => LoadItemSprite("RepairKit");
+
+        public static GameObject summonMasterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Master.prefab").WaitForCompletion();
 
         public override void CreateAssets(ConfigFile config)
         {
@@ -82,7 +82,58 @@ namespace ClassicItemsReturns.Equipment
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
             if (!slot.characterBody || !slot.characterBody.master) return false;
-            int activationCount = 0;
+
+            DroneRepairKitSummonTracker summonTracker = slot.characterBody.master.GetComponent<DroneRepairKitSummonTracker>();
+            if (!summonTracker)
+            {
+                summonTracker = slot.characterBody.master.gameObject.AddComponent<DroneRepairKitSummonTracker>();
+            }
+            if (summonTracker.summonMasterInstance)
+            {
+                MasterSuicideOnTimer mst = summonTracker.summonMasterInstance.GetComponent<MasterSuicideOnTimer>();
+                if (mst)
+                {
+                    mst.timer = 0f;
+                }
+            }
+            else
+            {
+                float y = Quaternion.LookRotation(slot.GetAimRay().direction).eulerAngles.y;
+                Quaternion rotation = Quaternion.Euler(0f, y, 0f);
+                CharacterMaster characterMaster = new MasterSummon
+                {
+                    masterPrefab = DroneRepairKit.summonMasterPrefab,
+                    position = slot.transform.position + rotation * Vector3.forward * 3f + Vector3.up * 3f,
+                    rotation = rotation,
+                    summonerBodyObject = slot.gameObject,
+                    ignoreTeamMemberLimit = true,
+                    useAmbientLevel = true
+                }.Perform();
+                if (characterMaster)
+                {
+                    summonTracker.summonMasterInstance = characterMaster.gameObject;
+                    CharacterBody cb = characterMaster.GetBody();
+                    if (cb && cb.healthComponent)
+                    {
+                        MasterSuicideOnTimer msot = characterMaster.gameObject.AddComponent<MasterSuicideOnTimer>();
+                        msot.lifeTimer = DroneRepairKit.buffDuration;
+                    }
+
+                    if (characterMaster.teamIndex == TeamIndex.Player && characterMaster.inventory)
+                    {
+                        if (Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef)
+                        {
+                            characterMaster.inventory.GiveItem(Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef);
+                        }
+
+                        if (ModSupport.ModCompatRiskyMod.loaded)
+                        {
+                            Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(characterMaster.inventory, true);
+                        }
+                    }
+                }
+            }
+
             MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(slot.characterBody.master.netId);
             if (minionGroup != null)
             {
@@ -97,21 +148,19 @@ namespace ClassicItemsReturns.Equipment
                         {
                             if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
                             body.AddTimedBuff(Buffs.DroneRepairBuff, buffDuration);
-                            activationCount++;
                         }
                     }
                 }
             }
 
-            bool activated = activationCount > 0;
-            if (activated)
-            {
-                RoR2.Audio.EntitySoundManager.EmitSoundServer(activationSound.index, slot.characterBody.gameObject);
-            }
-            //slot.subcooldownTimer = 0.5f;
+            RoR2.Audio.EntitySoundManager.EmitSoundServer(activationSound.index, slot.characterBody.gameObject);
 
-            //Always return true so that you don't get stuck with it in Enigma
             return true;
         }
+    }
+
+    public class DroneRepairKitSummonTracker : MonoBehaviour
+    {
+        public GameObject summonMasterInstance = null;
     }
 }

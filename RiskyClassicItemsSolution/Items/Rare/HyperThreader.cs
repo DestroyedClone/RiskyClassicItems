@@ -88,7 +88,7 @@ namespace ClassicItemsReturns.Items.Rare
             chainGunOrb.procCoefficient = 0f;
             chainGunOrb.procChainMask = damageInfo.procChainMask;
             chainGunOrb.origin = attackerBody.corePosition;
-            chainGunOrb.speed = 450f;
+            chainGunOrb.speed = 150f;
             chainGunOrb.bouncesRemaining = calcBounceCount;
             chainGunOrb.bounceRange = bounceRange;
             chainGunOrb.damageCoefficientPerBounce = 1f;

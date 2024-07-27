@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Items.NoTier;
 using R2API;
 using RoR2;
 using RoR2.Items;

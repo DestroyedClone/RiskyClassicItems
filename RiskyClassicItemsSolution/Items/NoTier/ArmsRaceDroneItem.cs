@@ -8,8 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using ClassicItemsReturns.Items.Uncommon;
 
-namespace ClassicItemsReturns.Items.Uncommon
+namespace ClassicItemsReturns.Items.NoTier
 {
     internal class ArmsRaceDroneItem : ItemBase<ArmsRaceDroneItem>
     {
@@ -17,7 +18,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override ItemTier Tier => ItemTier.NoTier;
 
-        public override GameObject ItemModel => Assets.NullModel;
+        public override GameObject ItemModel => LoadItemModel("ArmsRaceMissiles");
 
         public override Sprite ItemIcon => Assets.NullSprite;
 
@@ -28,7 +29,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             var dict = new ItemDisplayRuleDict();
 
             //Don't set up displays if 3d model isn't available
-            GameObject display = LoadItemModel("ArmsRaceMissiles");
+            GameObject display = ItemModel;
             if (!display.name.Contains("mdl3d")) return dict;
 
             dict.Add("EquipmentDroneBody", new ItemDisplayRule[]
@@ -320,13 +321,12 @@ namespace ClassicItemsReturns.Items.Uncommon
             return dict;
         }
         public override ItemTag[] ItemTags => new ItemTag[]
-       {
+        {
             ItemTag.CannotSteal,
             ItemTag.CannotCopy,
             ItemTag.Damage
-       };
+        };
 
-        public override string ParentItemName => ArmsRace.Instance.ItemName;
 
         //https://github.com/Moffein/RiskyMod/blob/master/RiskyMod/Allies/DroneBehaviors/AutoMissileBehavior.cs#L10
         public class ArmsRaceDroneBehavior : BaseItemBodyBehavior
