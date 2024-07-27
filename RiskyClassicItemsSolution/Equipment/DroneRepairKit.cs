@@ -32,8 +32,6 @@ namespace ClassicItemsReturns.Equipment
 
         public override Sprite EquipmentIcon => LoadItemSprite("RepairKit");
 
-        public override bool Unfinished => true;
-
         public override void CreateAssets(ConfigFile config)
         {
             base.CreateAssets(config);
@@ -59,7 +57,26 @@ namespace ClassicItemsReturns.Equipment
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
-            return new ItemDisplayRuleDict();
+            var dict = new ItemDisplayRuleDict();
+
+            //Don't set up displays if 3d model isn't available
+            GameObject display = EquipmentModel;
+            if (!display.name.Contains("mdl3d")) return dict;
+
+            dict.Add("EquipmentDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = EquipmentModel,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "GunBarrelBase",
+                    localPos = new Vector3(-0.222F, 0F, 2.51855F),
+                    localAngles = new Vector3(0.39625F, 59.72602F, 274.5737F),
+                    localScale = new Vector3(0.5F, 0.5F, 0.5F)
+                }
+            });
+
+            return dict;
         }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)

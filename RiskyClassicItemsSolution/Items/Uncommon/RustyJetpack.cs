@@ -41,8 +41,6 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.AIBlacklist
         };
 
-        public override bool unfinished => true;
-
         public override void CreateConfig(ConfigFile config)
         {
             enableAirhop = config.Bind(ConfigCategory, "Enable Airhop", true, "This item grants a short airhop.");

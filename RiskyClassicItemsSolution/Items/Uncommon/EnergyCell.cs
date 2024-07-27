@@ -51,8 +51,6 @@ namespace ClassicItemsReturns.Items.Uncommon
             (atkSpdIncreaseStack + atkSpdIncreaseLowHealthStack) * 100
         };
 
-        public override bool unfinished => true;
-
         public override void Hooks()
         {
             base.Hooks();

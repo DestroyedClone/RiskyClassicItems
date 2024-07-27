@@ -24,8 +24,6 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override Sprite ItemIcon => LoadItemSprite("HitList");
 
-        public override bool unfinished => true;
-
         public float damagePerStack = 1f;
         //public int killsPerCycle = 30;
 

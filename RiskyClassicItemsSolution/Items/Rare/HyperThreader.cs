@@ -38,7 +38,6 @@ namespace ClassicItemsReturns.Items.Rare
         public override GameObject ItemModel => LoadItemModel("HyperThreader");
 
         public override Sprite ItemIcon => LoadItemSprite("HyperThreader");
-        public override bool unfinished => true;
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {

@@ -24,8 +24,6 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override GameObject ItemModel => LoadItemModel("Medallion");
         public override Sprite ItemIcon => LoadItemSprite("Medallion");
 
-        public override bool unfinished => true;
-
         public static int maxBuffStacks = 10;
         public float procChance = 10f;
         public float buffDuration = 10f;

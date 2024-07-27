@@ -28,8 +28,6 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override Sprite ItemIcon => LoadItemSprite("USB");
 
-        public override bool unfinished => true;
-
         public static GameObject atlasCannonNetworkPrefab;
         public static GameObject teleporterVisualNetworkPrefab;
         public static GameObject atlasCannonInteractablePrefab;
