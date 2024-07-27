@@ -25,7 +25,299 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
-            return new ItemDisplayRuleDict();
+            var dict = new ItemDisplayRuleDict();
+
+            //Don't set up displays if 3d model isn't available
+            GameObject display = LoadItemModel("ArmsRaceMissiles");
+            if (!display.name.Contains("mdl3d")) return dict;
+
+            dict.Add("EquipmentDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "GunBarrelBase",
+                    localPos = new Vector3(0.6F, 0F, 0F),
+                    localAngles = new Vector3(90F, 180F, 0F),
+                    localScale = new Vector3(0.25F, 0.25F, 0.25F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "GunBarrelBase",
+                    localPos = new Vector3(-0.6F, 0F, 0F),
+                    localAngles = new Vector3(90F, 180F, 0F),
+                    localScale = new Vector3(-0.25F, 0.25F, 0.25F)
+                }
+            });
+
+            dict.Add("Drone1Body", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0.5F, 0F, 0F),
+                    localAngles = new Vector3(0F, 0F, 180F),
+                    localScale = new Vector3(0.5F, 0.5F, 0.5F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(-0.5F, 0F, 0F),
+                    localAngles = new Vector3(0F, 0F, 0F),
+                    localScale = new Vector3(0.5F, -0.5F, 0.5F)
+                }
+            });
+
+            dict.Add("Drone2Body", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(0.5F, 0F, 0F),
+                    localAngles = new Vector3(270F, 180F, 0F),
+                    localScale = new Vector3(0.5F, 0.5F, 0.5F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(-0.5F, 0F, 0F),
+                    localAngles = new Vector3(270F, 180F, 0F),
+                    localScale = new Vector3(-0.5F, 0.5F, 0.5F)
+                }
+            });
+
+            dict.Add("BackupDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(0.5F, 0.35F, 0.2F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.25F, 0.25F, 0.25F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(-0.5F, 0.35F, 0.2F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.25F, 0.25F, 0.25F)
+                }
+            });
+
+            dict.Add("DroneCommanderBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(0.2F, -0.07F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.125F, 0.125F, 0.125F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(-0.2F, -0.07F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.125F, 0.125F, 0.125F)
+                }
+            });
+
+            dict.Add("EmergencyDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "TopRing",
+                    localPos = new Vector3(2.7F, 2.57F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.5F, 0.5F, 0.5F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "TopRing",
+                    localPos = new Vector3(-2.7F, 2.57F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.5F, 0.5F, 0.5F)
+                }
+            });
+
+            dict.Add("FlameDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(-0.5F, -0.25F, 0F),
+                    localAngles = new Vector3(0F, 0F, 180F),
+                    localScale = new Vector3(-0.35F, 0.35F, 0.35F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(0.5F, -0.25F, 0F),
+                    localAngles = new Vector3(0F, 0F, 180F),
+                    localScale = new Vector3(0.35F, 0.35F, 0.35F)
+                }
+            });
+
+            dict.Add("MegaDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Base",
+                    localPos = new Vector3(2.7F, 0.72F, 0.2F),
+                    localAngles = new Vector3(90F, 180F, 0F),
+                    localScale = new Vector3(0.4F, 0.4F, 0.4F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Base",
+                    localPos = new Vector3(-2.7F, 0.72F, 0.2F),
+                    localAngles = new Vector3(90F, 180F, 0F),
+                    localScale = new Vector3(-0.4F, 0.4F, 0.4F)
+                }
+            });
+
+            dict.Add("MissileDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Body",
+                    localPos = new Vector3(0.6F, 0.5F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.35F, 0.35F, 0.35F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Body",
+                    localPos = new Vector3(-0.6F, 0.5F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.35F, 0.35F, 0.35F)
+                }
+            });
+
+            dict.Add("Turret1Body", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(-1.7F, 0F, 0F),
+                    localAngles = new Vector3(90F, 0F, 0F),
+                    localScale = new Vector3(1F, 1F, 1F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(1.7F, 0F, 0F),
+                    localAngles = new Vector3(90F, 0F, 0F),
+                    localScale = new Vector3(-1F, 1F, 1F)
+                }
+            });
+
+            dict.Add("EngiTurretBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0.6F, 0.42F, -0.66F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.25F, 0.25F, 0.25F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(-0.6F, 0.42F, -0.66F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.25F, 0.25F, 0.25F)
+                }
+            });
+
+            dict.Add("EngiBeamTurretBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0.6F, 0.42F, -0.66F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.25F, 0.25F, 0.25F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(-0.6F, 0.42F, -0.66F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.25F, 0.25F, 0.25F)
+                }
+            });
+
+            dict.Add("EngiWalkerTurretBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0.5F, 0.8F, -1F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.25F, 0.25F, 0.25F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(-0.5F, 0.8F, -1F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.25F, 0.25F, 0.25F)
+                }
+            });
+
+            return dict;
         }
         public override ItemTag[] ItemTags => new ItemTag[]
        {

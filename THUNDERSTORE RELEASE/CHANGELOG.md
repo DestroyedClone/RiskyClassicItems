@@ -49,6 +49,9 @@
 		- 56 Leaf Clover
 			- No longer rolls for dead/disconnected players.
 			
+		- Arms Race
+			- Added Drone displays.
+			
 	- Unfinished Items (Disabled by default)
 		- Boxing Glove (New)
 			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
