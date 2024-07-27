@@ -4,9 +4,6 @@
 			- Increases attack speed by 10%-40% (+10%-40%) based on health lost.
 				- 100% HP = 10%
 				- 25% HP = 40%
-				
-		- Boxing Glove (New)
-			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
 		- Rusty Jetpack (New)
 			- Increase jump height by 10% (+10%), and gain a short airhop.
@@ -31,6 +28,7 @@
 			
 		- Classified Access Codes (New)
 			- The Atlas Cannon appears each stage, activating deals 40% (+20%) of maximum health as damage to the teleporter boss after it spawns.
+				- Nonlinear stacking, check RoRR wiki.
 			
 		- Mu Construct/Arcane Blades
 			- Now can trigger from:
@@ -43,13 +41,17 @@
 				- A Moment, Whole
 				
 		- The Toxin
-			- Changed from -30 Armor to +30% Damage Received since armor reduction has diminishing returns.
+			- Changed from -30 Armor to +30% Damage Received like in Returns since armor reduction has diminishing returns.
 			
 		- Bitter Root
 			- New buff stacks now reset the duration of existing buff stacks.
 			
 		- 56 Leaf Clover
 			- No longer rolls for dead/disconnected players.
+			
+	- Unfinished Items (Disabled by default)
+		- Boxing Glove (New)
+			- 6% (+6%) chance on hitting enemies to knock them back for 100% TOTAL damage.
 			
 	- Equipment
 		- Drone Repair Kit (New)
