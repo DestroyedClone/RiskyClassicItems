@@ -1,3 +1,8 @@
+- `3.1.2`
+	- Fixed Repair Drone giving DroneMeld stacks to Gunner Drones.
+	- Fixed spinning Gunner Turret Arms Race displays.
+	- TODO: Fixed Rusty Jetpack VFX not being synced online.
+
 - `3.1.1`
 	- Fixed typo in Classified Access Codes lore.
 

@@ -1,5 +1,6 @@
 using RoR2;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace ClassicItemsReturns.Modules
 {

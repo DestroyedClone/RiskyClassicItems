@@ -18,6 +18,8 @@ namespace ClassicItemsReturns.Equipment
         public const float buffArmor = 50f;
 
         public static NetworkSoundEventDef activationSound;
+        public static GameObject repairDroneMasterPrefab;
+        public static GameObject repairDroneBodyPrefab;
 
         public override bool EnigmaCompatible { get; } = true;
         public override bool CanBeRandomlyTriggered { get; } = true;
@@ -30,13 +32,26 @@ namespace ClassicItemsReturns.Equipment
 
         public override Sprite EquipmentIcon => LoadItemSprite("RepairKit");
 
-        public static GameObject summonMasterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Master.prefab").WaitForCompletion();
-
         public override void CreateAssets(ConfigFile config)
         {
             base.CreateAssets(config);
 
             activationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_RepairKit");
+
+            CreateUniqueDrone();
+        }
+
+        private void CreateUniqueDrone()
+        {
+            repairDroneBodyPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Body.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_BODY_RepairDroneBody", true);
+            CharacterBody body = repairDroneBodyPrefab.GetComponent<CharacterBody>();
+            body.baseNameToken = "CLASSICITEMSRETURNS_BODY_REPAIRDRONEBODY_NAME";
+            ContentAddition.AddBody(repairDroneBodyPrefab);
+
+            repairDroneMasterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Master.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_MASTER_RepairDroneMaster", true);
+            CharacterMaster master = repairDroneMasterPrefab.GetComponent<CharacterMaster>();
+            master.bodyPrefab = repairDroneBodyPrefab;
+            ContentAddition.AddMaster(repairDroneMasterPrefab);
         }
 
         public override void Hooks()
@@ -104,7 +119,7 @@ namespace ClassicItemsReturns.Equipment
                     Quaternion rotation = Quaternion.Euler(0f, y, 0f);
                     CharacterMaster characterMaster = new MasterSummon
                     {
-                        masterPrefab = DroneRepairKit.summonMasterPrefab,
+                        masterPrefab = DroneRepairKit.repairDroneMasterPrefab,
                         position = slot.transform.position + rotation * Vector3.forward * 3f + Vector3.up * 3f,
                         rotation = rotation,
                         summonerBodyObject = slot.gameObject,

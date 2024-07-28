@@ -9,6 +9,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using ClassicItemsReturns.Items.Uncommon;
+using BepInEx.Configuration;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Items.NoTier
 {
@@ -236,18 +238,18 @@ namespace ClassicItemsReturns.Items.NoTier
                 {
                     followerPrefab = display,
                     ruleType = ItemDisplayRuleType.ParentedPrefab,
-                    childName = "HeadCenter",
-                    localPos = new Vector3(-1.7F, 0F, 0F),
-                    localAngles = new Vector3(90F, 0F, 0F),
+                    childName = "Top",
+                    localPos = new Vector3(1.5F, 0.7F, -0.1F),
+                    localAngles = new Vector3(0F, 180F, 0F),
                     localScale = new Vector3(1F, 1F, 1F)
                 },
                 new ItemDisplayRule
                 {
                     followerPrefab = display,
                     ruleType = ItemDisplayRuleType.ParentedPrefab,
-                    childName = "HeadCenter",
-                    localPos = new Vector3(1.7F, 0F, 0F),
-                    localAngles = new Vector3(90F, 0F, 0F),
+                    childName = "Top",
+                    localPos = new Vector3(-1.5F, 0.7F, -0.1F),
+                    localAngles = new Vector3(0F, 180F, 0F),
                     localScale = new Vector3(-1F, 1F, 1F)
                 }
             });
@@ -320,12 +322,44 @@ namespace ClassicItemsReturns.Items.NoTier
 
             return dict;
         }
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.CannotSteal,
             ItemTag.CannotCopy,
             ItemTag.Damage
         };
+
+        //Fix gunner turret display
+        public override void CreateAssets(ConfigFile config)
+        {
+            GameObject gunnerTurret = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Turret1Body.prefab").WaitForCompletion();
+            ModelLocator ml = gunnerTurret.GetComponent<ModelLocator>();
+            if (!ml || !ml.modelTransform || !ml.modelTransform.gameObject) return;
+
+            var allTransforms = ml.GetComponentsInChildren<Transform>();
+            Transform topTransform = null;
+            foreach (Transform t in allTransforms)
+            {
+                if (t.name == "Top")
+                {
+                    topTransform = t;
+                    break;
+                }
+            }
+            if (!topTransform) return;
+
+            ChildLocator cl = ml.modelTransform.gameObject.GetComponent<ChildLocator>();
+            if (!cl || cl.FindChild("Top") != null) return;
+
+            var pairs = cl.transformPairs.ToList();
+            pairs.Add(new ChildLocator.NameTransformPair()
+            {
+                name = "Top",
+                transform = topTransform
+            });
+            cl.transformPairs = pairs.ToArray();
+        }
 
 
         //https://github.com/Moffein/RiskyMod/blob/master/RiskyMod/Allies/DroneBehaviors/AutoMissileBehavior.cs#L10

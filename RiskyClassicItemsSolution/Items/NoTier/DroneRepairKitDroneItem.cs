@@ -11,8 +11,7 @@ using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items.NoTier
 {
-    //This is used to turn a normal Gunner Drone into a Repair Drone.
-    //Opting for this so that it's compatible with mods that modify Gunner Drones (ex. RiskyMod)
+    //Item only acts as an itemdisplay
     internal class DroneRepairKitDroneItem : ItemBase<DroneRepairKitDroneItem>
     {
         public override string ItemName => "DRONEREPAIRKITDRONEITEM";
@@ -25,43 +24,6 @@ namespace ClassicItemsReturns.Items.NoTier
 
         public override string ItemLangTokenName => "DRONEREPAIRKITDRONEITEM";
 
-        public override void Hooks()
-        {
-            On.RoR2.CharacterBody.GetDisplayName += ReplaceName;
-
-            //Hacky
-            RoR2.CharacterBody.onBodyInventoryChangedGlobal += CharacterBody_onBodyInventoryChangedGlobal;
-            On.EntityStates.Drone.DeathState.OnImpactServer += DeathState_OnImpactServer;
-        }
-
-        //This never gets unset but that's fine since that's not going to happen in normal circumstances.
-        private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody self)
-        {
-            if (NetworkServer.active && self.inventory.GetItemCount(ItemDef) > 0)
-            {
-                if (!self.GetComponent<DontAllowRepair>()) self.gameObject.AddComponent<DontAllowRepair>();
-            }
-        }
-
-
-        private void DeathState_OnImpactServer(On.EntityStates.Drone.DeathState.orig_OnImpactServer orig, EntityStates.Drone.DeathState self, Vector3 contactPoint)
-        {
-            if (self.GetComponent<DontAllowRepair>())
-            {
-                return;
-            }
-            orig(self, contactPoint);
-        }
-
-        private string ReplaceName(On.RoR2.CharacterBody.orig_GetDisplayName orig, CharacterBody self)
-        {
-            if (self.inventory && self.inventory.GetItemCount(ItemDef) > 0)
-            {
-                return Language.GetString("CLASSICITEMSRETURNS_BODY_REPAIRDRONEBODY_NAME");
-            }
-            return orig(self);
-        }
-
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             var dict = new ItemDisplayRuleDict();
@@ -69,6 +31,19 @@ namespace ClassicItemsReturns.Items.NoTier
             //Don't set up displays if 3d model isn't available
             GameObject display = ItemModel;
             if (!display.name.Contains("mdl3d")) return dict;
+
+            dict.Add("CLASSICITEMSRETURNS_BODY_RepairDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0F, 0.35F, 0F),
+                    localAngles = new Vector3(0F, 180F, 180F),
+                    localScale = new Vector3(1F, 1F, 1F)
+                }
+            });
 
             dict.Add("Drone1Body", new ItemDisplayRule[]
             {
@@ -82,6 +57,7 @@ namespace ClassicItemsReturns.Items.NoTier
                     localScale = new Vector3(1F, 1F, 1F)
                 }
             });
+
             return dict;
         }
 
@@ -91,11 +67,5 @@ namespace ClassicItemsReturns.Items.NoTier
             ItemTag.CannotCopy,
             ItemTag.CannotDuplicate
         };
-    }
-
-    //Body marker used to skip drone repairs
-    internal class DontAllowRepair : MonoBehaviour
-    {
-
     }
 }
