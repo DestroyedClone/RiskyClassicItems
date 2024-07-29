@@ -58,8 +58,6 @@ namespace ClassicItemsReturns.Items.Uncommon
                 .WaitForCompletion()
                 .InstantiateClone("CIR_RustyJetpackEffect", false);
 
-            jumpEffectPrefab.transform.localScale = 3f * Vector3.one;
-
             EffectComponent ec = jumpEffectPrefab.GetComponent<EffectComponent>();
             ec.soundName = "Play_ClassicItemsReturns_Jetpack";
 
