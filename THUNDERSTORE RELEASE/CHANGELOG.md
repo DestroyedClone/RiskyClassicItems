@@ -1,3 +1,6 @@
+- `3.1.3`
+	- Repair Drone no longer expires.
+
 - `3.1.2`
 	- Fixed Repair Drone giving DroneMeld stacks to Gunner Drones.
 	- Fixed spinning Gunner Turret Arms Race displays.

@@ -51,6 +51,9 @@ namespace ClassicItemsReturns.Equipment
             repairDroneMasterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Master.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_MASTER_RepairDroneMaster", true);
             CharacterMaster master = repairDroneMasterPrefab.GetComponent<CharacterMaster>();
             master.bodyPrefab = repairDroneBodyPrefab;
+            RoR2.SetDontDestroyOnLoad ddol = master.GetComponent<RoR2.SetDontDestroyOnLoad>();
+            ddol.enabled = false;
+            if (ddol) UnityEngine.Object.Destroy(ddol);
             ContentAddition.AddMaster(repairDroneMasterPrefab);
         }
 
@@ -103,15 +106,8 @@ namespace ClassicItemsReturns.Equipment
             {
                 summonTracker = slot.characterBody.master.gameObject.AddComponent<DroneRepairKitSummonTracker>();
             }
-            if (summonTracker.summonMasterInstance)
-            {
-                MasterSuicideOnTimer mst = summonTracker.summonMasterInstance.GetComponent<MasterSuicideOnTimer>();
-                if (mst)
-                {
-                    mst.timer = 0f;
-                }
-            }
-            else
+
+            if (!summonTracker.summonMasterInstance)
             {
                 if (slot.characterBody.isPlayerControlled || (slot.characterBody.teamComponent && slot.characterBody.teamComponent.teamIndex == TeamIndex.Player))
                 {
@@ -129,12 +125,6 @@ namespace ClassicItemsReturns.Equipment
                     if (characterMaster)
                     {
                         summonTracker.summonMasterInstance = characterMaster.gameObject;
-                        CharacterBody cb = characterMaster.GetBody();
-                        if (cb && cb.healthComponent)
-                        {
-                            MasterSuicideOnTimer msot = characterMaster.gameObject.AddComponent<MasterSuicideOnTimer>();
-                            msot.lifeTimer = DroneRepairKit.buffDuration;
-                        }
 
                         if (characterMaster.teamIndex == TeamIndex.Player && characterMaster.inventory)
                         {
@@ -146,6 +136,7 @@ namespace ClassicItemsReturns.Equipment
                             if (ModSupport.ModCompatRiskyMod.loaded)
                             {
                                 Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(characterMaster.inventory, true);
+                                Modules.ModSupport.ModCompatRiskyMod.GiveAllyRegenItem(characterMaster.inventory, 40);
                             }
                         }
                     }

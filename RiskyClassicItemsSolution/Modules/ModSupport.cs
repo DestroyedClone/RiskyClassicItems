@@ -62,6 +62,13 @@ namespace ClassicItemsReturns.Modules
                 }
             }
 
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            internal static void GiveAllyRegenItem(Inventory inventory, int count)
+            {
+                if (!loaded) return;
+                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyRegenItem, count);
+            }
+
             internal static bool IsNormalizeDroneDamage()
             {
                 return RiskyMod.Allies.AlliesCore.normalizeDroneDamage;
