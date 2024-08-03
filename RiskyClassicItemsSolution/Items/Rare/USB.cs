@@ -220,7 +220,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void SceneDirector_PopulateScene(On.RoR2.SceneDirector.orig_PopulateScene orig, SceneDirector self)
         {
             orig(self);
-
+            cannonSpawned = false;  //TODO: CLEAN UP
             PlaceAtlasCannonInteractable(self.rng);
         }
 
@@ -265,7 +265,6 @@ namespace ClassicItemsReturns.Items.Rare
         private void TeleporterInteraction_Start(On.RoR2.TeleporterInteraction.orig_Start orig, TeleporterInteraction self)
         {
             orig(self);
-            cannonSpawned = true;   //Prevent cannon from spawning after TP activates
             if (NetworkServer.active && self.bossGroup && self.bossGroup.combatSquad)
             {
                 self.bossGroup.combatSquad.onMemberAddedServer += TargetCannonIgnoreBossCheck;
@@ -339,6 +338,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, EntityStates.BaseState self)
         {
             orig(self);
+            cannonSpawned = true;   //Prevent cannon from spawning after TP activates
             if (NetworkServer.active && teleporterVisualNetworkInstance)
             {
                 UnityEngine.Object.Destroy(teleporterVisualNetworkInstance);

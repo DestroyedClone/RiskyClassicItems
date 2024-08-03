@@ -1,3 +1,6 @@
+- `3.1.4`
+	- Fixed Classified Access Codes interactable not spawning.
+
 - `3.1.3`
 	- Repair Drone no longer expires.
 
