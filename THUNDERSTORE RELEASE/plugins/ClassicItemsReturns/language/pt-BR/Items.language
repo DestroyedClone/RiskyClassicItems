@@ -1,0 +1,139 @@
+{
+	strings: {
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>+{0} hp/s</style> <style=cStack>(+{1} hp/s per stack)</style>. Scales with level.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_LORE": "Order: Mysterious Vial\r\nTracking Number: 1503***********\r\nEstimated Delivery: 03\/06\/2056\r\nShipping Method: Standard\/Fragile\r\nSent To: Sheridan S.\r\nShipping Address: 4000 15th Ave, UNITED STATES, Earth\r\nShipping Details:\r\n\r\nApply to skin for a rapidly acting gel that contains both antiseptics and an agent to encourage protein synthesis!\n\nSmall wounds applied with our gel should heal within a maximum of 5 hours, while broken bones and torn ligaments may take a few weeks.\n\nNOTE: Side effects may include itching, rashes, bleeding, sensitivity of skin, dry patches, permanent scarring, misaligned bone regrowth, rotting of the..",
+
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Fire Shield",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "Ignite nearby enemies on taking heavy damage.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "After taking more than <style=cIsHealth>8% of your maximum health</style> as damage, explode for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "Order: Fire Shield\r\nTracking Number: 1507***********\r\nEstimated Delivery: 03\/06\/2056\r\nShipping Method: Standard\r\nSent To: Soloman\r\nShipping Address: -, Backwaters, Mars\r\nShipping Details:\r\n\r\nThe thing is only half-done, but it will do the job. The flux-chains are very unstable, resulting in a large explosion when struck. PLEASE handle with care!",
+
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Bitter Root",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "Increases maximum health.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "Increases <style=cIsHealing>maximum health</style> by <style=cIsHealing>+{0}%</style> <style=cStack>(+{1}% per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME_ALT": "Bitter Root",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP_ALT": "Regenerate health on kill.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>{0} hp/s</style> for <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style> after killing an enemy. Scales with level.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE": "Order: Bitter Root\r\nTracking Number: 1499***********\r\nEstimated Delivery: 06\/04\/2056\r\nShipping Method: Standard\r\nShipping Address: 103 110th, Northlake, Mars\r\nShipping Details:\r\n\r\nBiggest. Ginseng. Root. Ever.\n\nNot really, but it's pretty freakin' huge. You can boil it or sun dry it, whatever you want. I'll be curious to see if your cancer research actually pans out; sounds like voodoo magic to me, herbal medicine, but if the natives say it works, it works.",
+
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Life Savings",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Generate gold over time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Generate <style=cIsUtility>{0} <style=cStack>(+{1} per stack)</style> gold</style> every <style=cIsUtility>{2} seconds</style>. Scales with time.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "Order: Life Savings\r\nTracking Number: 1518***********\r\nEstimated Delivery: 02\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: moms house\r\nShipping Details:\r\n\r\nhi im billy and heer is money for mom thanks",
+
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "The Toxin",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "Touch enemies to weaken them.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "<style=cIsDamage>Infect</style> enemies on contact for <style=cIsDamage>{1}</style> <style=cStack>(+{2} per stack)</style> seconds, causing them to receive <style=cIsDamage>{0}% extra damage</style> from all sources.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "Order: The Toxin\r\nEstimated Delivery: 04\/30\/2056\r\nShipping Method: Unmarked\r\nShipping Address: EICO labs, City of Gold, Earth\r\nShipping Details:\r\n\r\nTEST SUMMARY\n[id.416c7068615468726565]\nSubject stabilized - Notable levels of arousal.\nIncreased disposition to disperse.\nSpecialized containment necessary if active.\nN31 applied, watch for adverse reactions.\nHandling prohibited for this phase.\nAOD: 53 75 6e 46 61 6c 6c",
+
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "Snake Eyes",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "Using shrines increases 'Critical Strike' chance.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Using a shrine</style> increases <style=cIsDamage>critical chance</style> by <style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style>, up to <style=cIsDamage>6 times</style>. Resets at the start of each stage.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Order: Snake Eyes\r\nTracking Number: 1500***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Standard\r\nShipping Address: 1843, GMG Services, Venus\r\nShipping Details:\r\n\r\nYou dirty ---------er. You KNEW I had to win to pay off my debts. Are you in with the casinos? Of course you are; a snake like you would. A dice that's loaded for SNAKE EYES. CUTE MOVE, --------er.\n\nI'm comin' for you, ----.",
+
+		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "Razor Penny",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "Slightly increased critical chance. 'Critical Strikes' give you gold.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "Gain <style=cIsDamage>{0}% <style=cStack>(+{0}% per stack)</style> critical chance</style>. <style=cIsDamage>Critical strikes</style> drop <style=cIsUtility>${1} <style=cStack>(+${1} per stack)</style> gold</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "Order: Razor Penny\r\nTracking Number: 3023***********\r\nEstimated Delivery: 01\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: Residential 24, Anlesburg, Mars\r\nShipping Details:\r\n\r\nNo way they allowed these on the market. I know it was ages ago but it's seriously concerning. Imagine having... I don't know, 10 of these in your pocket (you know, pocket change)? Reach in and woops! Mangled hand!\nCities didn't switch to virtual currencies for nothing...",
+
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "Arcane Blades",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "Move faster after activating the Teleporter.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "Increases <style=cIsUtility>movement speed</style> by <style=cIsUtility>{0}% <style=cStack>(+{0}% per stack)</style></style> after the <style=cIsHealth>Teleporter</style> has been activated.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "Order: Arcane Blades\r\nTracking Number: 2924***********\r\nEstimated Delivery: 05\/08\/2056\r\nShipping Method: Standard\r\nShipping Address: 5 Tiptop Rd. Neverrock, Mars\r\nShipping Details:\r\n\r\nHEY KID!! happy birthday i found these old skates in the attic they were granddads but they look great.. you were talking about getting more exercise last time you visited these should do the trick.\nma is still obsessed with her garden you should visit next summer and see how crazy she is\ndo you still have that boyfriend?? mom wants to know when your getting married haha\nCALL ME SOMETIME!!!!\nDAD",
+
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_NAME": "Mu Construct",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_PICKUP": "Heal periodically after activating the Teleporter.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_DESCRIPTION": "Heal for <style=cIsHealing>{0}%</style> of your <style=cIsHealing>health</style> every <style=cIsHealing>{1}</style> <style=cStack>(-{2}% per stack)</style> seconds after the <style=cIsHealth>Teleporter</style> has been activated.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_LORE": "Order: Mu Construct\r\nTracking Number: 1748***********\r\nEstimated Delivery: 06\/04\/2056\r\nShipping Method: Field-Found\r\nShipping Address: Complex 3B, Saturn, ???\r\nShipping Details:\r\n\r\n...And I thought everything on this planet was out to kill me.\nOnce I found it, it wouldn't stop following me. It's very curious about shiny objects and has taken to spinning whenever I am trying to rest. It simply doesn't want to stand still.\nIt's pushy, but this far away from home I find the company very soothing.",
+
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "56 Leaf Clover",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "Elite enemies have a chance to drop items on death.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "Elite enemies have a <style=cIsUtility>{0}% chance</style> <style=cStack>(+{1}% chance per stack)</style> to <style=cIsUtility>drop an item</style> on death. <style=cIsUtility>Unaffected by luck</style>.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_LORE": "Order: 56 Leaf Clover\r\nTracking Number: 1428***********\r\nEstimated Delivery: 12\/24\/2056\r\nShipping Method: Priority\r\nShipping Address: 777, Lucky Drop, Earth\r\nShipping Details:\r\n\r\nA FIFTY-FREAKIN-SIX leaf clover! It was sent to me from a fan, picked from the top of Mount Drummond. It lived through the mountain fire; imagine that! I'm keeping it in observation to make sure it doesn't wilt; this is a once in a lifetime specimen! Think of all the elixirs we could make.. I may use a few of them myself and go hit the lottery!",
+
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "Arms Race",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "Drones gain a missile barrage.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones periodically fire a barrage of <style=cIsDamage>{1}</style> <style=cStack>(+{2} per stack)</style> missiles that deal <style=cIsDamage>{3}%</style> damage. Recharges every <style=cIsUtility>{0}</style> seconds.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "Order: Arms Race\r\nTracking Number: 1453***********\r\nEstimated Delivery: 08\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: 9834, Cortical Fund, Mars\r\nShipping Details:\r\n\r\nPsst. Hey. Yeah, I'm whispering over text.\n\nSo the upgrades for your drones are in. It's compatible with all KS-I slotted drones, even the non-combat oriented ones, so you can refurbish some of your cleaning units to help in the fight. Strap it onto the back, and the drone AI should sort itself out. Contains both a missile and mortar launcher. Let's continue this arms race, eh?",
+
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Golden Gun",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Gold increases damage.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{0}% damage</style> <style=cStack>(+{1}% per stack)</style> at <style=cIsUtility>{2} gold</style> <style=cStack>(+{3} per stack)</style>. Scales with time.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "Order: Golden Gun\r\nTracking Number: 1455***********\r\nEstimated Delivery: 12\/19\/1874\r\nShipping Method: Priority\r\nSent To: James B.\r\nShipping Address: ??\r\nShipping Details:\r\n\r\nWas this supposed to.. intimidate me? I do like its look, however; perhaps I'll set it above my fireplace.",
+
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Shackle enemy attacks on hit.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "<style=cIsDamage>Shackle</style> enemies on hit for <style=cIsDamage>-{0}% attack speed</style> for <style=cIsDamage>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "Order: Prison Shackles\r\nTracking Number: 1458***********\r\nEstimated Delivery: 02\/06\/2056\r\nShipping Method: Priority\r\nShipping Address: 94123 Bldg. 201, Fort Mason\r\nShipping Details:\r\n\r\nAn artifact from the old ages, before we used holo-cuffs. The advantage is that EMP blasts and remote-hacking can't disable good-old steel and chains. Fitting this on larger prisoners may be harder.\nI know you guys have been having a serious break-out problem in the last few months, and this is sure to throw those prison breakers for a loop. Just don't lose the key.\nWe are shipping about.. 500, because we have nothing better to do with them than smelt them for steel, which is barely worth more than dirt this day and age. Would probably cost more than getting rid of them.",
+
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_PICKUP": "Enemies drop extra gold.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "Enemies drop an extra <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> gold on kill.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_LORE": "Order: Smart Shopper\r\nTracking Number: 1451***********\r\nEstimated Delivery: 12\/24\/1962\r\nShipping Method: Priority\r\nShipping Address: 200 West Street, City of Gold, Earth\r\nShipping Details:\r\n\r\nHoney! HONEY! Look! I \/told\/ you I still had enough left over! Yeah, weird huh? I swear the last $5 I used was the last one I had in my purse, but then when I looked again, I still had a bit left over. Strange, huh?\n\nMaybe it's black magic, haha! Honey?",
+
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "Tough Times",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_PICKUP": "Increase armor.",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_DESCRIPTION": "Grants <style=cIsHealing>+{0} armor</style> <style=cStack>(+{1} per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_LORE": "Order: Tough Times\r\nTracking Number: 1418***********\r\nEstimated Delivery: 09\/29\/2056\r\nShipping Method: Priority\r\nShipping Address: 18601, Frozen Valley, Jupiter\r\nShipping Details:\r\n\r\n\"Bears are just about the only toy that can lose just about everything and still maintain their dignity and worth.\"\n- Samantha Armstrong.\n\nDon't forget, hon. I'm coming home soon. Stay strong.",
+
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_NAME": "Locked Jewel",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_PICKUP": "Activating an interactable grants barrier and gold.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "Activating an interactable grants a <style=cIsHealing>temporary barrier</style> for <style=cIsHealing>{0}%</style> <style=cStack>(+{1}% per stack)</style> of your <style=cIsHealing>maximum health</style> as well as <style=cIsUtility>${2}</style>. Scales with time.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_LORE": "Order: Locked Jewel\r\nTracking Number: 1065***********\r\nEstimated Delivery: 09\/15\/2056\r\nShipping Method: Priority\r\nShipping Address: Block 3 Delta Phobos, Amna 2, Unknown\r\nShipping Details:\r\n\r\ni hope this is arriving well i am not used to sending anything through here so hopefully i didn't mess it up....",
+
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Energy Cell",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>10%-40%</style> <style=cStack>(+10%-40% per stack)</style> based on <style=cIsHealth>health lost</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/09\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
+
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "Boxing Gloves",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "Chance to knock enemies backwards for extra damage.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "<style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> chance on hitting enemies to <style=cIsUtility>knock them back</style> for <style=cIsDamage>{2}%</style> TOTAL damage.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "Order: Boxing Gloves\r\nTracking Number: 1438***********\r\nEstimated Delivery: 07\/07\/2056\r\nShipping Method: Priority\r\nShipping Address: O.B.-Gym, Slam Station, Venus\r\nShipping Details:\r\n\r\nThese should work fine for the kids you're training. A bit musty, though. It'll make your trainees hit like a pro, ha!",
+
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Increase jump height and gain a short airhop.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Increase jump height by <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> and gain a <style=cIsUtility>short airhop</style>.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
+		
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "Royal Medallion",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "Bosses drop powerful buffing orbs when hit.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "<style=cIsDamage>10%</style> chance on hitting a boss monster to <style=cIsUtility>drop a buffing orb</style> that <style=cIsDamage>improves health regen, attack speed, move speed, and base damage</style> for <style=cIsDamage>10s</style> <style=cStack>(+6s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "Order: Royal Medallion\r\nTracking Number: 2746***********\r\nEstimated Delivery: 05\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: #4 Visitors, Wing 4, Aeolus 2\r\nShipping Details:\r\n\r\nOn the outer orbits of our system lies a confederacy of people.\nWith kings and lords; knights and warriors, it's monarchical in nature.\nEach member of the major hierarchy carries a medallion, granting courage and fortitude.\nThis one belonged to a prince, his name buried under strife and accusations of treachery.\nStripped away from his belongings, his medallion remained as nothing more than a curiosity by the humble forager who found it, far from where it was worn.\nNow, I pass it on to you. Whether your destiny lies in the stars or your heart calls for home, your valor will be unrivaled. Keep fighting, son.",
+
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Thallium",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance to poison enemies with thallium on hit.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "On hit, <style=cIsDamage>{0}% chance</style> to <style=cIsDamage>poison</style> for <style=cIsDamage>2x{1}% of the victim's base damage per second</style> and slow for <style=cIsDamage>-{2}% movement speed</style> for <style=cIsDamage>{3} seconds</style> <style=cStack>(+{4} seconds per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Order: Thallium\r\nTracking Number: 1344***********\r\nEstimated Delivery: 05\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 0909, K&K Union, Earth\r\nShipping Details:\r\n\r\nShe shouldn't notice.",
+		
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Permafrost",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance to freeze enemies on hit.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance on hit to <style=cIsUtility>freeze</style> for <style=cIsUtility>2 seconds</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "Order: Permafrost\r\nTracking Number: 1380***********\r\nEstimated Delivery: 04\/17\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 10681, Frozen Valley, Pluto\r\nShipping Details:\r\n\r\nThe core of this ice cube is VERY VERY close to absolute zero, much closer than anything we made in the lab before. Test it! TEST! This will lead to HUGE breakthroughs in superconductor technology.",
+
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME": "Wicked Ring",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP": "'Critical Strikes' reduce skill cooldowns.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "Gain <style=cIsDamage>{0}% critical chance</style>. <style=cIsDamage>Critical strikes</style> <style=cIsUtility>reduce skill cooldowns</style> by <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s per stack)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE": "Order: Wicked Ring\r\nTracking Number: 1372***********\r\nEstimated Delivery: 02\/22\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 1414 East, Fillmore, Venus\r\nShipping Details:\r\n\r\nWith how many rings he had, you would think more would have been found, eh? Nope, just this one. The King used to sacrifice one of his own sons to embue with dark spirits. He claimed that the spirits warded away any ill omen. The King lived until he was 104, so hey, maybe he was right.\n\nAs the last remaining Wicked Ring, I expect a hefty sum.",
+
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "Kills reduce skill cooldowns.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "<style=cIsUtility>Reduce skill cooldowns</style> by <style=cIsUtility>{0}s</style> <style=cStack>(+{1}s per stack)</style> on kill.",
+
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_NAME": "Hyper-Threader",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": "Pew pew.",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "<style=cIsDamage>{0}%</style> chance on hit to <style=cIsDamage>fire a laser</style> that deals <style=cIsDamage>{1}% base damage</style> and <style=cIsDamage>bounces</style> to <style=cIsDamage>{2}</style> <style=cStack>(+{3} per stack)</style> enemies.",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "Order: Hyper-Threader\r\nTracking Number: 1360***********\r\nEstimated Delivery: 12\/08\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 6900 West, Advanced Warfare Center, Mars\r\nShipping Details:\r\n\r\nDespite its appearance, the FNA 200 'Hyper-Threader' Energy Subrifle is anything but fragile.\n\nUsing direct energy energy technology, the FNA 200 can fire superheated gases at a high fire rate. The FNA 200 also requires little to no charging, instead generating energy from the air around it.",
+
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "The Hit List",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "Killing marked enemies permanently increases damage.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "Randomly <style=cIsDamage>marks</style> up to <style=cIsDamage>1</style> <style=cStack>(+1 per stack)</style> enemy. Killing a <style=cIsDamage>marked</style> enemy <style=cIsDamage>permanently</style> increases <style=cIsDamage>base damage</style> by <style=cIsDamage>{0}</style>.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "Order: Hit List\r\nTracking Number: 1362***********\r\nEstimated Delivery: 11\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: St Johns, Cluster 6, Venus\r\nShipping Details:\r\n\r\nDon't forget.. don't forget what they did..\n-A.Bn\n-Fr.Ntn\n-[CLEARED]\n-[CLEARED]\n-Random wildlife\n-[CLEARED]\n-Grvnmk\n-[CLEARED]",
+		
+		"CLASSICITEMSRETURNS_ITEM_USB_NAME": "Classified Access Codes",
+		"CLASSICITEMSRETURNS_ITEM_USB_PICKUP": "Access a deadly weapon against the Teleporter bosses.",
+		"CLASSICITEMSRETURNS_ITEM_USB_DESCRIPTION": "The <style=cIsDamage>Atlas Cannon</style> appears each stage, activating deals <style=cIsDamage>40%</style> <style=cStack>(+20% per stack)</style> of maximum health as damage to the <style=cIsDamage>teleporter boss</style> after it spawns.",
+		"CLASSICITEMSRETURNS_ITEM_USB_LORE": "Order: Classified Access Codes\r\nTracking Number: 3190***********\r\nEstimated Delivery: 10\/02\/2056\r\nShipping Method: High Priority\/Fragile\r\nSent To: Randall P.\r\nShipping Address: piece #24, [REDACTED], [REDACTED]\r\nShipping Details:\r\n\r\nItem necessary for current designated task.\nFollow all protocols as stated on your form [REDACTED]\nsend on [REDACTED].\nMonitoring available at [REDACTED], maintain secrecy at all costs.",
+	}
+}
