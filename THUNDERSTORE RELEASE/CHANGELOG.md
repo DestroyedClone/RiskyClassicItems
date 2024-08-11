@@ -1,3 +1,6 @@
+- `3.1.5`
+	- Added PT-BR TL (Thanks kauzok!)
+
 - `3.1.4`
 	- Fixed Classified Access Codes interactable not spawning.
 
