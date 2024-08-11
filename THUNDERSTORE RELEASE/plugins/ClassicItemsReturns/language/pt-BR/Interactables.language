@@ -1,0 +1,9 @@
+{
+	strings: {
+	
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_NAME" : "Canhão Atlas",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_CONTEXT" : "Ativar Canhão Atlas",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE" : "<style=cShrine>{0} armou o Canhão Atlas. Alvo identificado.</style>",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE_2P" : "<style=cShrine>Você armou o Canhão Atlas. Alvo identificado.</style>",
+	}
+}
