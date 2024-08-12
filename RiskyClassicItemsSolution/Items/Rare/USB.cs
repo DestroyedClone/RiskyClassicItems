@@ -351,7 +351,6 @@ namespace ClassicItemsReturns.Items.Rare
             cannonActivated = false;
             addedTeleporterVisual = false;
             firedCannon = false;
-            cannonSpawned = false;
         }
     }
 

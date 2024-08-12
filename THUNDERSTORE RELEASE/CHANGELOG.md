@@ -1,3 +1,17 @@
+- `3.1.7`
+	- Classified Access Codes
+		- Fixed cannon interactable being spawned twice.
+		
+	- Updated models for: (TODO: actually add to project)
+		- Lost Doll
+		- Prescriptions
+		- Arms Race
+		- 56 Leaf Clover
+		- Mu Construct
+		- Smart Shopper
+		
+		*Thanks hollowman!*
+
 - `3.1.6`
 	- Added CN TL (Thanks fbjh!)
 
