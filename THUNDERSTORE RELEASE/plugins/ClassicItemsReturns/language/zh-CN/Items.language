@@ -1,0 +1,140 @@
+{
+	"strings": {
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "神秘药剂",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "增加生命再生速度。",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "增加<style=cIsHealing>基础生命再生</style>速度<style=cIsHealing>+{0} hp/s</style> <style=cStack>(每层额外+{1} hp/s)</style>。随等级缩放。",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_LORE": "订单：神秘药剂\r\n跟踪号码：1503***********\r\n预计送达时间：2056年3月6日\r\n运输方式：标准/易碎\r\n收件人：Sheridan S.\r\n收货地址：地球，美国，第15大道4000号\r\n运输详情：\r\n\r\n涂抹在皮肤上，迅速起效的凝胶，含有消毒剂和促进蛋白质合成的成分！\r\n\r\n小伤口涂抹我们的凝胶应在最多5小时内愈合，而骨折和韧带撕裂可能需要几周时间。\r\n\r\n注意：副作用可能包括瘙痒、皮疹、出血、皮肤敏感、干斑、永久性疤痕、骨骼再生错位、腐烂……",
+
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "火焰护盾",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "受到重伤时点燃附近敌人。",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "受到超过<style=cIsHealth>8%最大生命值</style>的伤害后，爆炸造成<style=cIsDamage>{1}%</style>基础伤害。此外，敌人<style=cIsDamage>燃烧</style>，每秒造成<style=cIsDamage>{2}%</style> <style=cStack>(每层额外+{2}%)</style>基础伤害。",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "订单：火焰护盾\r\n跟踪号码：1507***********\r\n预计送达时间：2056年3月6日\r\n运输方式：标准\r\n收件人：Soloman\r\n收货地址：火星，Backwaters，-\r\n运输详情：\r\n\r\n这东西只完成了一半，但能完成任务。通量链非常不稳定，受到打击时会发生大爆炸。请小心处理！",
+
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "苦根",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "增加最大生命值。",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "增加<style=cIsHealing>最大生命值</style> <style=cIsHealing>+{0}%</style> <style=cStack>(每层额外+{1}%)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME_ALT": "苦根",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP_ALT": "击杀敌人后恢复生命。",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "击杀敌人后，增加<style=cIsHealing>基础生命再生</style>速度<style=cIsHealing>{0} hp/s</style>，持续<style=cIsUtility>{1}s</style> <style=cStack>(每层额外+{2}s)</style>。随等级缩放。",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE": "订单：苦根\r\n跟踪号码：1499***********\r\n预计送达时间：2056年6月4日\r\n运输方式：标准\r\n收货地址：火星，Northlake，第110街103号\r\n运输详情：\r\n\r\n有史以来最大的参根！\r\n\r\n不是真的，但它非常大。你可以煮或晒干，随你喜欢。我会很好奇你的癌症研究是否真的有效；听起来像巫术，草药医学，但如果当地人说是有效的，那就是有效的。",
+
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "生命积蓄",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "随时间生成金币。",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "每<style=cIsUtility>{2}秒</style>生成<style=cIsUtility>{0} <style=cStack>(每层额外+{1})</style>金币</style>。随时间缩放。",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "订单：生命积蓄\r\n跟踪号码：1518***********\r\n预计送达时间：2056年2月22日\r\n运输方式：标准\r\n收货地址：妈妈的家\r\n运输详情：\r\n\r\n嗨，我是比利，这是给妈妈的钱，谢谢。",
+
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "毒素",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "接触敌人使其虚弱。",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "接触敌人时<style=cIsDamage>感染</style>，持续<style=cIsDamage>{1}</style> <style=cStack>(每层额外+{2})</style>秒，使其受到<style=cIsDamage>{0}%额外伤害</style>。",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "订单：毒素\r\n预计送达时间：2056年4月30日\r\n运输方式：未标记\r\n收货地址：地球，黄金城，EICO实验室\r\n运输详情：\r\n\r\n测试总结\r\n[id.416c7068615468726565]\r\n受试者稳定 - 显著的兴奋水平。\r\n增加分散倾向。\r\n如果活跃，需要特殊 containment。\r\nN31 已应用，观察不良反应。\r\n此阶段禁止处理。\r\nAOD: 53 75 6e 46 61 6c 6c",
+
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "蛇眼",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "使用神龛增加暴击几率。",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>使用神龛</style>增加<style=cIsDamage>暴击几率</style> <style=cIsDamage>{0}%</style> <style=cStack>(每层额外+{0}%)</style>，最多<style=cIsDamage>6次</style>。每阶段开始时重置。",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "订单：蛇眼\r\n跟踪号码：1500***********\r\n预计送达时间：2056年1月1日\r\n运输方式：标准\r\n收货地址：金星，GMG服务，第1843号\r\n运输详情：\r\n\r\n你这个肮脏的……你知道我必须赢才能还清债务。你和赌场有勾结吗？当然有；像你这样的蛇会这样做。一个为蛇眼加载的骰子。聪明的举动，……\r\n\r\n我会来找你的，……",
+
+		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "锋利硬币",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "略微增加暴击几率。暴击给你金币。",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "增加<style=cIsDamage>{0}% <style=cStack>(每层额外+{0}%)</style>暴击几率</style>。<style=cIsDamage>暴击</style>掉落<style=cIsUtility>${1} <style=cStack>(每层额外+${1})</style>金币</style>。",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "订单：锋利硬币\r\n跟踪号码：3023***********\r\n预计送达时间：2056年1月22日\r\n运输方式：标准\r\n收货地址：火星，Anlesburg，第24号住宅\r\n运输详情：\r\n\r\n他们怎么能让这些上市呢？我知道这是很久以前的事了，但这真的很令人担忧。想象一下，口袋里有……我不知道，10个这样的东西（你知道，零钱）？伸手进去，哇！手被割伤了！\r\n\r\n城市不切换到虚拟货币是有原因的……",
+
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "奥术之刃",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "激活传送器后移动更快。",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "激活<style=cIsHealth>传送器</style>后，增加<style=cIsUtility>移动速度</style> <style=cIsUtility>{0}% <style=cStack>(每层额外+{0}%)</style></style>。",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "订单：奥术之刃\r\n跟踪号码：2924***********\r\n预计送达时间：2056年5月8日\r\n运输方式：标准\r\n收货地址：火星，Neverrock，第15大道4000号\r\n运输详情：\r\n\r\n嘿，孩子！生日快乐，我在阁楼里找到了这些旧滑冰鞋，它们是爷爷的，但看起来很棒……你上次来访时提到想要多锻炼，这些应该可以解决问题。\r\n\r\n妈妈还在痴迷她的花园，你明年夏天应该来看看她有多疯狂。\r\n\r\n你还有那个男朋友吗？妈妈想知道你们什么时候结婚，哈哈。\r\n\r\n记得给我打电话！！\r\n爸爸",
+
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_NAME": "穆构造体",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_PICKUP": "激活传送器后定期恢复生命。",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_DESCRIPTION": "激活<style=cIsHealth>传送器</style>后，每<style=cIsHealing>{1}</style> <style=cStack>(每层减少{2}%)</style>秒恢复<style=cIsHealing>{0}%</style>的<style=cIsHealing>生命值</style>。",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_LORE": "订单：穆构造体\r\n跟踪号码：1748***********\r\n预计送达时间：2056年6月4日\r\n运输方式：现场发现\r\n收货地址：未知，土星，第3B号综合体\r\n运输详情：\r\n\r\n……我以为这个星球上的一切都想杀了我。\r\n\r\n一旦我发现它，它就不停地跟着我。它对闪亮的物体很好奇，每当我想休息时，它就会旋转。它很固执，但离家这么远，我发现这种陪伴非常安慰。",
+
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "56叶三叶草",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "精英敌人死亡时有几率掉落物品。",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "精英敌人有<style=cIsUtility>{0}%几率</style> <style=cStack>(每层额外+{1}%几率)</style>在死亡时<style=cIsUtility>掉落物品</style>。<style=cIsUtility>不受运气影响</style>。",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_LORE": "订单：56叶三叶草\r\n跟踪号码：1428***********\r\n预计送达时间：2056年12月24日\r\n运输方式：优先\r\n收货地址：地球，幸运掉落，第777号\r\n运输详情：\r\n\r\n一个五十……六叶的三叶草！它是一位粉丝从 Drummond 山的山顶寄给我的，它经历了山火；想象一下！我把它放在观察中，确保它不会枯萎；这是一个千载难逢的标本！想想我们可以制作的所有药剂……我可能会自己用一些去中彩票！",
+
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "军备竞赛",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "无人机获得导弹齐射。",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "无人机定期发射<style=cIsDamage>{1}</style> <style=cStack>(每层额外+{2})</style>枚导弹，每枚造成<style=cIsDamage>{3}%</style>伤害。每<style=cIsUtility>{0}</style>秒充能一次。",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "订单：军备竞赛\r\n跟踪号码：1453***********\r\n预计送达时间：2056年8月3日\r\n运输方式：优先\r\n收货地址：火星，Cortical基金，第9834号\r\n运输详情：\r\n\r\n嘘。嘿。是的，我在发短信时低声说话。\r\n\r\n所以你的无人机的升级已经到了。它兼容所有 KS-I 插槽的无人机，甚至是非战斗型的，所以你可以改装一些清洁单元来帮助战斗。把它绑在后面，无人机AI应该会自己处理。包含导弹和迫击炮发射器。让我们继续这场军备竞赛，好吗？",
+
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "黄金枪",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "金币增加伤害。",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "根据持有的<style=cIsUtility>金币</style>增加<style=cIsDamage>额外伤害</style>，最多增加<style=cIsDamage>+{0}%伤害</style> <style=cStack>(每层额外+{1}%)</style>，当持有<style=cIsUtility>{2}金币</style> <style=cStack>(每层额外+{3})</style>时。随时间缩放。",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "订单：黄金枪\r\n跟踪号码：1455***********\r\n预计送达时间：1874年12月19日\r\n运输方式：优先\r\n收件人：James B.\r\n收货地址：??\r\n运输详情：\r\n\r\n这是想……吓唬我吗？不过我确实喜欢它的外观；也许我会把它放在壁炉上方。",
+
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "监狱镣铐",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "命中时给敌人上锁。",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "命中时<style=cIsDamage>上锁</style>，减少敌人<style=cIsDamage>-{0}%攻击速度</style>，持续<style=cIsDamage>{1}s</style> <style=cStack>(每层额外+{2}s)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "订单：监狱镣铐\r\n跟踪号码：1458***********\r\n预计送达时间：2056年2月6日\r\n运输方式：优先\r\n收货地址：Fort Mason，第201号建筑，第94123号\r\n运输详情：\r\n\r\n一件来自旧时代的文物，在我们使用全息手铐之前。优点是EMP爆炸和远程黑客无法禁用这些坚固的钢链。给更大的囚犯戴上可能会更困难。\r\n\r\n我知道你们最近几个月越狱问题严重，这肯定会让那些越狱者大吃一惊。只是别丢了钥匙。\r\n\r\n我们大约要运送500个，因为我们没有更好的处理方式，只能熔化它们做钢材，这在当今时代几乎不值钱。处理它们可能比保留它们更贵。",
+
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_NAME": "精明购物者",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_PICKUP": "敌人掉落额外金币。",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "敌人击杀时掉落额外<style=cIsUtility>{0}%</style> <style=cStack>(每层额外+{1}%)</style>金币。",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_LORE": "订单：精明购物者\r\n跟踪号码：1451***********\r\n预计送达时间：1962年12月24日\r\n运输方式：优先\r\n收货地址：地球，黄金城，西街200号\r\n运输详情：\r\n\r\n亲爱的！亲爱的！看！我告诉过你我还有足够的钱！是的，很奇怪，对吧？我发誓上次我用的5美元是我钱包里最后一张，但当我再看时，我还有一点剩。真奇怪，对吧？\r\n\r\n也许是黑魔法，哈哈！亲爱的？",
+
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "艰难时世",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_PICKUP": "增加护甲。",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_DESCRIPTION": "增加<style=cIsHealing>+{0}护甲</style> <style=cStack>(每层额外+{1})</style>。",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_LORE": "订单：艰难时世\r\n跟踪号码：1418***********\r\n预计送达时间：2056年9月29日\r\n运输方式：优先\r\n收货地址：木星，Frozen Valley，第18601号\r\n运输详情：\r\n\r\n“熊几乎可以失去一切，但仍能保持尊严和价值。”\r\n- Samantha Armstrong。\r\n\r\n别忘了，亲爱的。我很快就会回家。坚强点。",
+
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_NAME": "锁定的宝石",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_PICKUP": "激活互动物品获得屏障和金币。",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "激活互动物品获得<style=cIsHealing>临时屏障</style>，相当于<style=cIsHealing>{0}%</style> <style=cStack>(每层额外+{1}%)</style>的<style=cIsHealing>最大生命值</style>，以及<style=cIsUtility>${2}</style>。随时间缩放。",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_LORE": "订单：锁定的宝石\r\n跟踪号码：1065***********\r\n预计送达时间：2056年9月15日\r\n运输方式：优先\r\n收货地址：未知，Amna 2，第3区Delta Phobos\r\n运输详情：\r\n\r\n我希望这能顺利送达，我不习惯通过这里寄东西，希望我没搞砸……",
+
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "能量电池",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "生命值越低，攻击速度越快。",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "根据<style=cIsHealth>失去的生命值</style>，增加<style=cIsDamage>攻击速度</style> <style=cIsDamage>10%-40%</style> <style=cStack>(每层额外+10%-40%)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "订单：能量电池\r\n跟踪号码：1442***********\r\n预计送达时间：2056年11月9日\r\n运输方式：优先\r\n收货地址：火星，CronTech实验室，第6511号\r\n运输详情：\r\n\r\n致：----- - J.\r\nCC#：---- ---- - ---\r\n账户#：200158\r\n仅用于基于融合的车辆和机械。请勿上传至主框架。",
+
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "拳击手套",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "有机会击退敌人并造成额外伤害。",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "<style=cIsDamage>{0}%</style> <style=cStack>(每层额外+{1}%)</style>几率在击中敌人时<style=cIsUtility>击退</style>，造成<style=cIsDamage>{2}%</style>总伤害。",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "订单：拳击手套\r\n跟踪号码：1438***********\r\n预计送达时间：2056年7月7日\r\n运输方式：优先\r\n收货地址：金星，Slam Station，O.B.-Gym\r\n运输详情：\r\n\r\n这些应该适合你训练的孩子们。有点发霉，但会让你的学员像专业选手一样击打，哈哈！",
+
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "生锈的喷气背包",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "增加跳跃高度并获得短时间空中跳跃。",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "增加跳跃高度<style=cIsUtility>{0}%</style> <style=cStack>(每层额外+{1}%)</style>，并获得<style=cIsUtility>短时间空中跳跃</style>。",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "订单：生锈的喷气背包\r\n跟踪号码：1415***********\r\n预计送达时间：2056年1月1日\r\n运输方式：优先\r\n收货地址：NE Taurus，Fun Center，第2105号\r\n运输详情：\r\n\r\n抱歉，它似乎坏了。它只能工作一瞬间；也许几个月后我会给你一个完全正常工作的喷气背包？应该足够用于嘉年华了！\r\n\r\n确保让孩子们远离底部；它会喷出相当大的气流。可以制作有趣的障碍挑战。",
+		
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "皇家勋章",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "击中Boss时有几率掉落强力增益球。",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "<style=cIsDamage>10%</style>几率在击中Boss怪物时<style=cIsUtility>掉落增益球</style>，提升<style=cIsDamage>生命再生、攻击速度、移动速度和基础伤害</style>，持续<style=cIsDamage>10秒</style> <style=cStack>(每层额外+6秒)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "订单：皇家勋章\r\n跟踪号码：2746***********\r\n预计送达时间：2056年5月3日\r\n运输方式：优先\r\n收货地址：Aeolus 2，第4翼，第4号访客\r\n运输详情：\r\n\r\n在我们系统的外轨道上有一个由人民组成的联邦。\r\n\r\n有国王和领主；骑士和战士，它是君主制的。\r\n\r\n每个主要层次的成员都佩戴一枚勋章，赋予勇气和坚韧。\r\n\r\n这枚勋章属于一位王子，他的名字被埋没在冲突和叛国罪的指控中。\r\n\r\n从他的财物中被剥夺，他的勋章被一个谦逊的拾荒者发现，远离它曾经佩戴的地方。\r\n\r\n现在，我把它传给你。无论你的命运在星辰中还是在你的心中召唤你回家，你的勇气将是无与伦比的。继续战斗，孩子。",
+
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "铊",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "有机会在击中时使敌人中毒。",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "击中时<style=cIsDamage>{0}%几率</style>使敌人<style=cIsDamage>中毒</style>，每秒造成<style=cIsDamage>2x{1}%受害者基础伤害</style>并减速<style=cIsDamage>-{2}%移动速度</style>，持续<style=cIsDamage>{3}秒</style> <style=cStack>(每层额外+{4}秒)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "订单：铊\r\n跟踪号码：1344***********\r\n预计送达时间：2056年5月14日\r\n运输方式：高优先/易碎\r\n收货地址：地球，K&K Union，第909号\r\n运输详情：\r\n\r\n她不会注意到。",
+		
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "永冻",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "有机会在击中时冻结敌人。",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "<style=cIsUtility>{0}%</style> <style=cStack>(每层额外+{0}%)</style>几率在击中时<style=cIsUtility>冻结</style>敌人<style=cIsUtility>2秒</style>。",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "订单：永冻\r\n跟踪号码：1380***********\r\n预计送达时间：2056年4月17日\r\n运输方式：高优先/易碎\r\n收货地址：冥王星，Frozen Valley，第10681号\r\n运输详情：\r\n\r\n这个冰块的核心非常接近绝对零度，比我们在实验室里制造的任何东西都接近。测试它！测试！这将导致超导体技术的巨大突破。",
+
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME": "邪恶戒指",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP": "暴击减少技能冷却时间。",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "增加<style=cIsDamage>{0}%暴击几率</style>。<style=cIsDamage>暴击</style>减少<style=cIsUtility>技能冷却时间</style> <style=cIsUtility>{1}秒</style> <style=cStack>(每层额外+{2}秒)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE": "订单：邪恶戒指\r\n跟踪号码：1372***********\r\n预计送达时间：2056年2月22日\r\n运输方式：高优先/易碎\r\n收货地址：金星，Fillmore，东1414号\r\n运输详情：\r\n\r\n有多少戒指他拥有，你会认为更多会被发现，对吧？不，只有这一个。国王曾经牺牲他自己的一个儿子来赋予黑暗精神。他声称这些精神驱散了任何不祥之兆。国王活到了104岁，所以也许他是对的。\r\n\r\n作为最后一个邪恶戒指，我期望得到一大笔钱。",
+
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "击杀减少技能冷却时间。",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "击杀时减少<style=cIsUtility>技能冷却时间</style> <style=cIsUtility>{0}秒</style> <style=cStack>(每层额外+{1}秒)</style>。",
+
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_NAME": "超线程器",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": " pew pew。",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "<style=cIsDamage>{0}%</style>几率在击中时<style=cIsDamage>发射激光</style>，造成<style=cIsDamage>{1}%基础伤害</style>并<style=cIsDamage>反弹</style>到<style=cIsDamage>{2}</style> <style=cStack>(每层额外+{3})</style>个敌人。",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "订单：超线程器\r\n跟踪号码：1360***********\r\n预计送达时间：2056年12月8日\r\n运输方式：高优先/易碎\r\n收货地址：火星，Advanced Warfare Center，西6900号\r\n运输详情：\r\n\r\nFNA 200 '超线程器' 能量次步枪尽管外观脆弱，但实际上非常坚固。\r\n\r\n使用直接能量技术，FNA 200 可以以高射速发射超热气体。FNA 200 还几乎不需要充电，而是从周围的空气中生成能量。",
+
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "暗杀名单",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "击杀标记的敌人永久增加伤害。",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "随机<style=cIsDamage>标记</style>最多<style=cIsDamage>1</style> <style=cStack>(每层额外+1)</style>个敌人。击杀<style=cIsDamage>标记</style>的敌人<style=cIsDamage>永久</style>增加<style=cIsDamage>基础伤害</style> <style=cIsDamage>{0}</style>。",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "订单：暗杀名单\r\n跟踪号码：1362***********\r\n预计送达时间：2056年11月14日\r\n运输方式：高优先/易碎\r\n收货地址：金星，St Johns，第6号集群\r\n运输详情：\r\n\r\n别忘了……别忘了他们做了什么……\r\n-A.Bn\r\n-Fr.Ntn\r\n-[已清除]\r\n-[已清除]\r\n-随机野生动物\r\n-[已清除]\r\n-Grvnmk\r\n-[已清除]",
+		
+		"CLASSICITEMSRETURNS_ITEM_USB_NAME": "机密访问代码",
+		"CLASSICITEMSRETURNS_ITEM_USB_PICKUP": "访问一种致命武器对抗传送器Boss。",
+		"CLASSICITEMSRETURNS_ITEM_USB_DESCRIPTION": "每阶段出现一个<style=cIsDamage>阿特拉斯加农炮</style>，激活后对<style=cIsDamage>传送器Boss</style>造成<style=cIsDamage>40%</style> <style=cStack>(每层额外+20%)</style>最大生命值的伤害。",
+		"CLASSICITEMSRETURNS_ITEM_USB_LORE": "订单：机密访问代码\r\n跟踪号码：3190***********\r\n预计送达时间：2056年10月2日\r\n运输方式：高优先/易碎\r\n收件人：Randall P.\r\n收货地址：[已编辑]，[已编辑]，第24号碎片\r\n运输详情：\r\n\r\n当前指定任务所需的物品。\r\n遵循表格[已编辑]上所述的所有协议。\r\n在[已编辑]发送。\r\n在[已编辑]监控，不惜一切代价保持秘密。"
+	}
+}
+

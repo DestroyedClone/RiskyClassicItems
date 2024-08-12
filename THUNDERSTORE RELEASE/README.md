@@ -68,3 +68,4 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 ## Translation Credits
 - Portuguese: Kauzok
+- Chinese: fbjh

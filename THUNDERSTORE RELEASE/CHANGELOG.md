@@ -1,3 +1,6 @@
+- `3.1.6`
+	- Added CN TL (Thanks fbjh!)
+
 - `3.1.5`
 	- Added PT-BR TL (Thanks kauzok!)
 
