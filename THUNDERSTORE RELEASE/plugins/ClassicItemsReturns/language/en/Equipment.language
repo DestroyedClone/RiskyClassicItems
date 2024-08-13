@@ -28,7 +28,7 @@
 
     "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_NAME": "Drone Repair Kit",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_PICKUP": "Repair and empower all active drones.",
-    "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_DESCRIPTION": "All <style=cIsDamage>drones</style> are repaired to <style=cIsHealing>full health</style> and <style=cIsDamage>empowered</style> for 8 seconds.",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_DESCRIPTION": "All <style=cIsDamage>drones</style> are repaired to <style=cIsHealing>full health</style> and <style=cIsDamage>empowered</style> for 8 seconds. <style=cIsUtility>Summons a unique drone</style>.",
     "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_LORE": "Order: Drone Repair Kit\r\nTracking Number: 1532***********\r\nEstimated Delivery: 3\/17\/2056\r\nShipping Method: Volatile\r\nShipping Address: 1803-A, Southern Pub, Mars\r\nShipping Details:\r\n\r\nWe have learned from nature that the best relationships are the symbiotic ones; the nanodrones go and fix up all the scratches and broken pieces of the attack drones, and in return they get scrap metal to replicate. Win-win for both."
   }
 }

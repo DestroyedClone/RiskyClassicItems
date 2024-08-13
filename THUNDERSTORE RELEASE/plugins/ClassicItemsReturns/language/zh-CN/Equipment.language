@@ -1,0 +1,34 @@
+﻿{
+  "strings": {
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_NAME": "巨大的紫水晶",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_PICKUP": "重置所有技能冷却时间",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_DESCRIPTION": "<style=cIsUtility>重置</style>所有<style=cIsUtility>技能冷却时间</style>。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_LORE": "订单：巨大的紫水晶\r\n跟踪号码：1523***********\r\n预计送达时间：2056年5月12日\r\n运输方式：不稳定的\r\n收件人：Grievenkamp\r\n收货地址：地球，棱镜塔，休斯顿街5号\r\n运输详情：\r\n\r\n我猜是用于聚焦激光的。无论如何，这是我能在任何地方找到的最大的一个。除了金星的皇冠紫水晶，我显然不能给你，这是最适合你用途的。你将能够达到惊人的质量；祝你好运！",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_NAME": "灵魂罐",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_PICKUP": "将一个敌人复制为幽灵，为你战斗。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_DESCRIPTION": "创建<style=cIsUtility>3个幽灵复制体</style>，每个造成<style=cIsDamage>{0}%伤害</style>。<style=cIsDamage>大型</style>敌人被复制<style=cIsDamage>一次</style>。持续<style=cIsUtility>{1}秒</style>。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_CREATEGHOSTTARGETING_LORE": "订单：灵魂罐\r\n跟踪号码：1535***********\r\n预计送达时间：2056年6月6日\r\n运输方式：不稳定的\r\n收货地址：??，W. Path，O.Crypt 74\r\n运输详情：\r\n\r\n[录音中只有哭嚎和尖叫。您要联系当局吗？Y/N]",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_NAME": "丢失的玩偶",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_PICKUP": "<style=cIsHealth>牺牲生命值</style>来伤害敌人。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_DESCRIPTION": "牺牲<style=cIsHealth>{0}%当前生命值</style>来对敌人造成<style=cIsDamage>{1}%最大生命值</style>的伤害。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_LORE": "订单：丢失的玩偶\r\n跟踪号码：1536***********\r\n预计送达时间：2056年2月12日\r\n运输方式：不稳定的\r\n收货地址：金星，未知邮箱，Tibb Station\r\n运输详情：\r\n\r\n请把这个东西从我家拿走。求你了。我只是想摆脱它。\r\n自从我收到这个该死的东西以来，我丈夫从楼梯上摔下来摔断了脖子，我儿子被公交车撞了，我女儿在浴缸里淹死了。而且……哦，天哪……我发誓它在家里到处移动。我试着把它锁在保险箱里，第二天它就会出来。它不会燃烧。切割它导致我失去了双臂。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_LOSTDOLL_LORE_ALT": "啊，兄弟。我很高兴你回应了。\r\n\r\n我建议你仔细听。\r\n\r\n我和她谈过了。不是那个燃烧明亮然后消失的愚蠢结局。我怎么能呢？毕竟，她已经走了。你很清楚这一点。你的心知道为什么。\r\n\r\n不，不是她。是确保平衡的那位。那位向她远方的众多人低语指引的那位。你知道我在说谁。你也知道为什么这与你有关。\r\n\r\n我从远处看到了你那些被感染的世界，它们承载着我们的门。我们的世界。我想，在一个不寻常的不愉快的情绪中，我不久前与我的熟人分享了这些信息。\r\n\r\n哦，兄弟，我只是不知道她会采取什么措施。她会把对你的受污染世界低语带到多远。你看，她的门徒已经行动了。他们已经从一个死去的世界上夺取了一扇门。\r\n\r\n如果我能早点知道，兄弟。也许我可以在他们对你所努力的一切构成危险之前警告你。在他们可能给我你从我这里偷走的通行权之前。\r\n\r\n我想你可以使用他们夺取的门。从另一边解开它会让你被困并注定要遭受黑海的疾病，当然。\r\n\r\n但也许你有机会。\r\n\r\n似乎命运给了你一个短暂的机会。他们正在接近这个世界。她告诉他们去哪里找到它，但他们看不见它。也许你可以在疾病声称你之前把船和它携带的门带回这个世界。\r\n\r\n船不会不战而降。会很血腥。我肯定你很矛盾，但他们很快就会离开失败的搜索。\r\n\r\n你有一个选择要做，兄弟，时间不多了。你会怎么做？\r\n\r\n<style=cIsHealth>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</style>",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_NAME": "处方药",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_PICKUP": "进入药物引发的狂暴状态。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_DESCRIPTION": "你进入<style=cIsDamage>药物引发的狂暴状态</style>，持续<style=cIsUtility>{0}</style>秒。增加<style=cIsDamage>伤害</style><style=cIsDamage>{1}%</style>和<style=cIsDamage>攻击速度</style><style=cIsDamage>{2}%</style>。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRUGS_LORE": "订单：处方药\r\n跟踪号码：1156***********\r\n预计送达时间：2056年1月18日\r\n运输方式：不稳定的\r\n收货地址：金星，司法中心，科学部\r\n运输详情：\r\n\r\n这些药丸合法吗？不。这些药丸有用吗？是的。猪会飞吗？不。\r\n\r\nVan-Ex在24小时内增加力量和肌肉质量！科学证明！\r\n\r\n确保每8小时只服用2片，最多！否则你可能会发现自己死了！",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_NAME": "Thqwibs",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_PICKUP": "释放一群Thqwibs。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_DESCRIPTION": "释放一群<style=cIsDamage>{0}</style>Thqwibs，每个在撞击时爆炸，造成<style=cIsDamage>{1}%伤害</style>。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_THQWIBS_LORE": "订单：Thqwib\r\n跟踪号码：1527***********\r\n预计送达时间：2056年11月23日\r\n运输方式：不稳定的\r\n收货地址：火星，南方酒吧，1803-A\r\n运输详情：\r\n\r\nThqwibs自然生活在非常低的气氛中，所以加压容器是为了它们的安全。如果释放到房间里，它们会立即死亡，所以不要。\r\n\r\n我包括了大约30个thqwibs；尽管它们与其他生物相似，但它们天生是社交的，如果单独留下会变得抑郁。",
+
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_NAME": "无人机维修工具包",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_PICKUP": "修复并强化所有活跃的无人机。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_DESCRIPTION": "所有<style=cIsDamage>无人机</style>被修复到<style=cIsHealing>满血</style>并在8秒内<style=cIsDamage>强化</style>。<style=cIsUtility>召唤一个独特的无人机</style>。",
+    "CLASSICITEMSRETURNS_EQUIPMENT_DRONEREPAIRKIT_LORE": "订单：无人机维修工具包\r\n跟踪号码：1532***********\r\n预计送达时间：2056年3月17日\r\n运输方式：不稳定的\r\n收货地址：火星，南方酒吧，1803-A\r\n运输详情：\r\n\r\n我们从自然中学到，最好的关系是共生关系；纳米无人机去修复攻击无人机的所有划痕和破损部分，作为回报，它们得到废金属来复制。对双方都是双赢。"
+  }
+}

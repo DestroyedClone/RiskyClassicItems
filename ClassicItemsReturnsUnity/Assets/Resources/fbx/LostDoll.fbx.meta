@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: LostDoll
     second: {fileID: 2100000, guid: 1e33598ba9cf2e047a44a7cfd1b2e38f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert43
+    second: {fileID: 2100000, guid: 1e33598ba9cf2e047a44a7cfd1b2e38f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -310,6 +310,24 @@ namespace ClassicItemsReturns.Equipment
             if (mdl3d)
             {
                 ItemHelpers.SetupMaterials(mdl3d);
+
+                if (!mdl3d.GetComponent<ItemDisplay>())
+                {
+                    ItemDisplay itemDisplay = mdl3d.AddComponent<ItemDisplay>();
+                    var renderers = mdl3d.GetComponentsInChildren<MeshRenderer>();
+                    List<CharacterModel.RendererInfo> rendererInfos = new List<CharacterModel.RendererInfo>();
+                    foreach (Renderer r in renderers)
+                    {
+                        var rendererInfo = new CharacterModel.RendererInfo();
+                        rendererInfo.renderer = r;
+                        rendererInfo.defaultMaterial = r.material;
+                        rendererInfo.defaultShadowCastingMode = r.shadowCastingMode;
+                        rendererInfo.ignoreOverlays = false;
+                        rendererInfo.hideOnDeath = false;
+                        rendererInfos.Add(rendererInfo);
+                    }
+                    itemDisplay.rendererInfos = rendererInfos.ToArray();
+                }
             }
 
             GameObject mdlRet = Assets.LoadObject("mdl" + modelName);

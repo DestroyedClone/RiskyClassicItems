@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: DrugsMat
     second: {fileID: 2100000, guid: ef4add235727e4c48ad440021b932afc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert48
+    second: {fileID: 2100000, guid: ef4add235727e4c48ad440021b932afc, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

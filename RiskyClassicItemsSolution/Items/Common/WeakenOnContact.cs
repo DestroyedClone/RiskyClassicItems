@@ -18,7 +18,7 @@ namespace ClassicItemsReturns.Items.Common
         public override string ItemLangTokenName => "WEAKENONCONTACT";
         public float damageBonus = 30;
         public float duration = 3;
-        public float durationPerStack = 3;
+        public float durationPerStack = 1.5f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {

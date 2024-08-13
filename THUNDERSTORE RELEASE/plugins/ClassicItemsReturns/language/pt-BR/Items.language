@@ -1,0 +1,139 @@
+{
+	strings: {
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "Frasco Misterioso",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "Regeneração de saúde aumentada.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Aumenta a <style=cIsHealing>regeneração de saúde</style> em <style=cIsHealing>+{0} PV/s</style> <style=cStack>(+{1} PV/s por acúmulo)</style>. Varia com o nível.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_LORE": "Pedido: Frasco Misterioso\r\nNúmero de Rastreio: 1503***********\r\nPrevisão de Entrega: 03\/06\/2056\r\nMétodo de Envio: Padrão\/Frágil\r\nEnviado para: Sheridan S.\r\nEndereço de Entrega: 4000 15ª Avenida, ESTADOS UNIDOS, Terra\r\nDetalhes do Pedido:\r\n\r\nUm magnífico gel de ação rápida que contém antissépticos e um agente que encoraja a síntese de proteínas, basta aplicar na pele!\n\nFeridas pequenas devem curar em até 5 horas após a aplicação, enquanto ossos quebrados e ligamentos rompidos podem levar algumas semanas.\n\nAVISO: Efeitos colaterais incluem coceira, assaduras, sangramento, sensibilidade da pele, pele ressecada, cicatrizes permanentes, regeneração desalinhada dos ossos, apodrecimento do...",
+
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Escudo de Fogo",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "Incendeia inimigos próximos ao sofrer dano pesado.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "Você explode ao sofrer mais de <style=cIsHealth>8% da sua saúde máxima</style> em dano, causando <style=cIsDamage>{1}%</style> de dano base. Adicionalmente, inimigos <style=cIsDamage>queimam</style> em <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% por acúmulo)</style> de dano base.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "Pedido: Escudo de Fogo\r\nNúmero de Rastreio: 1507***********\r\nPrevisão de Entrega: 03\/06\/2056\r\nMétodo de Envio: Padrão\r\nEnviado para: Soloman\r\nEndereço de Entrega: -,Lugar Nenhum, Marte\r\nDetalhes do Pedido:\r\n\r\nEssa coisa não está acabada, mas dará conta do trabalho. As cadeias de fluxo são bem instáveis, e impactos resultarão em uma explosão. POR FAVOR, manuseie com cuidado!",
+
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Raiz Amarga",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "Aumenta a saúde máxima.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "Aumenta a <style=cIsHealing>saúde máxima</style> em <style=cIsHealing>+{0}%</style> <style=cStack>(+{1}% por acúmulo)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME_ALT": "Raiz Amarga",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP_ALT": "Abates regeneram a saúde.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "Aumenta a <style=cIsHealing>regeneração de vida base</style> em <style=cIsHealing>{0} PV/s</style> por <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s por acúmulo)</style> após abater um inimigo. Varia com o nível.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE": "Pedido: Raiz Amarga\r\nNúmero de Rastreio: 1499***********\r\nPrevisão de Entrega: 06\/04\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: 103, Rua 110, Lago Norte, Marte\r\nDetalhes do Pedido:\r\n\r\nMaior. Raiz. De. Ginseng. Que. EXISTE.\n\nNa verdade, não, mas ela é enorme. Você pode fervê-la, colocá-la no sol para secar ou qualquer outra coisa que quiser. Mal posso esperar para ver se a sua pesquisa sobre câncer dará frutos. Isso soa como magia vudu para mim, talvez fitoterapia, mas se os nativos dizem que funciona, então funciona.",
+
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "Cofrinho de Economias",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "Ganhe dinheiro periodicamente.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "Gera <style=cIsUtility>{0} <style=cStack>(+{1} por acúmulo)</style> de ouro</style> a cada <style=cIsUtility>{2} segundos</style>. Varia com o tempo.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "Pedido: Cofrinho de Economias\r\nNúmero de Rastreio: 1518***********\r\nPrevisão de Entrega: 02\/22\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: casa da mamãe\r\nDetalhes do Pedido:\r\n\r\noi meu nome é billy e aqui tá o dinheiro pra mamãe brigado",
+
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "A Toxina",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "Toque nos inimigos para enfraquecê-los.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "Ao entrar em contato com inimigos, <style=cIsDamage>infecta</style> eles por <style=cIsDamage>{1}</style> <style=cStack>(+{2} por acúmulo)</style> segundos, fazendo com que recebam <style=cIsDamage>{0}% de dano extra</style> de todas as fontes.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "Pedido: A Toxina\r\nPrevisão de Entrega: 04\/30\/2056\r\nMétodo de Envio: Não Marcado\r\nEndereço de Entrega: Laboratórios EICO, Cidade do Ouro, Terra\r\nDetalhes do Pedido:\r\n\r\nRESUMO DO TESTE [id.416c7068615468726565]\nCobaia estabilizada – Níveis notáveis de excitação.\nAumento na disposição de dispersão.\nSerá necessário contenção especial caso ativa.\nN31 aplicado, cuidado com efeitos colaterais.\nManuseio proibido durante esta fase.\nAOD: 53 75 6e 46 61 6c 6c",
+
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "Olhos de Cobra",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "Ativar altares aumenta sua chance de 'Acerto Crítico'.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Utilizar um altar</style> aumenta a <style=cIsDamage>chance de acerto crítico</style> em <style=cIsDamage>{0}%</style> <style=cStack>(+{0}% por acúmulo)</style>, até <style=cIsDamage>6 vezes</style>. Reinicia entre fases.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Pedido: Olhos de Cobra\r\nNúmero de Rastreio: 1500***********\r\nPrevisão de Entrega: 01\/01\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: 1843, Serviços GMG, Vênus\r\nDetalhes do Pedido:\r\n\r\nSua cobra filha de uma ----.Você SABIA que eu tinha que vencer para pagar minhas dívidas. Você está trabalhando para os cassinos? É claro que está, isso é típico de alguém como você. Dados VICIADOS que só caem em OLHOS DE COBRA. MAS QUE BONITO, cobrinha de -----.\n\nEu ainda te pego, ----.",
+
+		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "Moeda Navalha",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "Aumenta um pouco a chance de acerto crítico. 'Acertos Críticos' concedem Ouro.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "Aumenta sua <style=cIsDamage>{0}% <style=cStack>(+{0}% por acúmulo)</style> chance de acerto crítico</style>. <style=cIsDamage>Acertos Críticos</style> derrubam <style=cIsUtility>${1} <style=cStack>(+${1} por acúmulo)</style> de ouro</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "Pedido: Moeda Navalha\r\nNúmero de Rastreio: 3023***********\r\nPrevisão de Entrega: 01\/22\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: Residencial 24, Anlesburg, Marte\r\nDetalhes do Pedido:\r\n\r\nNão acredito que aceitavam essa moeda no comércio. Sei que já faz um tempão desde aquela época, mas isso é preocupante. Imagine que você tem... sei lá, umas 10 dessas no bolso (uns trocados, sabe). Coloque a mão lá dentro e pronto, sua mão está mutilada!\nAs cidades não trocaram para moedas virtuais à toa...",
+
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "Patins Arcanos",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "Mova-se mais rápido após ativar o Teleportador.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "Aumenta sua <style=cIsUtility>velocidade de movimento</style> em <style=cIsUtility>{0}% <style=cStack>(+{0}% por acúmulo)</style></style> após ativar o <style=cIsHealth>Teleportador</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "Pedido: Patins Arcanos\r\nNúmero de Rastreio: 2924***********\r\nPrevisão de Entrega: 05\/08\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: Estrada de Ponta 5, Nadarocha, Marte\r\nDetalhes do Pedido:\r\n\r\nEI, JOVEM! feliz aniversário eu achei esses patins velhos no sótão eram do vovô mas eles parecem ótimos.. você estava falando de se exercitar mais na última vez que esteve aqui e eles devem dar conta. \na mãe ainda está obcecada com o jardim dela você deveria visitar no próximo verão e ver como ela está doida \nvocê ainda tem aquele namorado? mamãe quer saber quando vocês se casam haha\nME LIGA QUALQUER HORA!\nPAPAI",
+
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_NAME": "Construto Mu",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_PICKUP": "Cure periodicamente após ativar o Teleportador.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_DESCRIPTION": "Cure <style=cIsHealing>{0}%</style> da sua <style=cIsHealing>saúde</style> a cada <style=cIsHealing>{1}</style> <style=cStack>(-{2}% por acúmulo)</style> segundos após o <style=cIsHealth>Teleportador</style> ser ativado.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_LORE": "Pedido: Construto Mu\r\nNúmero de Rastreio: 1748***********\r\nPrevisão de Entrega: 06\/04\/2056\r\nMétodo de Envio: Encontrado em Campo\r\nEndereço de Entrega: Complexo 3B, Saturno, ???\r\nDetalhes do Pedido:\r\n\r\n... E eu pensando que tudo nesse planeta queria me matar.\nAssim que o encontrei, ele começou a me seguir por todos os lados. É bem curioso quando se trata de objetos brilhantes, e adora ficar girando enquanto estou tentando descansar. Simplesmente não quer ficar parado.\nEle é meio insistente, mas sua companhia acalma meus nervos, considerando que estou tão longe de casa...",
+
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "Trevo de 56 Folhas",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "Inimigos de elite têm chance de derrubar itens.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "Inimigos de elite têm <style=cIsUtility>{0}% de chande</style> <style=cStack>(+{1}% de chance por acúmulo)</style> de <style=cIsUtility>derrubar um item</style> ao serem abatidos. <style=cIsUtility>Não é afetado por sorte</style>.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_LORE": "Pedido: Trevo de 56 Folhas\r\nNúmero de Rastreio: 1428***********\r\nPrevisão de Entrega: 12\/24\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: 777, Sorte Grande, Terra\r\nDetalhes do Pedido:\r\n\r\nUm trevo de CINQUENTA E SEIS folhas! Um fã me mandou, colhido no topo do Monte Drummond. Ele sobreviveu ao fogo da montanha; imagine só! Estou mantendo-o em observação para garantir que não murcha; este é um exemplar que só vemos uma vez na vida! Imagine todos os elixires que podemos fazer... Talvez eu use alguns deles e vá jogar na loteria!",
+
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "Corrida Armamentista",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "Drones ganham uma barragem de mísseis.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "Drones periodicamente atiram uma barragem de <style=cIsDamage>{1}</style> <style=cStack>(+{2} por acúmulo)</style> mísseis, causando <style=cIsDamage>{3}%</style> de dano. Recarrega a cada <style=cIsUtility>{0}</style> segundos.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "Pedido: Corrida Armamentista\r\nNúmero de Rastreio: 1453***********\r\nPrevisão de Entrega: 08\/03\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: 9834, Fundo Cortical, Marte\r\nDetalhes do Pedido:\r\n\r\nPsiu. Ei. Sim, estou sussurrando por mensagem.\n\nAs atualizações para os Drones chegaram. São compatíveis com todos os Drones de slot KS-I, mesmo os que não são de combate, assim você pode repaginar algumas das unidades de limpeza para ajudar na luta. É só colocar na parte de trás, e a IA do Drone deve cuidar do resto. Contém um Lançador de Mísseis e de Morteiros. Vamos continuar essa corrida armamentista, hein?",
+
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "Arma de Ouro",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "Mais ouro, mais dano.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "Cause <style=cIsDamage>dano extra</style> com base no <style=cIsUtility>ouro</style>, até <style=cIsDamage>+{0}% de dano</style> <style=cStack>(+{1}% por acúmulo)</style> a cada <style=cIsUtility>{2} de ouro</style> <style=cStack>(+{3} por acúmulo)</style>. Varia com o tempo.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "Pedido: Arma de Ouro\r\nNúmero de Rastreio: 1455***********\r\nPrevisão de Entrega: 12\/19\/1874\r\nMétodo de Envio: Prioridade\r\nEnviado para: James B.\r\nEndereço de Entrega: ??\r\nDetalhes do Pedido:\r\n\r\nIsso deveria.. me intimidar? No entanto, gostei do visual disso, talvez coloque em cima da minha lareira.",
+
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "Algemas da Prisão",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "Cause lentidão nos inimigos ao atacar.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "<style=cIsDamage>Causa Lentidão</style> nos inimigos ao acertar, infligindo <style=cIsDamage>-{0}% de velocidade de movimento</style> por <style=cIsDamage>{1}s</style> <style=cStack>(+{2}s por acúmulo)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "Pedido: Algemas da Prisão\r\nNúmero de Rastreio: 1458***********\r\nPrevisão de Entrega: 02\/06\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: 94123, Prédio 201, Forte Mason\r\nDetalhes do Pedido:\r\n\r\nUm artefato dos tempos antigos, antes de usarmos algemas holográficas. A vantagem é que explosões de PEM e hacks remotos não podem desativar o bom e velho aço e correntes. Colocar isso em prisioneiros maiores pode ser mais difícil.\nSei que vocês têm tido um sério problema de fuga nos últimos meses e isso, com certeza, surpreenderá os fugitivos. Só não perca a chave.\n\nEstamos enviando cerca de... 500, porque não temos nada para fazer com elas a não ser fundi-las para extrair o aço, que vale quase menos do que terra hoje em dia. E isso provavelmente custaria mais caro do que só nos livrarmos delas.",
+
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_NAME": "Cliente Consciente",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_PICKUP": "Inimigos derrubam ouro extra.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "Inimigos abatidos derrubam <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% por acúmulo)</style> de ouro extra.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_LORE": "Pedido: Cliente Consciente\r\nNúmero de Rastreio: 1451***********\r\nPrevisão de Entrega: 12\/24\/1962\r\nMétodo de Envio: Priority\r\nEndereço de Entrega: Rua Oeste 200, Cidade do Ouro, Terra\r\nDetalhes do Pedido:\r\n\r\nAmor! AMOR! Olha! Eu /disse/ que ainda tinha um pouco! Estranho, né? Eu jurava que tinha usado o resto do dinheiro da bolsa, mas quando olhei de novo, ainda tinha um pouquinho sobrando. Bizarro, né? \n\nParece até magia, haha! Amor?",
+
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "Tempos Árduos",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_PICKUP": "Aumenta sua armadura.",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_DESCRIPTION": "Garante <style=cIsHealing>+{0} de armadura</style> <style=cStack>(+{1} por acúmulo)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_LORE": "Pedido: Tempos Árduos\r\nNúmero de Rastreio: 1418***********\r\nPrevisão de Entrega: 09\/29\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: 18601, Vale Congelado, Júpiter\r\nDetalhes do Pedido:\r\n\r\n\"Ursos são praticamente o único brinquedo que pode perder quase tudo e ainda manter sua dignidade e valor.\" - Samantha Armstrong.\n\nNão se preocupe, minha criança, eu volto em breve. Aguente firme.",
+
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_NAME": "Joia Trancada",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_PICKUP": "Ativar um item interativo concede barreira e ouro.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "Ativar um item interativo concede uma <style=cIsHealing>barreira temporária</style> por <style=cIsHealing>{0}%</style> <style=cStack>(+{1}% por acúmulo)</style> da sua <style=cIsHealing>saúde máxima</style> e concede <style=cIsUtility>${2}</style>. Varia com o tempo.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_LORE": "Pedido: Joia Trancada\r\nNúmero de Rastreio: 1065***********\r\nPrevisão de Entrega: 09\/15\/2056\r\nMétodo de Envio: Priority\r\nEndereço de Entrega: Bloco 3 Delta Phobos, Amna 2, Desconhecido\r\nDetalhes do Pedido:\r\n\r\nespero que isso chegue ao destino não estou acostumado a mandar nada por aqui então espero não fazer nada errado...",
+
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Célula de Energia",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Ataque mais rápido quando estiver com pouca saúde.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Aumenta a <style=cIsDamage>velocidade de ataque</style> em <style=cIsDamage>10%-40%</style> <style=cStack>(+10%-40% por acúmulo)</style> baseado na <style=cIsHealth>saúde faltante</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Pedido: Célula de Energia\r\nNúmero de Rastreio: 1442***********\r\nPrevisão de Entrega: 11\/09\/2056\r\nMétodo de Envio: Priority\r\nEndereço de Entrega: 6511, Laboratórios CronTech, Marte\r\nDetalhes do Pedido:\r\n\r\nPARA: ----- - J.\nCC#: ---- ---- - ---\nC.#: 200158\nUsar APENAS em veículos e máquinas baseados em fusão. NÃO carregar no servidor principal.",
+
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "Luvas de Boxes",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "Chance de empurrar inimigos, causando dano extra.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "Seus ataques possuem <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% por acúmulo)</style> de chance de <style=cIsUtility>empurrar</style> inimigos, causando <style=cIsDamage>{2}%</style> de dano TOTAL.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "Pedido: Luvas de Boxes\r\nNúmero de Rastreio: 1438***********\r\nPrevisão de Entrega: 07\/07\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: Academia O.B., Estação Pancadaria, Vênus\r\nDetalhes do Pedido:\r\n\r\nElas estão um pouco mofadas, mas devem bastar para a garotada que você está treinando. Elas deixarão os socos dos seus alunos iguaizinhos aos de um profissional, haha!",
+
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "Mochila a Jato Enferrujada",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "Aumenta a altura do salto e e ganha um salto no ar.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "Aumenta a altura do salto em <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% por acúmulo)</style> e ganha um <style=cIsUtility>breve pulo no ar</style>.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Pedido: Mochila a Jato Enferrujada\r\nNúmero de Rastreio: 1415***********\r\nPrevisão de Entrega: 01\/01\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: Centro da Diversão, 2105, Taurus NE\r\nDetalhes do Pedido:\r\n\r\nPerdão, mas ela parece quebrada. Essa só funciona por um segundo, talvez nem isso. Se puder esperar alguns meses, acho que consigo mandar uma funcional para você. Deve funcionar bem o suficiente até o carnaval! \nLembre-se de manter as crianças longe da parte de baixo, o jato é bem intenso. Ela deve ser ótima para se divertir em pistas de obstáculos.",
+		
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "Medalhão Real",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "Chefes soltam poderosas orbes de reforços ao serem atingidos.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "Seus ataques contra monstros chefes têm <style=cIsDamage>10%</style> de chance de <style=cIsUtility>soltar um orbe de reforços</style> que <style=cIsDamage>melhora a regeneração de saúde, velocidade de ataque, velocidade de movimento e dano base</style> por <style=cIsDamage>10s</style> <style=cStack>(+6s por acúmulo)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "Pedido: Medalhão Real\r\nNúmero de Rastreio: 2746***********\r\nPrevisão de Entrega: 05\/03\/2056\r\nMétodo de Envio: Prioridade\r\nEndereço de Entrega: Visitantes Nº 4, Ala 4, Aeolus 2\r\nDetalhes do Pedido:\r\n\r\nNas órbitas mais distantes de nosso sistema, existe uma confederação de pessoas.\nÉ uma monarquia por natureza, com reis, lordes, cavaleiros e guerreiros.\nCada membro do topo da hierarquia carrega um medalhão que concede coragem e fortitude.\nEste aqui pertencia a um príncipe, cujo nome estava manchado por disputas e acusações de traição.\nDespojado de seus pertences, seu medalhão permaneceu como nada além de uma curiosidade de um humilde coletor que o encontrou, longe do lugar onde havia sido usado.\nE agora, estou dando ele a você. Quer seu destino esteja entre as estrelas ou seu coração anseie por seu lar, seu valor será incomparável. Continue lutando, jovem.",
+
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "Tálio",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "Chance de envenenar inimigos atingidos com tálio.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "Seus ataques têm <style=cIsDamage>{0}% de chance</style> de <style=cIsDamage>envenenar</style>, causando <style=cIsDamage>2x{1}% do dano base da vítima por segundo</style> e desacelerar <style=cIsDamage>-{2}% da velocidade de movimento</style> por <style=cIsDamage>{3} segundos</style> <style=cStack>(+{4} segundos por acúmulo)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Pedido: Tálio\r\nNúmero de Rastreio: 1344***********\r\nPrevisão de Entrega: 05\/14\/2056\r\nMétodo de Envio: Alta Prioridade\/Frágil\r\nEndereço de Entrega: 0909, União K&K, Terra\r\nDetalhes do Pedido:\r\n\r\nEla não deveria notar.",
+		
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "Congeleterno",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "Chance de congelar inimigos ao acertar.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "Seus ataques têm <style=cIsUtility>{0}%</style> <style=cStack>(+{0}% por acúmulo)</style> de chance de <style=cIsUtility>congelar</style> por <style=cIsUtility>2 segundos</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "Pedido: Congeleterno\r\nNúmero de Rastreio: 1380***********\r\nPrevisão de Entrega: 04\/17\/2056\r\nMétodo de Envio: Alta Prioridade\/Frágil\r\nEndereço de Entrega: 10681, Vale Congelado, Plutão\r\nDetalhes do Pedido:\r\n\r\nO núcleo deste cubo de gelo está MUITO, MUITO próximo do zero absoluto, muito mais próximo do que qualquer coisa que fizemos no laboratório antes. Teste-o! TESTE! Com isso, teremos GRANDES avanços na tecnologia de supercondutores.",
+
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME": "Anel Maligno",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP": "'Acertos críticos' reduzem todos os tempos de recarga.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "Ganhe <style=cIsDamage>{0}% de chance de crítico</style>. <style=cIsDamage>Acertos Críticos</style> <style=cIsUtility>reduzem os tempos de recarga</style> em <style=cIsUtility>{1}s</style> <style=cStack>(+{2}s por acúmulo)</style>.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE": "Pedido: Anel Maligno\r\nNúmero de Rastreio: 1372***********\r\nPrevisão de Entrega: 02\/22\/2056\r\nMétodo de Envio: Alta Prioridade\/Frágil\r\nEndereço de Entrega: Nº 1414 Leste,Fillmore, Vênus\r\nDetalhes do Pedido:\r\n\r\nCom a quantidade de anéis que ele tinha, era de se esperar que encontrassem mais, né? Não, foi só esse mesmo. O Rei costumava sacrificar um dos próprios filhos para imbuir o Anel com espíritos sombrios. Ele dizia que os espíritos afastavam qualquer mal. Ele viveu até os 104 anos, então talvez ele estivesse certo.\n\nComo este é o último Anel Maligno, espero uma boa recompensa.",
+
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "Abates reduzem o tempo de recarga de habilidades.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "Abates <style=cIsUtility>reduzem tempo de recarga de habilidades</style> em <style=cIsUtility>{0}s</style> <style=cStack>(+{1}s por acúmulo)</style>.",
+
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_NAME": "Hipercosturador",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": "Bang bang.",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "Atingir inimigos tem <style=cIsDamage>{0}%</style> de chance de <style=cIsDamage>disparar um laser</style>, que causa <style=cIsDamage>{1}% de dano base</style> e <style=cIsDamage>ricocheteia</style> em <style=cIsDamage>{2}</style> <style=cStack>(+{3} por acúmulo)</style> inimigos.",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "Pedido: Hipercosturador\r\nNúmero de Rastreio: 1360***********\r\nPrevisão de Entrega: 12\/08\/2056\r\nMétodo de Envio: Alta Prioridade\/Frágil\r\nEndereço de Entrega: Nº 6900 Oeste, Centro Avançado de Guerra, Marte\r\nDetalhes do Pedido:\r\n\r\nApesar de sua aparência, o Sub-rifle de Energia FNA 200 “Hipercosturador” é tudo menos frágil.\n\nUsando tecnologia de energia direta, o FNA 200 pode disparar gases superaquecidos rapidamente. O FNA 200 também requer pouco ou nenhum carregamento, utilizando o ar ao seu redor para gerar energia.",
+
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "Lista de Alvos",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "Abater inimigos marcados aumenta permanentemente o dano.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "<style=cIsDamage>Marca</style> aleatoriamente até <style=cIsDamage>1</style> <style=cStack>(+1 por acúmulo)</style> inimigo. Abater um inimigo <style=cIsDamage>marcado</style> aumenta <style=cIsDamage>permanentemente</style> o <style=cIsDamage>dano base</style> em <style=cIsDamage>{0}</style>.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "Pedido: Lista de Alvos\r\nNúmero de Rastreio: 1362***********\r\nPrevisão de Entrega: 11\/14\/2056\r\nMétodo de Envio: Alta Prioridade\/Frágil\r\nEndereço de Entrega: São João, Aglomerado 6, Vênus\r\nDetalhes do Pedido:\r\n\r\nNão esqueça... não esqueça o que eles fizeram...\n- A. Bn\n- Fr. Ntn\n- [ELIMINADO]\n- [ELIMINADO]\n- Animal selvagem aleatório\n- [ELIMINADO]\n- Grvnkmp\n- [ELIMINADO]",
+		
+		"CLASSICITEMSRETURNS_ITEM_USB_NAME": "Códigos de Acesso Confidenciais",
+		"CLASSICITEMSRETURNS_ITEM_USB_PICKUP": "tilize uma arma mortal contra Chefes de Teleportador.",
+		"CLASSICITEMSRETURNS_ITEM_USB_DESCRIPTION": "O <style=cIsDamage>Canhão Atlas</style> aparece em cada fase. Ao ser ativado, ele causa <style=cIsDamage>40%</style> <style=cStack>(+20% por acúmulo)</style> da saúde máxima como dano ao <style=cIsDamage>Chefe de Teleportador</style> após ser gerado.",
+		"CLASSICITEMSRETURNS_ITEM_USB_LORE": "Pedido: Códigos de Acesso Confidenciais\r\nNúmero de Rastreio: 3190***********\r\nPrevisão de Entrega: 10\/02\/2056\r\nMétodo de Envio: Alta Prioridade\/Frágil\r\nEnviado para: Randall P.\r\nEndereço de Entrega: Fragmento Nº 24, [CONFIDENCIAL],[CONFIDENCIAL]\r\nDetalhes do Pedido:\r\n\r\nItem necessário para as tarefas designadas atuais.\nSiga todos os protocolos conforme estipulado em seu formulário de [CONFIDENCIAL] que você recebeu via [CONFIDENCIAL].\nMonitoramento disponível às [CONFIDENCIAL], mantenha o sigilo a todo custo.",
+	}
+}

@@ -41,8 +41,6 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.AIBlacklist
         };
 
-        public override bool unfinished => true;
-
         public override void CreateConfig(ConfigFile config)
         {
             enableAirhop = config.Bind(ConfigCategory, "Enable Airhop", true, "This item grants a short airhop.");
@@ -59,8 +57,6 @@ namespace ClassicItemsReturns.Items.Uncommon
             jumpEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBombMini.prefab")
                 .WaitForCompletion()
                 .InstantiateClone("CIR_RustyJetpackEffect", false);
-
-            jumpEffectPrefab.transform.localScale = 3f * Vector3.one;
 
             EffectComponent ec = jumpEffectPrefab.GetComponent<EffectComponent>();
             ec.soundName = "Play_ClassicItemsReturns_Jetpack";

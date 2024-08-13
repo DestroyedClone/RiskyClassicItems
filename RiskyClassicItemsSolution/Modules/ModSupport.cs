@@ -1,5 +1,6 @@
 using RoR2;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace ClassicItemsReturns.Modules
 {
@@ -59,6 +60,13 @@ namespace ClassicItemsReturns.Modules
                     inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyAllowVoidDeathItem);
                     inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyAllowOverheatDeathItem);
                 }
+            }
+
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            internal static void GiveAllyRegenItem(Inventory inventory, int count)
+            {
+                if (!loaded) return;
+                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyRegenItem, count);
             }
 
             internal static bool IsNormalizeDroneDamage()

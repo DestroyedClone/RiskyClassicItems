@@ -28,8 +28,6 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override Sprite ItemIcon => LoadItemSprite("USB");
 
-        public override bool unfinished => true;
-
         public static GameObject atlasCannonNetworkPrefab;
         public static GameObject teleporterVisualNetworkPrefab;
         public static GameObject atlasCannonInteractablePrefab;
@@ -108,12 +106,14 @@ namespace ClassicItemsReturns.Items.Rare
             atlasCannonNetworkPrefab.AddComponent<NetworkIdentity>();
             var controller = atlasCannonNetworkPrefab.AddComponent<AtlasCannonController>();
             atlasCannonNetworkPrefab.AddComponent<DestroyOnTimer>().duration = controller.delayBeforeFiring + controller.lifetimeAfterFiring + 2f;
-            ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
+            PrefabAPI.RegisterNetworkPrefab(atlasCannonNetworkPrefab);
+            //ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
 
             teleporterVisualNetworkPrefab = Assets.LoadObject("AtlasCannonTeleporterVisual");
             teleporterVisualNetworkPrefab.AddComponent<NetworkIdentity>();
             teleporterVisualNetworkPrefab.AddComponent<AtlasTeleporterBeamController>();
-            ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
+            PrefabAPI.RegisterNetworkPrefab(teleporterVisualNetworkPrefab);
+            //ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
 
             atlasCannonInteractablePrefab = Assets.LoadObject("AtlasCannonInteractable");
 
@@ -136,7 +136,7 @@ namespace ClassicItemsReturns.Items.Rare
             pi.displayNameToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_NAME";
             pi.contextToken = "CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_CONTEXT";
             pi.setUnavailableOnTeleporterActivated = true;
-            pi.isShrine = false;
+            pi.isShrine = true; //affects icon
             pi.isGoldShrine = false;
             pi.ignoreSpherecastForInteractability = false;
             pi.available = true;
@@ -146,7 +146,8 @@ namespace ClassicItemsReturns.Items.Rare
             EntityLocator el = atlasCannonInteractablePrefab.AddComponent<EntityLocator>();
             el.entity = atlasCannonInteractablePrefab;
 
-            ContentAddition.AddNetworkedObject(atlasCannonInteractablePrefab);
+            PrefabAPI.RegisterNetworkPrefab(atlasCannonInteractablePrefab);
+            //ContentAddition.AddNetworkedObject(atlasCannonInteractablePrefab);
 
             atlasCannonSpawnCard = ScriptableObject.CreateInstance<InteractableSpawnCard>();
             atlasCannonSpawnCard.maxSpawnsPerStage = 1;
@@ -219,7 +220,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void SceneDirector_PopulateScene(On.RoR2.SceneDirector.orig_PopulateScene orig, SceneDirector self)
         {
             orig(self);
-
+            cannonSpawned = false;  //TODO: CLEAN UP
             PlaceAtlasCannonInteractable(self.rng);
         }
 
@@ -337,6 +338,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, EntityStates.BaseState self)
         {
             orig(self);
+            cannonSpawned = true;   //Prevent cannon from spawning after TP activates
             if (NetworkServer.active && teleporterVisualNetworkInstance)
             {
                 UnityEngine.Object.Destroy(teleporterVisualNetworkInstance);
@@ -349,7 +351,6 @@ namespace ClassicItemsReturns.Items.Rare
             cannonActivated = false;
             addedTeleporterVisual = false;
             firedCannon = false;
-            cannonSpawned = false;
         }
     }
 
@@ -580,7 +581,7 @@ namespace ClassicItemsReturns.Items.Rare
         }
 
         //These are used to make the beam expand/retract.
-        private float endWidthMult = 20f;
+        private float endWidthMult = 5f;
         private float expandDuration = 0f;
         private float retractDuration = 0f;
         private float expandStopwatch = 0f;
@@ -591,7 +592,7 @@ namespace ClassicItemsReturns.Items.Rare
             retractDuration = 1f;
             isRetracting = false;
             expandStopwatch = 0f;
-            endWidthMult = 20f;
+            endWidthMult = 5f;
         }
 
         [ClientRpc]
