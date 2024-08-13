@@ -14,9 +14,6 @@
 		- Prescriptions
 		- Lost Doll
 		
-		- 56 Leaf Clover (TODO)
-		- Tougher Times (TODO)
-		
 		*Thanks hollowman!*
 		
 - `3.1.6`
