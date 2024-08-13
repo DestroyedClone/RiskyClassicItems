@@ -5,6 +5,7 @@
 	- Drone Repair Kit
 		- Now affects all ally drones so that it works with Equipment Drones.
 		- No longer affects non-mechanical allies.
+		- Now only spawns a Repair Drone if used by a player.
 		
 	- Updated models for:
 		- Mu Construct

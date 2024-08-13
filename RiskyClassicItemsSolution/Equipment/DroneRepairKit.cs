@@ -112,7 +112,7 @@ namespace ClassicItemsReturns.Equipment
 
             if (!summonTracker.summonMasterInstance)
             {
-                if (slot.characterBody.isPlayerControlled || (slot.characterBody.teamComponent && activatorTeam == TeamIndex.Player))
+                if (slot.characterBody.isPlayerControlled)
                 {
                     float y = Quaternion.LookRotation(slot.GetAimRay().direction).eulerAngles.y;
                     Quaternion rotation = Quaternion.Euler(0f, y, 0f);
