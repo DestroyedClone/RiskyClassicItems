@@ -2,6 +2,10 @@
 	- Classified Access Codes
 		- Fixed interactable being spawned twice.
 		
+	- Drone Repair Kit
+		- Now affects all ally drones so that it works with Equipment Drones.
+		- No longer affects non-mechanical allies.
+		
 	- Updated models for:
 		- Mu Construct
 		- Arms Race

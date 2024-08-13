@@ -107,9 +107,12 @@ namespace ClassicItemsReturns.Equipment
                 summonTracker = slot.characterBody.master.gameObject.AddComponent<DroneRepairKitSummonTracker>();
             }
 
+            TeamIndex activatorTeam = TeamIndex.None;
+            if (slot.characterBody.teamComponent) activatorTeam = slot.characterBody.teamComponent.teamIndex;
+
             if (!summonTracker.summonMasterInstance)
             {
-                if (slot.characterBody.isPlayerControlled || (slot.characterBody.teamComponent && slot.characterBody.teamComponent.teamIndex == TeamIndex.Player))
+                if (slot.characterBody.isPlayerControlled || (slot.characterBody.teamComponent && activatorTeam == TeamIndex.Player))
                 {
                     float y = Quaternion.LookRotation(slot.GetAimRay().direction).eulerAngles.y;
                     Quaternion rotation = Quaternion.Euler(0f, y, 0f);
@@ -143,23 +146,17 @@ namespace ClassicItemsReturns.Equipment
                 }
             }
 
-            MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(slot.characterBody.master.netId);
-            if (minionGroup != null)
+            foreach (CharacterMaster master in CharacterMaster.readOnlyInstancesList)
             {
-                foreach (MinionOwnership minion in minionGroup.members)
-                {
-                    if (!minion) continue;
-                    CharacterMaster master = minion.GetComponent<CharacterMaster>();
-                    if (master)
-                    {
-                        CharacterBody body = master.GetBody();
-                        if (body)
-                        {
-                            if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
-                            body.AddTimedBuff(Buffs.DroneRepairBuff, buffDuration);
-                        }
-                    }
-                }
+                if (!master) continue;
+                CharacterBody body = master.GetBody();
+                if (!body
+                    || body.isPlayerControlled
+                    || !body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)
+                    || !body.teamComponent
+                    || body.teamComponent.teamIndex != activatorTeam) continue;
+                if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
+                body.AddTimedBuff(Buffs.DroneRepairBuff, buffDuration);
             }
 
             RoR2.Audio.EntitySoundManager.EmitSoundServer(activationSound.index, slot.characterBody.gameObject);
