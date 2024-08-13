@@ -1,3 +1,11 @@
+- `3.1.8`
+
+	- Updated models for:
+		- 56 Leaf Clover
+		- Tough Times
+		
+		*Thanks hollowman!*
+
 - `3.1.7`
 	- Classified Access Codes
 		- Fixed interactable being spawned twice.
