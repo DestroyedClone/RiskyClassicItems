@@ -1,5 +1,7 @@
-- `3.1.8`
+- `3.1.9`
+	- Fixed items not fading at close range.
 
+- `3.1.8`
 	- Updated models for:
 		- 56 Leaf Clover
 		- Tough Times
