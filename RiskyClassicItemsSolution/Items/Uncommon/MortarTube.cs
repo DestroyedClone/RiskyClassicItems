@@ -92,7 +92,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             projectileDamage.force = 0f;
 
             Object.Destroy(mortarProjectilePrefab.GetComponent<ApplyTorqueOnStart>());
-            Object.Destroy(mortarProjectilePrefab.GetComponent<ProjectileSimple>());
+            //Object.Destroy(mortarProjectilePrefab.GetComponent<ProjectileSimple>());
 
             ContentAddition.AddEffect(mortarImpactEffectPrefab);
             ContentAddition.AddProjectile(mortarProjectilePrefab);
@@ -113,6 +113,38 @@ namespace ClassicItemsReturns.Items.Uncommon
             float chance = procChance;
             if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
 
+            Ray aimRay = attackerBody.inputBank.GetAimRay();
+            Ray ray = new Ray(aimRay.origin, Vector3.up);
+            Vector3 targetPoint = damageInfo.position;
+            RaycastHit raycastHit;
+
+            if (Physics.Raycast(aimRay, out raycastHit, 1000f, LayerIndex.world.mask | LayerIndex.entityPrecise.mask, QueryTriggerInteraction.Ignore))
+            {
+                targetPoint = raycastHit.point;
+            }
+
+            float magnitude = 40f;
+
+            Vector3 vector = targetPoint - ray.origin;
+            Vector2 a2 = new Vector2(vector.x, vector.z);
+            float magnitude2 = a2.magnitude;
+            Vector2 vector2 = a2 / magnitude2;
+            if (magnitude2 < EntityStates.MiniMushroom.SporeGrenade.minimumDistance)
+            {
+                magnitude2 = EntityStates.MiniMushroom.SporeGrenade.minimumDistance;
+            }
+            if (magnitude2 > EntityStates.MiniMushroom.SporeGrenade.maximumDistance)
+            {
+                magnitude2 = EntityStates.MiniMushroom.SporeGrenade.maximumDistance;
+            }
+            float y = Trajectory.CalculateInitialYSpeed(EntityStates.MiniMushroom.SporeGrenade.timeToTarget, vector.y);
+            float num = magnitude2 / EntityStates.MiniMushroom.SporeGrenade.timeToTarget;
+            Vector3 direction = new Vector3(vector2.x * num, y, vector2.y * num);
+            magnitude = direction.magnitude;
+            ray.direction = direction;
+
+            Quaternion rotation = Util.QuaternionSafeLookRotation(ray.direction + UnityEngine.Random.insideUnitSphere * 0.05f);
+
             ProjectileManager.instance.FireProjectileServer(new FireProjectileInfo
             {
                 crit = Util.CheckRoll(attackerBody.crit),
@@ -120,12 +152,12 @@ namespace ClassicItemsReturns.Items.Uncommon
                 damageColorIndex = DamageColorIndex.Default,
                 force = 800f,
                 owner = attackerBody.gameObject,
-                position = attackerBody.aimOrigin,
+                position = ray.origin,
                 procChainMask = default(ProcChainMask),
                 projectilePrefab = mortarProjectilePrefab,
-                rotation = Util.QuaternionSafeLookRotation(attackerBody.characterDirection.moveVector),
-                speedOverride = 40f,
-                _speedOverride = 40f,
+                rotation = rotation,
+                speedOverride = magnitude,
+                _speedOverride = magnitude,
                 useFuseOverride = false,
                 useSpeedOverride = true
             });
@@ -134,18 +166,11 @@ namespace ClassicItemsReturns.Items.Uncommon
 
     internal class MortarRotation : MonoBehaviour
     {
-        public float forwardForce = 8f;
-        public float upwardForce = 24f;
-
         private Rigidbody rb;
 
         private void Awake()
         {
             this.rb = this.GetComponent<Rigidbody>();
-            if (this.rb)
-            {
-                this.rb.velocity = this.transform.forward * this.forwardForce + new Vector3(0f, this.upwardForce, 0f);
-            }
         }
 
         private void FixedUpdate()
