@@ -1,3 +1,12 @@
+- `3.1.10`
+	- Royal Medallion
+		- Move speed changed from +2m/s -> +10%
+		
+		*Base move speed made this uncontrollable when stacked with other movement items.*
+		
+	- Rusty Jetpack
+		- Increased jump bonus from +10% -> +20%
+
 - `3.1.9`
 	- Fixed items not fading at close range.
 

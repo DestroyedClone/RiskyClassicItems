@@ -13,8 +13,8 @@ namespace ClassicItemsReturns.Items.Uncommon
 {
     public class RustyJetpack : ItemBase<RustyJetpack>
     {
-        public const float jumpBonus = 0.1f;
-        public const float jumpBonusStack = 0.1f;
+        public const float jumpBonus = 0.2f;
+        public const float jumpBonusStack = 0.2f;
         //public const float jumpBonusStackMult = 0.8f;
         public override string ItemName => "Rusty Jetpack";
 

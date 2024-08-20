@@ -119,7 +119,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             {
                 args.attackSpeedMultAdd += buffCount * 0.06f;
                 args.damageMultAdd += buffCount * 0.03f;
-                args.baseMoveSpeedAdd += buffCount * 2f;
+                args.moveSpeedMultAdd += 0.1f;
 
                 float levelFactor = 1f + 0.2f * (sender.level - 1f);
                 args.baseRegenAdd += buffCount * 1f * levelFactor;

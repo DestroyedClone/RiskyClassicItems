@@ -82,9 +82,11 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void GetModdedFreezeDebuffs()
         {
-            ModdedFreezeDebuffs.Add(BuffCatalog.FindBuffIndex("RiskyMod_FreezeDebuff"));
-            ModdedFreezeDebuffs.Add(BuffCatalog.FindBuffIndex("Freeze Debuff"));
-            if (ModdedFreezeDebuffs.Contains(BuffIndex.None)) ModdedFreezeDebuffs.Remove(BuffIndex.None);
+            BuffIndex toAdd = BuffCatalog.FindBuffIndex("RiskyMod_FreezeDebuff");
+            if (toAdd != BuffIndex.None) ModdedFreezeDebuffs.Add(toAdd);
+
+            toAdd = BuffCatalog.FindBuffIndex("Freeze Debuff");
+            if (toAdd != BuffIndex.None) ModdedFreezeDebuffs.Add(toAdd);
         }
     }
 }
