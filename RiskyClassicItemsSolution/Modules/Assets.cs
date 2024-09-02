@@ -113,8 +113,8 @@ namespace ClassicItemsReturns.Modules
             }
             catch
             {
-                ClassicItemsReturnsPlugin.ModLogger.LogError($"Assets.LoadSprite failed to load path \"{path}\", defaulting to Assets.NullSprite.");
-                return Assets.NullSprite;
+                ClassicItemsReturnsPlugin.ModLogger.LogError($"Modules.Assets.LoadSprite failed to load path \"{path}\", defaulting to Modules.Assets.NullSprite.");
+                return Modules.Assets.NullSprite;
             }
         }
 
@@ -126,8 +126,8 @@ namespace ClassicItemsReturns.Modules
             }
             catch
             {
-                ClassicItemsReturnsPlugin.ModLogger.LogError($"Assets.LoadObject failed to load path \"{path}\", defaulting to Assets.NullModel.");
-                return Assets.NullModel;
+                ClassicItemsReturnsPlugin.ModLogger.LogError($"Modules.Assets.LoadObject failed to load path \"{path}\", defaulting to Modules.Assets.NullModel.");
+                return Modules.Assets.NullModel;
             }
         }
 

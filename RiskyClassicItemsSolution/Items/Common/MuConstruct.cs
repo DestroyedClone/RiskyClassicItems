@@ -43,7 +43,7 @@ namespace ClassicItemsReturns.Items.Common
         public override void Init(ConfigFile config)
         {
             base.Init(config);
-            MuConstructBehavior.followerPrefab = Assets.LoadObject("MuConstructFollower");
+            MuConstructBehavior.followerPrefab = Modules.Assets.LoadObject("MuConstructFollower");
             ItemHelpers.SetupMaterials(MuConstructBehavior.followerPrefab);
         }
 

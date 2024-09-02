@@ -14,10 +14,10 @@ namespace ClassicItemsReturns.SharedHooks
 
         public static void Initialize()
         {
-            On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
+            On.RoR2.GlobalEventManager.ProcessHitEnemy += GlobalEventManager_OnHitEnemy;
         }
 
-        private static void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim)
+        private static void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_ProcessHitEnemy orig, GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim)
         {
             orig(globalEventManager, damageInfo, victim);
 

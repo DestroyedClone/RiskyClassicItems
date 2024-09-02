@@ -87,9 +87,9 @@ namespace ClassicItemsReturns.Utils
         }
         public static Sprite LoadItemSprite(string spriteName)
         {
-            Sprite sprite3d = Assets.LoadSprite("texIcon3d" + spriteName);
-            Sprite spriteReturns = Assets.LoadSprite("texIcon" + spriteName);
-            Sprite spriteClassic = Assets.LoadSprite("texIconClassic" + spriteName);
+            Sprite sprite3d = Modules.Assets.LoadSprite("texIcon3d" + spriteName);
+            Sprite spriteReturns = Modules.Assets.LoadSprite("texIcon" + spriteName);
+            Sprite spriteClassic = Modules.Assets.LoadSprite("texIconClassic" + spriteName);
 
             if (ClassicItemsReturns.ClassicItemsReturnsPlugin.use3dModels)
             {
@@ -398,7 +398,7 @@ namespace ClassicItemsReturns.Utils
                     temporaryOverlay.destroyComponentOnEnd = true;
                     try
                     {
-                        temporaryOverlay.originalMaterial = Assets.LoadAddressable<Material>(materialAssetPath);
+                        temporaryOverlay.originalMaterial = Modules.Assets.LoadAddressable<Material>(materialAssetPath);
                         temporaryOverlay.AddToCharacerModel(gameObject.GetComponent<ModelLocator>().modelTransform.GetComponent<CharacterModel>());
                     }
                     catch

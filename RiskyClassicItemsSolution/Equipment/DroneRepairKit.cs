@@ -36,7 +36,7 @@ namespace ClassicItemsReturns.Equipment
         {
             base.CreateAssets(config);
 
-            activationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_RepairKit");
+            activationSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_RepairKit");
 
             CreateUniqueDrone();
         }

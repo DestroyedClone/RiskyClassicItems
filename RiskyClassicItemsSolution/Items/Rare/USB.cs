@@ -99,9 +99,9 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void CreateAssets(ConfigFile config)
         {
-            atlasCannonFireSound = Assets.CreateNetworkSoundEventDef("Play_captain_utility_variant_impact");
+            atlasCannonFireSound = Modules.Assets.CreateNetworkSoundEventDef("Play_captain_utility_variant_impact");
 
-            atlasCannonNetworkPrefab = Assets.LoadObject("AtlasCannonTarget");
+            atlasCannonNetworkPrefab = Modules.Assets.LoadObject("AtlasCannonTarget");
             atlasCannonNetworkPrefab.AddComponent<RoR2.Billboard>();
             atlasCannonNetworkPrefab.AddComponent<NetworkIdentity>();
             var controller = atlasCannonNetworkPrefab.AddComponent<AtlasCannonController>();
@@ -109,13 +109,13 @@ namespace ClassicItemsReturns.Items.Rare
             PrefabAPI.RegisterNetworkPrefab(atlasCannonNetworkPrefab);
             //ContentAddition.AddNetworkedObject(atlasCannonNetworkPrefab);
 
-            teleporterVisualNetworkPrefab = Assets.LoadObject("AtlasCannonTeleporterVisual");
+            teleporterVisualNetworkPrefab = Modules.Assets.LoadObject("AtlasCannonTeleporterVisual");
             teleporterVisualNetworkPrefab.AddComponent<NetworkIdentity>();
             teleporterVisualNetworkPrefab.AddComponent<AtlasTeleporterBeamController>();
             PrefabAPI.RegisterNetworkPrefab(teleporterVisualNetworkPrefab);
             //ContentAddition.AddNetworkedObject(teleporterVisualNetworkPrefab);
 
-            atlasCannonInteractablePrefab = Assets.LoadObject("AtlasCannonInteractable");
+            atlasCannonInteractablePrefab = Modules.Assets.LoadObject("AtlasCannonInteractable");
 
             //Debug.Log("Interactable: " + LayerIndex.CommonMasks.interactable.value);
             //atlasCannonInteractablePrefab.layer = LayerIndex.CommonMasks.interactable;

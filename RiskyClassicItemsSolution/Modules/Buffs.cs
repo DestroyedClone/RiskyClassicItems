@@ -129,7 +129,7 @@ namespace ClassicItemsReturns.Modules
                             Color.white,
                             false,
                             null,
-                            Assets.LoadSprite("texBuffPills"),
+                            Modules.Assets.LoadSprite("texBuffPills"),
                             false,
                             false,
                             false,
@@ -137,35 +137,35 @@ namespace ClassicItemsReturns.Modules
             BitterRootBuff = CreateBuffInternal("CIR_BitterRoot",
                 new Color(0.784f, 0.937f, 0.427f, 1f), true,
                 null,
-                Assets.LoadSprite("texBuffGinseng"),
+                Modules.Assets.LoadSprite("texBuffGinseng"),
                 false,
                 false,
                 false,
                 null);
             GoldenGunBuff = CreateBuffInternal("CIR_GoldenGun",
                 new Color32(219, 211,  77, 255), true,
-                null, Assets.LoadSprite("texBuffGoldGun_nomoney"),
+                null, Modules.Assets.LoadSprite("texBuffGoldGun_nomoney"),
                 false, false,
                 false, null);
             PermafrostChilledBuff = CreateBuffInternal("CIR_Chilled",
                 Color.cyan, false,
-                null, Assets.LoadSprite("texPermafrostBuffIcon"),   //whoops forgot this. If it's unused no one's going to notice the missing icon.
+                null, Modules.Assets.LoadSprite("texPermafrostBuffIcon"),   //whoops forgot this. If it's unused no one's going to notice the missing icon.
                 false, true,
                 false, null);//Play_wFeralShoot2
 
             ShacklesBuff = CreateBuffInternal("CIR_PrisonShackles",
                 new Color(0.918f, 0.408f, 0.420f, 1.000f), false,
-                null, Assets.LoadSprite("texBuffShackles"),
+                null, Modules.Assets.LoadSprite("texBuffShackles"),
                 false, true, false, null);
 
             ThalliumBuff = CreateBuffInternal("CIR_ThalliumBuff",
                 rgb(123, 74, 149), false,
-                null, Assets.LoadSprite("texBuffThallium"),
+                null, Modules.Assets.LoadSprite("texBuffThallium"),
                 false, true, false, null);
 
             WeakenOnContactBuff = CreateBuffInternal("CIR_WeakenOnContact",
                 new Color(0.784f, 0.937f, 0.427f, 1f), false,
-                null, Assets.LoadSprite("texBuffToxin"),
+                null, Modules.Assets.LoadSprite("texBuffToxin"),
                 false, true, false, null);
 
             DroneRepairBuff = CreateBuffInternal("CIR_DroneRepairBuff",
@@ -175,44 +175,44 @@ namespace ClassicItemsReturns.Modules
 
             SnakeEyesBuffs.Snake1 = CreateBuffInternal("CIR_Snake1",
                 new Color32(214, 58, 58, 255), false,
-                null, Assets.LoadSprite("texBuffSnake1"),
+                null, Modules.Assets.LoadSprite("texBuffSnake1"),
                 false, false,
                 false, null);
             SnakeEyesBuffs.Snake2 = CreateBuffInternal("CIR_Snake2",
                 new Color32(214, 58, 58, 255), false,
-                null, Assets.LoadSprite("texBuffSnake2"),
+                null, Modules.Assets.LoadSprite("texBuffSnake2"),
                 false, false,
                 false, null);
             SnakeEyesBuffs.Snake3 = CreateBuffInternal("CIR_Snake3",
                 new Color32(214, 58, 58, 255), false,
-                null, Assets.LoadSprite("texBuffSnake3"),
+                null, Modules.Assets.LoadSprite("texBuffSnake3"),
                 false, false,
                 false, null);
             SnakeEyesBuffs.Snake4 = CreateBuffInternal("CIR_Snake4",
                 new Color32(214, 58, 58, 255), false,
-                null, Assets.LoadSprite("texBuffSnake4"),
+                null, Modules.Assets.LoadSprite("texBuffSnake4"),
                 false, false,
                 false, null);
             SnakeEyesBuffs.Snake5 = CreateBuffInternal("CIR_Snake5",
                 new Color32(214, 58, 58, 255), false,
-                null, Assets.LoadSprite("texBuffSnake5"),
+                null, Modules.Assets.LoadSprite("texBuffSnake5"),
                 false, false,
                 false, null);
             SnakeEyesBuffs.Snake6 = CreateBuffInternal("CIR_Snake6",
                 new Color32(214, 58, 58, 255), false,
-                null, Assets.LoadSprite("texBuffSnake6"),
+                null, Modules.Assets.LoadSprite("texBuffSnake6"),
                 false, false,
                 false, null);
 
             HitListEnemyMarker = CreateBuffInternal("CIR_HitListEnemyMarker",
                 new Color32(255, 232, 68, 255), false,
-                null, Assets.LoadSprite("texBuffHitListMark"),
+                null, Modules.Assets.LoadSprite("texBuffHitListMark"),
                 false, false,
                 false, null);
 
             HitListPlayerBuff = CreateBuffInternal("CIR_HitListPlayerBuff",
                 new Color32(255, 232, 68, 255), true,
-                null, Assets.LoadSprite("texBuffHitListMark"),
+                null, Modules.Assets.LoadSprite("texBuffHitListMark"),
                 false, false,
                 false, null);
 

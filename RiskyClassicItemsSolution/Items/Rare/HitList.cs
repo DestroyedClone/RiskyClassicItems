@@ -50,12 +50,12 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void CreateAssets(ConfigFile config)
         {
-            markEnemySound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitListMark");
+            markEnemySound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_HitListMark");
 
-            markerPrefab = Assets.LoadObject("HitListMarker");
+            markerPrefab = Modules.Assets.LoadObject("HitListMarker");
             markerPrefab.AddComponent<RoR2.Billboard>();
 
-            checkPrefab = Assets.LoadObject("HitListCheck");
+            checkPrefab = Modules.Assets.LoadObject("HitListCheck");
             checkPrefab.AddComponent<RoR2.Billboard>();
             checkPrefab.AddComponent<FadeOverDuration>();
             var effectComponent = checkPrefab.AddComponent<EffectComponent>();

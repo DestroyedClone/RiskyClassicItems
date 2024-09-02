@@ -58,7 +58,7 @@ namespace ClassicItemsReturns.Items.Rare
 
             ContentAddition.AddEffect(orbEffect);
 
-            procSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Reflect");
+            procSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Reflect");
 
         }
 

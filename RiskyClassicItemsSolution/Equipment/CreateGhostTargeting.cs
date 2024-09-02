@@ -84,15 +84,15 @@ namespace ClassicItemsReturns.Equipment
         /// </summary>
         private void CreateTargetingIndicator()
         {
-            /*commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Assets.prefabPrefix + "SoulJarCommonIndicator", false);
+            /*commonTargetIndicator = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), Modules.Assets.prefabPrefix + "SoulJarCommonIndicator", false);
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
             commonTargetIndicator.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color(0.423f, 1, 0.749f);
 
-            championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, Assets.prefabPrefix + "SoulJarChampionIndicator", false);
-            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
-            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");*/
+            championTargetIndicator = PrefabAPI.InstantiateClone(commonTargetIndicator, Modules.Assets.prefabPrefix + "SoulJarChampionIndicator", false);
+            commonTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Modules.Assets.LoadSprite("texJarOfSoulsTargetIndicator.png");
+            championTargetIndicator.GetComponentInChildren<SpriteRenderer>().sprite = Modules.Assets.LoadSprite("texJarOfSoulsChampionTargetIndicator.png");*/
             commonTargetIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
             championTargetIndicator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
         }
@@ -134,13 +134,13 @@ namespace ClassicItemsReturns.Equipment
             if (slot.equipmentIndex == EquipmentDef.equipmentIndex)
             {
                 targetFinder.candidatesEnumerable =
-                    from v in targetFinder.candidatesEnumerable
+                    (from v in targetFinder.candidatesEnumerable
                     where v.hurtBox.healthComponent.body
                     && !v.hurtBox.healthComponent.body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless)
                     && v.hurtBox.healthComponent.body.master
                     && !bodyBlacklist.Contains(v.hurtBox.healthComponent.body.bodyIndex)
                     && !HasNemesisItem(v.hurtBox.healthComponent.body.inventory)
-                    select v;
+                    select v).ToList();
             }
         }
 

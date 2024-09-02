@@ -49,7 +49,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void CreateAssets(ConfigFile config)
         {
-            var asset = Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/DeathProjectileTickEffect.prefab");
+            var asset = Modules.Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/DeathProjectileTickEffect.prefab");
             thalliumTickEffect = asset.InstantiateClone("ThalliumProcEffect", false);
             thalliumTickEffect.transform.localScale = Vector3.one * 0.5f;
             var main = thalliumTickEffect.transform.Find("DarkWisps01Ring_Ps").GetComponent<ParticleSystem>().main;

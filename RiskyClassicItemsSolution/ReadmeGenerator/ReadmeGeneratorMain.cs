@@ -39,7 +39,7 @@ namespace ClassicItemsReturns.ReadmeGenerator
             List < ItemDef > t3 = new List<ItemDef>();
             List<ItemDef> tLunar = new List<ItemDef>();
 
-            foreach (var itemDef in ItemCatalog.itemDefs)
+            foreach (var itemDef in ItemCatalog.allItemDefs)
             {
                 if (!itemDef) continue;
                 if (!itemDef.nameToken.Contains(nametokenfilter)) continue;

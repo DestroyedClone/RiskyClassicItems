@@ -68,9 +68,9 @@ namespace ClassicItemsReturns.Equipment
         public void CreateAssets()
         {
             dollActivationEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/DeathProjectile/DeathProjectileTickEffect.prefab").WaitForCompletion();
-            /*dollActivationEffect = PrefabAPI.InstantiateClone(Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/PickupDeathProjectile.prefab"), Assets.prefabPrefix + "LostDollEffect");
+            /*dollActivationEffect = PrefabAPI.InstantiateClone(Modules.Assets.LoadAddressable<GameObject>("RoR2/Base/DeathProjectile/PickupDeathProjectile.prefab"), Modules.Assets.prefabPrefix + "LostDollEffect");
             var comp = dollActivationEffect.gameObject.AddComponent<ClassicItemsReturns_LostDollVisualEffect>();
-            var spike = UnityEngine.Object.Instantiate<GameObject>(Assets.LoadAddressable<GameObject>("RoR2/Base/moon/AbyssSpike.prefab"));
+            var spike = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.LoadAddressable<GameObject>("RoR2/Base/moon/AbyssSpike.prefab"));
             spike.name = "DollSpike";
             spike.transform.SetParent(dollActivationEffect.transform);
             spike.transform.localScale = new Vector3(25, 25, 125);
@@ -94,9 +94,9 @@ namespace ClassicItemsReturns.Equipment
 
             //add more as needed
 
-            //comp.spikeMat = Assets.LoadAddressable<Material>("RoR2/Base/AltarSkeleton/matAltarSkeleton.mat");
-            comp.blackMat = Assets.LoadAddressable<Material>("RoR2/Base/Common/matDebugBlack.mat");
-            comp.dollMat = Assets.LoadAddressable<Material>("RoR2/Base/AltarSkeleton/matAltarSkeleton.mat");
+            //comp.spikeMat = Modules.Assets.LoadAddressable<Material>("RoR2/Base/AltarSkeleton/matAltarSkeleton.mat");
+            comp.blackMat = Modules.Assets.LoadAddressable<Material>("RoR2/Base/Common/matDebugBlack.mat");
+            comp.dollMat = Modules.Assets.LoadAddressable<Material>("RoR2/Base/AltarSkeleton/matAltarSkeleton.mat");
             comp.dollMR = dollActivationEffect.transform.Find("Mesh").GetComponent<MeshRenderer>();
             //comp.gameObject.AddComponent<NetworkIdentity>();  //Is this actually needed?
 
@@ -105,7 +105,7 @@ namespace ClassicItemsReturns.Equipment
             //ContentAddition.AddEffect(dollActivationEffect);
             UnityEngine.Object.Destroy(spike);*/
 
-            dollActivationSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Doll");
+            dollActivationSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Doll");
         }
 
         /// <summary>
@@ -116,13 +116,13 @@ namespace ClassicItemsReturns.Equipment
         {
             //TargetingIndicatorPrefabBase = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/BossHunter/BossHunterIndicator.prefab").WaitForCompletion();
             TargetingIndicatorPrefabBase = PrefabAPI.InstantiateClone(LegacyResourcesAPI.Load<GameObject>("Prefabs/WoodSpriteIndicator"), "RCI_LostDollIndicator", false);
-            //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Assets.LoadSprite("texLostDollTargetIndicator.png");
+            //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().sprite = Modules.Assets.LoadSprite("texLostDollTargetIndicator.png");
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().color = new Color32(156, 80, 82, 255);
             TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.identity;
             TargetingIndicatorPrefabBase.GetComponentInChildren<TMPro.TextMeshPro>().color = new Color32(156, 80, 82, 255);
             //TargetingIndicatorPrefabBase.transform.localScale = Vector3.one * 0.25f;
             //TargetingIndicatorPrefabBase.GetComponentInChildren<SpriteRenderer>().GetComponent<RotateAroundAxis>().enabled = false;
-            //TargetingIndicatorPrefabBase = Assets.targetIndicatorBossHunter;
+            //TargetingIndicatorPrefabBase = Modules.Assets.targetIndicatorBossHunter;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

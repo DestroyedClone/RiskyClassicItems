@@ -244,7 +244,7 @@ namespace ClassicItemsReturns.Equipment
             }
 
             if (UnlockableDefAutoSetup)
-                UnlockableDef = Assets.CreateUnlockableDef("Equipment." + EquipmentLangTokenName, EquipmentDef.pickupIconSprite);
+                UnlockableDef = Modules.Assets.CreateUnlockableDef("Equipment." + EquipmentLangTokenName, EquipmentDef.pickupIconSprite);
             if (UnlockableDef != null)
             {
                 ContentAddition.AddUnlockableDef(UnlockableDef);
@@ -280,23 +280,23 @@ namespace ClassicItemsReturns.Equipment
         /*public Sprite LoadEquipmentIcon(string equipmentNameToken = "")
         {
             var token = equipmentNameToken == "" ? EquipmentLangTokenName : equipmentNameToken;
-            return Assets.LoadSprite($"tex{token}Icon");
+            return Modules.Assets.LoadSprite($"tex{token}Icon");
         }
 
         public GameObject LoadPickupModel(string equipmentNameToken = "")
         {
             var token = equipmentNameToken == "" ? EquipmentLangTokenName : equipmentNameToken;
-            return Assets.LoadObject($"Pickup{token}.prefab");
+            return Modules.Assets.LoadObject($"Pickup{token}.prefab");
         }*/
 
         public Sprite LoadSprite(string spriteName)
         {
-            return Assets.LoadSprite(spriteName);
+            return Modules.Assets.LoadSprite(spriteName);
         }
 
         public GameObject LoadModel(string modelName)
         {
-            return Assets.LoadObject(modelName);
+            return Modules.Assets.LoadObject(modelName);
         }
 
         public Sprite LoadItemSprite(string spriteName)
@@ -306,7 +306,7 @@ namespace ClassicItemsReturns.Equipment
 
         public GameObject LoadItemModel(string modelName)
         {
-            GameObject mdl3d = Assets.LoadObject("mdl3d" + modelName);
+            GameObject mdl3d = Modules.Assets.LoadObject("mdl3d" + modelName);
             if (mdl3d)
             {
                 ItemHelpers.SetupMaterials(mdl3d);
@@ -330,8 +330,8 @@ namespace ClassicItemsReturns.Equipment
                 }
             }
 
-            GameObject mdlRet = Assets.LoadObject("mdl" + modelName);
-            GameObject mdlClassic = Assets.LoadObject("mdlClassic" + modelName);
+            GameObject mdlRet = Modules.Assets.LoadObject("mdl" + modelName);
+            GameObject mdlClassic = Modules.Assets.LoadObject("mdlClassic" + modelName);
             Queue<GameObject> modelQueue = new Queue<GameObject>();
 
             if (ClassicItemsReturnsPlugin.use3dModels)

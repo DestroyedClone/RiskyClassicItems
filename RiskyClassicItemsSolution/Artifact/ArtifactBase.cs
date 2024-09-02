@@ -152,7 +152,7 @@ namespace ClassicItemsReturns.Artifact
 
         public Sprite LoadSprite(string spriteName)
         {
-            return Assets.LoadSprite(spriteName);
+            return Modules.Assets.LoadSprite(spriteName);
         }
     }
 }

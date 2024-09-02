@@ -47,7 +47,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         //Based on SS2U Stirring Soul code
         public override void CreateAssets(ConfigFile config)
         {
-            RoyalMedallionPickup.procSound = Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Medallion");
+            RoyalMedallionPickup.procSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Medallion");
 
             //This auto adds it to ContentPack
             buffObjectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Tooth/HealPack.prefab").WaitForCompletion().InstantiateClone("CIR_RoyalMedallinPickup", true);

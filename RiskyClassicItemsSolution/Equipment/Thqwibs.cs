@@ -64,7 +64,7 @@ namespace ClassicItemsReturns.Equipment
 
         private void BuildProjectile()
         {
-            projectilePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Scav/ScavSackProjectile.prefab").WaitForCompletion().InstantiateClone(Assets.prefabPrefix + "SquibProjectile", true);
+            projectilePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Scav/ScavSackProjectile.prefab").WaitForCompletion().InstantiateClone(Modules.Assets.prefabPrefix + "SquibProjectile", true);
 
             //Something in here is causing the whole game to freeze when loading.
             //UnityEngine.Object.Destroy(projectilePrefab.GetComponent<AssignTeamFilterToTeamComponent>());

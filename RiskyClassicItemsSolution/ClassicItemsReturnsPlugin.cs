@@ -23,13 +23,21 @@ namespace ClassicItemsReturns
 {
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [BepInDependency(R2API.R2API.PluginGUID)]
+    [BepInDependency(R2API.SoundAPI.PluginGUID)]
+    [BepInDependency(R2API.RecalculateStatsAPI.PluginGUID)]
+    [BepInDependency(R2API.DotAPI.PluginGUID)]
+    [BepInDependency(R2API.ItemAPI.PluginGUID)]
+    [BepInDependency(R2API.ContentManagement.R2APIContentManager.PluginGUID)]
+    [BepInDependency(R2API.PrefabAPI.PluginGUID)]
+    [BepInDependency(R2API.LanguageAPI.PluginGUID)]
+    [BepInDependency(R2API.OrbAPI.PluginGUID)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     public class ClassicItemsReturnsPlugin : BaseUnityPlugin
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "3.1.7";
+        public const string ModVer = "3.1.11";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
@@ -65,7 +73,8 @@ namespace ClassicItemsReturns
 
             PInfo = Info;
             ModLogger = Logger;
-            Assets.Init();
+            Modules.Assets.Init();
+            SoundBanks.Init();
 
             DLCSupport.Initialize();
             ModSupport.CheckForModSupport();
@@ -82,11 +91,6 @@ namespace ClassicItemsReturns
             new IsTeleActivatedTracker();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };
-        }
-
-        private void Start()
-        {
-            SoundBanks.Init();
         }
 
         private void AddToAssembly()

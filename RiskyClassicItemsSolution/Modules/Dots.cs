@@ -39,7 +39,7 @@ namespace ClassicItemsReturns.Modules
 
                 CIR_ThalliumEffectParams = new BurnEffectController.EffectParams()
                 {
-                    //overlayMaterial = Assets.LoadAddressable<Material>("RoR2/DLC1/VoidCamp/matVoidCampSphereSubtle.mat"),
+                    //overlayMaterial = Modules.Assets.LoadAddressable<Material>("RoR2/DLC1/VoidCamp/matVoidCampSphereSubtle.mat"),
                     //fireEffectPrefab = Items.Thallium.thalliumTickEffect
                 };
 
@@ -142,10 +142,10 @@ namespace ClassicItemsReturns.Modules
                                                                                                           //ThalliumDotIndex = DotAPI.RegisterDotDef(0.05f, 0f, DamageColorIndex.Poison, Buffs.ThalliumBuff, ThalliumDotBehavior);
                                                                                                           //ThalliumDotIndex = DotAPI.RegisterDotDef(thallium.dotInterval, 1f, DamageColorIndex.Poison, Buffs.ThalliumBuff);
 
-                On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+                On.RoR2.HealthComponent.TakeDamageProcess += HealthComponent_TakeDamage;
             }
 
-            private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+            private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamageProcess orig, HealthComponent self, DamageInfo damageInfo)
             {
                 orig(self, damageInfo);
                 if (NetworkServer.active && damageInfo.dotIndex == CIR_ThalliumDotIndex)

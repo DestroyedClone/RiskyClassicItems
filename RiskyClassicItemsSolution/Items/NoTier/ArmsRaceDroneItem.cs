@@ -22,7 +22,7 @@ namespace ClassicItemsReturns.Items.NoTier
 
         public override GameObject ItemModel => LoadItemModel("ArmsRaceMissiles");
 
-        public override Sprite ItemIcon => Assets.NullSprite;
+        public override Sprite ItemIcon => Modules.Assets.NullSprite;
 
         public override string ItemLangTokenName => "ARMSRACEDRONEITEM";
 
