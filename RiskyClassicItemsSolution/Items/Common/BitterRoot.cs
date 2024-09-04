@@ -6,6 +6,7 @@ using RoR2;
 using UnityEngine;
 using System.Runtime.CompilerServices;
 using System;
+using static AssistManager.AssistManager;
 
 namespace ClassicItemsReturns.Items.Common
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
@@ -33,6 +34,7 @@ namespace ClassicItemsReturns.Items.Common
         public float alt_regenIncrease = 3f;
         public float alt_duration = 2f;
         public float alt_durationStack = 2f;
+        public ConfigEntry<bool> assistSupport;
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
@@ -57,6 +59,7 @@ namespace ClassicItemsReturns.Items.Common
         public override void CreateConfig(ConfigFile config)
         {
             useAlternateVersion = config.Bind(ConfigCategory, "Use Rework", true, "Reworks the item into providing health regen on kill since Bison Steak already exists. If false, gives +HP like in Risk of Rain 1.");
+            assistSupport = config.Bind(ConfigCategory, "Use Rework - Assist Support", true, "Reworked on-kill effect supports assists.");
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -72,7 +75,7 @@ namespace ClassicItemsReturns.Items.Common
                 ItemDef.descriptionToken += "_ALT";
                 RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients_Alt;
                 GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-                if (ModSupport.ModCompatAssistManager.loaded)
+                if (ModSupport.ModCompatAssistManager.loaded && assistSupport.Value)
                 {
                     AssistSetup();
                 }
@@ -120,19 +123,19 @@ namespace ClassicItemsReturns.Items.Common
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         private void AssistSetup()
         {
-            AssistManager.AssistManager.HandleAssistInventoryActions += OnKillEffect;
+            AssistManager.AssistManager.HandleAssistInventoryCompatibleActions += OnKillEffect;
         }
 
-        private void OnKillEffect(AssistManager.AssistManager.Assist assist, Inventory attackerInventory, CharacterBody killerBody, DamageInfo damageInfo)
+        private void OnKillEffect(CharacterBody attackerBody, CharacterBody victimBody, DamageType? assistDamageType, System.Collections.Generic.HashSet<R2API.DamageAPI.ModdedDamageType> assistModdedDamageTypes, Inventory attackerInventory, CharacterBody killerBody, DamageInfo damageInfo)
         {
             int itemCount = attackerInventory.GetItemCount(ItemDef);
-            if (itemCount > 0 && assist.attackerBody != killerBody)
+            if (itemCount > 0 && attackerBody != killerBody)
             {
-                int currentBuffs = assist.attackerBody.GetBuffCount(Buffs.BitterRootBuff);
-                if (currentBuffs > 0) assist.attackerBody.ClearTimedBuffs(Buffs.BitterRootBuff);
+                int currentBuffs = attackerBody.GetBuffCount(Buffs.BitterRootBuff);
+                if (currentBuffs > 0) attackerBody.ClearTimedBuffs(Buffs.BitterRootBuff);
                 for (int i = 0; i < currentBuffs + 1; i++)
                 {
-                    assist.attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
+                    attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
                 }
             }
         }

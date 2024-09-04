@@ -1,3 +1,7 @@
+- `3.1.12`
+	- Fixed various features not working if AssistManager isn't installed.
+	- Marked Thqwibs as Unfinished until collisions get fixed in Vanilla.
+
 - `3.1.11`
 	- Fix for DLC2.
 	- Bitter Root

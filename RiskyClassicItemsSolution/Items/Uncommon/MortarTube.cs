@@ -44,7 +44,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             return new ItemDisplayRuleDict();
         }
 
-        public override bool unfinished => true;
+        public override bool Unfinished => true;
 
         public override void CreateConfig(ConfigFile config)
         {

@@ -32,6 +32,8 @@ namespace ClassicItemsReturns.Equipment
             damageCoefficient * 100f
         };
 
+        public override bool Unfinished => true;
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             var dict = new ItemDisplayRuleDict();

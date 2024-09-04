@@ -30,6 +30,7 @@ namespace ClassicItemsReturns
     [BepInDependency(R2API.ContentManagement.R2APIContentManager.PluginGUID)]
     [BepInDependency(R2API.PrefabAPI.PluginGUID)]
     [BepInDependency(R2API.LanguageAPI.PluginGUID)]
+    [BepInDependency(R2API.DamageAPI.PluginGUID)]
     [BepInDependency(R2API.OrbAPI.PluginGUID)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatRiskyMod.guid, BepInDependency.DependencyFlags.SoftDependency)]
@@ -208,14 +209,14 @@ namespace ClassicItemsReturns
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
             string enabledDescription = "Should this item appear in runs?";
-            if (item.unfinished)
+            if (item.Unfinished)
             {
                 enabledDescription = "UNFINISHED! " + enabledDescription;
             }
             var enabled = Config.Bind(item.ConfigCategory, "Enable Item?", true, enabledDescription).Value;
             bool itemAlreadyHasBlacklist = item.ItemTags.Contains(RoR2.ItemTag.AIBlacklist);
             var aiBlacklist = Config.Bind(item.ConfigCategory, "Blacklist Item from AI Use?", itemAlreadyHasBlacklist, "Should the AI not be able to obtain this item?").Value;
-            if (item.unfinished && !useUnfinished)
+            if (item.Unfinished && !useUnfinished)
             {
                 return false;
             }

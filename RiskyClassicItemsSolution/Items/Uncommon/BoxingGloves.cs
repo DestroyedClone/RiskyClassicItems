@@ -43,7 +43,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.Utility
         };
 
-        public override bool unfinished => true;
+        public override bool Unfinished => true;
 
         public override void CreateAssets(ConfigFile config)
         {

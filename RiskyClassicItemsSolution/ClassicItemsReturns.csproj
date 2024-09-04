@@ -124,6 +124,9 @@
     <Reference Include="R2API.Core">
       <HintPath>libs\R2API\R2API.Core.dll</HintPath>
     </Reference>
+    <Reference Include="R2API.DamageType">
+      <HintPath>libs\R2API\R2API.DamageType.dll</HintPath>
+    </Reference>
     <Reference Include="R2API.Dot">
       <HintPath>libs\R2API\R2API.Dot.dll</HintPath>
     </Reference>

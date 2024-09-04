@@ -103,7 +103,7 @@ namespace ClassicItemsReturns.Items.Common
 
             public void FixedUpdate()
             {
-                sphereSearch.radius = Mathf.Max(4f, body.radius * sizeCorrectionMultiplier);
+                sphereSearch.radius = Mathf.Max(6f, body.radius * sizeCorrectionMultiplier);
                 AdjustFrequencyBasedOnSpeed();
 
                 age -= Time.fixedDeltaTime;
