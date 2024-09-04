@@ -32,6 +32,8 @@ namespace ClassicItemsReturns
     [BepInDependency(R2API.LanguageAPI.PluginGUID)]
     [BepInDependency(R2API.OrbAPI.PluginGUID)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(ModSupport.ModCompatRiskyMod.guid, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(ModSupport.ModCompatAssistManager.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     public class ClassicItemsReturnsPlugin : BaseUnityPlugin
     {

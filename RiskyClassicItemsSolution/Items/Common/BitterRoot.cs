@@ -5,6 +5,7 @@ using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 using System.Runtime.CompilerServices;
+using System;
 
 namespace ClassicItemsReturns.Items.Common
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/BitterRoot.cs
@@ -70,17 +71,16 @@ namespace ClassicItemsReturns.Items.Common
                 ItemDef.pickupToken += "_ALT";
                 ItemDef.descriptionToken += "_ALT";
                 RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients_Alt;
-                if (ModSupport.ModCompatRiskyMod.loaded)
+                GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+                if (ModSupport.ModCompatAssistManager.loaded)
                 {
-                    RiskyModAssistSetup();
+                    AssistSetup();
                 }
-                else
-                {
-                    GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-                }
-                return;
             }
-            RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients;
+            else
+            {
+                RecalculateStatsAPI.GetStatCoefficients += GetStatCoefficients;
+            }
         }
 
         private void GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
@@ -118,16 +118,22 @@ namespace ClassicItemsReturns.Items.Common
         }
 
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-        private void RiskyModAssistSetup()
+        private void AssistSetup()
         {
-            RiskyMod.AssistManager.HandleAssistInventoryActions += OnKillEffect;
+            AssistManager.AssistManager.HandleAssistInventoryActions += OnKillEffect;
         }
-        private void OnKillEffect(CharacterBody attackerBody, Inventory attackerInventory, CharacterBody victimBody, CharacterBody killerBody)
+
+        private void OnKillEffect(AssistManager.AssistManager.Assist assist, Inventory attackerInventory, CharacterBody killerBody, DamageInfo damageInfo)
         {
             int itemCount = attackerInventory.GetItemCount(ItemDef);
-            if (itemCount > 0)
+            if (itemCount > 0 && assist.attackerBody != killerBody)
             {
-                attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
+                int currentBuffs = assist.attackerBody.GetBuffCount(Buffs.BitterRootBuff);
+                if (currentBuffs > 0) assist.attackerBody.ClearTimedBuffs(Buffs.BitterRootBuff);
+                for (int i = 0; i < currentBuffs + 1; i++)
+                {
+                    assist.attackerBody.AddTimedBuff(Buffs.BitterRootBuff, ItemHelpers.StackingLinear(itemCount, alt_duration, alt_durationStack));
+                }
             }
         }
     }

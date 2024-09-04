@@ -9,10 +9,6 @@ namespace ClassicItemsReturns.Modules
         internal static void CheckForModSupport()
         {
             /*
-            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatBetterUI.guid))
-            {
-                ModCompatBetterUI.Init();
-            }
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatRiskOfOptions.guid))
             {
                 ModCompatRiskOfOptions.Init();
@@ -20,6 +16,10 @@ namespace ClassicItemsReturns.Modules
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatRiskyMod.guid))
             {
                 ModCompatRiskyMod.Init();
+            }
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ModCompatAssistManager.guid))
+            {
+                ModCompatAssistManager.Init();
             }
         }
 
@@ -72,6 +72,18 @@ namespace ClassicItemsReturns.Modules
             internal static bool IsNormalizeDroneDamage()
             {
                 return RiskyMod.Allies.AlliesCore.normalizeDroneDamage;
+            }
+        }
+
+        internal class ModCompatAssistManager
+        {
+            internal const string guid = "com.Moffein.AssistManager";
+            internal static bool loaded = false;
+
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            internal static void Init()
+            {
+                loaded = true;
             }
         }
     }

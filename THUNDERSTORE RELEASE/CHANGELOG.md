@@ -1,3 +1,8 @@
+- `3.1.11`
+	- Fix for DLC2.
+	- Bitter Root
+		- Fixed duration reset code not running when triggered via kill assist.
+
 - `3.1.10`
 	- Royal Medallion
 		- Move speed changed from +2m/s -> +10%
