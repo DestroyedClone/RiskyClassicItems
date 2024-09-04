@@ -27,6 +27,13 @@ namespace ClassicItemsReturns.Utils
             On.EntityStates.ArtifactShell.StartHurt.OnEnter += StartHurt_OnEnter;
             On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
             On.EntityStates.Missions.Goldshores.GoldshoresBossfight.SpawnBoss += GoldshoresBossfight_SpawnBoss;
+            On.RoR2.MeridianEventTriggerInteraction.MeridianEventStart.OnEnter += MeridianEventStart_OnEnter;
+        }
+
+        private void MeridianEventStart_OnEnter(On.RoR2.MeridianEventTriggerInteraction.MeridianEventStart.orig_OnEnter orig, MeridianEventTriggerInteraction.MeridianEventStart self)
+        {
+            orig(self);
+            IsTeleActivatedTracker.teleporterActivated = true;
         }
 
         private void GoldshoresBossfight_SpawnBoss(On.EntityStates.Missions.Goldshores.GoldshoresBossfight.orig_SpawnBoss orig, EntityStates.Missions.Goldshores.GoldshoresBossfight self)

@@ -1,3 +1,6 @@
+- `3.1.14`
+	- Mu Construct and Arcane Blades now trigger on the False Son's fight.
+
 - `3.1.13`
 	- Added R2API_Orb dependency to the Thunderstore manifest. This should fix the mod failing to load on some setups.
 	
