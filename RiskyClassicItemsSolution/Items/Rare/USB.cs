@@ -46,13 +46,13 @@ namespace ClassicItemsReturns.Items.Rare
         {
             "goldshores",
             "moon",
-            "moon2",
+            "moon2"
         };
 
         public static Dictionary<string, Vector3> atlasCannonInteractableManualPlacementDict = new Dictionary<string, Vector3>
         {
             {"voidraid" , new Vector3(0f, 217f, -443f)},
-            //{"limbo" , new Vector3(-77f, -12f, -157f)}, //todo: fix cannon not triggering
+            { "meridian" , new Vector3(78f, 35f, -94f) }
         };
 
         public static bool cannonSpawned = false;

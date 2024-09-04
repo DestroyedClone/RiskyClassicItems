@@ -24,11 +24,17 @@ namespace ClassicItemsReturns.Items.Common
         {
             return new ItemDisplayRuleDict();
         }
+
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
             ItemTag.InteractableRelated,
             ItemTag.AIBlacklist
+        };
+
+        public static HashSet<string> stageDontResetList = new HashSet<string>
+        {
+            "meridian"
         };
 
         public float critChance = 7.5f;
@@ -49,6 +55,21 @@ namespace ClassicItemsReturns.Items.Common
             On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrineUse;
             Stage.onStageStartGlobal += ResetCountOnStageStart;
             CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
+            On.RoR2.GeodeController.OnInteractionBegin += GeodeController_OnInteractionBegin;
+        }
+
+        private void GeodeController_OnInteractionBegin(On.RoR2.GeodeController.orig_OnInteractionBegin orig, GeodeController self, Interactor activator)
+        {
+            orig(self, activator);
+            if (NetworkServer.active && activator)
+            {
+                CharacterBody body = activator.GetComponent<CharacterBody>();
+                if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(ItemDef) <= 0) return;
+
+                MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
+                if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
+                mset.Increment(body);
+            }
         }
 
         private void DiceOnShrineUse(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
@@ -58,7 +79,7 @@ namespace ClassicItemsReturns.Items.Common
 
             orig(self, activator);
 
-            if (canBeAfforded && (self.isShrine || self.isGoldShrine))
+            if (NetworkServer.active && canBeAfforded && (self.isShrine || self.isGoldShrine))
             {
                 CharacterBody body = activator.GetComponent<CharacterBody>();
                 if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(ItemDef) <= 0) return;
@@ -86,7 +107,7 @@ namespace ClassicItemsReturns.Items.Common
             SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
             if (currentScene)
             {
-                if (currentScene.isFinalStage || currentScene.blockOrbitalSkills) return;
+                if (currentScene.isFinalStage || currentScene.blockOrbitalSkills || stageDontResetList.Contains(currentScene.baseSceneName)) return;
             }
 
             foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)

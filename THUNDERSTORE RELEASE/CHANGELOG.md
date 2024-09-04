@@ -1,3 +1,13 @@
+- `3.1.13`
+	- Added R2API_Orb dependency to the Thunderstore manifest. This should fix the mod failing to load on some setups.
+	
+	- Snake Eyes
+		- Buff is preserved when entering Meridian.
+		- Now procs on the Geodes.
+	
+	- Classified Access Codes
+		- Added to Meridian.
+
 - `3.1.12`
 	- Fixed various features not working if AssistManager isn't installed.
 	- Marked Thqwibs as Unfinished until collisions get fixed in Vanilla.
