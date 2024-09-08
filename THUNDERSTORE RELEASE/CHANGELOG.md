@@ -1,3 +1,6 @@
+- `3.1.15`
+	- Recompiled for latest AssistManager update.
+
 - `3.1.14`
 	- Mu Construct and Arcane Blades now trigger on the False Son's fight.
 
