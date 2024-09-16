@@ -1,86 +1,86 @@
 {
-	strings: {
+	ko: {
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "정체불명의 유리병",
-		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": 체력 재생이 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "<style=cIsHealing>기본 체력 회복량</style>이 <style=cIsHealing>초당 +{0}</style><style=cStack>(중첩당 매초 +{1})</style> 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "체력 재생이 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "<style=cIsHealing>기본 체력 회복량</style>이 <style=cIsHealing>초당 +1</style><style=cStack>(중첩당 매초 +1)</style> 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_LORE": "Order: Mysterious Vial\r\nTracking Number: 1503***********\r\nEstimated Delivery: 03\/06\/2056\r\nShipping Method: Standard\/Fragile\r\nSent To: Sheridan S.\r\nShipping Address: 4000 15th Ave, UNITED STATES, Earth\r\nShipping Details:\r\n\r\nApply to skin for a rapidly acting gel that contains both antiseptics and an agent to encourage protein synthesis!\n\nSmall wounds applied with our gel should heal within a maximum of 5 hours, while broken bones and torn ligaments may take a few weeks.\n\nNOTE: Side effects may include itching, rashes, bleeding, sensitivity of skin, dry patches, permanent scarring, misaligned bone regrowth, rotting of the..",
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "불꽃 방패",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "큰 피해를 입을시 적들을 불태웁니다.",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "<style=cIsHealth>체력의 8%를 넘는 피해</style>를 받으면 폭발을 일으켜 <style=cIsDamage>{1}%의 피해</style>를 입히고 적을 <style=cIsDamage>불태워</style> <style=cIsDamage>{2}%</style><style=cStack>(중첩당 +{2}%)</style>의 피해를 입힙니다.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "<style=cIsHealth>체력의 8%를 넘는 피해</style>를 받으면 폭발을 일으켜 <style=cIsDamage>200%의 피해</style>를 입히고 적을 <style=cIsDamage>불태워</style> <style=cIsDamage>200%</style><style=cStack>(중첩당 +200%)</style>의 피해를 입힙니다.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "Order: Fire Shield\r\nTracking Number: 1507***********\r\nEstimated Delivery: 03\/06\/2056\r\nShipping Method: Standard\r\nSent To: Soloman\r\nShipping Address: -, Backwaters, Mars\r\nShipping Details:\r\n\r\nThe thing is only half-done, but it will do the job. The flux-chains are very unstable, resulting in a large explosion when struck. PLEASE handle with care!",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "쓴 뿌리",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP": "최대 체력이 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "<style=cIsHealing>최대 체력</style>이 <style=cIsHealing>{0}%</style><style=cStack>(중첩당 +{1}%)</style> 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION": "<style=cIsHealing>최대 체력</style>이 <style=cIsHealing>8%</style><style=cStack>(중첩당 +8%)</style> 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME_ALT": "쓴 뿌리",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_PICKUP_ALT": "적처치 시 기본 체력 회복량이 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "적을 처치하면 <style=cIsUtility>{1}초</style><style=cStack>(중첩당 +{2}초)</style> 동안 <style=cIsHealing>기본 체력 회복량</style>이 <style=cIsHealing>초당 +{0}</style> 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_DESCRIPTION_ALT": "적을 처치하면 <style=cIsUtility>2초</style><style=cStack>(중첩당 +2초)</style> 동안 <style=cIsHealing>기본 체력 회복량</style>이 <style=cIsHealing>초당 +3</style> 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_LORE": "Order: Bitter Root\r\nTracking Number: 1499***********\r\nEstimated Delivery: 06\/04\/2056\r\nShipping Method: Standard\r\nShipping Address: 103 110th, Northlake, Mars\r\nShipping Details:\r\n\r\nBiggest. Ginseng. Root. Ever.\n\nNot really, but it's pretty freakin' huge. You can boil it or sun dry it, whatever you want. I'll be curious to see if your cancer research actually pans out; sounds like voodoo magic to me, herbal medicine, but if the natives say it works, it works.",
 
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_NAME": "노후 자금",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_PICKUP": "일정 시간마다 골드를 생성합니다.",
-		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "<style=cIsUtility>{2}초마다</style> <style=cIsUtility>{0}골드</style><style=cStack>(중첩당 +{1}골드)</style>을 생성합니다. 시간이 지날수록 비례합니다.",
+		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_DESCRIPTION": "<style=cIsUtility>3초마다</style> <style=cIsUtility>1골드</style><style=cStack>(중첩당 +1골드)</style>을 생성합니다. 시간이 지날수록 비례합니다.",
 		"CLASSICITEMSRETURNS_ITEM_LIFESAVINGS_LORE": "Order: Life Savings\r\nTracking Number: 1518***********\r\nEstimated Delivery: 02\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: moms house\r\nShipping Details:\r\n\r\nhi im billy and heer is money for mom thanks",
 
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_NAME": "독소",
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_PICKUP": "적과 접촉 시 적을 약하게 만듭니다.",
-		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "적과 접촉 시 적을 <style=cIsDamage>{1}초</style><style=cStack>(중첩당 +{2}초)</style> 동안 <style=cIsDamage>감염</style>시켜 <style=cIsDamage>받는 모든 피해를 {0}%</style> 증가시킵니다.",
+		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_DESCRIPTION": "적과 접촉 시 적을 <style=cIsDamage>3초</style><style=cStack>(중첩당 +1.5초)</style> 동안 <style=cIsDamage>감염</style>시켜 <style=cIsDamage>받는 모든 피해를 30%</style> 증가시킵니다.",
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "Order: The Toxin\r\nEstimated Delivery: 04\/30\/2056\r\nShipping Method: Unmarked\r\nShipping Address: EICO labs, City of Gold, Earth\r\nShipping Details:\r\n\r\nTEST SUMMARY\n[id.416c7068615468726565]\nSubject stabilized - Notable levels of arousal.\nIncreased disposition to disperse.\nSpecialized containment necessary if active.\nN31 applied, watch for adverse reactions.\nHandling prohibited for this phase.\nAOD: 53 75 6e 46 61 6c 6c",
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "뱀의 눈",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "성소 사용시 치명타 확율이 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>성소 사용 시</style> <style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{0})</style> 증가합니다. <style=cIsDamage>최대 6번</style>까지 중첩됩니다. 스테이지를 시작할 때마다 초기화됩니다.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>성소 사용 시</style> <style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>7.5%</style><style=cStack>(중첩당 +7.5)</style> 증가합니다. <style=cIsDamage>최대 6번</style>까지 중첩됩니다. 스테이지를 시작할 때마다 초기화됩니다.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Order: Snake Eyes\r\nTracking Number: 1500***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Standard\r\nShipping Address: 1843, GMG Services, Venus\r\nShipping Details:\r\n\r\nYou dirty ---------er. You KNEW I had to win to pay off my debts. Are you in with the casinos? Of course you are; a snake like you would. A dice that's loaded for SNAKE EYES. CUTE MOVE, --------er.\n\nI'm comin' for you, ----.",
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "칼날 동전",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "치명타 확율이 증가하고 치명타 공격이 골드를 생성합니다.",
-		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "<style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>{1}골드</style><style=cStack>(중첩당 +{1}골드)</style>를 얻습니다.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "<style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>5%</style><style=cStack>(중첩당 +5%)</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>1골드</style><style=cStack>(중첩당 +1골드)</style>를 얻습니다.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "Order: Razor Penny\r\nTracking Number: 3023***********\r\nEstimated Delivery: 01\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: Residential 24, Anlesburg, Mars\r\nShipping Details:\r\n\r\nNo way they allowed these on the market. I know it was ages ago but it's seriously concerning. Imagine having... I don't know, 10 of these in your pocket (you know, pocket change)? Reach in and woops! Mangled hand!\nCities didn't switch to virtual currencies for nothing...",
 
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "신비한 칼날",
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_PICKUP": "텔레포터를 활성화한 후 이동속도가 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "<style=cIsHealth>텔레포터</style>를 활성화한 후 <style=cIsUtility>이동 속도</style>가 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_DESCRIPTION": "<style=cIsHealth>텔레포터</style>를 활성화한 후 <style=cIsUtility>이동 속도</style>가 <style=cIsUtility>20%</style><style=cStack>(중첩당 +20%)</style> 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_LORE": "Order: Arcane Blades\r\nTracking Number: 2924***********\r\nEstimated Delivery: 05\/08\/2056\r\nShipping Method: Standard\r\nShipping Address: 5 Tiptop Rd. Neverrock, Mars\r\nShipping Details:\r\n\r\nHEY KID!! happy birthday i found these old skates in the attic they were granddads but they look great.. you were talking about getting more exercise last time you visited these should do the trick.\nma is still obsessed with her garden you should visit next summer and see how crazy she is\ndo you still have that boyfriend?? mom wants to know when your getting married haha\nCALL ME SOMETIME!!!!\nDAD",
 
 		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_NAME": "뮤 피조물",
 		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_PICKUP": "텔레포터를 활성화한 후 일정 시간마다 회복합니다.",
-		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_DESCRIPTION": "<style=cIsHealth>텔레포터</style>가 활성화된 후에, <style=cIsHealing>{1}초</style><style=cStack>(중첩당 -{2}%)</style> 마다 <style=cIsHealing>최대 체력</style>의 <style=cIsHealing>{0}%</style>를 회복합니다.",
+		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_DESCRIPTION": "<style=cIsHealth>텔레포터</style>가 활성화된 후에, <style=cIsHealing>5초</style><style=cStack>(중첩당 -25%)</style> 마다 <style=cIsHealing>최대 체력</style>의 <style=cIsHealing>2.5%</style>를 회복합니다.",
 		"CLASSICITEMSRETURNS_ITEM_MUCONSTRUCT_LORE": "Order: Mu Construct\r\nTracking Number: 1748***********\r\nEstimated Delivery: 06\/04\/2056\r\nShipping Method: Field-Found\r\nShipping Address: Complex 3B, Saturn, ???\r\nShipping Details:\r\n\r\n...And I thought everything on this planet was out to kill me.\nOnce I found it, it wouldn't stop following me. It's very curious about shiny objects and has taken to spinning whenever I am trying to rest. It simply doesn't want to stand still.\nIt's pushy, but this far away from home I find the company very soothing.",
 
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "56잎 클로버",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "엘리트 몬스터를 처치시 가끔 아이템을 떨어뜨립니다.",
-		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "엘리트 몬스터가 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{1}%)</style> <style=cIsUtility>확율</style>로 <style=cIsUtility>아이템을 떨어뜨립니다</style>.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "엘리트 몬스터가 <style=cIsUtility>4.5%</style><style=cStack>(중첩당 +1.5%)</style> <style=cIsUtility>확율</style>로 <style=cIsUtility>아이템을 떨어뜨립니다</style>.",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_LORE": "Order: 56 Leaf Clover\r\nTracking Number: 1428***********\r\nEstimated Delivery: 12\/24\/2056\r\nShipping Method: Priority\r\nShipping Address: 777, Lucky Drop, Earth\r\nShipping Details:\r\n\r\nA FIFTY-FREAKIN-SIX leaf clover! It was sent to me from a fan, picked from the top of Mount Drummond. It lived through the mountain fire; imagine that! I'm keeping it in observation to make sure it doesn't wilt; this is a once in a lifetime specimen! Think of all the elixirs we could make.. I may use a few of them myself and go hit the lottery!",
 
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "군비 경쟁",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_PICKUP": "드론이 미사일 공격을 합니다.",
-		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "드론이 주기적으로 <style=cIsDamage>{1}</style><style=cStack>(중첩당 +{2})</style>발의 미사일을 발사하여 각각 <style=cIsDamage>{3}%</style>의 피해를 입힙니다. <style=cIsUtility>{0}</style>초 후에 재충전됩니다.",
+		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_DESCRIPTION": "드론이 주기적으로 <style=cIsDamage>4</style><style=cStack>(중첩당 +4)</style>발의 미사일을 발사하여 각각 <style=cIsDamage>100%</style>의 피해를 입힙니다. <style=cIsUtility>10</style>초 후에 재충전됩니다.",
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_LORE": "Order: Arms Race\r\nTracking Number: 1453***********\r\nEstimated Delivery: 08\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: 9834, Cortical Fund, Mars\r\nShipping Details:\r\n\r\nPsst. Hey. Yeah, I'm whispering over text.\n\nSo the upgrades for your drones are in. It's compatible with all KS-I slotted drones, even the non-combat oriented ones, so you can refurbish some of your cleaning units to help in the fight. Strap it onto the back, and the drone AI should sort itself out. Contains both a missile and mortar launcher. Let's continue this arms race, eh?",
 
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_NAME": "황금총",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_PICKUP": "골드가 추가 피해를 입힙니다.",
-		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "<style=cIsUtility>현재 보유한 골드</style>를 기반으로 <style=cIsUtility>{2}골드</style><style=cStack>(중첩당 +{3}골드)</style>에 따라 최대 <style=cIsDamage>+{0}%</style><style=cStack>(중첩당 +{1}%)</style>의 <style=cIsDamage>추가 피해</style>를 입힙니다. 시간이 지날수록 비례합니다.",
+		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_DESCRIPTION": "<style=cIsUtility>현재 보유한 골드</style>를 기반으로 <style=cIsUtility>300골드</style><style=cStack>(중첩당 +150골드)</style>에 따라 최대 <style=cIsDamage>+40%</style><style=cStack>(중첩당 +20%)</style>의 <style=cIsDamage>추가 피해</style>를 입힙니다. 시간이 지날수록 비례합니다.",
 		"CLASSICITEMSRETURNS_ITEM_GOLDENGUN_LORE": "Order: Golden Gun\r\nTracking Number: 1455***********\r\nEstimated Delivery: 12\/19\/1874\r\nShipping Method: Priority\r\nSent To: James B.\r\nShipping Address: ??\r\nShipping Details:\r\n\r\nWas this supposed to.. intimidate me? I do like its look, however; perhaps I'll set it above my fireplace.",
 
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_NAME": "교도소 수갑",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_PICKUP": "적에게 족쇄를 체웁니다.",
-		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "공격 명중 시 그 적에게 <style=cIsDamage>족쇄를</style> 채워, <style=cIsDamage>{1}</style>초<style=cStack>(중첩당 +{2}초)</style> 동안 <style=cIsDamage>공격 속도를 {0}% 감소</style>시킵니다.",
+		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_DESCRIPTION": "공격 명중 시 그 적에게 <style=cIsDamage>족쇄를</style> 채워, <style=cIsDamage>2</style>초<style=cStack>(중첩당 +2초)</style> 동안 <style=cIsDamage>공격 속도를 40% 감소</style>시킵니다.",
 		"CLASSICITEMSRETURNS_ITEM_PRISONSHACKLES_LORE": "Order: Prison Shackles\r\nTracking Number: 1458***********\r\nEstimated Delivery: 02\/06\/2056\r\nShipping Method: Priority\r\nShipping Address: 94123 Bldg. 201, Fort Mason\r\nShipping Details:\r\n\r\nAn artifact from the old ages, before we used holo-cuffs. The advantage is that EMP blasts and remote-hacking can't disable good-old steel and chains. Fitting this on larger prisoners may be harder.\nI know you guys have been having a serious break-out problem in the last few months, and this is sure to throw those prison breakers for a loop. Just don't lose the key.\nWe are shipping about.. 500, because we have nothing better to do with them than smelt them for steel, which is barely worth more than dirt this day and age. Would probably cost more than getting rid of them.",
 
 		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_NAME": "알찬 쇼핑",
 		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_PICKUP": "적 처치시 골드를 추가로 획득합니다.",
-		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "적 처치 시 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{1}%)</style>의 골드를 추가로 획득합니다.",
+		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_DESCRIPTION": "적 처치 시 <style=cIsUtility>25%</style><style=cStack>(중첩당 +25%)</style>의 골드를 추가로 획득합니다.",
 		"CLASSICITEMSRETURNS_ITEM_SMARTSHOPPER_LORE": "Order: Smart Shopper\r\nTracking Number: 1451***********\r\nEstimated Delivery: 12\/24\/1962\r\nShipping Method: Priority\r\nShipping Address: 200 West Street, City of Gold, Earth\r\nShipping Details:\r\n\r\nHoney! HONEY! Look! I \/told\/ you I still had enough left over! Yeah, weird huh? I swear the last $5 I used was the last one I had in my purse, but then when I looked again, I still had a bit left over. Strange, huh?\n\nMaybe it's black magic, haha! Honey?",
 
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_NAME": "힘든 시절",
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_PICKUP": "방어력이 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_DESCRIPTION": "<style=cIsHealing>방어력이 {0}</style><style=cStack>(중첩당 +{1})</style> 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_DESCRIPTION": "<style=cIsHealing>방어력이 14</style><style=cStack>(중첩당 +14)</style> 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_TOUGHTIMES_LORE": "Order: Tough Times\r\nTracking Number: 1418***********\r\nEstimated Delivery: 09\/29\/2056\r\nShipping Method: Priority\r\nShipping Address: 18601, Frozen Valley, Jupiter\r\nShipping Details:\r\n\r\n\"Bears are just about the only toy that can lose just about everything and still maintain their dignity and worth.\"\n- Samantha Armstrong.\n\nDon't forget, hon. I'm coming home soon. Stay strong.",
 
 		"CLASSICITEMSRETURNS_ITEM_JEWEL_NAME": "잠긴 장신구",
 		"CLASSICITEMSRETURNS_ITEM_JEWEL_PICKUP": "상호작용시 방벽과 .골드를 획득합니다",
-		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "상호작용 물체 활성화 시 <style=cIsHealing>최대 방벽</style>의 <style=cIsHealing>{0}%</style><style=cStack>(중첩당 +{1}%)</style>를 회복하고 <style=cIsUtility>{2}골드를 획득(시간 흐름에 비례)</style>합니다.",
+		"CLASSICITEMSRETURNS_ITEM_JEWEL_DESCRIPTION": "상호작용 물체 활성화 시 <style=cIsHealing>최대 방벽</style>의 <style=cIsHealing>25%</style><style=cStack>(중첩당 +15%)</style>를 회복하고 <style=cIsUtility>8골드를 획득(시간 흐름에 비례)</style>합니다.",
 		"CLASSICITEMSRETURNS_ITEM_JEWEL_LORE": "Order: Locked Jewel\r\nTracking Number: 1065***********\r\nEstimated Delivery: 09\/15\/2056\r\nShipping Method: Priority\r\nShipping Address: Block 3 Delta Phobos, Amna 2, Unknown\r\nShipping Details:\r\n\r\ni hope this is arriving well i am not used to sending anything through here so hopefully i didn't mess it up....",
 
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "에너지 셀",
@@ -90,12 +90,12 @@
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "복싱 글러브",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "공격 시 확율적으로 적을 밀치고 추가 피해를 입힙니다.",
-		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "공격 적중 시 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{1}%)</style> 확률로 적을 <style=cIsUtility>뒤로 밀쳐내고</style> 총 <style=cIsDamage>{2}%의 피해</style>를 입힙니다.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "공격 적중 시 <style=cIsDamage>6%</style><style=cStack>(중첩당 +6%)</style> 확률로 적을 <style=cIsUtility>뒤로 밀쳐내고</style> 총 <style=cIsDamage>{2}%의 피해</style>를 입힙니다.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "Order: Boxing Gloves\r\nTracking Number: 1438***********\r\nEstimated Delivery: 07\/07\/2056\r\nShipping Method: Priority\r\nShipping Address: O.B.-Gym, Slam Station, Venus\r\nShipping Details:\r\n\r\nThese should work fine for the kids you're training. A bit musty, though. It'll make your trainees hit like a pro, ha!",
 
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_NAME": "녹슨 제트팩",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_PICKUP": "점프 높이를 증가시키고 짧은 추가 점프를 얻습니다.",
-		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "점프 높이가 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{1}%)</style>증가하고 <style=cIsUtility>짧은 추가 점프</style>를 얻습니다.",
+		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_DESCRIPTION": "점프 높이가 <style=cIsUtility>20%</style><style=cStack>(중첩당 +20%)</style>증가하고 <style=cIsUtility>짧은 추가 점프</style>를 얻습니다.",
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
 		
 		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "왕실 메달",
@@ -105,30 +105,30 @@
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "탈륨",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "공격 시 적을 중독시킬 확율이 생깁니다.",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "공격 적중 시 <style=cIsDamage>{0}% 확률</style>로 적을 <style=cIsDamage>중독</style>시키고 중독된 적은 <style=cIsDamage>{3}초</style><style=cStack>(중첩당 +{4}초)</style>에 걸쳐 <style=cIsDamage>1초마다 2x{1}%의 피해</style>를 입고, 이동 속도가 <style=cIsDamage>{2}% 감소</style>합니다.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "공격 적중 시 <style=cIsDamage>10% 확률</style>로 적을 <style=cIsDamage>중독</style>시키고 중독된 적은 <style=cIsDamage>3초</style><style=cStack>(중첩당 +1.5초)</style>에 걸쳐 <style=cIsDamage>1초마다 2x300%의 피해</style>를 입고, 이동 속도가 <style=cIsDamage>100% 감소</style>합니다.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Order: Thallium\r\nTracking Number: 1344***********\r\nEstimated Delivery: 05\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 0909, K&K Union, Earth\r\nShipping Details:\r\n\r\nShe shouldn't notice.",
 		
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "영구 결빙",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "공격 시 적을 얼릴 확율이 생깁니다.",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "공격 적중 시 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 확률로 적을 <style=cIsUtility>2초</style> 동안 <style=cIsUtility>얼어붙게</style> 만듭니다.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "공격 적중 시 <style=cIsUtility>3%</style><style=cStack>(중첩당 +3%)</style> 확률로 적을 <style=cIsUtility>2초</style> 동안 <style=cIsUtility>얼어붙게</style> 만듭니다.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "Order: Permafrost\r\nTracking Number: 1380***********\r\nEstimated Delivery: 04\/17\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 10681, Frozen Valley, Pluto\r\nShipping Details:\r\n\r\nThe core of this ice cube is VERY VERY close to absolute zero, much closer than anything we made in the lab before. Test it! TEST! This will lead to HUGE breakthroughs in superconductor technology.",
 
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_NAME": "사악한 고리",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP": "'치명타 적중시 재사용 대기시간을 감소시킵니다.",
-		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "<style=cIsDamage>치명타 확률이 {0}%</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>재사용 대기시간</style>을 <style=cIsUtility>{1}초</style><style=cStack>(중첩당 +{1}초)</style> 감소시킵니다.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION": "<style=cIsDamage>치명타 확률이 5%</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>재사용 대기시간</style>을 <style=cIsUtility>1초</style><style=cStack>(중첩당 +1초)</style> 감소시킵니다.",
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_LORE": "Order: Wicked Ring\r\nTracking Number: 1372***********\r\nEstimated Delivery: 02\/22\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 1414 East, Fillmore, Venus\r\nShipping Details:\r\n\r\nWith how many rings he had, you would think more would have been found, eh? Nope, just this one. The King used to sacrifice one of his own sons to embue with dark spirits. He claimed that the spirits warded away any ill omen. The King lived until he was 104, so hey, maybe he was right.\n\nAs the last remaining Wicked Ring, I expect a hefty sum.",
 
 		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_PICKUP_ALT": "적 처치시 재사용 대기시간을 감소시킵니다.",
-		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "<style=cIsDamage>적 처치 시</style> <style=cIsUtility>재사용 대기시간</style>을 <style=cIsUtility>{0}초</style><style=cStack>(중첩당 +{1}초)</style> 감소시킵니다.",
+		"CLASSICITEMSRETURNS_ITEM_WICKEDRING_DESCRIPTION_ALT": "<style=cIsDamage>적 처치 시</style> <style=cIsUtility>재사용 대기시간</style>을 <style=cIsUtility>1초</style><style=cStack>(중첩당 +0.5초)</style> 감소시킵니다.",
 
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_NAME": "하이퍼 스레더",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": "퓨 퓨",
-		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "적에게 공격 적중 시 <style=cIsDamage>{0}%</style> 확율로 <style=cIsDamage>레이저를 발사</style>하여 <style=cIsDamage>{1}%의 피해</style>를 입힙니다. 레이저는 <style=cIsDamage>{2}명</style><style=cStack>(중첩당 +{3}명)</style>의 적에게 <style=cIsDamage>튕깁니다</style>.",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "적에게 공격 적중 시 <style=cIsDamage>100%</style> 확율로 <style=cIsDamage>레이저를 발사</style>하여 <style=cIsDamage>60%의 피해</style>를 입힙니다. 레이저는 <style=cIsDamage>2명</style><style=cStack>(중첩당 +1명)</style>의 적에게 <style=cIsDamage>튕깁니다</style>.",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "Order: Hyper-Threader\r\nTracking Number: 1360***********\r\nEstimated Delivery: 12\/08\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 6900 West, Advanced Warfare Center, Mars\r\nShipping Details:\r\n\r\nDespite its appearance, the FNA 200 'Hyper-Threader' Energy Subrifle is anything but fragile.\n\nUsing direct energy energy technology, the FNA 200 can fire superheated gases at a high fire rate. The FNA 200 also requires little to no charging, instead generating energy from the air around it.",
 
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "살생부",
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_PICKUP": "표식이 부여된 적 처치 시 영구적으로 피해량을 증가시킵니다.",
-		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "무작위로 최대 <style=cIsDamage>1명</style><style=cStack>(중첩당 +1명)</style>의 적에게 <style=cIsDamage>표식</style>을 부여합니다. <style=cIsDamage>표식이 부여된</style> 적을 처치하면 <style=cIsDamage>영구적으로</style> <style=cIsDamage>피해량</style>이 <style=cIsDamage>{0}</style>만큼 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_HITLIST_DESCRIPTION": "무작위로 최대 <style=cIsDamage>1명</style><style=cStack>(중첩당 +1명)</style>의 적에게 <style=cIsDamage>표식</style>을 부여합니다. <style=cIsDamage>표식이 부여된</style> 적을 처치하면 <style=cIsDamage>영구적으로</style> <style=cIsDamage>피해량</style>이 <style=cIsDamage>0.5</style>만큼 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_LORE": "Order: Hit List\r\nTracking Number: 1362***********\r\nEstimated Delivery: 11\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: St Johns, Cluster 6, Venus\r\nShipping Details:\r\n\r\nDon't forget.. don't forget what they did..\n-A.Bn\n-Fr.Ntn\n-[CLEARED]\n-[CLEARED]\n-Random wildlife\n-[CLEARED]\n-Grvnmk\n-[CLEARED]",
 		
 		"CLASSICITEMSRETURNS_ITEM_USB_NAME": "기밀 접근 코드",
