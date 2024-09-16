@@ -1,3 +1,7 @@
+- `3.1.16`
+	- Added Korean translations (Thanks Dice-001!)
+	- Recompiled with latest game dlls.
+
 - `3.1.15`
 	- Recompiled for latest AssistManager update.
 
