@@ -1,3 +1,8 @@
+- `3.1.18`
+	- Prison Shackles
+		- Now actually slows by 40%
+			- Old Value: 1/1.4 -> 28.5%
+
 - `3.1.17`
 	- Updated KO TL.
 

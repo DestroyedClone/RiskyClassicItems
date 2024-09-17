@@ -51,7 +51,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             if (sender.HasBuff(Buffs.ShacklesBuff))
             {
-                args.attackSpeedReductionMultAdd += attackSpeedSlowMultiplier;
+                args.attackSpeedReductionMultAdd += (1f / (1f - attackSpeedSlowMultiplier)) - 1f;
             }
         }
 
