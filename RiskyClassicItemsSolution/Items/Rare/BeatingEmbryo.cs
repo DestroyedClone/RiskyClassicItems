@@ -13,13 +13,13 @@ namespace RiskyClassicItems.Items
 {
     public class BeatingEmbryo : ItemBase<BeatingEmbryo>
     {
-        //Upon using your equipment, 30% chance (+20% chance per stack) to activate your equipment again for 80% power.
+        //Upon using your equipment, 30% chance (+20% chance per stack) to activate your equipment again for 5% less power.
         //Subsequent usages further reudce.
         //Can overchance (120% -> guarantee + 20% roll)
         //310% -> 3 guaranteed activations and a +10% chance.
         public const float chance = 30f;
         public const float chancePerStack = 20f;
-        public const float repeatUsageMultiplier = 0.8f;
+        public const float repeatUsageMultiplier = 0.95f;
 
         public override string ItemName => "Beating Embryo";
 
@@ -97,13 +97,9 @@ namespace RiskyClassicItems.Items
             if (EmbryoProc(self, out int p))
             {
                 Ray aimRay = self.GetAimRay();
-                GameObject prefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/MolotovClusterProjectile");
-                var damageToDeal = self.characterBody.damage;
-                for (int i = 0; i < p; i++)
-                {
-                    damageToDeal *= repeatUsageMultiplier;
-                    ProjectileManager.instance.FireProjectile(prefab, aimRay.origin, Quaternion.LookRotation(aimRay.direction), self.gameObject, damageToDeal, 0f, Util.CheckRoll(self.characterBody.crit, self.characterBody.master), DamageColorIndex.Default, null, -1f);
-                }
+                GameObject prefab = UnityEngine.Object.Instantiate(LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/MolotovClusterProjectile"));
+                prefab.GetComponent<ProjectileImpactExplosion>().childrenCount += p;
+                ProjectileManager.instance.FireProjectile(prefab, aimRay.origin, Quaternion.LookRotation(aimRay.direction), self.gameObject, self.characterBody.damage * repeatUsageMultiplier, 0f, Util.CheckRoll(self.characterBody.crit, self.characterBody.master), DamageColorIndex.Default, null, -1f);
             }
             return orig(self);
         }
@@ -113,7 +109,7 @@ namespace RiskyClassicItems.Items
             if (EmbryoProc(self, out int p))
             {
                 //don't, stacking sounds makes it louder.
-                Util.PlaySound("Play_teamWarCry_activate", self.characterBody.gameObject);
+                //Util.PlaySound("Play_teamWarCry_activate", self.characterBody.gameObject);
                 Vector3 corePosition = self.characterBody.corePosition;
                 EffectData effectData = new EffectData
                 {
@@ -139,7 +135,6 @@ namespace RiskyClassicItems.Items
                         array[i].GetComponent<CharacterBody>().AddTimedBuff(RoR2Content.Buffs.TeamWarCry, finalBuffDuration);
                     }
                 }
-                return true;
             }
             return orig(self);
         }
@@ -163,7 +158,7 @@ namespace RiskyClassicItems.Items
                     effectData.scale *= repeatUsageMultiplier;
                     EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/LifeStealOnHitActivation"), effectData, false);
                 }
-                self.characterBody.AddTimedBuff(RoR2Content.Buffs.ElephantArmorBoost, originalDuration + finalDuration);
+                self.characterBody.AddTimedBuff(RoR2Content.Buffs.LifeSteal, originalDuration + finalDuration);
             }
             return orig(self);
         }
@@ -473,7 +468,6 @@ namespace RiskyClassicItems.Items
             float resultingChance = calcChance % 100;
 
             procCount = guaranteedActivations + (RoR2.Util.CheckRoll(resultingChance, characterBody.master) ? 1 : 0);
-
             return procCount > 0;
         }
 
