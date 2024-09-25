@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using ClassicItemsReturns.Modules;
 using R2API;
+using RiskyClassicItems.Items;
 using RoR2;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -145,6 +146,12 @@ namespace ClassicItemsReturns.Equipment
                     }
                 }
             }
+            int activationCount = 1;
+            BeatingEmbryo.EmbryoProc(slot, out int p);
+            {
+                activationCount += p;
+            }
+
 
             foreach (CharacterMaster master in CharacterMaster.readOnlyInstancesList)
             {
@@ -155,7 +162,12 @@ namespace ClassicItemsReturns.Equipment
                     || !body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)
                     || !body.teamComponent
                     || body.teamComponent.teamIndex != activatorTeam) continue;
-                if (body.healthComponent) body.healthComponent.HealFraction(1f, default);
+                float healAmount = 1;
+                for (int i = 0; i < activationCount; i++)
+                {
+                    if (body.healthComponent) body.healthComponent.HealFraction(healAmount, default);
+                    healAmount *= BeatingEmbryo.repeatUsageMultiplier;
+                }
                 body.AddTimedBuff(Buffs.DroneRepairBuff, buffDuration);
             }
 

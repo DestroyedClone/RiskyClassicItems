@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.AddressableAssets;
+using RiskyClassicItems.Items;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -185,6 +186,33 @@ namespace ClassicItemsReturns.Equipment
                 origin = slot.characterBody.corePosition,
                 teamIndex = slot.characterBody.teamComponent.teamIndex,
             });
+
+            if (BeatingEmbryo.EmbryoProc(slot, out int p))
+            {
+                var orb = new Orbs.CIR_LostDollOrb()
+                {
+                    attacker = slot.gameObject,
+                    attackerCharacterBody = slot.characterBody,
+                    damageColorIndex = DamageColorIndex.Item,
+                    damageValue = slot.characterBody.healthComponent.fullCombinedHealth * healthCoefficient,
+                    isCrit = Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master),
+                    procChainMask = default,
+                    procCoefficient = 1f,
+                    target = hurtBox,
+                    //effectType = RoR2.Orbs.DevilOrb.EffectType.Wisp,
+                    origin = slot.characterBody.corePosition,
+                    teamIndex = slot.characterBody.teamComponent.teamIndex,
+                };
+
+                for (int i = 0; i < p; i++)
+                {
+                    orb.damageValue *= BeatingEmbryo.repeatUsageMultiplier;
+                    orb.isCrit = Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master);
+                    orb.procCoefficient *= BeatingEmbryo.repeatUsageMultiplier;
+                    orb.origin = Util.ApplySpread(slot.characterBody.corePosition, -0.1f, 0.1f, 1, 1);
+                    RoR2.Orbs.OrbManager.instance.AddOrb(orb);
+                }
+            }
 
             var effectData = new EffectData()
             {

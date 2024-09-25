@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using R2API;
+using RiskyClassicItems.Items;
 using RoR2;
 using UnityEngine;
 
@@ -57,6 +58,14 @@ namespace ClassicItemsReturns.Equipment
             {
                 slot.characterBody.skillLocator.ApplyAmmoPack();
                 Util.PlaySound("Play_env_hiddenLab_laptop_activate", slot.gameObject);
+                if (BeatingEmbryo.EmbryoProc(slot, out int p))
+                {
+                    for (int i = 0; i < p; i++)
+                    {
+                        slot.characterBody.skillLocator.ApplyAmmoPack();
+                        Util.PlaySound("Play_env_hiddenLab_laptop_activate", slot.gameObject);
+                    }
+                }
                 return true;
             }
             return false;

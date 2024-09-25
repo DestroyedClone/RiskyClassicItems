@@ -2,6 +2,7 @@
 using ClassicItemsReturns.Modules;
 using RoR2;
 using UnityEngine;
+using RiskyClassicItems.Items;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -71,8 +72,18 @@ namespace ClassicItemsReturns.Equipment
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
-            slot.characterBody.AddTimedBuff(DrugsBuff, buffDuration);
+            var moddedDuration = buffDuration;
+            var finalDuration = 0f;
+            if (BeatingEmbryo.EmbryoProc(slot, out int p))
+            {
+                for (int i = 0; i < p; i++)
+                {
+                    moddedDuration *= BeatingEmbryo.repeatUsageMultiplier;
+                    finalDuration += moddedDuration;
+                }
+            }
             Util.PlaySound("Play_item_proc_healingPotion", slot.gameObject);
+            slot.characterBody.AddTimedBuff(DrugsBuff, buffDuration + finalDuration);
             return true;
         }
     }

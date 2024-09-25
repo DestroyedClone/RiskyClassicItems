@@ -5,6 +5,7 @@ using UnityEngine;
 using BepInEx.Configuration;
 using UnityEngine.AddressableAssets;
 using RoR2.Projectile;
+using RiskyClassicItems.Items;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -93,6 +94,16 @@ namespace ClassicItemsReturns.Equipment
             {
                 Quaternion rotation = Util.QuaternionSafeLookRotation(Util.ApplySpread(aimRay.direction, 0f, 12f, 1f, 1f, 0f, 0f));//25
                 ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, rotation, slot.characterBody.gameObject, slot.characterBody.damage * damageCoefficient, 0f, Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master), DamageColorIndex.Default, null, projectileVelocity);
+            }
+            if (BeatingEmbryo.EmbryoProc(slot, out int p))
+            {
+                var damage = slot.characterBody.damage * damageCoefficient;
+                for (int i = 0; i < p; i++)
+                {
+                    damage *= BeatingEmbryo.repeatUsageMultiplier;
+                    Quaternion rotation = Util.QuaternionSafeLookRotation(Util.ApplySpread(aimRay.direction, 0f, 12f, 1f, 1f, 0f, 0f));//25
+                    ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, rotation, slot.characterBody.gameObject, damage, 0f, Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master), DamageColorIndex.Default, null, projectileVelocity);
+                }
             }
             return true;
         }
