@@ -1,3 +1,18 @@
+- `3.1.19`
+	- Bitter Root
+		- Reduced regeneration from +3hp/s -> +2hp/s
+
+	- The Toxin
+		- Reduced damage bonus from +30% -> +20%
+		
+	- Rusty Jetpack
+		- Increased jump height from +20% -> +25%
+		- Lowered proc sound volume.
+		
+	- Hyperthreader
+		- Increased damage from 60% -> 80%
+		- Lowered proc sound volume.
+
 - `3.1.18`
 	- Prison Shackles
 		- Now actually slows by 40%

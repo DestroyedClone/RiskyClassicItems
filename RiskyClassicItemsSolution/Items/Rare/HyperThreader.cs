@@ -14,7 +14,7 @@ namespace ClassicItemsReturns.Items.Rare
     public class HyperThreader : ItemBase<HyperThreader>
     {
         float chance = 100;
-        float damageCoeff = 0.6f;
+        float damageCoeff = 0.8f;
         float bounceRange = 30f;
         int bounceCount = 2;
         int bounceCountPerStack = 1;

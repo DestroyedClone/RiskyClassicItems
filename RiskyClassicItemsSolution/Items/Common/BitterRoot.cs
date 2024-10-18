@@ -31,7 +31,7 @@ namespace ClassicItemsReturns.Items.Common
         public override GameObject ItemModel => LoadItemModel("Root");
 
         public override Sprite ItemIcon => LoadItemSprite("Root");
-        public float alt_regenIncrease = 3f;
+        public float alt_regenIncrease = 2f;
         public float alt_duration = 2f;
         public float alt_durationStack = 2f;
         public ConfigEntry<bool> assistSupport;

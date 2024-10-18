@@ -123,13 +123,6 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wReflect" ID="{9A95B534-9230-4881-BF12-69D3247FB23B}" ShortID="679863978">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -213,7 +206,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>10</Value>
+												<Value>6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

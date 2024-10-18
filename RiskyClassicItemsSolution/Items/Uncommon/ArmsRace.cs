@@ -103,27 +103,25 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             private void UpdateAllMinions(int newStack)
             {
-                if (NetworkServer.active && master)
+                if (!NetworkServer.active || !master) return;
+
+                MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(master.netId);
+                if (minionGroup == null) return;
+
+                foreach (MinionOwnership minionOwnership in minionGroup.members)
                 {
-                    MinionOwnership.MinionGroup minionGroup = MinionOwnership.MinionGroup.FindGroup(master.netId);
-                    if (minionGroup != null)
+                    if (!minionOwnership) continue;
+                    CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
+                    if (component && component.inventory)
                     {
-                        foreach (MinionOwnership minionOwnership in minionGroup.members)
+                        CharacterBody body2 = component.GetBody();
+                        if (body2)
                         {
-                            if (!minionOwnership) continue;
-                            CharacterMaster component = minionOwnership.GetComponent<CharacterMaster>();
-                            if (component && component.inventory)
-                            {
-                                CharacterBody body2 = component.GetBody();
-                                if (body2)
-                                {
-                                    UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
-                                }
-                            }
+                            UpdateMinionInventory(component.inventory, body2.bodyFlags, newStack);
                         }
-                        previousStack = newStack;
                     }
                 }
+                previousStack = newStack;
             }
 
             private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport summonReport)
@@ -148,9 +146,6 @@ namespace ClassicItemsReturns.Items.Uncommon
                 if (inventory && (!requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
                 {
                     int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
-                    //Need to use a seperate display cause the display add/removal conflicts with spare drone parts
-                    //int itemCount2 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay1);
-                    //int itemCount3 = inventory.GetItemCount(DLC1Content.Items.DroneWeaponsDisplay2);
                     if (itemCount < newStack)
                     {
                         inventory.GiveItem(ArmsRaceDroneItemDef, newStack - itemCount);
@@ -159,22 +154,10 @@ namespace ClassicItemsReturns.Items.Uncommon
                     {
                         inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - newStack);
                     }
-                    /*if (itemCount2 + itemCount3 <= 0)
-                    {
-                        ItemDef itemDef = DLC1Content.Items.DroneWeaponsDisplay1;
-                        if (UnityEngine.Random.value < display2Chance)
-                        {
-                            itemDef = DLC1Content.Items.DroneWeaponsDisplay2;
-                        }
-                        inventory.GiveItem(itemDef, 1);
-                        return;
-                    }*/
                 }
                 else
                 {
                     inventory.ResetItem(DLC1Content.Items.DroneWeaponsBoost);
-                    //inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay1);
-                    //inventory.ResetItem(DLC1Content.Items.DroneWeaponsDisplay2);
                 }
             }
         }

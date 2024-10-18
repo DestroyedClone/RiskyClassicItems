@@ -68,7 +68,7 @@ namespace ClassicItemsReturns.Items.Common
         {
             if (victimBody.HasBuff(Buffs.WeakenOnContactBuff))
             {
-                damageMult.damageMult += 0.3f;
+                damageMult.damageMult += 0.2f;
                 if (damageInfo.damageColorIndex == DamageColorIndex.Default) damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
             }
         }
