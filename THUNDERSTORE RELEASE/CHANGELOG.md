@@ -1,3 +1,6 @@
+- `3.1.20`
+	- Actually updated Toxin damage.
+
 - `3.1.19`
 	- Bitter Root
 		- Reduced regeneration from +3hp/s -> +2hp/s

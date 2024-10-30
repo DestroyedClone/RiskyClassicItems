@@ -16,7 +16,7 @@ namespace ClassicItemsReturns.Items.Common
         public override string ItemName => "The Toxin";
 
         public override string ItemLangTokenName => "WEAKENONCONTACT";
-        public float damageBonus = 30;
+        public float damageBonus = 20;
         public float duration = 3;
         public float durationPerStack = 1.5f;
 
