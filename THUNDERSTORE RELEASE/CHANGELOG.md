@@ -1,3 +1,6 @@
+- `3.1.21`
+	- Recompiled for latest update.
+
 - `3.1.20`
 	- Actually updated Toxin damage.
 
