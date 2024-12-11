@@ -17,7 +17,7 @@ namespace ClassicItemsReturns.Equipment
 
         public override Sprite EquipmentIcon => LoadItemSprite("Squib");
 
-        public int projectileCount = 12;
+        public int projectileCount = 15;
         public float damageCoefficient = 3.6f;
 
         public GameObject projectilePrefab;
@@ -32,7 +32,7 @@ namespace ClassicItemsReturns.Equipment
             damageCoefficient * 100f
         };
 
-        public override bool Unfinished => true;
+        public override bool Unfinished => false;
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {

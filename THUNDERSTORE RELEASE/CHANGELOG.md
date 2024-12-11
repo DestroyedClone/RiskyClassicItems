@@ -1,3 +1,15 @@
+- `3.1.22`
+	- Recompiled for the latest update.
+	- Re-enabled Thqwibs since the collision bug got fixed in Vanilla.
+		- Increased projectile count from 12 -> 15
+		
+	- Royal Medallion
+		- Increased max active orb entities from 20 -> 40
+		- If an AI ally takes a buff, it is also given to the nearest player within 20m.
+		
+	- Fire Shield
+		- Radius increased from 16m -> 20m
+
 - `3.1.21`
 	- Recompiled for latest update.
 

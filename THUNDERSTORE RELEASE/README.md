@@ -49,7 +49,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dCrystal.png) | Gigantic Amethyst | Activation **refreshes** all cooldowns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dJarSouls.png) | Jar of Souls | Creates **3 ghost duplicates** of an enemy with **100% damage**. **Large** enemies are duplicated **once**. Lasts **30 seconds**.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPills.png) | Prescriptions | Enter a **drug-induced frenzy** for **8** seconds, increasing **damage** by **25%** and **attack speed** by **50%**.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dSquib.png) | Thqwibs | Release a bloom of **12** Thqwibs, detonating on impact for **360% damage** each.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dSquib.png) | Thqwibs | Release a bloom of **15** Thqwibs, detonating on impact for **360% damage** each.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|

@@ -6,6 +6,7 @@ using RiskyMod.Items;
 using RoR2;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -55,6 +56,9 @@ namespace ClassicItemsReturns.Items.Uncommon
             buffObjectPrefab.GetComponent<Rigidbody>().drag = 15f; //default is 2
             buffObjectPrefab.GetComponent<DestroyOnTimer>().duration = 8f;
             buffObjectPrefab.GetComponent<BeginRapidlyActivatingAndDeactivating>().delayBeforeBeginningBlinking = 7f;
+
+            GravitatePickup gp = buffObjectPrefab.GetComponent<GravitatePickup>();
+            if (gp) gp.gravitateAtFullHealth = true;
 
             //attach pickup to game object
             var pickupObj = buffObjectPrefab.transform.Find("PickupTrigger").gameObject;
@@ -126,6 +130,32 @@ namespace ClassicItemsReturns.Items.Uncommon
             }
         }
 
+        public static void AddRoyalMedallionBuffWithDroneHandling(CharacterBody attackerBody, float duration)
+        {
+            AddRoyalMedallionBuff(attackerBody, duration);
+            if (attackerBody.isPlayerControlled) return;
+
+            //If an NPC steals a buff, try to give it to a nearby teammate.
+            TeamIndex team = attackerBody.teamComponent ? attackerBody.teamComponent.teamIndex : TeamIndex.None;
+            if (team == TeamIndex.None) return;
+
+            var teammates = CharacterBody.readOnlyInstancesList.Where(cb =>
+            (cb.teamComponent && cb.teamComponent.teamIndex == team)).ToList();
+            if (teammates.Count <= 0) return;
+
+            teammates.Sort((cb1, cb2) => (
+                Mathf.RoundToInt(
+                    (cb1.corePosition - attackerBody.corePosition).sqrMagnitude - (cb2.corePosition - attackerBody.corePosition).sqrMagnitude)
+                )
+            );
+            var targetBody = teammates.FirstOrDefault();
+
+            //Only actually give the buff if the closest player is <20m away
+            //400 = 20m x 20m
+            if (targetBody && (targetBody.corePosition - attackerBody.corePosition).sqrMagnitude <= 400) AddRoyalMedallionBuff(targetBody, duration);
+        }
+
+        //Adds to a single body
         public static void AddRoyalMedallionBuff(CharacterBody attackerBody, float duration)
         {
             int currentBuffs = attackerBody.GetBuffCount(Modules.Buffs.RoyalMedallionBuff);
@@ -142,7 +172,7 @@ namespace ClassicItemsReturns.Items.Uncommon
     public class RoyalMedallionPickup : MonoBehaviour
     {
         public static NetworkSoundEventDef procSound;
-        public static int maxInstances = 20;    //Limit orbs to prevent crashing.
+        public static int maxInstances = 40;    //Limit orbs to prevent crashing.
         private static int instanceCount = 0;
 
         public float buffDuration;
@@ -160,7 +190,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             gaveBuff = true;
             if (procSound) EffectManager.SimpleSoundEffect(procSound.index, base.transform.position, true);
-            RoyalMedallion.AddRoyalMedallionBuff(body, buffDuration);
+            RoyalMedallion.AddRoyalMedallionBuffWithDroneHandling(body, buffDuration);
             UnityEngine.Object.Destroy(this.baseObject);
         }
 

@@ -18,7 +18,6 @@ namespace ClassicItemsReturns.SharedHooks
             {
                 ILCursor c = new ILCursor(il);
                 if (c.TryGotoNext(
-                     x => x.MatchLdarg(1),
                      x => x.MatchLdfld<DamageInfo>("damage"),
                      x => x.MatchStloc(7)
                     ))

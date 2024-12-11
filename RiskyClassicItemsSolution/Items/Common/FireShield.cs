@@ -38,7 +38,7 @@ namespace ClassicItemsReturns.Items.Common
 
         public static float explosionDamageCoefficient = 2f;
         public static float igniteDamageCoefficient = 2f;
-        public static float blastRadius = 16f;
+        public static float blastRadius = 20f;
 
         public override void Hooks()
         {
