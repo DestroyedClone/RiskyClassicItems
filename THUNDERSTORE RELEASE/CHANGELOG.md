@@ -1,3 +1,6 @@
+- `3.1.23`
+	- Fixed ModifyFinalDamage IL hook.
+
 - `3.1.22`
 	- Recompiled for the latest update.
 	- Re-enabled Thqwibs since the collision bug got fixed in Vanilla.
