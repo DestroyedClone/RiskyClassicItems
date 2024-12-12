@@ -46,7 +46,6 @@ namespace ClassicItemsReturns.SharedHooks
                         }
                         return newDamage;
                     });
-                    c.Emit(OpCodes.Stloc, 7);
                 }
                 else
                 {

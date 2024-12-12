@@ -1,3 +1,6 @@
+- `3.1.24`
+	- Fixed ModifyFinalDamage IL hook for real.
+
 - `3.1.23`
 	- Fixed ModifyFinalDamage IL hook.
 
