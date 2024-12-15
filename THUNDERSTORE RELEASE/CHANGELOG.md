@@ -1,3 +1,6 @@
+- `3.1.25`
+	- Updated AssistManager compat.
+
 - `3.1.24`
 	- Fixed ModifyFinalDamage IL hook for real.
 

@@ -126,7 +126,7 @@ namespace ClassicItemsReturns.Items.Common
             AssistManager.AssistManager.HandleAssistInventoryCompatibleActions += OnKillEffect;
         }
 
-        private void OnKillEffect(CharacterBody attackerBody, CharacterBody victimBody, DamageType? assistDamageType, System.Collections.Generic.HashSet<R2API.DamageAPI.ModdedDamageType> assistModdedDamageTypes, Inventory attackerInventory, CharacterBody killerBody, DamageInfo damageInfo)
+        private void OnKillEffect(CharacterBody attackerBody, CharacterBody victimBody, DamageType? assistDamageType, DamageTypeCombo? assistDamageTypeCombo, System.Collections.Generic.HashSet<R2API.DamageAPI.ModdedDamageType> assistModdedDamageTypes, Inventory attackerInventory, CharacterBody killerBody, DamageInfo damageInfo)
         {
             int itemCount = attackerInventory.GetItemCount(ItemDef);
             if (itemCount > 0 && attackerBody != killerBody)
