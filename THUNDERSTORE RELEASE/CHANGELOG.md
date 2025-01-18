@@ -1,3 +1,6 @@
+- `3.1.26`
+	- Removed screenshake from Rusty Jetpack jump VFX.
+
 - `3.1.25`
 	- Updated AssistManager compat.
 

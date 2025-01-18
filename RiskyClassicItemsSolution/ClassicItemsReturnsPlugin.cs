@@ -40,7 +40,7 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "3.1.25";
+        public const string ModVer = "3.1.26";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";

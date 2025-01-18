@@ -57,6 +57,11 @@ namespace ClassicItemsReturns.Items.Uncommon
             jumpEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2SmokeBombMini.prefab")
                 .WaitForCompletion()
                 .InstantiateClone("CIR_RustyJetpackEffect", false);
+            ShakeEmitter[] shakes = jumpEffectPrefab.GetComponentsInChildren<ShakeEmitter>();
+            for (int i = 0; i < shakes.Length; i++)
+            {
+                if (shakes[i]) UnityEngine.Object.Destroy(shakes[i]);
+            }
 
             EffectComponent ec = jumpEffectPrefab.GetComponent<EffectComponent>();
             ec.soundName = "Play_ClassicItemsReturns_Jetpack";
