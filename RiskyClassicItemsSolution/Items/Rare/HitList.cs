@@ -81,18 +81,15 @@ namespace ClassicItemsReturns.Items.Rare
         {
             orig(self);
 
-            var controller = self.GetComponent<BodyHitListMarkerController>();
+            if (!NetworkClient.active) return;
             if (self.HasBuff(Buffs.HitListEnemyMarker))
             {
-                if (!controller)
+                var controller = self.GetComponent<BodyHitListMarkerController>();
+                if (!controller && self.gameObject)
                 {
                     controller = self.gameObject.AddComponent<BodyHitListMarkerController>();
-                    controller.body = self;
+                    if (controller) controller.body = self;
                 }
-            }
-            else
-            {
-                if (controller) UnityEngine.Object.Destroy(controller);
             }
         }
 
@@ -408,9 +405,11 @@ namespace ClassicItemsReturns.Items.Rare
         {
             if (destroying) return;
 
-            if (body && body.healthComponent && !body.healthComponent.alive)
+            if (body)
             {
-                destroying = true;
+                bool hasBuff = body.HasBuff(Buffs.HitListEnemyMarker);
+                bool isAlive = body.healthComponent && !body.healthComponent.alive;
+                destroying = !hasBuff || !isAlive;
                 Destroy(this);
             }
         }

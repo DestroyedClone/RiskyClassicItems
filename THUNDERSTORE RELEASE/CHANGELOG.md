@@ -1,3 +1,8 @@
+- `3.1.27`
+	- Attempted to fix a Hit List nullref.
+	- Life Savings
+		- Added config option for time scaling.
+
 - `3.1.26`
 	- Removed screenshake from Rusty Jetpack jump VFX.
 

@@ -46,12 +46,13 @@ namespace ClassicItemsReturns.Items.Common
             Hooks();
         }
 
+        public static ConfigEntry<bool> scaleWithTime;
         public static ConfigEntry<string> cfgBannedSceneNames;
         public static string[] bannedSceneDefNames = new string[] { };
         public override void CreateConfig(ConfigFile config)
         {
             cfgBannedSceneNames = config.Bind(ConfigCategory, "Banned Scenes", "bazaar", "Input the names of the scenes you don't want the item to perform on. Entries are separated by commas.");
-
+            scaleWithTime = config.Bind(ConfigCategory, "Scale with Time", true, "Scale money gain with time.");
             bannedSceneDefNames = cfgBannedSceneNames.Value.Split(',');
         }
 
@@ -87,7 +88,7 @@ namespace ClassicItemsReturns.Items.Common
                 {
                     stopwatch = Instance.intervalSeconds;
                     var stackEffect = Utils.ItemHelpers.StackingLinear(stack, Instance.gold, Instance.goldStack);
-                    var multiplier = Run.instance ? Run.instance.GetDifficultyScaledCost(stackEffect, Run.instance.difficultyCoefficient) : 1;
+                    var multiplier = Run.instance && scaleWithTime.Value ? Run.instance.GetDifficultyScaledCost(stackEffect, Run.instance.difficultyCoefficient) : 1;
                     master.GiveMoney((uint)(stackEffect * multiplier));
                 }
             }
