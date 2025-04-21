@@ -3,11 +3,21 @@
 		- Reduced activation threshold from 8% -> 5%
 		- Added extra activation conditions
 			- Shield Broken
-			- Was Out of Danger
+			- Out of Danger lost
 			
-		*This item's activation condition made it useless if you're playing well. New activation conditions should give this more of a chance to trigger.*
+		*This item's activation condition made it useless if you're playing well. New activation conditions and lower threshold should give this more chances to trigger.*
 		
-	- 
+	- Snake Eyes
+		- Halcyonite Shrine now procs Snake Eyes teamwide.
+		- Shrine of the Mountain now procs Snake Eyes teamwide.
+		- Buff no longer persists on the following stages:
+			- Moon2: Pillars now proc Snake Eyes teamwide.
+			- Gilded Coast: Beacons now proc Snake Eyes teamwide.
+			- Void Fields: Cells now proc Snake Eyes teamwide.
+			- Void Locus: Signals now proc Snake Eyes teamwide.
+			- Meridian: Geodes now proc Snake Eyes teamwide.
+		
+		*Buffs for multiplayer where shrine count doesn't keep up with playercount.*
 
 - `3.1.27`
 	- Attempted to fix a Hit List nullref.

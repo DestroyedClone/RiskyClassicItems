@@ -9,7 +9,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Common | | |
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dArcaneBlades.png) | Arcane Blades | Increases **movement speed** by **20%** *(+20% per stack)* after the **Teleporter** has been activated.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dRoot.png) | Bitter Root | Increase **base health regeneration** by **2 hp/s** for **2s** *(+2s per stack)* after killing an enemy. Scales with level.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **8% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **5% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dMuConstruct.png) | Mu Construct | Heal for **2.5%** of your **health** every **5** *(-25% per stack)* seconds after the **Teleporter** has been activated.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
@@ -49,7 +49,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dCrystal.png) | Gigantic Amethyst | Activation **refreshes** all cooldowns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dJarSouls.png) | Jar of Souls | Creates **3 ghost duplicates** of an enemy with **100% damage**. **Large** enemies are duplicated **once**. Lasts **30 seconds**.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPills.png) | Prescriptions | Enter a **drug-induced frenzy** for **8** seconds, increasing **damage** by **25%** and **attack speed** by **50%**.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dSquib.png) | Thqwibs | Release a bloom of **12** Thqwibs, detonating on impact for **360% damage** each.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dSquib.png) | Thqwibs | Release a bloom of **15** Thqwibs, detonating on impact for **360% damage** each.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|

@@ -29,9 +29,9 @@ namespace ClassicItemsReturns.SharedHooks
                 if (self.body && self.body.inventory)
                 {
                     bool lostShield = hadShield && self.shield <= 0f;
-                    bool lostOutOfDanger = wasOutOfDanger && !(self.body && self.body.outOfDanger);
 
-                    OnDamageTakenInventoryActions?.Invoke(damageInfo, self, self.body, self.body.inventory, lostShield, lostOutOfDanger);
+                    //WasOutOfDanger updates in a different method. If damage was taken and not rejected, that means out of danger has been lost.
+                    OnDamageTakenInventoryActions?.Invoke(damageInfo, self, self.body, self.body.inventory, lostShield, wasOutOfDanger);
                 }
             }
         }

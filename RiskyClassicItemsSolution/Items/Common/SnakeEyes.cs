@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using BepInEx.Configuration;
+using R2API;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,21 @@ namespace ClassicItemsReturns.Items.Common
 
         public static HashSet<string> stageDontResetList = new HashSet<string>
         {
-            "meridian"
+        };
+        
+        public static HashSet<string> stageForceResetList = new HashSet<string>
+        {
+            "meridian",
+            "moon2",
+            "arena",
+            "goldshores",
+            "voidstage"
+        };
+
+        public static HashSet<string> teamwideProcShrineList = new HashSet<string>
+        {
+            "SHRINE_HALCYONITE_NAME",
+            "SHRINE_BOSS_NAME"
         };
 
         public float critChance = 7.5f;
@@ -56,20 +71,30 @@ namespace ClassicItemsReturns.Items.Common
             Stage.onStageStartGlobal += ResetCountOnStageStart;
             CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
             On.RoR2.GeodeController.OnInteractionBegin += GeodeController_OnInteractionBegin;
+            On.EntityStates.Interactables.GoldBeacon.Ready.OnEnter += Ready_OnEnter;
+            On.EntityStates.Missions.Moon.MoonBatteryActive.OnEnter += MoonBatteryActive_OnEnter;
+            On.EntityStates.Missions.Arena.NullWard.Active.OnEnter += Active_OnEnter;
+            On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
         }
 
-        private void GeodeController_OnInteractionBegin(On.RoR2.GeodeController.orig_OnInteractionBegin orig, GeodeController self, Interactor activator)
+        public void ProcSnakeEyesForTeam(TeamIndex index)
         {
-            orig(self, activator);
-            if (NetworkServer.active && activator)
+            foreach (CharacterMaster cm in CharacterMaster.instancesList)
             {
-                CharacterBody body = activator.GetComponent<CharacterBody>();
-                if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(ItemDef) <= 0) return;
-
-                MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
-                if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
-                mset.Increment(body);
+                if (cm.teamIndex != index) continue;
+                ProcSnakeEyes(cm);
             }
+        }
+
+        public void ProcSnakeEyes(CharacterMaster master)
+        {
+            if (!master || !master.inventory || master.inventory.GetItemCount(ItemDef) <= 0) return;
+
+            MasterSnakeEyesTracker mset = master.GetComponent<MasterSnakeEyesTracker>();
+            if (!mset) mset = master.gameObject.AddComponent<MasterSnakeEyesTracker>();
+
+            CharacterBody body = master.GetBody();
+            if (body) mset.Increment(body);
         }
 
         private void DiceOnShrineUse(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
@@ -82,11 +107,65 @@ namespace ClassicItemsReturns.Items.Common
             if (NetworkServer.active && canBeAfforded && (self.isShrine || self.isGoldShrine))
             {
                 CharacterBody body = activator.GetComponent<CharacterBody>();
-                if (!body || !body.master || !body.master.inventory || body.master.inventory.GetItemCount(ItemDef) <= 0) return;
+                if (body)
+                {
+                    //Scuffed but whatever
+                    if (teamwideProcShrineList.Contains(self.displayNameToken) && body.teamComponent)
+                    {
+                        ProcSnakeEyesForTeam(body.teamComponent.teamIndex);
+                    }
+                    else
+                    {
+                        ProcSnakeEyes(body.master);
+                    }
+                }
+            }
+        }
 
-                MasterSnakeEyesTracker mset = body.master.GetComponent<MasterSnakeEyesTracker>();
-                if (!mset) mset = body.master.gameObject.AddComponent<MasterSnakeEyesTracker>();
-                mset.Increment(body);
+        //Geodes proc teamwide
+        private void GeodeController_OnInteractionBegin(On.RoR2.GeodeController.orig_OnInteractionBegin orig, GeodeController self, Interactor activator)
+        {
+            orig(self, activator);
+            if (NetworkServer.active && activator)
+            {
+                CharacterBody body = activator.GetComponent<CharacterBody>();
+                if (body && body.teamComponent) ProcSnakeEyesForTeam(body.teamComponent.teamIndex);
+            }
+        }
+
+        private void Active_OnEnter(On.EntityStates.Missions.Arena.NullWard.Active.orig_OnEnter orig, EntityStates.Missions.Arena.NullWard.Active self)
+        {
+            orig(self);
+            if (NetworkServer.active)
+            {
+                ProcSnakeEyesForTeam(TeamIndex.Player);
+            }
+        }
+
+        private void MoonBatteryActive_OnEnter(On.EntityStates.Missions.Moon.MoonBatteryActive.orig_OnEnter orig, EntityStates.Missions.Moon.MoonBatteryActive self)
+        {
+            orig(self);
+            if (NetworkServer.active)
+            {
+                ProcSnakeEyesForTeam(TeamIndex.Player);
+            }
+        }
+
+        private void Ready_OnEnter(On.EntityStates.Interactables.GoldBeacon.Ready.orig_OnEnter orig, EntityStates.Interactables.GoldBeacon.Ready self)
+        {
+            orig(self);
+            if (NetworkServer.active)
+            {
+                ProcSnakeEyesForTeam(TeamIndex.Player);
+            }
+        }
+
+        private void Charging_OnEnter(On.EntityStates.DeepVoidPortalBattery.Charging.orig_OnEnter orig, EntityStates.DeepVoidPortalBattery.Charging self)
+        {
+            orig(self);
+            if (NetworkServer.active)
+            {
+                ProcSnakeEyesForTeam(TeamIndex.Player);
             }
         }
 
@@ -105,7 +184,7 @@ namespace ClassicItemsReturns.Items.Common
             if (!NetworkServer.active) return;
 
             SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
-            if (currentScene)
+            if (currentScene && !stageForceResetList.Contains(currentScene.baseSceneName))
             {
                 if (currentScene.isFinalStage || currentScene.blockOrbitalSkills || stageDontResetList.Contains(currentScene.baseSceneName)) return;
             }
