@@ -1,3 +1,14 @@
+- `3.2.0`
+	- Fire Shield
+		- Reduced activation threshold from 8% -> 5%
+		- Added extra activation conditions
+			- Shield Broken
+			- Was Out of Danger
+			
+		*This item's activation condition made it useless if you're playing well. New activation conditions should give this more of a chance to trigger.*
+		
+	- 
+
 - `3.1.27`
 	- Attempted to fix a Hit List nullref.
 	- Life Savings

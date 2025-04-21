@@ -46,7 +46,7 @@ namespace ClassicItemsReturns.Items.Common
             SharedHooks.TakeDamage.OnDamageTakenInventoryActions += ProcFireShield;
         }
 
-        private void ProcFireShield(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory)
+        private void ProcFireShield(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory, bool lostShield, bool lostOutOfDanger)
         {
             int itemCount = inventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
@@ -55,7 +55,8 @@ namespace ClassicItemsReturns.Items.Common
             if (victimTeam == TeamIndex.None) return;
 
             float percentDamageTaken = damageInfo.damage / self.fullCombinedHealth;
-            if (percentDamageTaken < 0.079f) return;    //A tiny bit less than 8% just to be safe.
+            bool shouldActivate = percentDamageTaken >= 0.049f || lostShield || lostOutOfDanger; //A tiny bit less than 5% just to be safe.
+            if (!shouldActivate) return;    
 
             EffectManager.SpawnEffect(GlobalEventManager.CommonAssets.igniteOnKillExplosionEffectPrefab, new EffectData
             {

@@ -7,7 +7,7 @@ namespace ClassicItemsReturns.SharedHooks
 {
     public static class TakeDamage
     {
-        public delegate void OnDamageTakenInventory(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory);
+        public delegate void OnDamageTakenInventory(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory, bool lostShield, bool lostOutOfDanger);
         public static OnDamageTakenInventory OnDamageTakenInventoryActions;
 
         public static void Initialize()
@@ -17,6 +17,9 @@ namespace ClassicItemsReturns.SharedHooks
 
         private static void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamageProcess orig, RoR2.HealthComponent self, RoR2.DamageInfo damageInfo)
         {
+            bool hadShield = self.shield > 0f;
+            bool wasOutOfDanger = self.body && self.body.outOfDanger;
+
             orig(self, damageInfo);
 
             if (!NetworkServer.active) return;
@@ -25,7 +28,10 @@ namespace ClassicItemsReturns.SharedHooks
             {
                 if (self.body && self.body.inventory)
                 {
-                    OnDamageTakenInventoryActions?.Invoke(damageInfo, self, self.body, self.body.inventory);
+                    bool lostShield = hadShield && self.shield <= 0f;
+                    bool lostOutOfDanger = wasOutOfDanger && !(self.body && self.body.outOfDanger);
+
+                    OnDamageTakenInventoryActions?.Invoke(damageInfo, self, self.body, self.body.inventory, lostShield, lostOutOfDanger);
                 }
             }
         }

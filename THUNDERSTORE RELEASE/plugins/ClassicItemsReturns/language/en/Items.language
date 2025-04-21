@@ -7,7 +7,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Fire Shield",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "Ignite nearby enemies on taking heavy damage.",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "After taking more than <style=cIsHealth>8% of your maximum health</style> as damage, explode for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "After taking more than <style=cIsHealth>5% of your maximum health</style> as damage, explode for <style=cIsDamage>{1}%</style> base damage. Additionally, enemies <style=cIsDamage>burn</style> for <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% per stack)</style> base damage.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "Order: Fire Shield\r\nTracking Number: 1507***********\r\nEstimated Delivery: 03\/06\/2056\r\nShipping Method: Standard\r\nSent To: Soloman\r\nShipping Address: -, Backwaters, Mars\r\nShipping Details:\r\n\r\nThe thing is only half-done, but it will do the job. The flux-chains are very unstable, resulting in a large explosion when struck. PLEASE handle with care!",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Bitter Root",

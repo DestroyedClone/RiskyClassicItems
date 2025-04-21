@@ -7,7 +7,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "火焰护盾",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "受到重伤时点燃附近敌人。",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "受到超过<style=cIsHealth>8%最大生命值</style>的伤害后，爆炸造成<style=cIsDamage>{1}%</style>基础伤害。此外，敌人<style=cIsDamage>燃烧</style>，每秒造成<style=cIsDamage>{2}%</style> <style=cStack>(每层额外+{2}%)</style>基础伤害。",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "受到超过<style=cIsHealth>5%最大生命值</style>的伤害后，爆炸造成<style=cIsDamage>{1}%</style>基础伤害。此外，敌人<style=cIsDamage>燃烧</style>，每秒造成<style=cIsDamage>{2}%</style> <style=cStack>(每层额外+{2}%)</style>基础伤害。",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "订单：火焰护盾\r\n跟踪号码：1507***********\r\n预计送达时间：2056年3月6日\r\n运输方式：标准\r\n收件人：Soloman\r\n收货地址：火星，Backwaters，-\r\n运输详情：\r\n\r\n这东西只完成了一半，但能完成任务。通量链非常不稳定，受到打击时会发生大爆炸。请小心处理！",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "苦根",

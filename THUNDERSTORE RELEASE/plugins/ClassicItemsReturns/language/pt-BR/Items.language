@@ -7,7 +7,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "Escudo de Fogo",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "Incendeia inimigos próximos ao sofrer dano pesado.",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "Você explode ao sofrer mais de <style=cIsHealth>8% da sua saúde máxima</style> em dano, causando <style=cIsDamage>{1}%</style> de dano base. Adicionalmente, inimigos <style=cIsDamage>queimam</style> em <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% por acúmulo)</style> de dano base.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "Você explode ao sofrer mais de <style=cIsHealth>5% da sua saúde máxima</style> em dano, causando <style=cIsDamage>{1}%</style> de dano base. Adicionalmente, inimigos <style=cIsDamage>queimam</style> em <style=cIsDamage>{2}%</style> <style=cStack>(+{2}% por acúmulo)</style> de dano base.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "Pedido: Escudo de Fogo\r\nNúmero de Rastreio: 1507***********\r\nPrevisão de Entrega: 03\/06\/2056\r\nMétodo de Envio: Padrão\r\nEnviado para: Soloman\r\nEndereço de Entrega: -,Lugar Nenhum, Marte\r\nDetalhes do Pedido:\r\n\r\nEssa coisa não está acabada, mas dará conta do trabalho. As cadeias de fluxo são bem instáveis, e impactos resultarão em uma explosão. POR FAVOR, manuseie com cuidado!",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "Raiz Amarga",

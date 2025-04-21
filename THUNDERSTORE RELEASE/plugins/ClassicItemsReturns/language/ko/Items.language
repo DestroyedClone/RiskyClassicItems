@@ -7,7 +7,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "불꽃 방패",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "큰 피해를 입을시 적들을 불태웁니다.",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "<style=cIsHealth>체력의 8%를 넘는 피해</style>를 받으면 폭발을 일으켜 <style=cIsDamage>200%의 피해</style>를 입히고 적을 <style=cIsDamage>불태워</style> <style=cIsDamage>200%</style><style=cStack>(중첩당 +200%)</style>의 피해를 입힙니다.",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "<style=cIsHealth>체력의 5%를 넘는 피해</style>를 받으면 폭발을 일으켜 <style=cIsDamage>200%의 피해</style>를 입히고 적을 <style=cIsDamage>불태워</style> <style=cIsDamage>200%</style><style=cStack>(중첩당 +200%)</style>의 피해를 입힙니다.",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "Order: Fire Shield\r\nTracking Number: 1507***********\r\nEstimated Delivery: 03\/06\/2056\r\nShipping Method: Standard\r\nSent To: Soloman\r\nShipping Address: -, Backwaters, Mars\r\nShipping Details:\r\n\r\nThe thing is only half-done, but it will do the job. The flux-chains are very unstable, resulting in a large explosion when struck. PLEASE handle with care!",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "쓴 뿌리",
