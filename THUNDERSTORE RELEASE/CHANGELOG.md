@@ -1,3 +1,6 @@
+- `3.2.1`
+	- Fixed for SotS Phase 3.
+
 - `3.2.0`
 	- Fire Shield
 		- Reduced activation threshold from 8% -> 5%

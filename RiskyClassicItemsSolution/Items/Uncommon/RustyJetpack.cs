@@ -73,7 +73,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             On.RoR2.CharacterBody.RecalculateStats += RecalculateStats_AddJump;
             On.EntityStates.GenericCharacterMain.ApplyJumpVelocity += ApplyJumpVelocity_DoShorthop;
-            IL.EntityStates.GenericCharacterMain.ProcessJump += ReplaceJumpEffect;
+            IL.EntityStates.GenericCharacterMain.ProcessJump_bool += ReplaceJumpEffect;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
@@ -120,23 +120,29 @@ namespace ClassicItemsReturns.Items.Uncommon
         private void ReplaceJumpEffect(ILContext il)
         {
             ILCursor c = new ILCursor(il);
-            c.GotoNext(MoveType.After, x => x.MatchLdstr("Prefabs/Effects/FeatherEffect"));
-            c.Index++;
-            c.Emit(OpCodes.Ldarg_0);
-            c.EmitDelegate<Func<GameObject, GenericCharacterMain, GameObject>>((origPrefab, self) =>
+            if (c.TryGotoNext(MoveType.After, x => x.MatchLdstr("Prefabs/Effects/FeatherEffect")))
             {
-                if (self.characterBody)
+                c.Index++;
+                c.Emit(OpCodes.Ldarg_0);
+                c.EmitDelegate<Func<GameObject, GenericCharacterMain, GameObject>>((origPrefab, self) =>
                 {
-                    bool isLastJump = RustyJetpack.enableAirhop.Value
-                    && self.characterMotor && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1;
-                    bool hasItem = self.characterBody.inventory && self.characterBody.inventory.GetItemCount(ItemDef) > 0;
-                    if (isLastJump && hasItem)
+                    if (self.characterBody)
                     {
-                        return jumpEffectPrefab;
+                        bool isLastJump = RustyJetpack.enableAirhop.Value
+                        && self.characterMotor && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1;
+                        bool hasItem = self.characterBody.inventory && self.characterBody.inventory.GetItemCount(ItemDef) > 0;
+                        if (isLastJump && hasItem)
+                        {
+                            return jumpEffectPrefab;
+                        }
                     }
-                }
-                return origPrefab;
-            });
+                    return origPrefab;
+                });
+            }
+            else
+            {
+                Debug.LogError("ClassicItemsReturns: Rusty Jetpack VFX IL hook failed.");
+            }
         }
 
         private void RecalculateStats_AddJump(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
