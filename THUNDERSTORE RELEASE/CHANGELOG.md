@@ -1,3 +1,6 @@
+- `3.2.2`
+	- Fixed Hit List marker instantly disappearing.
+
 - `3.2.1`
 	- Fixed for SotS Phase 3.
 

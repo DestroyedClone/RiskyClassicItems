@@ -410,7 +410,7 @@ namespace ClassicItemsReturns.Items.Rare
                 bool hasBuff = body.HasBuff(Buffs.HitListEnemyMarker);
                 bool isAlive = body.healthComponent && !body.healthComponent.alive;
                 destroying = !hasBuff || !isAlive;
-                Destroy(this);
+                if (destroying) Destroy(this);
             }
         }
 
