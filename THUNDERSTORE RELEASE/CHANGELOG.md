@@ -1,3 +1,6 @@
+- `3.2.3`
+	- Fixed an edge case where Classified Access Codes could endlessly attempt to place the interactable.
+
 - `3.2.2`
 	- Fixed Hit List marker instantly disappearing.
 

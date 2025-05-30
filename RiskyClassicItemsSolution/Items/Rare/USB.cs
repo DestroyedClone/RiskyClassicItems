@@ -28,6 +28,9 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override Sprite ItemIcon => LoadItemSprite("USB");
 
+        public static int maxPlacementAttemptsPerStage = 10;
+        private static int placementAttempts = 0;
+
         public static GameObject atlasCannonNetworkPrefab;
         public static GameObject teleporterVisualNetworkPrefab;
         public static GameObject atlasCannonInteractablePrefab;
@@ -162,8 +165,10 @@ namespace ClassicItemsReturns.Items.Rare
 
         public static void PlaceAtlasCannonInteractable(Xoroshiro128Plus rng)
         {
-            if (!NetworkServer.active || cannonSpawned) return;
+            if (!NetworkServer.active || cannonSpawned || placementAttempts >= maxPlacementAttemptsPerStage) return;
             if (Util.GetItemCountForTeam(TeamIndex.Player, USB.Instance.ItemDef.itemIndex, false, true) <= 0) return;
+
+            placementAttempts++;
 
             GameObject result = null;
             DirectorPlacementRule placementRule = null;
@@ -220,6 +225,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void SceneDirector_PopulateScene(On.RoR2.SceneDirector.orig_PopulateScene orig, SceneDirector self)
         {
             orig(self);
+            placementAttempts = 0;
             cannonSpawned = false;  //TODO: CLEAN UP
             PlaceAtlasCannonInteractable(self.rng);
         }
@@ -348,6 +354,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void Stage_onStageStartGlobal(Stage obj)
         {
+            placementAttempts = 0;
             cannonActivated = false;
             addedTeleporterVisual = false;
             firedCannon = false;
