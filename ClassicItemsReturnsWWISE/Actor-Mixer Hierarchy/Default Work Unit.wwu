@@ -37,6 +37,19 @@
 							<ChildrenList>
 								<Sound Name="wDoll" ID="{11CB4BF8-8369-40B0-99C9-E92AF1C778D5}" ShortID="651124597">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9EB893EC-D88B-4D3F-8145-B9FDFEB2D179}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="50"/>
+															<Property Name="Min" Type="Real64" Value="-50"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>4</Value>
@@ -66,6 +79,19 @@
 								</Sound>
 								<Sound Name="wJarSouls" ID="{1B7CE877-8191-4D32-AE22-E23504E17C8F}" ShortID="1026148791">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{42720C58-AF65-4D07-AAC4-24316F1AF61F}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>4</Value>
@@ -101,6 +127,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wJewel" ID="{1664C4AD-9583-480F-9771-923EC96B56DE}" ShortID="114799644">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8899160C-0F9B-46AB-9F11-AA4A46CA00C3}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -123,6 +164,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wReflect" ID="{9A95B534-9230-4881-BF12-69D3247FB23B}" ShortID="679863978">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{AD8F6DFE-7DCA-40B9-8148-2A196D1C41BF}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -152,6 +208,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="wRepairKit" ID="{ADB2E2BD-BD98-4437-9DF7-2510A3AABD15}" ShortID="228625931">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F43A5DBD-A5D7-4D91-858E-A36037CD0A9F}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="50"/>
+															<Property Name="Min" Type="Real64" Value="-50"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -174,6 +245,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="punch" ID="{A30DB383-526F-4716-855C-7A23AD749D05}" ShortID="450162550">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C2016425-AC1F-47C5-B787-B72B7F5E0106}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="250"/>
+															<Property Name="Min" Type="Real64" Value="-250"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
@@ -204,6 +290,19 @@
 								</Sound>
 								<Sound Name="wJetpack2Deactivate" ID="{4EEC57D5-5A9E-486E-9BD0-61148B098FA5}" ShortID="649634551">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{00550CF5-E9E8-4257-9750-79B084ECBB2B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>6</Value>
@@ -233,6 +332,19 @@
 								</Sound>
 								<Sound Name="wHitlist" ID="{E1805EAC-57F7-42E8-8596-D712D1B9798B}" ShortID="891600258">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{0E36B234-728B-4398-A7A8-4229E988736A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>5</Value>
@@ -262,6 +374,19 @@
 								</Sound>
 								<Sound Name="wHitlistMark" ID="{517AA9F4-7C22-496D-BB67-864DFBE985D0}" ShortID="42588661">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D88E3F99-4C88-400A-AE35-6A88BDB7C694}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>7</Value>
@@ -291,6 +416,19 @@
 								</Sound>
 								<Sound Name="wMedallion" ID="{2C1A1FBC-B3B9-4D37-9F52-A32CA0E38D58}" ShortID="551854393">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{CEAA9BF0-94AA-431D-97FE-18E2761BBBD6}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>3</Value>
@@ -318,6 +456,164 @@
 										<ActiveSource Name="wMedallion" ID="{45E84575-7F3B-4320-8677-5FEDD1B3A33C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="wMortarImpact" ID="{E20E9F5D-DC66-42C4-9F24-0C1FDAB669E0}" ShortID="34626287">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{107DCACD-5B04-43F2-AF1F-73BEE6D66C00}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_mortar_impact" ID="{51E77F6F-4595-4936-AEAF-69657F2CA310}">
+											<Language>SFX</Language>
+											<AudioFile>sfx_mortar_impact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="418483498"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_mortar_impact" ID="{51E77F6F-4595-4936-AEAF-69657F2CA310}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="wMortar" ID="{29B2281B-78B1-4C6B-8B32-95A9523E15AD}" ShortID="1046121980">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{244C1D0A-AC1D-483C-A81E-F80C34419119}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_mortar_fire_01" ID="{0B006C61-F1AF-4434-975C-8B7E7F904582}" ShortID="569332142">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="SFXAtt" ID="{D2306757-232A-4A58-9B9C-62D8452830DD}" WorkUnitID="{AE3718A2-ACF7-4B97-A63F-1A9DC4412747}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_mortar_fire_01" ID="{F41728CC-8927-4101-82DF-B1BDD0488214}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_mortar_fire_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="878251244"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_mortar_fire_01" ID="{F41728CC-8927-4101-82DF-B1BDD0488214}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_mortar_fire_02" ID="{EFC3C131-D766-408B-97CA-6E1F552EAE23}" ShortID="519622009">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="SFXAtt" ID="{D2306757-232A-4A58-9B9C-62D8452830DD}" WorkUnitID="{AE3718A2-ACF7-4B97-A63F-1A9DC4412747}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_mortar_fire_02" ID="{E9BC602E-47E1-4F3A-89F2-679101350A5A}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_mortar_fire_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="809300227"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_mortar_fire_02" ID="{E9BC602E-47E1-4F3A-89F2-679101350A5A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_mortar_fire_03" ID="{148B324E-2884-450B-88A9-D6593ACDEC9B}" ShortID="1048003959">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="SFXAtt" ID="{D2306757-232A-4A58-9B9C-62D8452830DD}" WorkUnitID="{AE3718A2-ACF7-4B97-A63F-1A9DC4412747}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{208FBB07-03F8-4F66-9CA5-B30DF22DF70B}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{083617C2-0C03-4C05-8303-C426D5722C16}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_mortar_fire_03" ID="{1F89634F-A634-4988-B29C-F009EAE62072}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_mortar_fire_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1021873896"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_mortar_fire_03" ID="{1F89634F-A634-4988-B29C-F009EAE62072}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>

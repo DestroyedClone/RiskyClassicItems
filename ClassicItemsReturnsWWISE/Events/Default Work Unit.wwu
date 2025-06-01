@@ -113,6 +113,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_ClassicItemsReturns_Mortar" ID="{F04B50D2-3BF1-4F4D-9E87-A358098B2882}">
+					<ChildrenList>
+						<Action Name="" ID="{E33EF060-7A2E-401C-BBD0-5D75A40A7A0F}" ShortID="461636641">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wMortar" ID="{29B2281B-78B1-4C6B-8B32-95A9523E15AD}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ClassicItemsReturns_MortarImpact" ID="{D595594E-4135-4C76-A526-11D41676D10A}">
+					<ChildrenList>
+						<Action Name="" ID="{4C305B1D-470D-4B9B-9792-5A6A2F9CBB48}" ShortID="188310299">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wMortarImpact" ID="{E20E9F5D-DC66-42C4-9F24-0C1FDAB669E0}" WorkUnitID="{7D7900CF-6AFA-4EFE-8C5F-B848F5CD10C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
