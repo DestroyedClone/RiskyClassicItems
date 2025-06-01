@@ -18,6 +18,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         public float blastRadius = 8f;
 
         public GameObject mortarProjectilePrefab;
+        public GameObject mortarProjectileGhostPrefab;
         public GameObject mortarImpactEffectPrefab;
 
         public override string ItemName => "Mortar Tube";
@@ -63,11 +64,16 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             mortarImpactEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/OmniExplosionVFX.prefab").WaitForCompletion().InstantiateClone("CIR_MortarImpactVFX", true);
             if (!mortarImpactEffectPrefab.GetComponent<NetworkIdentity>()) mortarImpactEffectPrefab.AddComponent<NetworkIdentity>();
-            mortarImpactEffectPrefab.GetComponent<EffectComponent>().soundName = ""; // insert sound here
+            mortarImpactEffectPrefab.GetComponent<EffectComponent>().soundName = "Play_ClassicItemsReturns_MortarImpact"; // insert sound here
 
-            projectileController.ghostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Firework/FireworkGhost.prefab").WaitForCompletion();
+            mortarProjectileGhostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/MicroMissileGhost.prefab").WaitForCompletion().InstantiateClone("CIR_MortarProjectileGhost", true);
 
-            projectileImpact.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef(""); // firing sound here
+            mortarProjectileGhostPrefab.transform.Find("missile VFX").localPosition = new Vector3(0f, 0f, -0.45f);
+            mortarProjectileGhostPrefab.transform.Find("missile VFX").localScale = new Vector3(0.5f, 0.3f, 0.5f);
+
+            projectileController.ghostPrefab = mortarProjectileGhostPrefab;
+
+            projectileImpact.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Mortar"); // firing sound here
             projectileImpact.offsetForLifetimeExpiredSound = 0.1f;
             projectileImpact.destroyOnEnemy = false;
             projectileImpact.destroyOnWorld = false;
@@ -177,7 +183,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         private void FixedUpdate()
         {
-            this.transform.rotation = Util.QuaternionSafeLookRotation(this.rb.velocity.normalized);
+            if (this.rb) this.transform.rotation = Util.QuaternionSafeLookRotation(this.rb.velocity.normalized);
         }
     }
 }
