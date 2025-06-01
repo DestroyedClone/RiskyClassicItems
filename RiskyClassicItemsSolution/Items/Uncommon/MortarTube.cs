@@ -12,10 +12,10 @@ namespace ClassicItemsReturns.Items.Uncommon
 {
     internal class MortarTube : ItemBase<MortarTube>
     {
-        public float damageCoeff = 6f;
+        public float damageCoeff = 3f;
         public float procCoeff = 0f;
         public float procChance = 10f;
-        public float blastRadius = 8f;
+        public float blastRadius = 10f;
 
         public GameObject mortarProjectilePrefab;
         public GameObject mortarProjectileGhostPrefab;
@@ -78,7 +78,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             projectileImpact.destroyOnEnemy = false;
             projectileImpact.destroyOnWorld = false;
             projectileImpact.timerAfterImpact = true;
-            projectileImpact.falloffModel = BlastAttack.FalloffModel.Linear;
+            projectileImpact.falloffModel = BlastAttack.FalloffModel.None;
             projectileImpact.lifetime = 30f;
             projectileImpact.lifetimeAfterImpact = 0f;
             projectileImpact.lifetimeRandomOffset = 0f;
@@ -111,6 +111,9 @@ namespace ClassicItemsReturns.Items.Uncommon
             SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryAndVictimBodyActions += MortarTubeOnHit;
         }
 
+        private static float minDistance = 5f;
+        private static float maxDistance = 60f;
+        private static float timeToTarget = 1f; //Mushrum is 1.5
         private void MortarTubeOnHit(GlobalEventManager globalEventManager, DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody, Inventory attackerInventory)
         {
             if (damageInfo.damage <= 0f || !attackerBody) return;
@@ -121,15 +124,21 @@ namespace ClassicItemsReturns.Items.Uncommon
             float chance = procChance;
             if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
 
-            Ray aimRay = attackerBody.inputBank.GetAimRay();
+            //Manually build aimray since server and client aimray can be desynced.
+            Ray aimRay = new Ray()
+            {
+                origin = attackerBody.aimOrigin,
+                direction = (damageInfo.position - attackerBody.aimOrigin).normalized
+            };
             Ray ray = new Ray(aimRay.origin, Vector3.up);
             Vector3 targetPoint = damageInfo.position;
-            RaycastHit raycastHit;
 
+            //This causes range to randomly whiff at times
+            /*RaycastHit raycastHit;
             if (Physics.Raycast(aimRay, out raycastHit, 1000f, LayerIndex.world.mask | LayerIndex.entityPrecise.mask, QueryTriggerInteraction.Ignore))
             {
                 targetPoint = raycastHit.point;
-            }
+            }*/
 
             float magnitude = 40f;
 
@@ -137,16 +146,17 @@ namespace ClassicItemsReturns.Items.Uncommon
             Vector2 a2 = new Vector2(vector.x, vector.z);
             float magnitude2 = a2.magnitude;
             Vector2 vector2 = a2 / magnitude2;
-            if (magnitude2 < EntityStates.MiniMushroom.SporeGrenade.minimumDistance)
+
+            if (magnitude2 < minDistance)
             {
-                magnitude2 = EntityStates.MiniMushroom.SporeGrenade.minimumDistance;
+                magnitude2 = minDistance;
             }
-            if (magnitude2 > EntityStates.MiniMushroom.SporeGrenade.maximumDistance)
+            if (magnitude2 > maxDistance)
             {
-                magnitude2 = EntityStates.MiniMushroom.SporeGrenade.maximumDistance;
+                magnitude2 = maxDistance;
             }
-            float y = Trajectory.CalculateInitialYSpeed(EntityStates.MiniMushroom.SporeGrenade.timeToTarget, vector.y);
-            float num = magnitude2 / EntityStates.MiniMushroom.SporeGrenade.timeToTarget;
+            float y = Trajectory.CalculateInitialYSpeed(timeToTarget, vector.y);
+            float num = magnitude2 / timeToTarget;
             Vector3 direction = new Vector3(vector2.x * num, y, vector2.y * num);
             magnitude = direction.magnitude;
             ray.direction = direction;
@@ -155,13 +165,13 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             ProjectileManager.instance.FireProjectileServer(new FireProjectileInfo
             {
-                crit = Util.CheckRoll(attackerBody.crit),
+                crit = damageInfo.crit,
                 damage = (damageInfo.damage * damageCoeff) * itemCount,
                 damageColorIndex = DamageColorIndex.Default,
                 force = 800f,
                 owner = attackerBody.gameObject,
                 position = ray.origin,
-                procChainMask = default(ProcChainMask),
+                procChainMask = damageInfo.procChainMask,
                 projectilePrefab = mortarProjectilePrefab,
                 rotation = rotation,
                 speedOverride = magnitude,
@@ -183,7 +193,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         private void FixedUpdate()
         {
-            if (this.rb) this.transform.rotation = Util.QuaternionSafeLookRotation(this.rb.velocity.normalized);
+            if (NetworkServer.active && this.rb) this.transform.rotation = Util.QuaternionSafeLookRotation(this.rb.velocity.normalized);
         }
     }
 }
