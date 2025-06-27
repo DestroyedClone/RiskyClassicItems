@@ -1,3 +1,6 @@
+- `3.2.4`
+	- Recompiled for MemOp, should fix issues with enemies sometimes not spawning.
+
 - `3.2.3`
 	- Fixed an edge case where Classified Access Codes could endlessly attempt to place the interactable.
 

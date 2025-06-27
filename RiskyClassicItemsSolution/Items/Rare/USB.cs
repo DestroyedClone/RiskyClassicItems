@@ -341,7 +341,7 @@ namespace ClassicItemsReturns.Items.Rare
             NetworkServer.Spawn(teleporterVisualNetworkInstance);
     }
 
-        private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, EntityStates.BaseState self)
+        private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, TeleporterInteraction.ChargingState self)
         {
             orig(self);
             cannonSpawned = true;   //Prevent cannon from spawning after TP activates

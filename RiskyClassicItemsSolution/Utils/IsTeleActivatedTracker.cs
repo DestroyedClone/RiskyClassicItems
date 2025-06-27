@@ -72,7 +72,7 @@ namespace ClassicItemsReturns.Utils
             IsTeleActivatedTracker.teleporterActivated = true;
         }
 
-        private void ChargedState_OnEnter(On.RoR2.TeleporterInteraction.ChargedState.orig_OnEnter orig, EntityStates.BaseState self)
+        private void ChargedState_OnEnter(On.RoR2.TeleporterInteraction.ChargedState.orig_OnEnter orig, TeleporterInteraction.ChargedState self)
         {
             orig(self);
             IsTeleActivatedTracker.teleporterActivated = true;
@@ -84,7 +84,7 @@ namespace ClassicItemsReturns.Utils
             IsTeleActivatedTracker.teleporterActivated = true;
         }
 
-        private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, EntityStates.BaseState self)
+        private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, TeleporterInteraction.ChargingState self)
         {
             orig(self);
             IsTeleActivatedTracker.teleporterActivated = true;
