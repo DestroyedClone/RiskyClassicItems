@@ -1,3 +1,6 @@
+- `3.2.5`
+	- Mu Construct and Arcane Blades now work on ???
+
 - `3.2.4`
 	- Recompiled for MemOp, should fix issues with enemies sometimes not spawning.
 

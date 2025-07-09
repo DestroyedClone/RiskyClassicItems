@@ -11,7 +11,8 @@ namespace ClassicItemsReturns.Utils
         public static List<string> alwaysActiveStages = new List<string>()
         {
             "voidraid",
-            "limbo"
+            "limbo",
+            "enemiesreturns_outoftime"
         };
 
         public IsTeleActivatedTracker()
