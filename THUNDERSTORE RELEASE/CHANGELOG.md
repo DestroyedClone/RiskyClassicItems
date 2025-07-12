@@ -1,3 +1,12 @@
+- `3.3.0`
+	- Mortar Tube (Green)
+		- 10% chance to fire a mortar in an arc for 300% damage.
+			- Mortar does not proc items, and has a 10m blast radius with no falloff.
+		
+		
+		
+	*Thanks Rob and FORCED_REASSEMBLY!*
+
 - `3.2.5`
 	- Mu Construct and Arcane Blades now work on ???
 

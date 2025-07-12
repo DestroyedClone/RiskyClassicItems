@@ -73,6 +73,18 @@ namespace ClassicItemsReturns.Modules
             {
                 return RiskyMod.Allies.AlliesCore.normalizeDroneDamage;
             }
+
+            internal static bool IsAtgEnabled()
+            {
+                if (!loaded) return false;
+                return IsAtgEnabledInternal();
+            }
+
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+            private static bool IsAtgEnabledInternal()
+            {
+                return RiskyMod.Items.ItemsCore.enabled && RiskyMod.Items.Uncommon.AtG.enabled;
+            }
         }
 
         internal class ModCompatAssistManager

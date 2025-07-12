@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using ClassicItemsReturns.Items.NoTier;
+using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
 using RoR2.Items;
@@ -13,6 +14,7 @@ namespace ClassicItemsReturns.Items.Uncommon
     internal class MortarTube : ItemBase<MortarTube>
     {
         public float damageCoeff = 3f;
+        public float stackDamageCoeff = 3f;
         public float procCoeff = 0f;
         public float procChance = 10f;
         public float blastRadius = 10f;
@@ -26,29 +28,34 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override object[] ItemFullDescriptionParams => new object[]
         {
             procChance,
-            damageCoeff * 100f
+            damageCoeff * 100f,
+            stackDamageCoeff * 100f
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => LoadItemModel("ArmsRace");
+        public override GameObject ItemModel => LoadItemModel("Mortar");
 
-        public override Sprite ItemIcon => LoadItemSprite("ArmsRace");
+        public override Sprite ItemIcon => LoadItemSprite("Mortar");
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage
         };
 
+        protected override void CreateLang()
+        {
+            if (ModSupport.ModCompatRiskyMod.IsAtgEnabled())
+            {
+                stackDamageCoeff = 2.1f;
+                ItemFullDescriptionParams[2] = stackDamageCoeff * 100f;
+            }
+            base.CreateLang();
+        }
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
-        }
-
-        public override bool Unfinished => true;
-
-        public override void CreateConfig(ConfigFile config)
-        {
         }
 
         public override void CreateAssets(ConfigFile config)
@@ -62,11 +69,11 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             projectileImpact.blastRadius = blastRadius;
 
-            mortarImpactEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/OmniExplosionVFX.prefab").WaitForCompletion().InstantiateClone("CIR_MortarImpactVFX", true);
+            mortarImpactEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/OmniExplosionVFX.prefab").WaitForCompletion().InstantiateClone("CIR_MortarImpactVFX", false);
             if (!mortarImpactEffectPrefab.GetComponent<NetworkIdentity>()) mortarImpactEffectPrefab.AddComponent<NetworkIdentity>();
             mortarImpactEffectPrefab.GetComponent<EffectComponent>().soundName = "Play_ClassicItemsReturns_MortarImpact"; // insert sound here
 
-            mortarProjectileGhostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/MicroMissileGhost.prefab").WaitForCompletion().InstantiateClone("CIR_MortarProjectileGhost", true);
+            mortarProjectileGhostPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/MicroMissileGhost.prefab").WaitForCompletion().InstantiateClone("CIR_MortarProjectileGhost", false);
 
             mortarProjectileGhostPrefab.transform.Find("missile VFX").localPosition = new Vector3(0f, 0f, -0.45f);
             mortarProjectileGhostPrefab.transform.Find("missile VFX").localScale = new Vector3(0.5f, 0.3f, 0.5f);
@@ -163,10 +170,12 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             Quaternion rotation = Util.QuaternionSafeLookRotation(ray.direction + UnityEngine.Random.insideUnitSphere * 0.05f);
 
+            float coeff = damageCoeff + (itemCount - 1) * stackDamageCoeff;
+
             ProjectileManager.instance.FireProjectileServer(new FireProjectileInfo
             {
                 crit = damageInfo.crit,
-                damage = (damageInfo.damage * damageCoeff) * itemCount,
+                damage = damageInfo.damage * coeff,
                 damageColorIndex = DamageColorIndex.Default,
                 force = 800f,
                 owner = attackerBody.gameObject,
