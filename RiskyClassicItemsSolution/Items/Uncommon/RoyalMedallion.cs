@@ -130,29 +130,29 @@ namespace ClassicItemsReturns.Items.Uncommon
             }
         }
 
-        public static void AddRoyalMedallionBuffWithDroneHandling(CharacterBody attackerBody, float duration)
+        public static void AddRoyalMedallionBuffWithDroneHandling(CharacterBody originalPickupBody, float duration)
         {
-            AddRoyalMedallionBuff(attackerBody, duration);
-            if (attackerBody.isPlayerControlled) return;
+            AddRoyalMedallionBuff(originalPickupBody, duration);
+            if (originalPickupBody.isPlayerControlled) return;
 
             //If an NPC steals a buff, try to give it to a nearby teammate.
-            TeamIndex team = attackerBody.teamComponent ? attackerBody.teamComponent.teamIndex : TeamIndex.None;
-            if (team == TeamIndex.None) return;
+            if (!originalPickupBody.teamComponent || originalPickupBody.teamComponent.teamIndex == TeamIndex.None) return;
+            TeamIndex team = originalPickupBody.teamComponent.teamIndex;
 
             var teammates = CharacterBody.readOnlyInstancesList.Where(cb =>
-            (cb.teamComponent && cb.teamComponent.teamIndex == team)).ToList();
+            (cb.teamComponent && cb.teamComponent.teamIndex == team && cb.isPlayerControlled)).ToList();
             if (teammates.Count <= 0) return;
 
             teammates.Sort((cb1, cb2) => (
                 Mathf.RoundToInt(
-                    (cb1.corePosition - attackerBody.corePosition).sqrMagnitude - (cb2.corePosition - attackerBody.corePosition).sqrMagnitude)
+                    (cb1.corePosition - originalPickupBody.corePosition).sqrMagnitude - (cb2.corePosition - originalPickupBody.corePosition).sqrMagnitude)
                 )
             );
             var targetBody = teammates.FirstOrDefault();
 
             //Only actually give the buff if the closest player is <20m away
-            //400 = 20m x 20m
-            if (targetBody && (targetBody.corePosition - attackerBody.corePosition).sqrMagnitude <= 400) AddRoyalMedallionBuff(targetBody, duration);
+            //400 = 30m x 30m
+            if (targetBody && (targetBody.corePosition - originalPickupBody.corePosition).sqrMagnitude <= 900) AddRoyalMedallionBuff(targetBody, duration);
         }
 
         //Adds to a single body

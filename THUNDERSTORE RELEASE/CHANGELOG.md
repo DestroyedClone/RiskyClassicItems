@@ -4,8 +4,9 @@
 			- Mortar does not proc items, and has a 10m blast radius with no falloff.
 		
 	*Reason this is in the Green tier instead of White is because RoR2's White item pool is in a good spot in terms of item distribution, while the Green item pool is skewed too much towards utility/useless items. Goal for this is to be an AtG sidegrade: Less reliable, but with the potential for multihits and AoE.*
-		
 	
+	- Royal Medallion
+		- Attempted to fix the "Drone Stealing Buff" fix not working. (Untested)
 
 - `3.2.5`
 	- Mu Construct and Arcane Blades now work on ???
