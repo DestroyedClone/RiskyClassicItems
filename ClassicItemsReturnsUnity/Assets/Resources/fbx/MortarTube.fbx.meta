@@ -3,7 +3,12 @@ guid: 31f2c8a7b6cd4b746a9c9f971366e058
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MortarTubeMat
+    second: {fileID: 2100000, guid: 42adff1f5f33f67479ae25cfdede4d7d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
