@@ -63,6 +63,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 - ClassicItems: Some item implementations
 - DestroyedClone: Coding
 - Moffein: Coding and Unity stuff
+- Rob: Code for Mortar Tube
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers
 - Models from FORCED_REASSEMBLY, redacted, Glasus, hollowman104
