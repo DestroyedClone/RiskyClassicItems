@@ -30,7 +30,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "Olhos de Cobra",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "Ativar altares aumenta sua chance de 'Acerto Crítico'.",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Utilizar um altar</style> aumenta a <style=cIsDamage>chance de acerto crítico</style> em <style=cIsDamage>{0}%</style> <style=cStack>(+{0}% por acúmulo)</style>, até <style=cIsDamage>6 vezes</style>. Reinicia entre fases.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Utilizar um templo</style> aumenta a <style=cIsDamage>chance de Acerto Crítico</style> em <style=cIsDamage>{0}%</style> e o <style=cIsDamage>Dano Crítico</style> em <style=cIsDamage>{1}%</style> <style=cStack>(+{2}% por acúmulo)</style>, até <style=cIsDamage>6 vezes</style>. Regenera no início de cada fase.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Pedido: Olhos de Cobra\r\nNúmero de Rastreio: 1500***********\r\nPrevisão de Entrega: 01\/01\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: 1843, Serviços GMG, Vênus\r\nDetalhes do Pedido:\r\n\r\nSua cobra filha de uma ----.Você SABIA que eu tinha que vencer para pagar minhas dívidas. Você está trabalhando para os cassinos? É claro que está, isso é típico de alguém como você. Dados VICIADOS que só caem em OLHOS DE COBRA. MAS QUE BONITO, cobrinha de -----.\n\nEu ainda te pego, ----.",
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "Moeda Navalha",

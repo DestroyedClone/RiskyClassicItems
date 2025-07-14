@@ -1,7 +1,7 @@
 - `3.3.1`
 	- Life Savings
 		- Gold value is now based on stage entry difficulty.
-		- Added config option to only enable this item after teleporter has been activated. Default: False
+		- Added config option to add the On Teleporter Activated condition to this item. (Disabled by default)
 		
 	- Snake Eyes
 		- Extra item stacks give +5% crit damage (up to +30%) instead of extra crit chance. First stack gives
