@@ -30,7 +30,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "Snake Eyes",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "Using shrines increases 'Critical Strike' chance.",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Using a shrine</style> increases <style=cIsDamage>critical chance</style> by <style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style>, up to <style=cIsDamage>6 times</style>. Resets at the start of each stage.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>Using a shrine</style> increases <style=cIsDamage>critical chance</style> by <style=cIsDamage>{0}%</style> and <style=cIsDamage>critical damage</style> by <style=cIsDamage>{1}%</style> <style=cStack>(+{2}% per stack)</style>, up to <style=cIsDamage>6 times</style>. Resets at the start of each stage.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Order: Snake Eyes\r\nTracking Number: 1500***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Standard\r\nShipping Address: 1843, GMG Services, Venus\r\nShipping Details:\r\n\r\nYou dirty ---------er. You KNEW I had to win to pay off my debts. Are you in with the casinos? Of course you are; a snake like you would. A dice that's loaded for SNAKE EYES. CUTE MOVE, --------er.\n\nI'm comin' for you, ----.",
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "Razor Penny",

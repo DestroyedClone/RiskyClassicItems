@@ -46,6 +46,7 @@ namespace ClassicItemsReturns.Items.Common
             Hooks();
         }
 
+        public static ConfigEntry<bool> onlyAfterTeleporter;
         public static ConfigEntry<bool> scaleWithTime;
         public static ConfigEntry<string> cfgBannedSceneNames;
         public static string[] bannedSceneDefNames = new string[] { };
@@ -53,7 +54,13 @@ namespace ClassicItemsReturns.Items.Common
         {
             cfgBannedSceneNames = config.Bind(ConfigCategory, "Banned Scenes", "bazaar", "Input the names of the scenes you don't want the item to perform on. Entries are separated by commas.");
             scaleWithTime = config.Bind(ConfigCategory, "Scale with Time", true, "Scale money gain with time.");
+            onlyAfterTeleporter = config.Bind(ConfigCategory, "On Teleporter Activated", false, "Only proc this item after teleporter has been activated.");
             bannedSceneDefNames = cfgBannedSceneNames.Value.Split(',');
+            for (int i = 0; i < bannedSceneDefNames.Length; i++)
+            {
+                bannedSceneDefNames[i].Equals(bannedSceneDefNames[i].Trim());
+            }
+            bannedSceneDefNames = bannedSceneDefNames.Where(str => str != null && str.Length > 0).ToArray();
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -83,13 +90,29 @@ namespace ClassicItemsReturns.Items.Common
 
             private void FixedUpdate()
             {
+                if (onlyAfterTeleporter.Value && !Utils.IsTeleActivatedTracker.teleporterActivated) return;
+
                 stopwatch -= Time.fixedDeltaTime;
                 if (stopwatch <= 0 && !SceneExitController.isRunning)
                 {
                     stopwatch = Instance.intervalSeconds;
-                    var stackEffect = Utils.ItemHelpers.StackingLinear(stack, Instance.gold, Instance.goldStack);
-                    var multiplier = Run.instance && scaleWithTime.Value ? Run.instance.GetDifficultyScaledCost(stackEffect, Run.instance.difficultyCoefficient) : 1;
-                    master.GiveMoney((uint)(stackEffect * multiplier));
+
+                    int moneyToGive = Utils.ItemHelpers.StackingLinear(stack, Instance.gold, Instance.goldStack);
+                    if (Run.instance && scaleWithTime.Value)
+                    {
+                        float diff = 0f;
+                        if (Stage.instance)
+                        {
+                            diff = Stage.instance.entryDifficultyCoefficient;
+                        }
+                        else if (Run.instance)
+                        {
+                            diff = Run.instance.difficultyCoefficient;
+                        }
+
+                        moneyToGive = Run.instance.GetDifficultyScaledCost(moneyToGive, diff);
+                    }
+                    master.GiveMoney((uint)(moneyToGive));
                 }
             }
         }

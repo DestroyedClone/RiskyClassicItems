@@ -53,11 +53,14 @@ namespace ClassicItemsReturns.Items.Common
         };
 
         public float critChance = 7.5f;
-
+        public float critDamageInitial = 0f;
+        public float critDamageStack = 0.05f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            critChance
+            critChance,
+            critDamageInitial * 100f,
+            critDamageStack * 100f
         };
 
         //Way the buffs are handled is very ugly.
@@ -229,7 +232,8 @@ namespace ClassicItemsReturns.Items.Common
         {
             if (TryGetCount(sender, out int itemCount))
             {
-                float critToAdd = itemCount * critChance;
+                float critToAdd = critChance;
+                float critDamageToAdd = critDamageInitial + critDamageStack * (itemCount - 1);
                 int mult = 0;
 
                 //Check individually in case they overlap for some reason.
@@ -241,6 +245,7 @@ namespace ClassicItemsReturns.Items.Common
                 if (sender.HasBuff(Modules.Buffs.SnakeEyesBuffs.Snake6)) mult = 6;
 
                 args.critAdd += critToAdd * mult;
+                args.critDamageMultAdd += critDamageToAdd;
             }
         }
 

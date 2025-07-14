@@ -1,3 +1,17 @@
+- `3.3.1`
+	- Life Savings
+		- Gold value is now based on stage entry difficulty.
+		- Added config option to only enable this item after teleporter has been activated. Default: False
+		
+	- Snake Eyes
+		- Extra item stacks give +5% crit damage (up to +30%) instead of extra crit chance. First stack gives
+			- 0% crit damage on first stack.
+		
+		*Fixes the problem where it was too easy to reach 100% crit, and also gives a reason to hold on to this item when crit is maxed.*
+		
+	- Hit List
+		- Fixed marker visual not showing for real this time.
+
 - `3.3.0`
 	- Mortar Tube (Green) *Thanks Rob and FORCED_REASSEMBLY!*
 		- 10% chance to fire a mortar in an arc for 300% damage.
@@ -18,7 +32,7 @@
 	- Fixed an edge case where Classified Access Codes could endlessly attempt to place the interactable.
 
 - `3.2.2`
-	- Fixed Hit List marker instantly disappearing.
+	- Fixed Hit List marker instantly disappearing. (Didn't actually fix it)
 
 - `3.2.1`
 	- Fixed for SotS Phase 3.
