@@ -1,3 +1,6 @@
+- `3.3.2`
+	- Updated Snake Eyes description in Korean TL.
+
 - `3.3.1`
 	- Life Savings
 		- Gold value is now based on stage entry difficulty.

@@ -29,8 +29,8 @@
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "Order: The Toxin\r\nEstimated Delivery: 04\/30\/2056\r\nShipping Method: Unmarked\r\nShipping Address: EICO labs, City of Gold, Earth\r\nShipping Details:\r\n\r\nTEST SUMMARY\n[id.416c7068615468726565]\nSubject stabilized - Notable levels of arousal.\nIncreased disposition to disperse.\nSpecialized containment necessary if active.\nN31 applied, watch for adverse reactions.\nHandling prohibited for this phase.\nAOD: 53 75 6e 46 61 6c 6c",
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "뱀의 눈",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "성소 사용시 치명타 확율이 증가합니다.",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>성소 사용 시</style> <style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>7.5%</style><style=cStack>(중첩당 +7.5)</style> 증가합니다. <style=cIsDamage>최대 6번</style>까지 중첩됩니다. 스테이지를 시작할 때마다 초기화됩니다.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "성소 사용시 치명타 확율과 치명타 피해가 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>성소 사용 시</style> <style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +7.5)</style> 증가하고 치명타 피해가 <style=cIsDamage>{1}%</style><style=cStack>(중첩당 +{2}%)</style> 증가합니다. <style=cIsDamage>최대 6번</style>까지 중첩됩니다. 스테이지를 시작할 때마다 초기화됩니다.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Order: Snake Eyes\r\nTracking Number: 1500***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Standard\r\nShipping Address: 1843, GMG Services, Venus\r\nShipping Details:\r\n\r\nYou dirty ---------er. You KNEW I had to win to pay off my debts. Are you in with the casinos? Of course you are; a snake like you would. A dice that's loaded for SNAKE EYES. CUTE MOVE, --------er.\n\nI'm comin' for you, ----.",
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "칼날 동전",
