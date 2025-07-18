@@ -3,7 +3,7 @@
 	
 		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_NAME" : "아틀라스 캐논",
 		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_CONTEXT" : "아틀라스 캐논 활성화",
-		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE" : "<style=cShrine>팀원의 아틀라스 캐논이 준비가 되었습니다. 목표물 포착.</style>",
+		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE" : "<style=cShrine>{0}의 아틀라스 캐논이 준비가 되었습니다. 목표물 포착.</style>",
 		"CLASSICITEMSRETURNS_INTERACTABLE_ATLASCANNON_USE_MESSAGE_2P" : "<style=cShrine>당신의 아틀라스 캐논이 준비가 되었습니다. 목표물 포착.</style>",
 	}
 }

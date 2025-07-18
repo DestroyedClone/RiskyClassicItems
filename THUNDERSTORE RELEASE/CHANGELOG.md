@@ -1,3 +1,6 @@
+- `3.3.3`
+	- Fixed bug with Korean TL.
+
 - `3.3.2`
 	- Updated Snake Eyes description in Korean TL.
 
