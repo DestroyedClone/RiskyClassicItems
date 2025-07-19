@@ -1,5 +1,5 @@
 {
-	ko: {
+	"strings" : {
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "정체불명의 유리병",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "체력 재생이 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "<style=cIsHealing>기본 체력 회복량</style>이 <style=cIsHealing>초당 +{0}</style><style=cStack>(중첩당 매초 +{1})</style> 증가합니다.",

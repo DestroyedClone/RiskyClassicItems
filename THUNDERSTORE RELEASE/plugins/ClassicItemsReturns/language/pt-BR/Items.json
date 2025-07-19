@@ -1,5 +1,5 @@
 {
-	strings: {
+	"strings" : {
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "Frasco Misterioso",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "Regeneração de saúde aumentada.",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Aumenta a <style=cIsHealing>regeneração de saúde</style> em <style=cIsHealing>+{0} PV/s</style> <style=cStack>(+{1} PV/s por acúmulo)</style>. Varia com o nível.",

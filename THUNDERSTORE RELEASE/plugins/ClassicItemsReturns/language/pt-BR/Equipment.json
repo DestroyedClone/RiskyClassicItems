@@ -1,5 +1,5 @@
 ﻿{
-  strings: {
+  "strings": {
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_NAME": "Ametista Gigantesca",
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_PICKUP": "Redefina todos os seus tempos de recarga.",
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_DESCRIPTION": "<style=cIsUtility>Redefina</style> todos os seus <style=cIsUtility>tempos de recarga</style>.",

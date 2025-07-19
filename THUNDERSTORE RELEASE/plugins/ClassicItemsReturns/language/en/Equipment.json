@@ -1,5 +1,5 @@
 ﻿{
-  strings: {
+  "strings" : {
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_NAME": "Gigantic Amethyst",
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_PICKUP": "Resets all skill cooldowns",
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_DESCRIPTION": "<style=cIsUtility>Reset</style> all <style=cIsUtility>skill cooldowns</style>.",
