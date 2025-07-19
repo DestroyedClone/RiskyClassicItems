@@ -1,5 +1,5 @@
 ﻿{
-  ko: {
+  "strings" : {
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_NAME": "거대 자수정",
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_PICKUP": "모든 재사용 대기시간을 초기화합니다.",
     "CLASSICITEMSRETURNS_EQUIPMENT_RESETSKILLCOOLDOWN_DESCRIPTION": "모든 <style=cIsUtility>재사용 대기시간</style>을 <style=cIsUtility>초기화</style>시킵니다.",

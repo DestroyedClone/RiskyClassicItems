@@ -61,164 +61,41 @@ namespace ClassicItemsReturns.Modules
 
         public static void Initialize()
         {
-            On.RoR2.UI.MainMenu.MainMenuController.Start += FinalizeLanguage;
-            On.RoR2.UI.LogBook.LogBookController.Start += LogBookController_Start;
+            RoR2.Language.collectLanguageRootFolders += CollectLanguageRootFolders;
+            RoR2.Language.onCurrentLanguageChanged += Language_onCurrentLanguageChanged;
         }
 
-        private static void LogBookController_Start(On.RoR2.UI.LogBook.LogBookController.orig_Start orig, RoR2.UI.LogBook.LogBookController self)
+        private static void Language_onCurrentLanguageChanged()
         {
-            orig(self);
-            self.gameObject.AddComponent<RBS_DestroyLogbookHookOnDestroy>();
-        }
-
-        private static void FinalizeLanguage(On.RoR2.UI.MainMenu.MainMenuController.orig_Start orig, RoR2.UI.MainMenu.MainMenuController self)
-        {
-            orig(self);
-            SetupLanguage();
-            //SetupConfigLanguage(config);
-            On.RoR2.UI.MainMenu.MainMenuController.Start -= FinalizeLanguage;
-        }
-
-        private static string FormatToken(ReplacementToken replacementToken, string langName)
-        {
-            //GetStringFormatted uses currentLanguage, while we have to use other languages
-            var oldString = RoR2.Language.GetString(replacementToken.formatToken, langName);
-            var newString = string.Format(oldString, replacementToken.args);
-            return newString;
-        }
-
-        private static string FormatToken(string formatToken, string[] args, string langName)
-        {
-            //GetStringFormatted uses currentLanguage, while we have to use other languages
-            var oldString = RoR2.Language.GetString(formatToken, langName);
-            var newString = string.Format(oldString, args);
-            return newString;
-        }
-
-        private static void AssignToken(ReplacementToken token, string langName)
-        {
-            var newString = FormatToken(token, langName);
-            var assignedToken = token.formatToken;
-            if (token.assignedToken == null || token.assignedToken != token.formatToken)
-            {
-                assignedToken = token.assignedToken;
-            }
-            LanguageAPI.Add(assignedToken, newString, langName);
-        }
-
-        private static void SetupLanguage()
-        {
-            ClassicItemsReturnsPlugin.ModLogger.LogMessage($"Setting up language with {replacementTokens.Count + postReplacementTokens.Count} tokens.");
-            DeferTokenFinalize();
-            PostDeferTokenFinalize();
-        }
-
-        private static void DeferTokenFinalize()
-        {
+            RoR2.Language currentLanguage = RoR2.Language.currentLanguage;
+            // defer tokens
             foreach (var replacementToken in replacementTokens)
             {
-                try
-                {
-                    foreach (var lang in RoR2.Language.steamLanguageTable)
-                    {
-                        var langName = lang.Value.webApiName;
-                        AssignToken(replacementToken, langName);
-
-                        /* try
-                        {
-                        }catch
-                        {
-                            Main._logger.LogError($"Failed setting up token \"{langTokenValue.token}\" for language {langTokenValue.lang}." +
-                                $"\nFollowing parameters where given:");
-                            foreach (var str in langTokenValue.strings)
-                            {
-                                Main._logger.LogMessage(str);
-                            }
-                        }
-                        if (langTokenValue.lang == "en")
-                        {
-                            Main._logger.LogMessage($"{langTokenValue.token} {newString}");
-                        } */
-                    }
-                }
-                catch
-                {
-                    ClassicItemsReturnsPlugin.ModLogger.LogError($"Failed to load replacement token {replacementToken.assignedToken}"
-                    + $"Params: {replacementToken.args}");
-                }
+                var newString = currentLanguage.GetLocalizedFormattedStringByToken(replacementToken.formatToken, replacementToken.args);
+                currentLanguage.SetStringByToken(replacementToken.assignedToken, newString);
             }
-        }
-
-        private static void PostDeferTokenFinalize()
-        {
+            // post replacement tokens
             foreach (var postReplacementToken in postReplacementTokens)
             {
-                try
+                List<string> resolvedReplacementTokens = new List<string>();
+                foreach (var tokenArg in postReplacementToken.args)
                 {
-                    foreach (var lang in RoR2.Language.steamLanguageTable)
+                    resolvedReplacementTokens.Add(currentLanguage.GetLocalizedStringByToken(tokenArg.ToString()));
+                    var assignedToken = postReplacementToken.formatToken;
+                    if (postReplacementToken.assignedToken == null || postReplacementToken.assignedToken != postReplacementToken.formatToken)
                     {
-                        var langName = lang.Value.webApiName;
-
-                        List<string> resolvedReplacementTokens = new List<string>();
-                        foreach (var tokenArg in postReplacementToken.args)
-                        {
-                            resolvedReplacementTokens.Add(RoR2.Language.GetString(tokenArg.ToString(), langName));
-                        }
-
-                        var assignedToken = postReplacementToken.formatToken;
-                        if (postReplacementToken.assignedToken == null || postReplacementToken.assignedToken != postReplacementToken.formatToken)
-                        {
-                            assignedToken = postReplacementToken.assignedToken;
-                        }
-
-                        var newString = FormatToken(postReplacementToken.formatToken, resolvedReplacementTokens.ToArray(), langName);
-                        LanguageAPI.Add(assignedToken, newString, langName);
+                        assignedToken = postReplacementToken.assignedToken;
                     }
-                }
-                catch
-                {
-                    ClassicItemsReturnsPlugin.ModLogger.LogError($"Failed to load post replacement token {postReplacementToken.assignedToken}"
-                    + $"Params are wrong?");
+
+                    var newString = currentLanguage.GetLocalizedFormattedStringByToken(postReplacementToken.formatToken, resolvedReplacementTokens.ToArray());
+                    currentLanguage.SetStringByToken(assignedToken, newString);
                 }
             }
         }
 
-        public static string GetToken(string token)
+        private static void CollectLanguageRootFolders(List<string> folders)
         {
-            return RoR2.Language.GetString(token, RoR2.Language.currentLanguageName);
-        }
-
-        /*
-        private static void SetupConfigLanguage(ConfigFile config)
-        {
-            Action<ConfigFile> action = Language.onConfigLoaded;
-            if (action == null)
-            {
-                return;
-            }
-            action(config);
-        }*/
-
-        public class RBS_DestroyLogbookHookOnDestroy : MonoBehaviour
-        {
-            public void Start()
-            {
-                On.RoR2.Language.GetString_string += OverrideGetStringLogbook;
-            }
-
-            private string OverrideGetStringLogbook(On.RoR2.Language.orig_GetString_string orig, string token)
-            {
-                if (logbookTokenOverrideDict.TryGetValue(token, out string overrideToken))
-                {
-                    token = overrideToken;
-                }
-                return orig(token);
-            }
-
-            public void OnDestroy()
-            {
-                On.RoR2.Language.GetString_string -= OverrideGetStringLogbook;
-            }
+            folders.Add(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(ClassicItemsReturnsPlugin.PInfo.Location), "Language"));
         }
     }
 }

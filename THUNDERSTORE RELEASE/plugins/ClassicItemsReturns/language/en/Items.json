@@ -1,5 +1,5 @@
 {
-	strings: {
+	"strings" : {
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
 		"CLASSICITEMSRETURNS_ITEM_MYSTERIOUSVIAL_DESCRIPTION": "Increase <style=cIsHealing>base health regeneration</style> by <style=cIsHealing>+{0} hp/s</style> <style=cStack>(+{1} hp/s per stack)</style>. Scales with level.",
