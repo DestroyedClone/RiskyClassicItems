@@ -67,6 +67,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers
 - Models from FORCED_REASSEMBLY, redacted, Glasus, hollowman104
+- viliger: Fixed languages.
 
 ## Translation Credits
 - Portuguese: Kauzok

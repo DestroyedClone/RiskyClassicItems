@@ -1,3 +1,6 @@
+- `3.4.0`
+	- Fixed Non-EN languages being broken (Thanks Viliger!)
+
 - `3.3.3`
 	- Fixed bug with Korean TL.
 
