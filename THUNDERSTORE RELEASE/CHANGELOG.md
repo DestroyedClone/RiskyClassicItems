@@ -1,3 +1,6 @@
+- `3.4.1`
+	- Fixed Snake Eyes crit damage not scaling with buff stacks and being applied without the buff.
+
 - `3.4.0`
 	- Fixed Non-EN languages being broken (Thanks Viliger!)
 

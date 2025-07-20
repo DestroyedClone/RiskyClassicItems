@@ -245,7 +245,7 @@ namespace ClassicItemsReturns.Items.Common
                 if (sender.HasBuff(Modules.Buffs.SnakeEyesBuffs.Snake6)) mult = 6;
 
                 args.critAdd += critToAdd * mult;
-                args.critDamageMultAdd += critDamageToAdd;
+                args.critDamageMultAdd += critDamageToAdd * mult;
             }
         }
 
