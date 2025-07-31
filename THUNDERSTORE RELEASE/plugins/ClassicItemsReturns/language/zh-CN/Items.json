@@ -7,7 +7,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_NAME": "火焰护盾",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_PICKUP": "受到重伤时点燃附近敌人。",
-		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "受到超过<style=cIsHealth>5%最大生命值</style>的伤害后，爆炸造成<style=cIsDamage>{1}%</style>基础伤害。此外，敌人<style=cIsDamage>燃烧</style>，每秒造成<style=cIsDamage>{2}%</style> <style=cStack>(每层额外+{2}%)</style>基础伤害。",
+		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_DESCRIPTION": "受到超过<style=cIsHealth>8%最大生命值</style>的伤害后，爆炸造成<style=cIsDamage>{1}%</style>基础伤害。此外，敌人<style=cIsDamage>燃烧</style>，每秒造成<style=cIsDamage>{2}%</style> <style=cStack>(每层额外+{2}%)</style>基础伤害。",
 		"CLASSICITEMSRETURNS_ITEM_FIRESHIELD_LORE": "订单：火焰护盾\r\n跟踪号码：1507***********\r\n预计送达时间：2056年3月6日\r\n运输方式：标准\r\n收件人：Soloman\r\n收货地址：火星，Backwaters，-\r\n运输详情：\r\n\r\n这东西只完成了一半，但能完成任务。通量链非常不稳定，受到打击时会发生大爆炸。请小心处理！",
 
 		"CLASSICITEMSRETURNS_ITEM_BITTERROOT_NAME": "苦根",
@@ -29,9 +29,9 @@
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "订单：毒素\r\n预计送达时间：2056年4月30日\r\n运输方式：未标记\r\n收货地址：地球，黄金城，EICO实验室\r\n运输详情：\r\n\r\n测试总结\r\n[id.416c7068615468726565]\r\n受试者稳定 - 显著的兴奋水平。\r\n增加分散倾向。\r\n如果活跃，需要特殊 containment。\r\nN31 已应用，观察不良反应。\r\n此阶段禁止处理。\r\nAOD: 53 75 6e 46 61 6c 6c",
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "蛇眼",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "使用神龛增加暴击几率。",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>使用神龛</style>增加<style=cIsDamage>暴击几率</style> <style=cIsDamage>{0}%</style> <style=cStack>(每层额外+{0}%)</style>，最多<style=cIsDamage>6次</style>。每阶段开始时重置。",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "订单：蛇眼\r\n跟踪号码：1500***********\r\n预计送达时间：2056年1月1日\r\n运输方式：标准\r\n收货地址：金星，GMG服务，第1843号\r\n运输详情：\r\n\r\n你这个肮脏的……你知道我必须赢才能还清债务。你和赌场有勾结吗？当然有；像你这样的蛇会这样做。一个为蛇眼加载的骰子。聪明的举动，……\r\n\r\n我会来找你的，……",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "使用神龛会提升暴击率和暴击伤害。",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>使用神龛</style>会使<style=cIsDamage>暴击率</style>提升<style=cIsDamage>{0}%</style>，<style=cIsDamage>暴击伤害</style>提升<style=cIsDamage>{1}%</style><style=cStack>（每层额外+{2}%）</style>，最多可叠加<style=cIsDamage>6次</style>。每层效果会在每个关卡开始时重置。",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "订单：蛇眼\r\n追踪编号：1500***********\r\n预计送达时间：2056年1月1日\r\n配送方式：标准配送\r\n配送地址：金星，GMG服务中心，1843号\r\n配送详情：\r\n\r\n你这个卑鄙的混蛋。你明知道我必须赢才能还清债务。你和那些赌场是一伙的吧？你当然是了，像你这样的毒蛇肯定会这么做。一颗被灌了铅、专出蛇眼的骰子。真是个聪明的把戏，混蛋。\n\n我来找你了，该死的。",
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "锋利硬币",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "略微增加暴击几率。暴击给你金币。",
@@ -135,11 +135,11 @@
 		"CLASSICITEMSRETURNS_ITEM_USB_PICKUP": "访问一种致命武器对抗传送器Boss。",
 		"CLASSICITEMSRETURNS_ITEM_USB_DESCRIPTION": "每阶段出现一个<style=cIsDamage>阿特拉斯加农炮</style>，激活后对<style=cIsDamage>传送器Boss</style>造成<style=cIsDamage>40%</style> <style=cStack>(每层额外+20%)</style>最大生命值的伤害。",
 		"CLASSICITEMSRETURNS_ITEM_USB_LORE": "订单：机密访问代码\r\n跟踪号码：3190***********\r\n预计送达时间：2056年10月2日\r\n运输方式：高优先/易碎\r\n收件人：Randall P.\r\n收货地址：[已编辑]，[已编辑]，第24号碎片\r\n运输详情：\r\n\r\n当前指定任务所需的物品。\r\n遵循表格[已编辑]上所述的所有协议。\r\n在[已编辑]发送。\r\n在[已编辑]监控，不惜一切代价保持秘密。",
-		
-		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_NAME": "迫击炮",
-		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_PICKUP": "有几率发射一枚迫击炮弹。",
-		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_DESCRIPTION": "<命中时有<style=cIsDamage>{0}%</style>的几率发射一枚迫击炮弹，造成<style=cIsDamage>{1}%<style=cStack>（每层+{2}%）</style>总伤害</style>。",
-		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_LORE": "Order: Mortar Tube\r\nTracking Number: 1487***********\r\nEstimated Delivery: 05\/19\/1946\r\nShipping Method: MILITARY\r\nShipping Address: 437 West, Old Bunker, Earth\r\nShipping Details:\r\n\r\nWell, uh.. it's a little outdated. You stick explosives down the end, then you fire the explosive. With more explosives. If you're trying to reduce your injury rate, don't use these.\n\nOther than its archaic design, the mortar tube is actually pretty decent if you can get a lot of them in a battery.  Can blanket a big area, like [REDACTED]. I suppose you can beat them with the tube afterwards",
+
+		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_NAME": "迫击炮管",
+		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_PICKUP": "有几率发射迫击炮。",
+		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_DESCRIPTION": "<style=cIsDamage>{0}%</style>几率发射迫击炮，造成 <style=cIsDamage>{1}%<style=cStack>（每堆叠 +{2}%）</style></style>总伤害。",
+		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_LORE": "订单：迫击炮管 \r\n 追踪编号：1487***********\r\n 预计送达时间：1946 年 5 月 19 日 \r\n 配送方式：军方配送 \r\n 配送地址：地球，旧掩体，西 437 号 \r\n 配送详情：\r\n\r\n 嗯，呃…… 这玩意儿有点过时了。你把炸药从一端塞进去，然后用更多炸药把它发射出去。要是你想降低受伤率，就别用这东西。\n\n 抛开其陈旧的设计不谈，要是能把很多迫击炮管组成炮群，其实还挺不错的。可以覆盖一大片区域，比如 [已编辑]。我觉得你之后还能用这炮管揍他们"
 	}
 }
 

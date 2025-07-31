@@ -1,3 +1,6 @@
+- `3.4.2`
+	- Updated CN TL for Snake Eyes.
+
 - `3.4.1`
 	- Fixed Snake Eyes crit damage not scaling with buff stacks and being applied without the buff.
 
