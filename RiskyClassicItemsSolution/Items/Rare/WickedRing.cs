@@ -4,6 +4,7 @@ using ClassicItemsReturns.Modules;
 using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
+using System;
 
 namespace ClassicItemsReturns.Items.Rare
 {
@@ -70,8 +71,19 @@ namespace ClassicItemsReturns.Items.Rare
             else
             {
                 RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
-                SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryActions += CooldownOnCrit;
+                SneedHooks.ProcessHitEnemy.OnHitAttackerActions += CooldownOnCrit;
             }
+        }
+
+        private void CooldownOnCrit(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
+        {
+            if (!damageInfo.crit || damageInfo.procCoefficient <= 0f || !attackerBody.inventory || !attackerBody.skillLocator) return;
+            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+
+            int itemStack = itemCount - 1;
+            float totalReduction = cdr + itemStack * cdrStack;
+            attackerBody.skillLocator.DeductCooldownFromAllSkillsServer(totalReduction * damageInfo.procCoefficient);
         }
 
         private void CooldownOnKill(GlobalEventManager globalEventManager, DamageReport damageReport, CharacterBody attackerBody, Inventory attackerInventory)

@@ -61,12 +61,13 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryAndVictimBodyActions += BoxingGlovesOnHit;
+            SneedHooks.ProcessHitEnemy.OnHitAttackerActions += OnHit;
         }
 
-        private void BoxingGlovesOnHit(GlobalEventManager globalEventManager, DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody, Inventory attackerInventory)
+        private void OnHit(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
         {
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            if (!attackerBody.inventory) return;
+            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
 
             float chance = Utils.ItemHelpers.StackingLinear(itemCount, this.chance, chanceStack);

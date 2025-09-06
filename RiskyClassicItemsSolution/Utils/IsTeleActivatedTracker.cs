@@ -34,61 +34,61 @@ namespace ClassicItemsReturns.Utils
         private void MeridianEventStart_OnEnter1(On.EntityStates.MeridianEvent.MeridianEventStart.orig_OnEnter orig, EntityStates.MeridianEvent.MeridianEventStart self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void GoldshoresBossfight_SpawnBoss(On.EntityStates.Missions.Goldshores.GoldshoresBossfight.orig_SpawnBoss orig, EntityStates.Missions.Goldshores.GoldshoresBossfight self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void StartHurt_OnEnter(On.EntityStates.ArtifactShell.StartHurt.orig_OnEnter orig, EntityStates.ArtifactShell.StartHurt self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void Charging_OnEnter(On.EntityStates.DeepVoidPortalBattery.Charging.orig_OnEnter orig, EntityStates.DeepVoidPortalBattery.Charging self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void MoonBatteryActive_OnEnter(On.EntityStates.Missions.Moon.MoonBatteryActive.orig_OnEnter orig, EntityStates.Missions.Moon.MoonBatteryActive self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void ArenaMissionController_BeginRound(On.RoR2.ArenaMissionController.orig_BeginRound orig, ArenaMissionController self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void BrotherEncounterPhaseBaseState_OnEnter(On.EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.BrotherEncounterPhaseBaseState self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void ChargedState_OnEnter(On.RoR2.TeleporterInteraction.ChargedState.orig_OnEnter orig, TeleporterInteraction.ChargedState self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void Active_OnEnter(On.EntityStates.InfiniteTowerSafeWard.Active.orig_OnEnter orig, EntityStates.InfiniteTowerSafeWard.Active self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void ChargingState_OnEnter(On.RoR2.TeleporterInteraction.ChargingState.orig_OnEnter orig, TeleporterInteraction.ChargingState self)
         {
             orig(self);
-            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivated();
         }
 
         private void Travelling_OnEnter(On.EntityStates.InfiniteTowerSafeWard.Travelling.orig_OnEnter orig, EntityStates.InfiniteTowerSafeWard.Travelling self)
@@ -102,7 +102,16 @@ namespace ClassicItemsReturns.Utils
             IsTeleActivatedTracker.teleporterActivated = false;
 
             SceneDef currentScene = SceneCatalog.GetSceneDefForCurrentScene();
-            if (currentScene && alwaysActiveStages.Contains(currentScene.cachedName)) IsTeleActivatedTracker.teleporterActivated = true;
+            if (currentScene && alwaysActiveStages.Contains(currentScene.cachedName)) OnTPActivated();
         }
+
+        public static void OnTPActivated()
+        {
+            if (IsTeleActivatedTracker.teleporterActivated) return;
+            IsTeleActivatedTracker.teleporterActivated = true;
+            OnTPActivatedActions?.Invoke();
+        }
+        public delegate void OnTPActivatedDelegate();
+        public static OnTPActivatedDelegate OnTPActivatedActions;
     }
 }

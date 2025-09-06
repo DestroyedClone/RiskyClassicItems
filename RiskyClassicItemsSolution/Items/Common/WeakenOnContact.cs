@@ -8,6 +8,8 @@ using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
 using ClassicItemsReturns.SharedHooks;
+using SneedHooks;
+using System;
 
 namespace ClassicItemsReturns.Items.Common
 {
@@ -59,16 +61,30 @@ namespace ClassicItemsReturns.Items.Common
 
         public override void Hooks()
         {
-            SharedHooks.ModifyFinalDamage.ModifyFinalDamageActions += ModifyDamage;
+            if (ModSupport.LinearDamage.loaded)
+            {
+                SneedHooks.ModifyFinalDamage.ModifyFinalDamageActions += ModifyFinalDamage_Additive;
+            }
+            else
+            {
+                SneedHooks.ModifyFinalDamage.ModifyFinalDamageActions += ModifyFinalDamage;
+            }
         }
 
-        private static void ModifyDamage(SharedHooks.ModifyFinalDamage.DamageMult damageMult, DamageInfo damageInfo,
-            HealthComponent victim, CharacterBody victimBody,
-            CharacterBody attackerBody, Inventory attackerInventory)
+        private void ModifyFinalDamage_Additive(ModifyFinalDamage.DamageModifierArgs damageModifierArgs, DamageInfo damageInfo, HealthComponent victim, CharacterBody victimBody)
         {
             if (victimBody.HasBuff(Buffs.WeakenOnContactBuff))
             {
-                damageMult.damageMult += 0.2f;
+                damageModifierArgs.damageMultAdd += 0.2f;
+                if (damageInfo.damageColorIndex == DamageColorIndex.Default) damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
+            }
+        }
+
+        private void ModifyFinalDamage(ModifyFinalDamage.DamageModifierArgs damageModifierArgs, DamageInfo damageInfo, HealthComponent victim, CharacterBody victimBody)
+        {
+            if (victimBody.HasBuff(Buffs.WeakenOnContactBuff))
+            {
+                damageModifierArgs.damageMultFinal *= 1.2f;
                 if (damageInfo.damageColorIndex == DamageColorIndex.Default) damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
             }
         }

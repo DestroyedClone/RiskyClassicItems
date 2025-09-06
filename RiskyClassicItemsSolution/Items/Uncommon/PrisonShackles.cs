@@ -1,6 +1,7 @@
 ﻿using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
+using System;
 using UnityEngine;
 
 namespace ClassicItemsReturns.Items.Uncommon
@@ -43,8 +44,21 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryAndVictimBodyActions += ApplyShackles;
+            SneedHooks.ProcessHitEnemy.OnHitAttackerActions += ApplyShackles;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void ApplyShackles(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
+        {
+            if (!attackerBody.inventory) return;
+            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+
+            int itemStack = itemCount - 1;
+            float totalDuration = (duration + itemStack * durationStack) * damageInfo.procCoefficient;
+            if (totalDuration <= 0f) return;
+
+            victimBody.AddTimedBuff(Buffs.ShacklesBuff, totalDuration);
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
@@ -53,18 +67,6 @@ namespace ClassicItemsReturns.Items.Uncommon
             {
                 args.attackSpeedReductionMultAdd += (1f / (1f - attackSpeedSlowMultiplier)) - 1f;
             }
-        }
-
-        private void ApplyShackles(GlobalEventManager globalEventManager, DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody, Inventory attackerInventory)
-        {
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
-            if (itemCount <= 0) return;
-
-            int itemStack = itemCount - 1;
-            float totalDuration = (duration + itemStack * durationStack) * damageInfo.procCoefficient;
-            if (totalDuration <= 0f) return;
-
-            victimBody.AddTimedBuff(Buffs.ShacklesBuff, totalDuration);
         }
     }
 }

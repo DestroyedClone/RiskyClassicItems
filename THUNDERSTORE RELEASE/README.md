@@ -7,7 +7,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | Icon | Item | Desc |
 |:--:|:--:|--|
 | Common | | |
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dArcaneBlades.png) | Arcane Blades | Increases **movement speed** by **20%** *(+20% per stack)* after the **Teleporter** has been activated.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dArcaneBlades.png) | Arcane Blades | Increases **movement speed** by **25%** *(+25% per stack)* after the **Teleporter** has been activated.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dRoot.png) | Bitter Root | Increase **base health regeneration** by **2 hp/s** for **2s** *(+2s per stack)* after killing an enemy. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dFireShield.png) | Fire Shield | After taking more than **5% of your maximum health** as damage, explode for **200%** base damage. Additionally, enemies **burn** for **200%** *(+200% per stack)* base damage.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPig.png) | Life Savings | Generate **1** *(+1 per stack)* **gold** every **3 seconds**. Scales with time.

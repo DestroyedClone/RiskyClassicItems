@@ -48,7 +48,17 @@ namespace ClassicItemsReturns.Items.Common
         {
             base.Hooks();
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
-            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryActions += GoldOnCrit;
+            SneedHooks.ProcessHitEnemy.OnHitAttackerActions += GoldOnCrit;
+        }
+
+        private void GoldOnCrit(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
+        {
+            if (!damageInfo.crit || !attackerBody.master || !attackerBody.master.inventory) return;
+            int itemCount = attackerBody.master.inventory.GetItemCount(ItemDef);
+            if (itemCount <= 0) return;
+            if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
+
+            attackerBody.master.GiveMoney((uint)(goldOnHit * itemCount));
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
@@ -58,16 +68,6 @@ namespace ClassicItemsReturns.Items.Common
                 int itemCount = sender.inventory.GetItemCount(ItemDef);
                 args.critAdd += itemCount * critChance;
             }
-        }
-
-        private void GoldOnCrit(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory)
-        {
-            if (!damageInfo.crit || !attackerBody.master) return;
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
-            if (itemCount <= 0) return;
-            if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
-
-            attackerBody.master.GiveMoney((uint)(goldOnHit * itemCount));
         }
     }
 }

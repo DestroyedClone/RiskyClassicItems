@@ -1,3 +1,9 @@
+- `3.5.0`
+	- Moved damage amplification and on-hit effects to SneedHooks.
+	- Arcane Blades
+		- Buffed from 20% -> 25%
+		- Fixed stat boost not immediately being recalculated on TP Activate.
+
 - `3.4.2`
 	- Updated CN TL for Snake Eyes.
 

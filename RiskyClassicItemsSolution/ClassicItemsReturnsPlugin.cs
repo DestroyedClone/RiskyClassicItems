@@ -32,6 +32,8 @@ namespace ClassicItemsReturns
     [BepInDependency(R2API.LanguageAPI.PluginGUID)]
     [BepInDependency(R2API.DamageAPI.PluginGUID)]
     [BepInDependency(R2API.OrbAPI.PluginGUID)]
+    [BepInDependency("com.RiskyLives.SneedHooks")]
+    [BepInDependency("com.RiskyLives.LinearDamage", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatRiskOfOptions.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatRiskyMod.guid, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(ModSupport.ModCompatAssistManager.guid, BepInDependency.DependencyFlags.SoftDependency)]
@@ -40,7 +42,7 @@ namespace ClassicItemsReturns
     {
         public const string ModGuid = "com.RiskySleeps.ClassicItemsReturns";
         public const string ModName = "Classic Items Returns";
-        public const string ModVer = "3.4.1";
+        public const string ModVer = "3.5.0";
 
         //For RiskOfOptions
         public const string ModDescription = "Adds items and equipment from Risk of Rain and Risk of Rain Returns.";
@@ -88,9 +90,7 @@ namespace ClassicItemsReturns
             AddToAssembly();
             Dots.Initialize();
             SharedHooks.TakeDamage.Initialize();
-            SharedHooks.OnHitEnemy.Initialize();
             SharedHooks.OnCharacterDeath.Initialize();
-            SharedHooks.ModifyFinalDamage.Initialize();
             new IsTeleActivatedTracker();
             //ReadmeGeneratorMain.Init();
             //On.RoR2.Networking.NetworkManagerSystemSteam.OnClientConnect += (s, u, t) => { };

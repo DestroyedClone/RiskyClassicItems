@@ -175,6 +175,9 @@
     <Reference Include="SimpleJSON">
       <HintPath>libs\SimpleJSON.dll</HintPath>
     </Reference>
+    <Reference Include="SneedHooks">
+      <HintPath>libs\HardDependencies\SneedHooks.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>libs\Unity.Addressables.dll</HintPath>
     </Reference>

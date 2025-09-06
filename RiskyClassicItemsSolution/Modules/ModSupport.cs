@@ -21,6 +21,13 @@ namespace ClassicItemsReturns.Modules
             {
                 ModCompatAssistManager.Init();
             }
+            LinearDamage.loaded = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(LinearDamage.guid);
+        }
+
+        internal class LinearDamage
+        {
+            internal const string guid = "com.RiskyLives.LinearDamage";
+            internal static bool loaded = false;
         }
 
         internal class ModCompatRiskOfOptions

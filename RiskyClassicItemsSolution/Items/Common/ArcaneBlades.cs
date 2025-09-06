@@ -29,7 +29,7 @@ namespace ClassicItemsReturns.Items.Common
             ItemTag.Utility
         };
 
-        public float speedIncrease = 0.2f;
+        public float speedIncrease = 0.25f;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
@@ -40,6 +40,21 @@ namespace ClassicItemsReturns.Items.Common
         {
             base.Hooks();
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+            IsTeleActivatedTracker.OnTPActivatedActions += ApplySpeedBoost;
+        }
+
+        private void ApplySpeedBoost()
+        {
+            foreach (CharacterMaster cm in CharacterMaster.instancesList)
+            {
+                if (!cm.inventory) continue;
+
+                if (cm.inventory && cm.inventory.GetItemCount(Instance.ItemDef) > 0)
+                {
+                    CharacterBody cb = cm.GetBody();
+                    if (cb) cb.RecalculateStats();
+                }
+            }
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)

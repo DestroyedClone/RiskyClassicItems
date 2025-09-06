@@ -90,8 +90,29 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryAndVictimBodyActions += ProcItem;
+            SneedHooks.ProcessHitEnemy.OnHitAttackerActions += SpawnOrb;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void SpawnOrb(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
+        {
+            if(!victimBody.isChampion && !victimBody.isBoss) return;
+            if (!RoyalMedallionPickup.CanSpawnPickup() || !attackerBody.inventory) return;
+
+            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            if (!(itemCount > 0 && Util.CheckRoll(procChance, attackerBody.master))) return;
+
+            GameObject buffObject = UnityEngine.Object.Instantiate(buffObjectPrefab, damageInfo.position, UnityEngine.Random.rotation);
+
+            TeamFilter teamFilter = buffObject.GetComponent<TeamFilter>();
+            teamFilter.teamIndex = attackerBody.teamComponent ? attackerBody.teamComponent.teamIndex : TeamIndex.None;
+
+            var pickup = buffObject.GetComponentInChildren<RoyalMedallionPickup>();
+            pickup.team = teamFilter;
+            pickup.buffDuration = ItemHelpers.StackingLinear(itemCount, buffDuration, buffDurationStack);
+            pickup.baseObject = buffObject;
+
+            NetworkServer.Spawn(buffObject);
         }
 
         //Based on SS2U Stirring Soul code.

@@ -66,21 +66,14 @@ namespace ClassicItemsReturns.Items.Rare
 
         public override void Hooks()
         {
-            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryActions += ApplyThallium;
+            SneedHooks.ProcessHitEnemy.OnHitAttackerActions += ApplyThallium;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
         }
 
-        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        private void ApplyThallium(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
         {
-            if (sender.HasBuff(Buffs.ThalliumBuff))
-            {
-                args.moveSpeedReductionMultAdd += enemyMoveSpeedCoef;
-            }
-        }
-
-        private void ApplyThallium(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory)
-        {
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            if (!attackerBody.inventory) return;
+            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
 
             if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
@@ -92,10 +85,18 @@ namespace ClassicItemsReturns.Items.Rare
                 attackerObject = damageInfo.attacker,
                 dotIndex = Dots.Thallium.CIR_ThalliumDotIndex,
                 maxStacksFromAttacker = new uint?(1U),
-                victimObject = victim,
+                victimObject = victimBody.gameObject,
                 duration = duration,
             };
             DotController.InflictDot(ref inflictDotInfo);
+        }
+
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            if (sender.HasBuff(Buffs.ThalliumBuff))
+            {
+                args.moveSpeedReductionMultAdd += enemyMoveSpeedCoef;
+            }
         }
     }
 }

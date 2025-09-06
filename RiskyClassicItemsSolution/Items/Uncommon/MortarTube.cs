@@ -115,17 +115,17 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            SharedHooks.OnHitEnemy.OnHitEnemyAttackerInventoryAndVictimBodyActions += MortarTubeOnHit;
+            SneedHooks.ProcessHitEnemy.OnHitAttackerActions += FireMortar;
         }
 
         private static float minDistance = 5f;
         private static float maxDistance = 60f;
         private static float timeToTarget = 1f; //Mushrum is 1.5
-        private void MortarTubeOnHit(GlobalEventManager globalEventManager, DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody, Inventory attackerInventory)
+        private void FireMortar(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
         {
-            if (damageInfo.damage <= 0f || !attackerBody) return;
+            if (damageInfo.damage <= 0f || !attackerBody || !attackerBody.inventory) return;
 
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
             if (itemCount <= 0) return;
 
             float chance = procChance;
