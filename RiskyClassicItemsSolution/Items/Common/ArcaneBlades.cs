@@ -52,7 +52,7 @@ namespace ClassicItemsReturns.Items.Common
                 if (cm.inventory && cm.inventory.GetItemCount(Instance.ItemDef) > 0)
                 {
                     CharacterBody cb = cm.GetBody();
-                    if (cb) cb.RecalculateStats();
+                    if (cb) cb.statsDirty = true;
                 }
             }
         }
