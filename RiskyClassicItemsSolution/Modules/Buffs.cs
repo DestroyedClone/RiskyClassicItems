@@ -21,6 +21,7 @@ namespace ClassicItemsReturns.Modules
         public static BuffDef WeakenOnContactBuff;
         public static BuffDef DroneRepairBuff;
         public static BuffDef RoyalMedallionBuff;
+        public static BuffDef GuardiansHeartReadyBuff;
 
         public static BuffDef HitListEnemyMarker;
         public static BuffDef HitListPlayerBuff;
@@ -125,6 +126,16 @@ namespace ClassicItemsReturns.Modules
 
         private static void InitializeBuffDefs()
         {
+            GuardiansHeartReadyBuff = CreateBuffInternal("CIR_GuardiansHeartReady",
+                            Color.white,
+                            false,
+                            null,
+                            Modules.Assets.LoadSprite("texBuffPills"),
+                            false,
+                            false,
+                            false,
+                            null);  //TODO CHANGE ICON
+
             DrugsBuff = CreateBuffInternal("CIR_Prescriptions",
                             Color.white,
                             false,
