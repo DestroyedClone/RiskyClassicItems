@@ -1,3 +1,7 @@
+- `3.6.0`
+	- Guardian's Heart
+		- Gain 12% (+12%) max health as shield. Heath damage from attacks that break your shield is negated. Recharges at full shield.
+
 - `3.5.0`
 	- Moved damage amplification and on-hit effects to SneedHooks.
 	- Arcane Blades
