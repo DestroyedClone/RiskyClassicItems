@@ -41,7 +41,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override void Hooks()
         {
-            IL.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            IL.RoR2.HealthComponent.TakeDamageProcess += HealthComponent_TakeDamageProcess;
             On.RoR2.HealthComponent.ServerFixedUpdate += ManageBuff;
             CharacterBody.onBodyInventoryChangedGlobal += CharacterBody_onBodyInventoryChangedGlobal;
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
@@ -95,19 +95,14 @@ namespace ClassicItemsReturns.Items.Uncommon
             }
         }
 
-        private void HealthComponent_TakeDamage(MonoMod.Cil.ILContext il)
+        private void HealthComponent_TakeDamageProcess(MonoMod.Cil.ILContext il)
         {
             ILCursor c = new ILCursor(il);
-            if (c.TryGotoNext(
-                 x => x.MatchLdloc(8),
-                 x => x.MatchLdarg(0),
+            if (c.TryGotoNext(MoveType.After,
                  x => x.MatchLdfld<HealthComponent>("shield"),
-                 x => x.MatchSub(),
-                 x => x.MatchStloc(8),
-                 x => x.MatchLdarg(0)
+                 x => x.MatchSub()
                 ))
             {
-                c.Index += 4;
                 c.Emit(OpCodes.Ldarg_0);
                 c.Emit(OpCodes.Ldarg_1);
                 c.EmitDelegate<Func<float, HealthComponent, DamageInfo, float>>((remainingDamage, self, damageInfo) =>
@@ -117,11 +112,17 @@ namespace ClassicItemsReturns.Items.Uncommon
                     || (damageInfo.damageType & DamageType.BypassBlock) == DamageType.BypassBlock
                     || (damageInfo.damageType & DamageType.VoidDeath) == DamageType.VoidDeath;
 
+                   /* Debug.Log((damageInfo.damageType & DamageType.BypassArmor) == DamageType.BypassArmor);
+                    Debug.Log((damageInfo.damageType & DamageType.BypassOneShotProtection) == DamageType.BypassOneShotProtection);
+                    Debug.Log((damageInfo.damageType & DamageType.BypassBlock) == DamageType.BypassBlock);
+                    Debug.Log((damageInfo.damageType & DamageType.VoidDeath) == DamageType.VoidDeath);*/
+
                     CharacterBody body = self.body;
                     bool canShieldgate = !bypassShield && body.HasBuff(Buffs.GuardiansHeartReadyBuff);
 
                     if (canShieldgate)
                     {
+                        Debug.Log("Triggered shieldgate");
                         body.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility.buffIndex, Time.fixedDeltaTime);
                         remainingDamage = 0f;
                     }
