@@ -130,11 +130,11 @@ namespace ClassicItemsReturns.Modules
                             Color.white,
                             false,
                             null,
-                            Modules.Assets.LoadSprite("texBuffPills"),
+                            Modules.Assets.LoadSprite("texBuffGuardiansHeart"),
                             false,
                             false,
                             false,
-                            null);  //TODO CHANGE ICON
+                            null);
 
             DrugsBuff = CreateBuffInternal("CIR_Prescriptions",
                             Color.white,
