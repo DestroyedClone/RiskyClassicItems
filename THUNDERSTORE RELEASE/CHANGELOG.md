@@ -1,3 +1,11 @@
+- `3.6.1`
+	- Guardian's Heart
+		- Changed effect from Full Damage Negation to "Gain 100 armor (+100 per stack) against hits that break your shield".
+			- Once the shield breaks, any remaining damage is subject to the armor bonus.
+			- Old invuln is available in the config.
+		
+		*Being able to facetank Mithrix was too much, but adding a "bosses negate shieldgating" option like RiskyMod seemed weird for an actual item. This takes the Armor part of Lost in Transit's Guardian's Heart and uses that as the main form of defense.*
+
 - `3.6.0`
 	- Guardian's Heart
 		- Gain 12% (+12%) max health as shield. Heath damage from attacks that break your shield is negated. Recharges at full shield.
