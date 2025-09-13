@@ -5,6 +5,15 @@
 			- Old invuln is available in the config.
 		
 		*Being able to facetank Mithrix was too much, but adding a "bosses negate shieldgating" option like RiskyMod seemed weird for an actual item. This takes the Armor part of Lost in Transit's Guardian's Heart and uses that as the main form of defense.*
+		
+	- Classified Access Codes
+		- Added CannotCopy itemtag.
+		
+	- 56 Leaf Clover
+		- Added CannotCopy itemtag.
+		
+	- Locked Jewel
+		- Added DevotionBlacklist itemtag.
 
 - `3.6.0`
 	- Guardian's Heart

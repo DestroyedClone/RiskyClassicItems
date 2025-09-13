@@ -77,7 +77,8 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.AIBlacklist,
-            ItemTag.Damage
+            ItemTag.Damage,
+            ItemTag.CannotCopy
         };
 
         public override void Hooks()

@@ -29,7 +29,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.AIBlacklist,
             ItemTag.BrotherBlacklist,
             ItemTag.OnKillEffect,
-            ItemTag.Utility
+            ItemTag.Utility,
+            ItemTag.CannotCopy
         };
 
         public const float cloverPercentageDropChance = 4.5f;
