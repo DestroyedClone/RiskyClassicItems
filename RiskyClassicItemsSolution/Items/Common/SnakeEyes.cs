@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 namespace ClassicItemsReturns.Items.Common
 {
@@ -43,13 +44,24 @@ namespace ClassicItemsReturns.Items.Common
             "moon2",
             "arena",
             "goldshores",
-            "voidstage"
+            "voidstage",
+            "enemiesreturns_outoftime"
         };
 
         public static HashSet<string> teamwideProcShrineList = new HashSet<string>
         {
             "SHRINE_HALCYONITE_NAME",
             "SHRINE_BOSS_NAME"
+        };
+
+        public static HashSet<string> shrineListSingleProc = new HashSet<string>
+        {
+            "LynxShrinePrefab2"
+        };
+
+        public static HashSet<string> shrineListTeamProc = new HashSet<string>
+        {
+            "LynxShrinePrefab2"
         };
 
         public float critChance = 7.5f;
@@ -70,7 +82,7 @@ namespace ClassicItemsReturns.Items.Common
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
             Inventory.onInventoryChangedGlobal += Inventory_onInventoryChangedGlobal;
             //ShrineChanceBehavior.onShrineChancePurchaseGlobal += DiceOnShrineFail;
-            On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrineUse;
+            On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrinePurchase;
             Stage.onStageStartGlobal += ResetCountOnStageStart;
             CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
             On.RoR2.GeodeController.OnInteractionBegin += GeodeController_OnInteractionBegin;
@@ -78,6 +90,48 @@ namespace ClassicItemsReturns.Items.Common
             On.EntityStates.Missions.Moon.MoonBatteryActive.OnEnter += MoonBatteryActive_OnEnter;
             On.EntityStates.Missions.Arena.NullWard.Active.OnEnter += Active_OnEnter;
             On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
+
+            On.RoR2.Interactor.PerformInteraction += Interactor_PerformInteraction;
+            On.RoR2.ScrapperController.CreateItemTakenOrb += ScrapperController_CreateItemTakenOrb;
+        }
+
+        private void ScrapperController_CreateItemTakenOrb(On.RoR2.ScrapperController.orig_CreateItemTakenOrb orig, Vector3 effectOrigin, GameObject targetObject, ItemIndex itemIndex)
+        {
+            orig(effectOrigin, targetObject, itemIndex);
+
+            if (!NetworkServer.active) return;
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name != "enemiesreturns_outoftime") return;
+            if (targetObject.name == "JudgementInteractable")
+            {
+                ProcSnakeEyesForTeam(TeamIndex.Player);
+            }
+
+        }
+
+        private void Interactor_PerformInteraction(On.RoR2.Interactor.orig_PerformInteraction orig, Interactor self, GameObject interactableObject)
+        {
+            orig(self, interactableObject);
+
+            if (!NetworkServer.active || !interactableObject || interactableObject.GetComponent<PurchaseInteraction>()) return;
+
+            String filteredName = interactableObject.name.Replace("(Clone)", "").Trim();
+            if (shrineListSingleProc.Contains(filteredName))
+            {
+                CharacterBody body = self.GetComponent<CharacterBody>();
+                if (body && body.master)
+                {
+                    ProcSnakeEyes(body.master);
+                }
+            }
+            else if (shrineListTeamProc.Contains(filteredName))
+            {
+                CharacterBody body = self.GetComponent<CharacterBody>();
+                if (body && body.teamComponent)
+                {
+                    ProcSnakeEyesForTeam(body.teamComponent.teamIndex);
+                }
+            }
         }
 
         public void ProcSnakeEyesForTeam(TeamIndex index)
@@ -100,7 +154,7 @@ namespace ClassicItemsReturns.Items.Common
             if (body) mset.Increment(body);
         }
 
-        private void DiceOnShrineUse(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
+        private void DiceOnShrinePurchase(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)
         {
             //Duplicated check, ugly
             bool canBeAfforded = self.CanBeAffordedByInteractor(activator);

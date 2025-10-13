@@ -1,3 +1,7 @@
+- `3.6.2`
+	- Snake Eyes
+		- EnemiesReturns compat.
+
 - `3.6.1`
 	- Guardian's Heart
 		- Changed effect from Full Damage Negation to "Gain 100 armor (+100 per stack) against hits that break your shield".
