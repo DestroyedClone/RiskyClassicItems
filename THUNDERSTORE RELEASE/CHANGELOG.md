@@ -1,3 +1,6 @@
+- `3.6.3`
+	- Added missing Lynx shrine variants to Snake Eyes EnemiesRetunrs compat.
+
 - `3.6.2`
 	- Snake Eyes
 		- EnemiesReturns compat.
