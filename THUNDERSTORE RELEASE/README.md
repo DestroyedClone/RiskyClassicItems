@@ -62,13 +62,13 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 
 - LostInTransit: Some item implementations
 - ClassicItems: Some item implementations
-- DestroyedClone: Coding
-- Moffein: Coding and Unity stuff
+- DestroyedClone: Developer
+- Moffein: Developer
+- viliger: Developer
 - Rob: Code for Mortar Tube
 - KomradeSpectre: ItemModBoilerplate
 - whitedude: Artifact of Clovers
 - Models from FORCED_REASSEMBLY, redacted, Glasus, hollowman104
-- viliger: Fixed languages.
 
 ## Translation Credits
 - Portuguese: Kauzok

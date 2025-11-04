@@ -1,3 +1,6 @@
+- `3.6.4`
+	- Fixed pixel scaling on icons. (Thanks viliger!)
+
 - `3.6.3`
 	- Added missing Lynx shrine variants to Snake Eyes EnemiesRetunrs compat.
 
