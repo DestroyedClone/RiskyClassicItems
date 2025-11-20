@@ -40,7 +40,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.Utility
+            ItemTag.Utility,
+            ItemTag.CanBeTemporary
         };
 
         public override bool Unfinished => true;

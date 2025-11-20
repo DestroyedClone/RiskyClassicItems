@@ -15,17 +15,17 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override string ItemLangTokenName => "GOLDENGUN";
 
-        public static uint goldNeeded = 40;
-        public static uint goldNeededPerStack = 20;
+        public static uint buffCount = 40;
+        public static uint buffCountPerStack = 20;
         public static uint goldCap = 300;
         public static uint goldCapPerStack = 150;
 
         public override object[] ItemFullDescriptionParams => new object[]
         {
-            goldNeeded,
-            goldNeededPerStack,
+            buffCount,
+            buffCountPerStack,
             goldCap,
-            goldCapPerStack,
+            goldCapPerStack
         };
 
         public override ItemTier Tier => ItemTier.Tier2;
@@ -42,7 +42,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary
         };
 
         public override void Hooks()
@@ -99,7 +100,7 @@ namespace ClassicItemsReturns.Items.Uncommon
                     int singleStackCost = Stage.instance ? Run.instance.GetDifficultyScaledCost((int)goldCap, Stage.instance.entryDifficultyCoefficient) : Run.instance.GetDifficultyScaledCost((int)goldCap);
 
                     int maxCost = (int)Utils.ItemHelpers.StackingLinear(stack, singleStackCost, goldCapPerStack);
-                    int maxBuffs = (int)Utils.ItemHelpers.StackingLinear(stack, goldNeeded, goldNeededPerStack);
+                    int maxBuffs = (int)Utils.ItemHelpers.StackingLinear(stack, buffCount, buffCountPerStack);
 
                     float moneyPercent = (float)body.master.money / maxCost;
                     int targetBuffCount = Mathf.Min(maxBuffs, Mathf.FloorToInt(maxBuffs * moneyPercent));

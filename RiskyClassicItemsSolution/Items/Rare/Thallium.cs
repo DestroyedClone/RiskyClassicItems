@@ -26,7 +26,8 @@ namespace ClassicItemsReturns.Items.Rare
             enemyAttackDamageCoef * 100f,
             enemyMoveSpeedCoef * 100,
             duration,
-            durationPerStack
+            durationPerStack,
+            ItemTag.CanBeTemporary
         };
 
         public override ItemTier Tier => ItemTier.Tier3;

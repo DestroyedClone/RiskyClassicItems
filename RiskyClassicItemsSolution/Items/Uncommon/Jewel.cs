@@ -33,7 +33,9 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.Utility,
             ItemTag.InteractableRelated,
             ItemTag.AIBlacklist,
-            ItemTag.DevotionBlacklist
+            ItemTag.DevotionBlacklist,
+            ItemTag.CanBeTemporary,
+            ItemTag.Technology
         };
 
         public static NetworkSoundEventDef activationSound;

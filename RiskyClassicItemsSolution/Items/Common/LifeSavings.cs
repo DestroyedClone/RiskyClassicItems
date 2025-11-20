@@ -23,7 +23,8 @@ namespace ClassicItemsReturns.Items.Common
         {
             gold,
             goldStack,
-            intervalSeconds
+            intervalSeconds,
+            ItemTag.CanBeTemporary
         };
 
         public override ItemTier Tier => ItemTier.Tier1;

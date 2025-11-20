@@ -38,7 +38,8 @@ namespace ClassicItemsReturns.Items.Common
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Healing
+            ItemTag.Healing,
+            ItemTag.CanBeTemporary
         };
 
         public override void Hooks()

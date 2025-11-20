@@ -38,7 +38,9 @@ namespace ClassicItemsReturns.Items.Common
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Healing
+            ItemTag.Healing,
+            ItemTag.CanBeTemporary,
+            ItemTag.FoodRelated
         };
 
         public override void Init(ConfigFile config)

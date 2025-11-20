@@ -32,7 +32,9 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary,
+            ItemTag.FoodRelated
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

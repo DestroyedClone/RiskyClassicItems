@@ -18,7 +18,8 @@ namespace ClassicItemsReturns.Items.Common
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary
         };
 
         public override GameObject ItemModel => LoadItemModel("FireShield");

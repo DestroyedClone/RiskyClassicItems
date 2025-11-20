@@ -78,7 +78,8 @@ namespace ClassicItemsReturns.Items.Rare
         {
             ItemTag.AIBlacklist,
             ItemTag.Damage,
-            ItemTag.CannotCopy
+            ItemTag.CannotCopy,
+            ItemTag.Technology
         };
 
         public override void Hooks()

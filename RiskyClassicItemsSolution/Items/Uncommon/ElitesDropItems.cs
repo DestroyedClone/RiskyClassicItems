@@ -30,7 +30,9 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.BrotherBlacklist,
             ItemTag.OnKillEffect,
             ItemTag.Utility,
-            ItemTag.CannotCopy
+            ItemTag.CannotCopy,
+            ItemTag.CanBeTemporary,
+            ItemTag.FoodRelated
         };
 
         public const float cloverPercentageDropChance = 4.5f;

@@ -34,7 +34,8 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary
         };
 
         public override object[] ItemFullDescriptionParams => new object[]

@@ -42,7 +42,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.Damage,
             ItemTag.Utility,
             ItemTag.Healing,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary
         };
 
         //Based on SS2U Stirring Soul code

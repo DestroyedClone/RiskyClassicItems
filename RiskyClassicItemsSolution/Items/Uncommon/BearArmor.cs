@@ -28,7 +28,8 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
-            ItemTag.Utility
+            ItemTag.Utility,
+            ItemTag.CanBeTemporary
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

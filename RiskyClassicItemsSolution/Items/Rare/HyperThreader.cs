@@ -42,7 +42,9 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary,
+            ItemTag.Technology
         };
 
         public override void CreateConfig(ConfigFile config)

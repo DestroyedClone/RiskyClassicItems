@@ -31,7 +31,8 @@ namespace ClassicItemsReturns.Items.Common
         {
             ItemTag.Damage,
             ItemTag.InteractableRelated,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary
         };
 
         public static HashSet<string> stageDontResetList = new HashSet<string>

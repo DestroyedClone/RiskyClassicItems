@@ -34,7 +34,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
