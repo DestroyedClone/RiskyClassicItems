@@ -62,7 +62,7 @@ namespace ClassicItemsReturns.Equipment
 
             activationSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             activationSound.eventName = "Play_ClassicItemsReturns_JarSouls";
-            ContentAddition.AddNetworkSoundEventDef(activationSound);
+            PluginContentPack.networkSoundEventDefs.Add(activationSound);
         }
 
         private void GetBodyIndex()

@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
 using RoR2.Orbs;
@@ -54,7 +55,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             base.Init(config);
             activationSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             activationSound.eventName = "Play_ClassicItemsReturns_Jewel";
-            ContentAddition.AddNetworkSoundEventDef(activationSound);
+            PluginContentPack.networkSoundEventDefs.Add(activationSound);
         }
 
         public override void CreateConfig(ConfigFile config)

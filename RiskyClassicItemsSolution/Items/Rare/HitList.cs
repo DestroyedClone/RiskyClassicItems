@@ -64,7 +64,7 @@ namespace ClassicItemsReturns.Items.Rare
             var vfxAttributes = checkPrefab.AddComponent<VFXAttributes>();
             vfxAttributes.vfxIntensity = VFXAttributes.VFXIntensity.Low;
             vfxAttributes.vfxPriority = VFXAttributes.VFXPriority.Always;
-            ContentAddition.AddEffect(checkPrefab);
+            PluginContentPack.effectDefs.Add(new EffectDef(checkPrefab));
         }
 
         public override void Hooks()

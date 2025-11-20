@@ -120,7 +120,7 @@ namespace ClassicItemsReturns.Artifact
                 ArtifactDef.requiredExpansion = ArtifactExpansionDef;
             }
 
-            ContentAddition.AddArtifactDef(ArtifactDef);
+            PluginContentPack.artifactDefs.Add(ArtifactDef);
             RunArtifactManager.onArtifactEnabledGlobal += RunArtifactManager_onArtifactEnabledGlobal;
             RunArtifactManager.onArtifactDisabledGlobal += RunArtifactManager_onArtifactDisabledGlobal;
         }

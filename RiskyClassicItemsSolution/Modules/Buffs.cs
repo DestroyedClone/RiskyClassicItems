@@ -246,7 +246,7 @@ namespace ClassicItemsReturns.Modules
             buffDef.isHidden = isHidden;
             buffDef.startSfx = startSfx;
             buffDef.name = name;
-            ContentAddition.AddBuffDef(buffDef);
+            PluginContentPack.buffDefs.Add(buffDef);
             return buffDef;
         }
 

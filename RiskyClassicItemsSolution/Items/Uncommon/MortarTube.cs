@@ -110,8 +110,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             Object.Destroy(mortarProjectilePrefab.GetComponent<ApplyTorqueOnStart>());
             //Object.Destroy(mortarProjectilePrefab.GetComponent<ProjectileSimple>());
 
-            ContentAddition.AddEffect(mortarImpactEffectPrefab);
-            ContentAddition.AddProjectile(mortarProjectilePrefab);
+            PluginContentPack.effectDefs.Add(new EffectDef(mortarImpactEffectPrefab));
+            PluginContentPack.projectilePrefabs.Add(mortarProjectilePrefab);
         }
 
         public override void Hooks()

@@ -278,7 +278,7 @@ namespace ClassicItemsReturns.Equipment.EliteEquipment
             EliteAPI.Add(new CustomElite(EliteDef, CanAppearInEliteTiers));
 
             EliteBuffDef.eliteDef = EliteDef;
-            ContentAddition.AddBuffDef(EliteBuffDef);
+            PluginContentPack.buffDefs.Add(EliteBuffDef);
         }
 
         protected bool PerformEquipmentAction(On.RoR2.EquipmentSlot.orig_PerformEquipmentAction orig, RoR2.EquipmentSlot self, EquipmentDef equipmentDef)

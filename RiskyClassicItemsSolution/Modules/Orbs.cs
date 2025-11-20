@@ -13,7 +13,7 @@ namespace ClassicItemsReturns.Modules
 
             CIR_LostDollOrb.arrivalSound = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             CIR_LostDollOrb.arrivalSound.eventName = "Play_item_proc_deathMark";
-            ContentAddition.AddNetworkSoundEventDef(CIR_LostDollOrb.arrivalSound);
+            PluginContentPack.networkSoundEventDefs.Add(CIR_LostDollOrb.arrivalSound);
         }
 
         public class CIR_LostDollOrb : DevilOrb

@@ -57,7 +57,7 @@ namespace ClassicItemsReturns.Items.Rare
             main.simulationSpeed *= 4f;
             Object.Destroy(thalliumTickEffect.transform.Find("FlarePersitant_Ps").gameObject);
             Object.Destroy(thalliumTickEffect.transform.Find("WispsBurst_Ps").gameObject);
-            ContentAddition.AddEffect(thalliumTickEffect);
+            PluginContentPack.effectDefs.Add(new EffectDef(thalliumTickEffect));
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

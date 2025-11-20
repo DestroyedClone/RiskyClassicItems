@@ -52,7 +52,7 @@ namespace ClassicItemsReturns.Items.Uncommon
                 .InstantiateClone("CIR_BoxingGloveImpactEffect", false);
             EffectComponent ec = procEffect.GetComponent<EffectComponent>();
             ec.soundName = "Play_ClassicItemsReturns_Punch";
-            ContentAddition.AddEffect(procEffect);
+            PluginContentPack.effectDefs.Add(new EffectDef(procEffect));
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

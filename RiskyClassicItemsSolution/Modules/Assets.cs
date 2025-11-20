@@ -137,7 +137,7 @@ namespace ClassicItemsReturns.Modules
             networkSoundEventDef.akId = AkSoundEngine.GetIDFromString(eventName);
             networkSoundEventDef.eventName = eventName;
 
-            R2API.ContentAddition.AddNetworkSoundEventDef(networkSoundEventDef);
+            PluginContentPack.networkSoundEventDefs.Add(networkSoundEventDef);
 
             return networkSoundEventDef;
         }

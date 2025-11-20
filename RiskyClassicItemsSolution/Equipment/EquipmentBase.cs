@@ -247,7 +247,7 @@ namespace ClassicItemsReturns.Equipment
                 UnlockableDef = Modules.Assets.CreateUnlockableDef("Equipment." + EquipmentLangTokenName, EquipmentDef.pickupIconSprite);
             if (UnlockableDef != null)
             {
-                ContentAddition.AddUnlockableDef(UnlockableDef);
+                PluginContentPack.unlockableDefs.Add(UnlockableDef);
                 EquipmentDef.unlockableDef = UnlockableDef;
             }
 

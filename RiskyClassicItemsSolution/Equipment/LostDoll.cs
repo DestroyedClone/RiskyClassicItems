@@ -102,7 +102,7 @@ namespace ClassicItemsReturns.Equipment
 
             //idk how to, people usually make one from asset or clone an existing one
             //var efcomp = spike.AddComponent<EffectComponent>();
-            //ContentAddition.AddEffect(dollActivationEffect);
+            //PluginContentPack.effectDefs.Add(new EffectDef(dollActivationEffect));
             UnityEngine.Object.Destroy(spike);*/
 
             dollActivationSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Doll");

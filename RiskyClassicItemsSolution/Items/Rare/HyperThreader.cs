@@ -58,7 +58,7 @@ namespace ClassicItemsReturns.Items.Rare
             tr.startColor = Color.red;
             tr.endColor = Color.red;
 
-            ContentAddition.AddEffect(orbEffect);
+            PluginContentPack.effectDefs.Add(new EffectDef(orbEffect));
 
             procSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Reflect");
 

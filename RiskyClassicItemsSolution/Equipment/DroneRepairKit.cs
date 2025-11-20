@@ -46,7 +46,7 @@ namespace ClassicItemsReturns.Equipment
             repairDroneBodyPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Body.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_BODY_RepairDroneBody", true);
             CharacterBody body = repairDroneBodyPrefab.GetComponent<CharacterBody>();
             body.baseNameToken = "CLASSICITEMSRETURNS_BODY_REPAIRDRONEBODY_NAME";
-            ContentAddition.AddBody(repairDroneBodyPrefab);
+            PluginContentPack.bodyPrefabs.Add(repairDroneBodyPrefab);
 
             repairDroneMasterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Master.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_MASTER_RepairDroneMaster", true);
             CharacterMaster master = repairDroneMasterPrefab.GetComponent<CharacterMaster>();
@@ -54,7 +54,7 @@ namespace ClassicItemsReturns.Equipment
             RoR2.SetDontDestroyOnLoad ddol = master.GetComponent<RoR2.SetDontDestroyOnLoad>();
             ddol.enabled = false;
             if (ddol) UnityEngine.Object.Destroy(ddol);
-            ContentAddition.AddMaster(repairDroneMasterPrefab);
+            PluginContentPack.masterPrefabs.Add(repairDroneMasterPrefab);
         }
 
         public override void Hooks()

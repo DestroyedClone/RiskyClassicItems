@@ -79,7 +79,7 @@ namespace ClassicItemsReturns.Equipment
             ProjectileImpactExplosion pie = projectilePrefab.GetComponent<ProjectileImpactExplosion>();
             pie.destroyOnEnemy = true;
             pie.falloffModel = BlastAttack.FalloffModel.None;
-            ContentAddition.AddProjectile(projectilePrefab);
+            PluginContentPack.projectilePrefabs.Add(projectilePrefab);
         }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)

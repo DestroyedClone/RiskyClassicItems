@@ -16,6 +16,7 @@ using SearchableAttribute = HG.Reflection.SearchableAttribute;
 using ClassicItemsReturns.Utils;
 using UnityEngine.AddressableAssets;
 using RoR2;
+using RiskyMod.Content;
 
 [assembly: SearchableAttribute.OptIn]
 
@@ -27,7 +28,6 @@ namespace ClassicItemsReturns
     [BepInDependency(R2API.RecalculateStatsAPI.PluginGUID)]
     [BepInDependency(R2API.DotAPI.PluginGUID)]
     [BepInDependency(R2API.ItemAPI.PluginGUID)]
-    [BepInDependency(R2API.ContentManagement.R2APIContentManager.PluginGUID)]
     [BepInDependency(R2API.PrefabAPI.PluginGUID)]
     [BepInDependency(R2API.LanguageAPI.PluginGUID)]
     [BepInDependency(R2API.DamageAPI.PluginGUID)]
@@ -77,6 +77,7 @@ namespace ClassicItemsReturns
             useUnfinished = Config.Bind("General", "Enable Unfinished Content", false, "Enables unfinished content that lacks 3d models.").Value;
 
             PInfo = Info;
+            new PluginContentPack().Initialize();
             ModLogger = Logger;
             Modules.Assets.Init();
             SoundBanks.Init();

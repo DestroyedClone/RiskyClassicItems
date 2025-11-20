@@ -8,6 +8,7 @@ using System;
 using UnityEngine.AddressableAssets;
 using BepInEx.Configuration;
 using ClassicItemsReturns.Utils;
+using ClassicItemsReturns.Modules;
 
 namespace ClassicItemsReturns.Items.Uncommon
 {
@@ -67,7 +68,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             EffectComponent ec = jumpEffectPrefab.GetComponent<EffectComponent>();
             ec.soundName = "Play_ClassicItemsReturns_Jetpack";
 
-            ContentAddition.AddEffect(jumpEffectPrefab);
+            PluginContentPack.effectDefs.Add(new EffectDef(jumpEffectPrefab));
         }
 
         public override void Hooks()
