@@ -1,3 +1,6 @@
+- `3.6.7`
+	- Fixed pixels per unit on Repair Drone icon.
+
 - `3.6.6`
 	- Repair Drone body icon.
 	- DLC3 drone Arms Race displays.
