@@ -1,3 +1,7 @@
+- `3.6.6`
+	- Repair Drone body icon.
+	- DLC3 drone Arms Race displays.
+
 - `3.6.5`
 	- DLC3 update
 		- Added crafting recipes.

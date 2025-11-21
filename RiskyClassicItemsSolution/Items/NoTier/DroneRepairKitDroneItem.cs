@@ -58,6 +58,32 @@ namespace ClassicItemsReturns.Items.NoTier
                 }
             });
 
+            dict.Add("Drone1BodyRemoteOp", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0F, 0.35F, 0F),
+                    localAngles = new Vector3(0F, 180F, 180F),
+                    localScale = new Vector3(1F, 1F, 1F)
+                }
+            });
+
+            dict.Add("DTGunnerDroneBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "Head",
+                    localPos = new Vector3(0F, 0.35F, 0F),
+                    localAngles = new Vector3(0F, 180F, 180F),
+                    localScale = new Vector3(1F, 1F, 1F)
+                }
+            });
+
             return dict;
         }
 

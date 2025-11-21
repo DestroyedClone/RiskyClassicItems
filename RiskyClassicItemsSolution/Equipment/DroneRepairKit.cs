@@ -48,6 +48,7 @@ namespace ClassicItemsReturns.Equipment
             repairDroneBodyPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Body.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_BODY_RepairDroneBody", true);
             CharacterBody body = repairDroneBodyPrefab.GetComponent<CharacterBody>();
             body.baseNameToken = "CLASSICITEMSRETURNS_BODY_REPAIRDRONEBODY_NAME";
+            body.portraitIcon = Modules.Assets.mainAssetBundle.LoadAsset<Texture2D>("texRepairDroneBodyIcon");
             PluginContentPack.bodyPrefabs.Add(repairDroneBodyPrefab);
 
             repairDroneMasterPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Drones/Drone1Master.prefab").WaitForCompletion().InstantiateClone("CLASSICITEMSRETURNS_MASTER_RepairDroneMaster", true);
