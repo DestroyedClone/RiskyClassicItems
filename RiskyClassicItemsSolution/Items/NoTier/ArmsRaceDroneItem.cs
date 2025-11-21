@@ -276,6 +276,28 @@ namespace ClassicItemsReturns.Items.NoTier
                 }
             });
 
+            dict.Add("DroneBomberBody", new ItemDisplayRule[]
+            {
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(0.2F, -0.07F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(0.125F, 0.125F, 0.125F)
+                },
+                new ItemDisplayRule
+                {
+                    followerPrefab = display,
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    childName = "HeadCenter",
+                    localPos = new Vector3(-0.2F, -0.07F, 0F),
+                    localAngles = new Vector3(0F, 180F, 0F),
+                    localScale = new Vector3(-0.125F, 0.125F, 0.125F)
+                }
+            });
+
             dict.Add("EmergencyDroneBody", new ItemDisplayRule[]
             {
                 new ItemDisplayRule

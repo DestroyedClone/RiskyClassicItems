@@ -37,6 +37,8 @@ namespace ClassicItemsReturns.Items.Common
 
         public static HashSet<string> stageDontResetList = new HashSet<string>
         {
+            "solusweb",
+            "solutionalhaunt"
         };
         
         public static HashSet<string> stageForceResetList = new HashSet<string>

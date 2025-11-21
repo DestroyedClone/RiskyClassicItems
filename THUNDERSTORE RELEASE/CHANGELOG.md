@@ -1,3 +1,7 @@
+- `3.6.8`
+	- Lt. Droneboy Arms Race display.
+	- Arcane Blades/Mu Construct are active on the new boss stages.
+
 - `3.6.7`
 	- Fixed pixels per unit on Repair Drone icon.
 

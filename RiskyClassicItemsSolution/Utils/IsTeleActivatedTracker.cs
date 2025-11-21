@@ -12,7 +12,9 @@ namespace ClassicItemsReturns.Utils
         {
             "voidraid",
             "limbo",
-            "enemiesreturns_outoftime"
+            "enemiesreturns_outoftime",
+            "solutionalhaunt",
+            "solusweb"
         };
 
         public IsTeleActivatedTracker()
