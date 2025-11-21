@@ -1,3 +1,7 @@
+- `3.6.9`
+	- Fixed Junk Drone Arms Race display.
+	- Updated Arms Race missile launcher normals.
+
 - `3.6.8`
 	- Lt. Droneboy Arms Race display.
 	- Arcane Blades/Mu Construct are active on the new boss stages.

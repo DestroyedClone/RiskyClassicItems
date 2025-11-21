@@ -681,7 +681,7 @@ namespace ClassicItemsReturns.Items.NoTier
                     childName = "RightBody",
                     localPos = new Vector3(0.5F, -0.15F, 0.4F),
                     localAngles = new Vector3(0F, 180F, 0F),
-                    localScale = new Vector3(0.3F, 0.3F, 0.3F)
+                    localScale = new Vector3(0.3F, 0.3F, -0.3F)
                 },
                 new ItemDisplayRule
                 {
@@ -690,7 +690,7 @@ namespace ClassicItemsReturns.Items.NoTier
                     childName = "LeftBody",
                     localPos = new Vector3(-0.5F, -0.15F, 0.4F),
                     localAngles = new Vector3(0F, 180F, 0F),
-                    localScale = new Vector3(-0.3F, 0.3F, 0.3F)
+                    localScale = new Vector3(-0.3F, 0.3F, -0.3F)
                 }
             });
 
@@ -703,7 +703,7 @@ namespace ClassicItemsReturns.Items.NoTier
                     childName = "RightBody",
                     localPos = new Vector3(0.5F, -0.15F, 0.4F),
                     localAngles = new Vector3(0F, 180F, 0F),
-                    localScale = new Vector3(0.3F, 0.3F, 0.3F)
+                    localScale = new Vector3(0.3F, 0.3F, -0.3F)
                 },
                 new ItemDisplayRule
                 {
@@ -712,7 +712,7 @@ namespace ClassicItemsReturns.Items.NoTier
                     childName = "LeftBody",
                     localPos = new Vector3(-0.5F, -0.15F, 0.4F),
                     localAngles = new Vector3(0F, 180F, 0F),
-                    localScale = new Vector3(-0.3F, 0.3F, 0.3F)
+                    localScale = new Vector3(-0.3F, 0.3F, -0.3F)
                 }
             });
 
