@@ -1,9 +1,13 @@
-﻿using R2API;
+﻿using ClassicItemsReturns.Items.Common;
+using ClassicItemsReturns.Modules;
+using R2API;
 using RoR2;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items.Uncommon
@@ -44,6 +48,62 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             base.Hooks();
             On.RoR2.DeathRewards.OnKilledServer += DeathRewards_OnKilledServer;
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            bool penniesEnabled = RazorPenny.Instance != null && RazorPenny.Instance.ItemDef;
+            bool savingsEnabled = LifeSavings.Instance != null && LifeSavings.Instance.ItemDef;
+
+            if (penniesEnabled || savingsEnabled)
+            {
+                ItemDef collector = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC3/Items/SpeedOnPickup/SpeedOnPickup.asset").WaitForCompletion();
+
+                CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+                craftable.pickup = ItemDef;
+                craftable.recipes = new Recipe[0];
+
+                if (penniesEnabled)
+                {
+                    craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = RazorPenny.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = collector
+                            }
+                        }
+                    }).ToArray();
+                }
+
+                if (savingsEnabled)
+                {
+                    craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = LifeSavings.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = collector
+                            }
+                        }
+                    }).ToArray();
+                }
+                (craftable as ScriptableObject).name = "cdSmartShopper";
+
+                PluginContentPack.craftableDefs.Add(craftable);
+            }
         }
 
         private void DeathRewards_OnKilledServer(On.RoR2.DeathRewards.orig_OnKilledServer orig, DeathRewards self, DamageReport damageReport)

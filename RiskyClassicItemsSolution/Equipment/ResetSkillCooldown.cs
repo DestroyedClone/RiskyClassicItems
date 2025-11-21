@@ -1,7 +1,11 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Items.Uncommon;
+using ClassicItemsReturns.Modules;
 using R2API;
+using RiskyMod.Items.DLC2;
 using RoR2;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Equipment
 {
@@ -48,6 +52,7 @@ namespace ClassicItemsReturns.Equipment
             CreateConfig(config);
             CreateLang();
             CreateEquipment();
+            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
         }
 
@@ -60,6 +65,32 @@ namespace ClassicItemsReturns.Equipment
                 return true;
             }
             return false;
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+            craftable.pickup = EquipmentDef;
+            craftable.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/NearbyDamageBonus/NearbyDamageBonus.asset").WaitForCompletion()
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/EquipmentMagazine/EquipmentMagazine.asset").WaitForCompletion()
+                        }
+                    }
+                }
+            };
+            (craftable as ScriptableObject).name = "cdAmethyst";
+            PluginContentPack.craftableDefs.Add(craftable);
         }
     }
 }

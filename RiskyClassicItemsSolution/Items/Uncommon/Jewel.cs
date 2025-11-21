@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Items.Common;
 using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 
 namespace ClassicItemsReturns.Items.Uncommon
@@ -112,6 +114,89 @@ namespace ClassicItemsReturns.Items.Uncommon
                 goldOrb.barrierPercentGrant = barrierInitial + barrierStack * (itemCount - 1);
                 OrbManager.instance.AddOrb(goldOrb);
             }
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            ItemDef brooch = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/BarrierOnKill/BarrierOnKill.asset").WaitForCompletion();
+            if (PrisonShackles.Instance != null && PrisonShackles.Instance.ItemDef)
+            {
+                CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+                craftable.pickup = ItemDef;
+                craftable.recipes = new Recipe[]
+                {
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = brooch
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = PrisonShackles.Instance.ItemDef
+                            }
+                        }
+                    },
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/NearbyDamageBonus/NearbyDamageBonus.asset").WaitForCompletion()
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = PrisonShackles.Instance.ItemDef
+                            }
+                        }
+                    }
+                };
+                (craftable as ScriptableObject).name = "cdLockedJewel";
+                PluginContentPack.craftableDefs.Add(craftable);
+            }
+
+            CraftableDef unlockTheSafe = ScriptableObject.CreateInstance<CraftableDef>();
+            unlockTheSafe.pickup = ItemDef;
+            unlockTheSafe.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 2,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/TreasureCache/TreasureCache.asset").WaitForCompletion()
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        }
+                    }
+                },
+                new Recipe()
+                {
+                    amountToDrop = 2,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC1/TreasureCacheVoid/TreasureCacheVoid.asset").WaitForCompletion()
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        }
+                    }
+                }
+            };
+            (unlockTheSafe as ScriptableObject).name = "cdUnlockedJewel";
+            PluginContentPack.craftableDefs.Add(unlockTheSafe);
         }
     }
 

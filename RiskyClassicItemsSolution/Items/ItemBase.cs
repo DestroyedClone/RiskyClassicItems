@@ -202,6 +202,7 @@ namespace ClassicItemsReturns.Items
             CreateConfig(config);
             CreateAssets(config);
             CreateItem();
+            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
         }
 
@@ -209,6 +210,9 @@ namespace ClassicItemsReturns.Items
         { }
 
         public virtual void CreateConfig(ConfigFile config)
+        { }
+
+        protected virtual void CreateCraftableDef()
         { }
 
         /// <summary>

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items.Common
@@ -56,13 +57,53 @@ namespace ClassicItemsReturns.Items.Common
         public override void Hooks()
         {
             base.Hooks();
-
             CharacterBody.onBodyInventoryChangedGlobal += CharacterBody_onBodyInventoryChangedGlobal;
         }
 
         private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
         {
             body.AddItemBehavior<MuConstructBehavior>(body.inventory.GetItemCount(ItemDef));
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            CraftableDef toBiggerConstruct = ScriptableObject.CreateInstance<CraftableDef>();
+            toBiggerConstruct.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC1/MinorConstructOnKill/MinorConstructOnKill.asset").WaitForCompletion();
+            toBiggerConstruct.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        }
+                    }
+                },
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Squid/Squid.asset").WaitForCompletion()
+                        }
+                    }
+                }
+            };
+            (toBiggerConstruct as ScriptableObject).name = "cdMuToAlpha";
+            PluginContentPack.craftableDefs.Add(toBiggerConstruct);
         }
     }
 

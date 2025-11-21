@@ -9,6 +9,7 @@ using UnityEngine.AddressableAssets;
 using BepInEx.Configuration;
 using ClassicItemsReturns.Utils;
 using ClassicItemsReturns.Modules;
+using ClassicItemsReturns.Items.Common;
 
 namespace ClassicItemsReturns.Items.Uncommon
 {
@@ -152,6 +153,35 @@ namespace ClassicItemsReturns.Items.Uncommon
             orig(self);
             if (GetCount(self) > 0)
                 self.maxJumpCount++;
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            if (ArcaneBlades.Instance != null && ArcaneBlades.Instance.ItemDef)
+            {
+                CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+                craftable.pickup = ItemDef;
+                craftable.recipes = new Recipe[]
+                {
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC1/StrengthenBurn/StrengthenBurn.asset").WaitForCompletion()
+                            }
+                        }
+                    }
+                };
+                (craftable as ScriptableObject).name = "cdRustyJetpack";
+                PluginContentPack.craftableDefs.Add(craftable);
+            }
         }
     }
 }

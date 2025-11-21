@@ -5,6 +5,9 @@ using RoR2;
 using RoR2.Items;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.AddressableAssets;
+using ClassicItemsReturns.Items.Common;
+using System.Linq;
 
 namespace ClassicItemsReturns.Items.Uncommon
 {//https://github.com/swuff-star/LostInTransit/blob/0fc3e096621a2ce65eef50f0e82db125c0730260/LIT/Assets/LostInTransit/Modules/Pickups/Items/GoldenGun.cs
@@ -56,6 +59,59 @@ namespace ClassicItemsReturns.Items.Uncommon
             if (sender)
                 args.damageMultAdd += 0.01f * sender.GetBuffCount(Buffs.GoldenGunBuff);
         }
+        protected override void CreateCraftableDef()
+        {
+            bool penniesEnabled = RazorPenny.Instance != null && RazorPenny.Instance.ItemDef;
+            bool savingsEnabled = LifeSavings.Instance != null && LifeSavings.Instance.ItemDef;
+
+            if (!penniesEnabled && !savingsEnabled) return;
+
+            CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+            craftable.pickup = ItemDef;
+            craftable.recipes = new Recipe[0];
+
+            if (penniesEnabled)
+            {
+                Recipe penny = new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Missile/Missile.asset").WaitForCompletion()
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = RazorPenny.Instance.ItemDef
+                        }
+                    }
+                };
+                craftable.recipes = craftable.recipes.Append(penny).ToArray();
+            }
+            if (savingsEnabled)
+            {
+                Recipe savings = new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Missile/Missile.asset").WaitForCompletion()
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = RazorPenny.Instance.ItemDef
+                        }
+                    }
+                };
+                craftable.recipes = craftable.recipes.Append(savings).ToArray();
+            }
+            PluginContentPack.craftableDefs.Add(craftable);
+        }
+
+
 
         public class GoldenGunBehavior : BaseItemBodyBehavior
         {

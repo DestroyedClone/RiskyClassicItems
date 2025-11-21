@@ -5,6 +5,11 @@ using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
 using System;
+using ClassicItemsReturns.Items.Uncommon;
+using UnityEngine.AddressableAssets;
+using ClassicItemsReturns.Equipment;
+using ClassicItemsReturns.Items.Common;
+using System.Linq;
 
 namespace ClassicItemsReturns.Items.Rare
 {
@@ -111,6 +116,97 @@ namespace ClassicItemsReturns.Items.Rare
             int itemStack = itemCount - 1;
             float totalReduction = cdr + itemStack * cdrStack;
             attackerBody.skillLocator.DeductCooldownFromAllSkillsServer(totalReduction * damageInfo.procCoefficient);
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            ItemDef talisman = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Talisman/Talisman.asset").WaitForCompletion();
+
+            bool amethyst = ResetSkillCooldown.Instance != null && ResetSkillCooldown.Instance.EquipmentDef;
+            bool snakeEyes = SnakeEyes.Instance != null && SnakeEyes.Instance.ItemDef;
+
+            if (amethyst || snakeEyes)
+            {
+                CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+                craftable.pickup = ItemDef;
+                craftable.recipes = new Recipe[0];
+                if (amethyst)
+                {
+                    craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = talisman
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = ResetSkillCooldown.Instance.EquipmentDef
+                            }
+                        }
+                    }).ToArray();
+                }
+                if (snakeEyes)
+                {
+                    craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = talisman
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = SnakeEyes.Instance.ItemDef
+                            }
+                        }
+                    }).ToArray();
+                }
+                (craftable as ScriptableObject).name = "cdWickedRing";
+                PluginContentPack.craftableDefs.Add(craftable);
+            }
+
+            CraftableDef toTalisman = ScriptableObject.CreateInstance<CraftableDef>();
+            toTalisman.pickup = talisman;
+            toTalisman.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/EquipmentMagazine/EquipmentMagazine.asset").WaitForCompletion()
+                        }
+                    }
+                },
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/DeathProjectile/DeathProjectile.asset").WaitForCompletion()
+                        }
+                    }
+                }
+            };
+            (toTalisman as ScriptableObject).name = "cdWickedRingToTalisman";
+            PluginContentPack.craftableDefs.Add(toTalisman);
         }
     }
 }

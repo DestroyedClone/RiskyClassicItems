@@ -69,12 +69,6 @@ namespace ClassicItemsReturns.Items.Common
             return new ItemDisplayRuleDict();
         }
 
-        public override void Hooks()
-        {
-        }
-
-
-
         public class LifeSavingsBehaviour : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]

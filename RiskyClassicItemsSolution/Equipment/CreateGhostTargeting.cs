@@ -56,6 +56,7 @@ namespace ClassicItemsReturns.Equipment
             CreateLang();
             CreateTargetingIndicator();
             CreateEquipment();
+            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
 
             RoR2.RoR2Application.onLoad += GetBodyIndex;
@@ -392,6 +393,32 @@ namespace ClassicItemsReturns.Equipment
                 if (nem && inventory.GetItemCount(nem) > 0) return true;
             }
             return false;
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+            craftable.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/GhostOnKill/GhostOnKill.asset").WaitForCompletion();
+            craftable.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = EquipmentDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/DeathMark/DeathMark.asset").WaitForCompletion()
+                        }
+                    }
+                }
+            };
+            (craftable as ScriptableObject).name = "cdJarToMask";
+            PluginContentPack.craftableDefs.Add(craftable);
         }
     }
 

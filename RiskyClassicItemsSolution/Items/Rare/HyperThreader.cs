@@ -8,6 +8,8 @@ using System;
 using UnityEngine.AddressableAssets;
 using ClassicItemsReturns.Equipment;
 using static RoR2.MasterSpawnSlotController;
+using ClassicItemsReturns.Items.Uncommon;
+using System.Linq;
 
 namespace ClassicItemsReturns.Items.Rare
 {
@@ -46,10 +48,6 @@ namespace ClassicItemsReturns.Items.Rare
             ItemTag.CanBeTemporary,
             ItemTag.Technology
         };
-
-        public override void CreateConfig(ConfigFile config)
-        {
-        }
 
         public override void CreateAssets(ConfigFile config)
         {
@@ -98,11 +96,103 @@ namespace ClassicItemsReturns.Items.Rare
             chainGunOrb.targetsToFindPerBounce = 1;
             chainGunOrb.canBounceOnSameTarget = false;
             chainGunOrb.damageColorIndex = DamageColorIndex.Item;
+            chainGunOrb.damageType = new DamageTypeCombo()
+            {
+                damageTypeExtended = DamageTypeExtended.Electrical
+            };
 
             chainGunOrb.target = victimBody.mainHurtBox;
             OrbManager.instance.AddOrb(chainGunOrb);
 
             RoR2.Audio.EntitySoundManager.EmitSoundServer(procSound.index, damageInfo.attacker);
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            bool golden = GoldenGun.Instance != null && GoldenGun.Instance.ItemDef;
+            bool energy = EnergyCell.Instance != null && EnergyCell.Instance.ItemDef;
+            if (golden || energy)
+            {
+                CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+                craftable.pickup = ItemDef;
+                craftable.recipes = new Recipe[0];
+                if (golden)
+                {
+                    craftable.recipes = craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/ShockNearby/ShockNearby.asset").WaitForCompletion()
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = GoldenGun.Instance.ItemDef
+                            }
+                        }
+                    }).ToArray();
+
+                    craftable.recipes = craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/Lightning/Lightning.asset").WaitForCompletion()
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = GoldenGun.Instance.ItemDef
+                            }
+                        }
+                    }).ToArray();
+                }
+
+                if (energy)
+                {
+                    craftable.recipes = craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                            {
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<EquipmentDef>("RoR2/Base/GoldGat/GoldGat.asset").WaitForCompletion()
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = EnergyCell.Instance.ItemDef
+                            }
+                            }
+                    }).ToArray();
+                }
+
+                if (energy && golden)
+                {
+                    craftable.recipes = craftable.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = GoldenGun.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = EnergyCell.Instance.ItemDef
+                            }
+                        }
+                    }).ToArray();
+                }
+
+                (craftable as ScriptableObject).name = "cdHyperThreader";
+                
+                PluginContentPack.craftableDefs.Add(craftable);
+            }
         }
     }
 }

@@ -2,6 +2,8 @@
 using ClassicItemsReturns.Utils;
 using RoR2;
 using UnityEngine;
+using ClassicItemsReturns.Modules;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Items.Uncommon
 {
@@ -48,6 +50,55 @@ namespace ClassicItemsReturns.Items.Uncommon
             {
                 args.armorAdd += ItemHelpers.StackingLinear(count, armor, armorPerStack);
             }
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            ItemDef bear = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Bear/Bear.asset").WaitForCompletion();
+
+            CraftableDef upgrade = ScriptableObject.CreateInstance<CraftableDef>();
+            upgrade.pickup = ItemDef;
+            upgrade.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = bear
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = bear
+                        }
+                    }
+                }
+            };
+            PluginContentPack.craftableDefs.Add(upgrade);
+
+            CraftableDef downgrade = ScriptableObject.CreateInstance<CraftableDef>();
+            downgrade.pickup = bear;
+            downgrade.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Scrap/ScrapWhite.asset").WaitForCompletion()
+                        }
+                    }
+                }
+            };
+            PluginContentPack.craftableDefs.Add(downgrade);
         }
     }
 }

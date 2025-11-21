@@ -1,7 +1,9 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Items.Uncommon;
 using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -162,6 +164,86 @@ namespace ClassicItemsReturns.Equipment
             RoR2.Audio.EntitySoundManager.EmitSoundServer(activationSound.index, slot.characterBody.gameObject);
 
             return true;
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            bool armsRace = ArmsRace.Instance != null && ArmsRace.Instance.ItemDef;
+            bool mortar = MortarTube.Instance != null && MortarTube.Instance.ItemDef;
+            if (ArmsRace.Instance != null && ArmsRace.Instance.ItemDef)
+            {
+                CraftableDef cdDroneRepairKit = ScriptableObject.CreateInstance<CraftableDef>();
+                cdDroneRepairKit.pickup = EquipmentDef;
+                cdDroneRepairKit.recipes = new Recipe[]
+                {
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = ArmsRace.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/EquipmentMagazine/EquipmentMagazine.asset").WaitForCompletion()
+                            }
+                        }
+                    }
+                };
+                (cdDroneRepairKit as ScriptableObject).name = "cdDroneRepairKit";
+                PluginContentPack.craftableDefs.Add(cdDroneRepairKit);
+            }
+
+            if (mortar || armsRace)
+            {
+                ItemDef sdp = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC1/DroneWeapons/DroneWeapons.asset").WaitForCompletion();
+                CraftableDef drkToSDP = ScriptableObject.CreateInstance<CraftableDef>();
+                drkToSDP.pickup = sdp;
+                drkToSDP.recipes = new Recipe[0];
+
+                if (mortar)
+                {
+                    drkToSDP.recipes = drkToSDP.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = MortarTube.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = EquipmentDef
+                            }
+                        }
+                    }).ToArray();
+                }
+
+                if (armsRace)
+                {
+                    drkToSDP.recipes = drkToSDP.recipes.Append(new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = ArmsRace.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = EquipmentDef
+                            }
+                        }
+                    }).ToArray();
+                }
+
+                (drkToSDP as ScriptableObject).name = "cdDRKToSDP";
+                PluginContentPack.craftableDefs.Add(drkToSDP);
+            }
         }
     }
 

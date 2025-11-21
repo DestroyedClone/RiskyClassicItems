@@ -15,7 +15,7 @@ This mod adds items and equipment from Risk of Rain and Risk of Rain Returns.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dVial.png) | Mysterious Vial | Increase **base health regeneration** by **+1 hp/s** *(+1 hp/s per stack)*. Scales with level.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dPenny.png) | Razor Penny | Gain **5%** *(+5% per stack)* critical chance. Critical strikes drop **$1** *(+$1 per stack)* **gold**.
 | ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dDice.png) | Snake Eyes | Using a shrine increases critical chance by **7.5%** and critical damage by **0%** *(+5% per stack)*, up to **6 times**. Resets at the start of each stage.
-| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dToxin.png) | The Toxin | **Infect** enemies on contact for **3** *(+1.5)* seconds, causing them to receive **20% extra damage** from all sources.
+| ![](https://raw.githubusercontent.com/DestroyedClone/RiskyClassicItems/master/Art%20Assets/3d%20items/resize_128/texIcon3dToxin.png) | The Toxin | **Infect** enemies on contact for **3** *(+1.5)* seconds, causing them to receive **25% extra damage** from all sources.
 
 | Icon | Item | Desc |
 |:--:|:--:|--|

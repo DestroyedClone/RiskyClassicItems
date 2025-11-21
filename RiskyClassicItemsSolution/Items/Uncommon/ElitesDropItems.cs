@@ -1,7 +1,9 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items.Uncommon
@@ -47,6 +49,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             CreateLang();
             CreateItem();
             Hooks();
+            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             treasureRng = new Xoroshiro128Plus(0UL);
             Artifact.ArtifactOfClover.cloverDef = ItemDef;
         }
@@ -70,6 +73,73 @@ namespace ClassicItemsReturns.Items.Uncommon
         private void Run_onRunStartGlobal(Run run)
         {
             if (NetworkServer.active && run.treasureRng != null) treasureRng.ResetSeed(run.treasureRng.nextUlong);
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            CraftableDef cdCloverToClover = ScriptableObject.CreateInstance<CraftableDef>();
+            Recipe fromNectar = new Recipe()
+            {
+                amountToDrop = 1,
+                ingredients = new RecipeIngredient[]
+                {
+                    new RecipeIngredient()
+                    {
+                        pickup = ItemDef
+                    },
+                    new RecipeIngredient()
+                    {
+                        pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC2/Items/BoostAllStats/BoostAllStats.asset").WaitForCompletion()
+                    }
+                }
+            };
+            Recipe fromPlant = new Recipe()
+            {
+                amountToDrop = 1,
+                ingredients = new RecipeIngredient[]
+                {
+                    new RecipeIngredient()
+                    {
+                        pickup = ItemDef
+                    },
+                    new RecipeIngredient()
+                    {
+                        pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Plant/Plant.asset").WaitForCompletion()
+                    }
+                }
+            };
+            cdCloverToClover.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Clover/Clover.asset").WaitForCompletion();
+            cdCloverToClover.recipes = new Recipe[]
+            {
+                fromNectar,
+                fromPlant
+            };
+            (cdCloverToClover as ScriptableObject).name = "cdCloverToClover";
+            PluginContentPack.craftableDefs.Add(cdCloverToClover);
+
+            CraftableDef bigCloverToSmallClover = ScriptableObject.CreateInstance<CraftableDef>();
+            Recipe downgrade = new Recipe()
+            {
+                amountToDrop = 2,
+                ingredients = new RecipeIngredient[]
+                {
+                    new RecipeIngredient()
+                    {
+                        pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Clover/Clover.asset").WaitForCompletion()
+                    },
+                    new RecipeIngredient()
+                    {
+                        pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Scrap/ScrapGreen.asset").WaitForCompletion()
+                    }
+                }
+            };
+            bigCloverToSmallClover.pickup = ItemDef;
+            bigCloverToSmallClover.recipes = new Recipe[]
+            {
+                downgrade
+            };
+            (bigCloverToSmallClover as ScriptableObject).name = "bigCloverToSmallClover";
+            PluginContentPack.craftableDefs.Add(bigCloverToSmallClover);
         }
 
         private void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)

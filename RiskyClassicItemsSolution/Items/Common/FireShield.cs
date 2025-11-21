@@ -94,7 +94,7 @@ namespace ClassicItemsReturns.Items.Common
                 teamIndex = victimTeam,
                 position = victimBody.corePosition,
                 baseForce = 2000f,
-                damageType = DamageType.Generic
+                damageType = DamageTypeExtended.FireNoIgnite
             }.Fire();
         }
     }

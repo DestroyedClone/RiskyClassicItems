@@ -10,6 +10,7 @@ using UnityEngine;
 using ClassicItemsReturns.SharedHooks;
 using SneedHooks;
 using System;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Items.Common
 {
@@ -18,7 +19,7 @@ namespace ClassicItemsReturns.Items.Common
         public override string ItemName => "The Toxin";
 
         public override string ItemLangTokenName => "WEAKENONCONTACT";
-        public float damageBonus = 20;
+        public float damageBonus = 25;
         public float duration = 3;
         public float durationPerStack = 1.5f;
 
@@ -48,6 +49,7 @@ namespace ClassicItemsReturns.Items.Common
             CreateConfig(config);
             CreateLang();
             CreateItem();
+            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
         }
 
@@ -88,6 +90,32 @@ namespace ClassicItemsReturns.Items.Common
                 damageModifierArgs.damageMultFinal *= 1.2f;
                 if (damageInfo.damageColorIndex == DamageColorIndex.Default) damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
             }
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+            craftable.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC2/Items/TriggerEnemyDebuffs/TriggerEnemyDebuffs.asset").WaitForCompletion();
+            craftable.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Thorns/Thorns.asset").WaitForCompletion()
+                        }
+                    }
+                }
+            };
+            (craftable as ScriptableObject).name = "cdToxinToThorns";
+            PluginContentPack.craftableDefs.Add(craftable);
         }
 
         public class WeakenOnContactBehavior : BaseItemBodyBehavior

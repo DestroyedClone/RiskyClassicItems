@@ -183,7 +183,10 @@ namespace ClassicItemsReturns
                     artifact.Init(Config);
                 }
             }
+
+            onFinishScanning?.Invoke();
         }
+        public static Action onFinishScanning;
 
         /// <summary>
         /// A helper to easily set up and initialize an artifact from your artifact classes if the user has it enabled in their configuration files.

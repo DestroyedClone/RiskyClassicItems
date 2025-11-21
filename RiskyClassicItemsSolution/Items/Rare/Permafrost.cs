@@ -1,8 +1,10 @@
 ﻿using BepInEx.Configuration;
+using ClassicItemsReturns.Modules;
 using R2API;
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Items.Rare
 {
@@ -45,6 +47,31 @@ namespace ClassicItemsReturns.Items.Rare
         public override void CreateConfig(ConfigFile config)
         {
             allowFreezeBoss = config.Bind(ConfigCategory, "Freeze Bosses", false, "Allow this item to freeze bosses.").Value;
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            CraftableDef toFrostRelic = ScriptableObject.CreateInstance<CraftableDef>();
+            toFrostRelic.pickup = ItemDef;
+            toFrostRelic.recipes = new Recipe[]
+            {
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                        new RecipeIngredient()
+                        {
+                            pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/NearbyDamageBonus/NearbyDamageBonus.asset").WaitForCompletion()
+                        },
+                        new RecipeIngredient()
+                        {
+                            pickup = ItemDef
+                        }
+                    }
+                }
+            };
+            PluginContentPack.craftableDefs.Add(toFrostRelic);
         }
 
         public override void Hooks()

@@ -9,6 +9,9 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using BepInEx.Configuration;
+using UnityEngine.AddressableAssets;
+using ClassicItemsReturns.Items.Uncommon;
+using ClassicItemsReturns.Items.Common;
 
 namespace ClassicItemsReturns.Items.Rare
 {
@@ -221,6 +224,101 @@ namespace ClassicItemsReturns.Items.Rare
                     kc.Increment();
                 }
             }
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            ItemDef warBonds = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC2/Items/BarrageOnBoss/BarrageOnBoss.asset").WaitForCompletion();
+            if (GoldenGun.Instance != null && GoldenGun.Instance.ItemDef)
+            {
+                CraftableDef cdHitList = ScriptableObject.CreateInstance<CraftableDef>();
+                cdHitList.pickup = ItemDef;
+                cdHitList.recipes = new Recipe[]
+                {
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = GoldenGun.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = warBonds
+                            }
+                        }
+                    }
+                };
+                (cdHitList as ScriptableObject).name = "cdHitList";
+                PluginContentPack.craftableDefs.Add(cdHitList);
+            }
+
+            bool pennyEnabled = RazorPenny.Instance != null && RazorPenny.Instance.ItemDef;
+            bool pigEnabled = LifeSavings.Instance != null && LifeSavings.Instance.ItemDef;
+            CraftableDef cdHitListToWarBonds = ScriptableObject.CreateInstance<CraftableDef>();
+            cdHitListToWarBonds.pickup = warBonds;
+            cdHitListToWarBonds.recipes = new Recipe[0];
+            if (pennyEnabled)
+            {
+                cdHitListToWarBonds.recipes = cdHitListToWarBonds.recipes.Append(
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                                new RecipeIngredient()
+                                {
+                                    pickup = RazorPenny.Instance.ItemDef
+                                },
+                                new RecipeIngredient()
+                                {
+                                    pickup = ItemDef
+                                }
+                        }
+                    }
+                ).ToArray();
+            }
+            if (pigEnabled)
+            {
+                cdHitListToWarBonds.recipes = cdHitListToWarBonds.recipes.Append(
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                                new RecipeIngredient()
+                                {
+                                    pickup = LifeSavings.Instance.ItemDef
+                                },
+                                new RecipeIngredient()
+                                {
+                                    pickup = ItemDef
+                                }
+                        }
+                    }
+                ).ToArray();
+            }
+            cdHitListToWarBonds.recipes = cdHitListToWarBonds.recipes.Append(
+                new Recipe()
+                {
+                    amountToDrop = 1,
+                    ingredients = new RecipeIngredient[]
+                    {
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC1/GoldOnHurt/GoldOnHurt.asset").WaitForCompletion()
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = ItemDef
+                            }
+                    }
+                }
+            ).ToArray();
+            (cdHitListToWarBonds as ScriptableObject).name = "cdHitListToWarBonds";
+            PluginContentPack.craftableDefs.Add(cdHitListToWarBonds);
         }
     }
 

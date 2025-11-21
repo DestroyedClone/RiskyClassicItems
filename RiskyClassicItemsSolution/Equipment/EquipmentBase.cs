@@ -166,12 +166,16 @@ namespace ClassicItemsReturns.Equipment
             CreateAssets(config);
             CreateLang();
             CreateEquipment();
+            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
         }
         public virtual void CreateAssets(ConfigFile config)
         { }
 
         protected virtual void CreateConfig(ConfigFile config)
+        { }
+
+        protected virtual void CreateCraftableDef()
         { }
 
         /// <summary>

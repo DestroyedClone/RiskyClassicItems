@@ -6,6 +6,7 @@ using R2API;
 using RoR2;
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace ClassicItemsReturns.Items.Uncommon
@@ -205,6 +206,35 @@ namespace ClassicItemsReturns.Items.Uncommon
             else
             {
                 UnityEngine.Debug.LogError("ClassicItemsReturns: ShieldGating Armor TakeDamage IL Hook failed");
+            }
+        }
+
+        protected override void CreateCraftableDef()
+        {
+            if (EnergyCell.Instance != null && EnergyCell.Instance.ItemDef)
+            {
+                CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
+                craftable.pickup = ItemDef;
+                craftable.recipes = new Recipe[]
+                {
+                    new Recipe()
+                    {
+                        amountToDrop = 1,
+                        ingredients = new RecipeIngredient[]
+                        {
+                            new RecipeIngredient()
+                            {
+                                pickup = EnergyCell.Instance.ItemDef
+                            },
+                            new RecipeIngredient()
+                            {
+                                pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/FlatHealth/FlatHealth.asset").WaitForCompletion()
+                            }
+                        }
+                    }
+                };
+                (craftable as ScriptableObject).name = "cdGuardiansHeart";
+                PluginContentPack.craftableDefs.Add(craftable);
             }
         }
     }

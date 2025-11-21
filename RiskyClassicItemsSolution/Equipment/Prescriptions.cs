@@ -2,6 +2,7 @@
 using ClassicItemsReturns.Modules;
 using RoR2;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ClassicItemsReturns.Equipment
 {

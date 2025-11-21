@@ -1,3 +1,11 @@
+- `3.6.5`
+	- DLC3 update
+		- Added crafting recipes.
+		- Added Electric damagetype to Hyperthreader.
+		
+	- The Toxin
+		- Increased damage bonus from +20% -> +25%
+
 - `3.6.4`
 	- Fixed pixel scaling on icons. (Thanks viliger!)
 
