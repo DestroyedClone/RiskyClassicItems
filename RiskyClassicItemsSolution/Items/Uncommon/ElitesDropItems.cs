@@ -199,10 +199,10 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         private void CloverActivation_CreatePickupDroplet(DamageReport damageReport)
         {
-            PickupIndex pickupIndex = SacrificePickupDropTable.GenerateDrop(treasureRng);
-            if (pickupIndex != PickupIndex.none)
+            var pickup = SacrificePickupDropTable.GeneratePickupPreReplacement(treasureRng);
+            if (pickup != null)
             {
-                PickupDropletController.CreatePickupDroplet(pickupIndex, damageReport.victimBody.corePosition, Vector3.up * 20f);
+                PickupDropletController.CreatePickupDroplet(pickup, damageReport.victimBody.corePosition, Vector3.up * 20f, false, false);
             }
         }
     }

@@ -1,3 +1,6 @@
+- `3.6.10`
+	- Fixed a crash with 56 Leaf Clovers.
+
 - `3.6.9`
 	- Fixed Junk Drone Arms Race display.
 	- Updated Arms Race missile launcher normals.
