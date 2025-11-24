@@ -1,3 +1,6 @@
+- `3.6.11`
+	- Fixed Focus Crystal + Permafrost crafting into another Permafrost.
+
 - `3.6.10`
 	- Fixed a crash with 56 Leaf Clovers.
 
