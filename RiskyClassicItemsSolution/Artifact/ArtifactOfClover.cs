@@ -70,7 +70,7 @@ namespace ClassicItemsReturns.Artifact
             if (!affectedInventories.Contains(body.inventory))
             {
                 affectedInventories.Add(body.inventory);
-                body.inventory.GiveItem(cloverDef);
+                body.inventory.GiveItemPermanent(cloverDef);
             }
         }
     }

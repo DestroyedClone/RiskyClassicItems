@@ -83,7 +83,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
             if (!sender.inventory) return;
-            int itemCount = sender.inventory.GetItemCount(ItemDef);
+            int itemCount = sender.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             args.jumpPowerMultAdd += ItemHelpers.StackingLinear(itemCount, jumpBonus, jumpBonusStack);
@@ -94,7 +94,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             if (characterBody)
             {
                 int itemCount = 0;
-                if (characterBody.inventory) itemCount = characterBody.inventory.GetItemCount(ItemDef);
+                if (characterBody.inventory) itemCount = characterBody.inventory.GetItemCountEffective(ItemDef);
                 if (itemCount > 0)
                 {
                     bool isLastJump = RustyJetpack.enableAirhop.Value
@@ -133,7 +133,7 @@ namespace ClassicItemsReturns.Items.Uncommon
                     {
                         bool isLastJump = RustyJetpack.enableAirhop.Value
                         && self.characterMotor && self.characterMotor.jumpCount == self.characterBody.maxJumpCount - 1;
-                        bool hasItem = self.characterBody.inventory && self.characterBody.inventory.GetItemCount(ItemDef) > 0;
+                        bool hasItem = self.characterBody.inventory && self.characterBody.inventory.GetItemCountEffective(ItemDef) > 0;
                         if (isLastJump && hasItem)
                         {
                             return jumpEffectPrefab;

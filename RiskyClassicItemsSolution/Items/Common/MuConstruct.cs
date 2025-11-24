@@ -62,7 +62,7 @@ namespace ClassicItemsReturns.Items.Common
 
         private void CharacterBody_onBodyInventoryChangedGlobal(CharacterBody body)
         {
-            body.AddItemBehavior<MuConstructBehavior>(body.inventory.GetItemCount(ItemDef));
+            body.AddItemBehavior<MuConstructBehavior>(body.inventory.GetItemCountEffective(ItemDef));
         }
 
         protected override void CreateCraftableDef()

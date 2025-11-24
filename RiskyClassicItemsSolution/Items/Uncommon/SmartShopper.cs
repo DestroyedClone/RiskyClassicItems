@@ -111,7 +111,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             CharacterBody attackerBody = damageReport.attackerBody;
             if (attackerBody && attackerBody.inventory)
             {
-                int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+                int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
                 if (itemCount > 0)
                 {
                     int itemStack = itemCount - 1;

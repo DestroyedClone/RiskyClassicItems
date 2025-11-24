@@ -136,13 +136,7 @@ namespace ClassicItemsReturns.Equipment
                         {
                             if (Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef)
                             {
-                                characterMaster.inventory.GiveItem(Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef);
-                            }
-
-                            if (ModSupport.ModCompatRiskyMod.loaded)
-                            {
-                                Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(characterMaster.inventory, true);
-                                Modules.ModSupport.ModCompatRiskyMod.GiveAllyRegenItem(characterMaster.inventory, 40);
+                                characterMaster.inventory.GiveItemPermanent(Items.NoTier.DroneRepairKitDroneItem.Instance.ItemDef);
                             }
                         }
                     }

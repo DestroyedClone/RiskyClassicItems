@@ -55,7 +55,7 @@ namespace ClassicItemsReturns.Items.Common
         private void GoldOnCrit(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
         {
             if (!damageInfo.crit || !attackerBody.master || !attackerBody.master.inventory) return;
-            int itemCount = attackerBody.master.inventory.GetItemCount(ItemDef);
+            int itemCount = attackerBody.master.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
             if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
 
@@ -66,7 +66,7 @@ namespace ClassicItemsReturns.Items.Common
         {
             if (sender.inventory)
             {
-                int itemCount = sender.inventory.GetItemCount(ItemDef);
+                int itemCount = sender.inventory.GetItemCountEffective(ItemDef);
                 args.critAdd += itemCount * critChance;
             }
         }

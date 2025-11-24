@@ -49,7 +49,7 @@ namespace ClassicItemsReturns.Items.Common
 
         private void ProcFireShield(DamageInfo damageInfo, HealthComponent self, CharacterBody victimBody, Inventory inventory, bool lostShield, bool lostOutOfDanger)
         {
-            int itemCount = inventory.GetItemCount(ItemDef);
+            int itemCount = inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             TeamIndex victimTeam = victimBody.teamComponent ? victimBody.teamComponent.teamIndex : TeamIndex.None;

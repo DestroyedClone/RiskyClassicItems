@@ -87,7 +87,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             CharacterBody interactorBody = interactor.GetComponent<CharacterBody>();
             if (!interactorBody || !interactorBody.inventory) return;
 
-            int itemCount = interactorBody.inventory.GetItemCount(ItemDef);
+            int itemCount = interactorBody.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
 

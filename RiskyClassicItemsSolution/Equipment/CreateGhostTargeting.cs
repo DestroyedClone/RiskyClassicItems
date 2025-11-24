@@ -320,33 +320,29 @@ namespace ClassicItemsReturns.Equipment
                 Inventory inventory = characterMaster2.inventory;
                 if (inventory)
                 {
-                    if (inventory.GetItemCount(RoR2Content.Items.Ghost) <= 0) inventory.GiveItem(RoR2Content.Items.Ghost);
-                    if (inventory.GetItemCount(RoR2Content.Items.UseAmbientLevel) <= 0) inventory.GiveItem(RoR2Content.Items.UseAmbientLevel);
+                    if (inventory.GetItemCountPermanent(RoR2Content.Items.Ghost) <= 0) inventory.GiveItemPermanent(RoR2Content.Items.Ghost);
+                    if (inventory.GetItemCountPermanent(RoR2Content.Items.UseAmbientLevel) <= 0) inventory.GiveItemPermanent(RoR2Content.Items.UseAmbientLevel);
 
                     MasterSuicideOnTimer mst = characterMaster2.gameObject.AddComponent<MasterSuicideOnTimer>();
 
                     if (ownerBody && ownerBody.teamComponent && ownerBody.teamComponent.teamIndex == TeamIndex.Player)
                     {
-                        inventory.GiveItem(RoR2Content.Items.BoostDamage.itemIndex, ownerBody.isChampion ? boostDamageChampionItemCount : boostDamageItemCount);
+                        inventory.GiveItemPermanent(RoR2Content.Items.BoostDamage.itemIndex, ownerBody.isChampion ? boostDamageChampionItemCount : boostDamageItemCount);
                         //inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsPlayer);
-                        if (ModSupport.ModCompatRiskyMod.loaded)
-                        {
-                            Modules.ModSupport.ModCompatRiskyMod.GiveAllyItem(inventory);
-                        }
                         mst.lifeTimer = ghostDurationSecondsPlayer;
                     }
                     else //Handle enemy-spawned ghosts
                     {
-                        inventory.GiveItem(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsEnemy);
+                        inventory.GiveItemPermanent(RoR2Content.Items.HealthDecay.itemIndex, ghostDurationSecondsEnemy);
                         mst.lifeTimer = ghostDurationSecondsEnemy;
                     }
 
 
                     if (drainHP.Value)
                     {
-                        int drainHpCount = inventory.GetItemCount(RoR2Content.Items.HealthDecay);
-                        if (drainHpCount > 0) inventory.RemoveItem(RoR2Content.Items.HealthDecay, drainHpCount);
-                        inventory.GiveItem(RoR2Content.Items.HealthDecay, Mathf.CeilToInt(mst.lifeTimer));
+                        int drainHpCount = inventory.GetItemCountPermanent(RoR2Content.Items.HealthDecay);
+                        if (drainHpCount > 0) inventory.RemoveItemPermanent(RoR2Content.Items.HealthDecay, drainHpCount);
+                        inventory.GiveItemPermanent(RoR2Content.Items.HealthDecay, Mathf.CeilToInt(mst.lifeTimer));
                     }
                 }
             }
@@ -390,7 +386,7 @@ namespace ClassicItemsReturns.Equipment
             if (inventory)
             {
                 ItemDef nem = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SS2UNemesisMarkerItem"));
-                if (nem && inventory.GetItemCount(nem) > 0) return true;
+                if (nem && inventory.GetItemCountEffective(nem) > 0) return true;
             }
             return false;
         }

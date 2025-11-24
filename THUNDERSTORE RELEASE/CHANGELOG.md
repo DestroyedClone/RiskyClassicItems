@@ -1,3 +1,6 @@
+- `3.6.12`
+	- Compat fixes for the latest RiskyMod update.
+
 - `3.6.11`
 	- Fixed Focus Crystal + Permafrost crafting into another Permafrost.
 

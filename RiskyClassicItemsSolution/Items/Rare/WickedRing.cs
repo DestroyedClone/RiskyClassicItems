@@ -84,7 +84,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void CooldownOnCrit(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
         {
             if (!damageInfo.crit || damageInfo.procCoefficient <= 0f || !attackerBody.inventory || !attackerBody.skillLocator) return;
-            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             int itemStack = itemCount - 1;
@@ -94,7 +94,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void CooldownOnKill(GlobalEventManager globalEventManager, DamageReport damageReport, CharacterBody attackerBody, Inventory attackerInventory)
         {
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            int itemCount = attackerInventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0 || !attackerBody.skillLocator) return;
 
             int itemStack = itemCount - 1;
@@ -104,13 +104,13 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            if (sender.inventory && sender.inventory.GetItemCount(ItemDef) > 0) args.critAdd += bonusCrit;
+            if (sender.inventory && sender.inventory.GetItemCountEffective(ItemDef) > 0) args.critAdd += bonusCrit;
         }
 
         private void CooldownOnCrit(GlobalEventManager globalEventManager, DamageInfo damageInfo, GameObject victim, CharacterBody attackerBody, Inventory attackerInventory)
         {
             if (!damageInfo.crit || damageInfo.procCoefficient <= 0f || !attackerBody.skillLocator) return;
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            int itemCount = attackerInventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             int itemStack = itemCount - 1;

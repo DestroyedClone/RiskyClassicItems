@@ -126,7 +126,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             if (damageInfo.damage <= 0f || !attackerBody || !attackerBody.inventory) return;
 
-            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             float chance = procChance;

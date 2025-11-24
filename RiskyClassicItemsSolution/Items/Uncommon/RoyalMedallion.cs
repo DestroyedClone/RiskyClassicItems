@@ -100,7 +100,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             if(!victimBody.isChampion && !victimBody.isBoss) return;
             if (!RoyalMedallionPickup.CanSpawnPickup() || !attackerBody.inventory) return;
 
-            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
             if (!(itemCount > 0 && Util.CheckRoll(procChance, attackerBody.master))) return;
 
             GameObject buffObject = UnityEngine.Object.Instantiate(buffObjectPrefab, damageInfo.position, UnityEngine.Random.rotation);
@@ -122,7 +122,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             if (!victimBody.isChampion && !victimBody.isBoss) return;
             if (!RoyalMedallionPickup.CanSpawnPickup()) return;
 
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            int itemCount = attackerInventory.GetItemCountEffective(ItemDef);
             if (!(itemCount > 0 && Util.CheckRoll(procChance, attackerBody.master))) return;
 
             GameObject buffObject = UnityEngine.Object.Instantiate(buffObjectPrefab, damageInfo.position, UnityEngine.Random.rotation);

@@ -89,7 +89,7 @@ namespace ClassicItemsReturns.Items.Rare
             DamageInfo damageInfo = damageReport.damageInfo;
             Inventory attackerInventory = damageReport.attackerMaster.inventory;
 
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            int itemCount = attackerInventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             if (!Util.CheckRoll(procChancePercentage * itemCount, damageReport.attackerMaster)) return;

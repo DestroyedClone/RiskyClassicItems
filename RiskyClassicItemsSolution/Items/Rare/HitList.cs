@@ -101,7 +101,7 @@ namespace ClassicItemsReturns.Items.Rare
         {
             if (!NetworkServer.active) return;
 
-            if (body.master && body.master.inventory && body.master.inventory.GetItemCount(ItemDef) > 0)
+            if (body.master && body.master.inventory && body.master.inventory.GetItemCountEffective(ItemDef) > 0)
             {
 
                 var kc = body.master.gameObject.GetComponent<HitListKillCounterServer>();
@@ -132,7 +132,7 @@ namespace ClassicItemsReturns.Items.Rare
         {
             if (!NetworkServer.active || !body.HasBuff(Buffs.HitListPlayerBuff)) return;
 
-            bool hasHitList = body.inventory && body.inventory.GetItemCount(HitList.Instance.ItemDef) > 0;
+            bool hasHitList = body.inventory && body.inventory.GetItemCountEffective(HitList.Instance.ItemDef) > 0;
             if (hasHitList) return;
 
             if (body.master)
@@ -153,7 +153,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         private void onInventoryChangedGlobal_SetupHitListServer(Inventory inv)
         {
-            if (NetworkServer.active && inv.GetItemCount(ItemDef) > 0)
+            if (NetworkServer.active && inv.GetItemCountEffective(ItemDef) > 0)
             {
                 if (!HitListMinigameController.instance) InitializeHitListMinigameServer();
 
@@ -214,7 +214,7 @@ namespace ClassicItemsReturns.Items.Rare
                     return teamComponent.body
                     && teamComponent.body.master
                     && teamComponent.body.inventory
-                    && teamComponent.body.inventory.GetItemCount(HitList.Instance.ItemDef) > 0;
+                    && teamComponent.body.inventory.GetItemCountEffective(HitList.Instance.ItemDef) > 0;
                 });
 
                 foreach (var member in members)
@@ -449,7 +449,7 @@ namespace ClassicItemsReturns.Items.Rare
                 if (!master) return;
             }
 
-            if (!master.inventory || master.inventory.GetItemCount(HitList.Instance.ItemDef) <= 0) return;
+            if (!master.inventory || master.inventory.GetItemCountEffective(HitList.Instance.ItemDef) <= 0) return;
 
             CharacterBody body = master.GetBody();
             if (!body) return;

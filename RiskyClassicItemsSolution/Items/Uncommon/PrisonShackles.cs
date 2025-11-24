@@ -52,7 +52,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         private void ApplyShackles(DamageInfo damageInfo, CharacterBody victimBody, CharacterBody attackerBody)
         {
             if (!attackerBody.inventory) return;
-            int itemCount = attackerBody.inventory.GetItemCount(ItemDef);
+            int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
             int itemStack = itemCount - 1;

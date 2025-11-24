@@ -84,12 +84,12 @@ namespace ClassicItemsReturns.Items.Uncommon
                 if (body.master) master = body.master;
 
                 minionOwnership = body.GetComponent<MinionOwnership>();
-                UpdateAllMinions(inventory.GetItemCount(Instance.ItemDef));
+                UpdateAllMinions(inventory.GetItemCountEffective(Instance.ItemDef));
             }
 
             private void Inv_onInventoryChanged()
             {
-                UpdateAllMinions(inventory.GetItemCount(Instance.ItemDef));
+                UpdateAllMinions(inventory.GetItemCountEffective(Instance.ItemDef));
             }
 
             private void OnDisable()
@@ -146,19 +146,15 @@ namespace ClassicItemsReturns.Items.Uncommon
                 if (newStack < 0) newStack = 0;
                 if (inventory && (!requireMechanical.Value || bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical)))
                 {
-                    int itemCount = inventory.GetItemCount(ArmsRaceDroneItemDef);
+                    int itemCount = inventory.GetItemCountPermanent(ArmsRaceDroneItemDef);
                     if (itemCount < newStack)
                     {
-                        inventory.GiveItem(ArmsRaceDroneItemDef, newStack - itemCount);
+                        inventory.GiveItemPermanent(ArmsRaceDroneItemDef, newStack - itemCount);
                     }
                     else if (itemCount > newStack)
                     {
-                        inventory.RemoveItem(ArmsRaceDroneItemDef, itemCount - newStack);
+                        inventory.RemoveItemPermanent(ArmsRaceDroneItemDef, itemCount - newStack);
                     }
-                }
-                else
-                {
-                    inventory.ResetItem(DLC1Content.Items.DroneWeaponsBoost);
                 }
             }
         }

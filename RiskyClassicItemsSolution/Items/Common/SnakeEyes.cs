@@ -150,7 +150,7 @@ namespace ClassicItemsReturns.Items.Common
 
         public void ProcSnakeEyes(CharacterMaster master)
         {
-            if (!master || !master.inventory || master.inventory.GetItemCount(ItemDef) <= 0) return;
+            if (!master || !master.inventory || master.inventory.GetItemCountEffective(ItemDef) <= 0) return;
 
             MasterSnakeEyesTracker mset = master.GetComponent<MasterSnakeEyesTracker>();
             if (!mset) mset = master.gameObject.AddComponent<MasterSnakeEyesTracker>();
@@ -265,7 +265,7 @@ namespace ClassicItemsReturns.Items.Common
             CharacterMaster master = inventory.GetComponent<CharacterMaster>();
             if (!master) return;
 
-            bool hasItem = inventory.GetItemCount(ItemDef) > 0;
+            bool hasItem = inventory.GetItemCountEffective(ItemDef) > 0;
             if (hasItem)
             {
                 MasterSnakeEyesTracker mset = master.GetComponent<MasterSnakeEyesTracker>();

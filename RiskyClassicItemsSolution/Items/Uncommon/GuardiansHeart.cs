@@ -79,7 +79,7 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             if (sender.inventory)
             {
-                int itemCount = sender.inventory.GetItemCount(ItemDef);
+                int itemCount = sender.inventory.GetItemCountEffective(ItemDef);
                 if (itemCount > 0)
                 {
                     args.baseShieldAdd += sender.baseMaxHealth * shield * itemCount;
@@ -94,11 +94,11 @@ namespace ClassicItemsReturns.Items.Uncommon
 
             if (body.HasBuff(Buffs.GuardiansHeartReadyBuff))
             {
-                if (body.inventory.GetItemCount(ItemDef) <= 0) body.RemoveBuff(Buffs.GuardiansHeartReadyBuff);
+                if (body.inventory.GetItemCountEffective(ItemDef) <= 0) body.RemoveBuff(Buffs.GuardiansHeartReadyBuff);
             }
             else
             {
-                if (body.inventory.GetItemCount(ItemDef) > 0 && body.healthComponent && body.healthComponent.shield >= body.healthComponent.fullShield)
+                if (body.inventory.GetItemCountEffective(ItemDef) > 0 && body.healthComponent && body.healthComponent.shield >= body.healthComponent.fullShield)
                 {
                     body.AddBuff(Buffs.GuardiansHeartReadyBuff);
                 }
@@ -116,7 +116,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             }
             else if (self.shield >= self.fullShield)
             {
-                if (body.inventory && body.inventory.GetItemCount(ItemDef) > 0 && !body.HasBuff(Buffs.GuardiansHeartReadyBuff))
+                if (body.inventory && body.inventory.GetItemCountEffective(ItemDef) > 0 && !body.HasBuff(Buffs.GuardiansHeartReadyBuff))
                 {
                     body.AddBuff(Buffs.GuardiansHeartReadyBuff);
                 }
@@ -193,7 +193,7 @@ namespace ClassicItemsReturns.Items.Uncommon
                         //Get armor values
                         float currentArmor = body.armor + self.adaptiveArmorValue;
                         int itemCount = 1;
-                        if (body.inventory) itemCount = Mathf.Max(1, body.inventory.GetItemCount(ItemDef));
+                        if (body.inventory) itemCount = Mathf.Max(1, body.inventory.GetItemCountEffective(ItemDef));
                         float desiredArmor = currentArmor + itemCount * armor;
 
                         //Set effective damage resistance

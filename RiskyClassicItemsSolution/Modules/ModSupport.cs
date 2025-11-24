@@ -55,32 +55,6 @@ namespace ClassicItemsReturns.Modules
                 loaded = true;
             }
 
-            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-            internal static void GiveAllyItem(Inventory inventory, bool expendable = true)
-            {
-                if (!loaded) return;
-                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyMarkerItem);
-                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyScalingItem);
-
-                if (expendable)
-                {
-                    inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyAllowVoidDeathItem);
-                    inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyAllowOverheatDeathItem);
-                }
-            }
-
-            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-            internal static void GiveAllyRegenItem(Inventory inventory, int count)
-            {
-                if (!loaded) return;
-                inventory.GiveItem(RiskyMod.Allies.AllyItems.AllyRegenItem, count);
-            }
-
-            internal static bool IsNormalizeDroneDamage()
-            {
-                return RiskyMod.Allies.AlliesCore.normalizeDroneDamage;
-            }
-
             internal static bool IsAtgEnabled()
             {
                 if (!loaded) return false;

@@ -130,7 +130,7 @@ namespace ClassicItemsReturns.Items.Common
 
         private void OnKillEffect(CharacterBody attackerBody, CharacterBody victimBody, DamageType? assistDamageType, DamageTypeExtended? assistDamageTypeExtended, DamageSource? assistDamageSource, System.Collections.Generic.HashSet<R2API.DamageAPI.ModdedDamageType> assistModdedDamageTypes, Inventory attackerInventory, CharacterBody killerBody, DamageInfo damageInfo)
         {
-            int itemCount = attackerInventory.GetItemCount(ItemDef);
+            int itemCount = attackerInventory.GetItemCountEffective(ItemDef);
             if (itemCount > 0 && attackerBody != killerBody)
             {
                 int currentBuffs = attackerBody.GetBuffCount(Buffs.BitterRootBuff);

@@ -50,7 +50,7 @@ namespace ClassicItemsReturns.Items.Common
             {
                 if (!cm.inventory) continue;
 
-                if (cm.inventory && cm.inventory.GetItemCount(Instance.ItemDef) > 0)
+                if (cm.inventory && cm.inventory.GetItemCountEffective(Instance.ItemDef) > 0)
                 {
                     CharacterBody cb = cm.GetBody();
                     if (cb) cb.statsDirty = true;
@@ -62,7 +62,7 @@ namespace ClassicItemsReturns.Items.Common
         {
             if (IsTeleActivatedTracker.teleporterActivated && sender.inventory)
             {
-                int itemCount = sender.inventory.GetItemCount(ItemDef);
+                int itemCount = sender.inventory.GetItemCountEffective(ItemDef);
                 args.moveSpeedMultAdd += itemCount * speedIncrease;
             }
         }

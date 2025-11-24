@@ -218,7 +218,7 @@ namespace ClassicItemsReturns.Items.Rare
         private void CharacterBody_OnInventoryChanged(On.RoR2.CharacterBody.orig_OnInventoryChanged orig, CharacterBody self)
         {
             orig(self);
-            if (NetworkServer.active && !cannonSpawned && self.inventory.GetItemCount(ItemDef) > 0)
+            if (NetworkServer.active && !cannonSpawned && self.inventory.GetItemCountEffective(ItemDef) > 0)
             {
                 if (Run.instance) PlaceAtlasCannonInteractable(new Xoroshiro128Plus(Run.instance.seed));
             }

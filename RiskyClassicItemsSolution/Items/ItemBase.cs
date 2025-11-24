@@ -306,14 +306,14 @@ namespace ClassicItemsReturns.Items
         {
             if (!body || !body.inventory) { return 0; }
 
-            return body.inventory.GetItemCount(ItemDef);
+            return body.inventory.GetItemCountEffective(ItemDef);
         }
 
         public bool TryGetCount(CharacterBody body, out int count)
         {
             count = 0;
             if (!body || !body.inventory) { return false; }
-            count = body.inventory.GetItemCount(ItemDef);
+            count = body.inventory.GetItemCountEffective(ItemDef);
             return count > 0;
         }
 
@@ -321,14 +321,14 @@ namespace ClassicItemsReturns.Items
         {
             if (!master || !master.inventory) { return 0; }
 
-            return master.inventory.GetItemCount(ItemDef);
+            return master.inventory.GetItemCountEffective(ItemDef);
         }
 
         public bool TryGetCount(CharacterMaster master, out int count)
         {
             count = 0;
             if (!master || !master.inventory) { return false; }
-            count = master.inventory.GetItemCount(ItemDef);
+            count = master.inventory.GetItemCountEffective(ItemDef);
             return count > 0;
         }
 
@@ -336,14 +336,14 @@ namespace ClassicItemsReturns.Items
         {
             if (!body || !body.inventory) { return 0; }
 
-            return body.inventory.GetItemCount(itemDef);
+            return body.inventory.GetItemCountEffective(itemDef);
         }
 
         public bool TryGetCountSpecific(CharacterBody body, ItemDef itemDef, out int count)
         {
             count = 0;
             if (!body || !body.inventory) { return false; }
-            count = body.inventory.GetItemCount(itemDef);
+            count = body.inventory.GetItemCountEffective(itemDef);
             return true;
         }
 
