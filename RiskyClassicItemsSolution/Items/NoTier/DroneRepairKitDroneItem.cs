@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using BepInEx.Configuration;
+using HarmonyLib;
 
 namespace ClassicItemsReturns.Items.NoTier
 {
@@ -23,6 +25,10 @@ namespace ClassicItemsReturns.Items.NoTier
         public override Sprite ItemIcon => Modules.Assets.NullSprite;
 
         public override string ItemLangTokenName => "DRONEREPAIRKITDRONEITEM";
+
+        public override bool CanRemove => false;
+
+        public override bool Hidden => true;
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -90,8 +96,9 @@ namespace ClassicItemsReturns.Items.NoTier
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.CannotSteal,
-            ItemTag.CannotCopy,
-            ItemTag.CannotDuplicate
+            ItemTag.CannotDuplicate,
+            ItemTag.HiddenForDroneBuffIcon,
+            ItemTag.ExtractorUnitBlacklist
         };
     }
 }

@@ -1,3 +1,11 @@
+- `3.6.14`
+	- Repair Drone no longer has an upgrade icon for its hidden marker item.
+	- Lost Doll
+		- Doubled orb speed.
+		- Added Equipment damagesource.
+	- Thqwibs
+		- Added Equipment damagesource.
+
 - `3.6.13`
 	- Fixed Snake Eyes buff not re-enabling after the item is Invalidated.
 

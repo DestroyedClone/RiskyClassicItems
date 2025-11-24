@@ -92,7 +92,7 @@ namespace ClassicItemsReturns.Equipment
             for (int i = 0; i < projectileCount; i++)
             {
                 Quaternion rotation = Util.QuaternionSafeLookRotation(Util.ApplySpread(aimRay.direction, 0f, 12f, 1f, 1f, 0f, 0f));//25
-                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, rotation, slot.characterBody.gameObject, slot.characterBody.damage * damageCoefficient, 0f, Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master), DamageColorIndex.Default, null, projectileVelocity);
+                ProjectileManager.instance.FireProjectile(projectilePrefab, aimRay.origin, rotation, slot.characterBody.gameObject, slot.characterBody.damage * damageCoefficient, 0f, Util.CheckRoll(slot.characterBody.crit, slot.characterBody.master), DamageColorIndex.Default, null, projectileVelocity, (DamageTypeCombo)DamageSource.Equipment);
             }
             return true;
         }

@@ -990,7 +990,8 @@ namespace ClassicItemsReturns.Items.NoTier
         {
             ItemTag.CannotSteal,
             ItemTag.CannotCopy,
-            ItemTag.Damage
+            ItemTag.Damage,
+            ItemTag.ExtractorUnitBlacklist
         };
 
         //Fix gunner turret display

@@ -25,7 +25,7 @@ namespace ClassicItemsReturns.Modules
 
             public override void Begin()
             {
-                base.duration = base.distanceToTarget / 30f;
+                base.duration = base.distanceToTarget / 60f;
                 attackerCharacterBody.healthComponent.TakeDamage(new DamageInfo()
                 {
                     attacker = null,
@@ -67,6 +67,7 @@ namespace ClassicItemsReturns.Modules
                         damageInfo.procCoefficient = this.procCoefficient;
                         damageInfo.position = this.target.transform.position;
                         damageInfo.damageColorIndex = this.damageColorIndex;
+                        damageInfo.damageType = (DamageTypeCombo)DamageSource.Equipment;
                         healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
                         GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
