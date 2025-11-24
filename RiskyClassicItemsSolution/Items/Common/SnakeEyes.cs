@@ -86,6 +86,7 @@ namespace ClassicItemsReturns.Items.Common
             base.Hooks();
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
             Inventory.onInventoryChangedGlobal += Inventory_onInventoryChangedGlobal;
+            On.RoR2.Inventory.RemoveInventoryDisabler += Inventory_RemoveInventoryDisabler;
             //ShrineChanceBehavior.onShrineChancePurchaseGlobal += DiceOnShrineFail;
             On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrinePurchase;
             Stage.onStageStartGlobal += ResetCountOnStageStart;
@@ -98,6 +99,27 @@ namespace ClassicItemsReturns.Items.Common
 
             On.RoR2.Interactor.PerformInteraction += Interactor_PerformInteraction;
             On.RoR2.ScrapperController.CreateItemTakenOrb += ScrapperController_CreateItemTakenOrb;
+        }
+
+        private void Inventory_RemoveInventoryDisabler(On.RoR2.Inventory.orig_RemoveInventoryDisabler orig, Inventory self)
+        {
+            orig(self);
+            if (NetworkServer.active)
+            {
+                CharacterMaster master = self.GetComponent<CharacterMaster>();
+                if (master)
+                {
+                    var body = master.GetBody();
+                    if (body)
+                    {
+                        MasterSnakeEyesTracker mset = master.gameObject.GetComponent<MasterSnakeEyesTracker>();
+                        if (mset)
+                        {
+                            mset.RecalculateBuffServer(body);
+                        }
+                    }
+                }
+            }
         }
 
         private void ScrapperController_CreateItemTakenOrb(On.RoR2.ScrapperController.orig_CreateItemTakenOrb orig, Vector3 effectOrigin, GameObject targetObject, ItemIndex itemIndex)

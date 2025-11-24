@@ -1,3 +1,6 @@
+- `3.6.13`
+	- Fixed Snake Eyes buff not re-enabling after the item is Invalidated.
+
 - `3.6.12`
 	- Compat fixes for the latest RiskyMod update.
 
