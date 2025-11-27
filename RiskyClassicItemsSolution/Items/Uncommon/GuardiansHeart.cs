@@ -109,16 +109,18 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             orig(self, deltaTime);
             CharacterBody body = self.body;
-
-            if (self.shield <= 0f)
+            if (body)
             {
-                if (body.HasBuff(Buffs.GuardiansHeartReadyBuff)) body.RemoveBuff(Buffs.GuardiansHeartReadyBuff);
-            }
-            else if (self.shield >= self.fullShield)
-            {
-                if (body.inventory && body.inventory.GetItemCountEffective(ItemDef) > 0 && !body.HasBuff(Buffs.GuardiansHeartReadyBuff))
+                if (self.shield <= 0f)
                 {
-                    body.AddBuff(Buffs.GuardiansHeartReadyBuff);
+                    if (body.HasBuff(Buffs.GuardiansHeartReadyBuff)) body.RemoveBuff(Buffs.GuardiansHeartReadyBuff);
+                }
+                else if (self.shield >= self.fullShield)
+                {
+                    if (body.inventory && body.inventory.GetItemCountEffective(ItemDef) > 0 && !body.HasBuff(Buffs.GuardiansHeartReadyBuff))
+                    {
+                        body.AddBuff(Buffs.GuardiansHeartReadyBuff);
+                    }
                 }
             }
         }

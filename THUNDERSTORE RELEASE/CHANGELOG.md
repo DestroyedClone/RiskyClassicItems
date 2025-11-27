@@ -1,3 +1,9 @@
+- `3.6.16`
+	- Added extra nullcheck to Guardian's Heart.
+
+- `3.6.15`
+	- Added missing Chinese description for Guardian's Heart (Thanks White-Biggy!)
+
 - `3.6.14`
 	- Repair Drone no longer has an upgrade icon for its hidden marker item.
 	- Lost Doll

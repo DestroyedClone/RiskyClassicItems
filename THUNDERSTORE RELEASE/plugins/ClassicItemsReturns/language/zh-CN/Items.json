@@ -139,7 +139,11 @@
 		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_NAME": "迫击炮管",
 		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_PICKUP": "有几率发射迫击炮。",
 		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_DESCRIPTION": "<style=cIsDamage>{0}%</style>几率发射迫击炮，造成 <style=cIsDamage>{1}%<style=cStack>（每堆叠 +{2}%）</style></style>总伤害。",
-		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_LORE": "订单：迫击炮管 \r\n 追踪编号：1487***********\r\n 预计送达时间：1946 年 5 月 19 日 \r\n 配送方式：军方配送 \r\n 配送地址：地球，旧掩体，西 437 号 \r\n 配送详情：\r\n\r\n 嗯，呃…… 这玩意儿有点过时了。你把炸药从一端塞进去，然后用更多炸药把它发射出去。要是你想降低受伤率，就别用这东西。\n\n 抛开其陈旧的设计不谈，要是能把很多迫击炮管组成炮群，其实还挺不错的。可以覆盖一大片区域，比如 [已编辑]。我觉得你之后还能用这炮管揍他们。"
+		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_LORE": "订单：迫击炮管 \r\n 追踪编号：1487***********\r\n 预计送达时间：1946 年 5 月 19 日 \r\n 配送方式：军方配送 \r\n 配送地址：地球，旧掩体，西 437 号 \r\n 配送详情：\r\n\r\n 嗯，呃…… 这玩意儿有点过时了。你把炸药从一端塞进去，然后用更多炸药把它发射出去。要是你想降低受伤率，就别用这东西。\n\n 抛开其陈旧的设计不谈，要是能把很多迫击炮管组成炮群，其实还挺不错的。可以覆盖一大片区域，比如 [已编辑]。我觉得你之后还能用这炮管揍他们。",
+		
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_NAME": "守护者之心",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_PICKUP": "护盾可抵御生命值伤害。",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_DESCRIPTION": "获得一层护盾，护盾值等同于自身最大生命值的<style=cIsHealing>{0}%</style> <style=cStack>（每层+{1}%）</style>。当护盾被<style=cIsHealth>击破</style>时，获得<style=cIsHealing>+{2}点护甲</style> <style=cStack>（每层+{3}点）</style>以抵御剩余伤害。护盾完全恢复后，护甲加成重置。", "CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_DESCRIPTION_ALT": "获得一层护盾，护盾值等同于自身最大生命值的<style=cIsHealing>{0}%</style> <style=cStack>（每层+{1}%）</style>。当护盾被<style=cIsHealth>击破</style>时，抵消所有剩余伤害。护盾完全恢复后，效果重置。",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_LORE": "订单名称：守护者之心\r\n追踪编号：1439***********\r\n预计送达时间：2056年9月16日\r\n配送方式：优先配送/生物制品\r\n配送地址：火星，研究中心，费尔维尤大道1100号\r\n配送详情：\r\n\r\n150053号实验对象测试结果。该对象存活期间，肌肉生长异常、细胞再生能力增强、敏捷度提升、智力水平提高，且皮肤呈现蓝色。\n2056年8月23日，该对象挣脱束缚，释放了其他所有实验对象。包括150053号在内的所有实验对象均已被处决。\n\n他的心脏在脱离身体后，似乎仍在跳动。或许将其移植到其他实验对象体内，可以继续推进研究。"
 	}
 }
-
