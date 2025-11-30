@@ -54,8 +54,10 @@ namespace ClassicItemsReturns.Items.Rare
 
         public static Dictionary<string, Vector3> atlasCannonInteractableManualPlacementDict = new Dictionary<string, Vector3>
         {
-            {"voidraid" , new Vector3(0f, 217f, -443f)},
-            { "meridian" , new Vector3(78f, 35f, -94f) }
+            { "voidraid" , new Vector3(0f, 217f, -443f)},
+            { "meridian" , new Vector3(78f, 35f, -94f) },
+            { "solutionalhaunt" , new Vector3(173f, -54.7f, 151f) },
+            //{ "solusweb" , new Vector3(263f, -363.5f, -263f) }    //Doesn't work on the boss by default, and the cannon persists
         };
 
         public static bool cannonSpawned = false;
@@ -460,8 +462,17 @@ namespace ClassicItemsReturns.Items.Rare
             {
                 int itemCount = Mathf.Max(1, Util.GetItemCountForTeam(TeamIndex.Player, USB.Instance.ItemDef.itemIndex, false, true));
                 float damage = targetHealthComponent.fullCombinedHealth * USB.CalcDamagePercent(itemCount);
+
+                //Single phase bosses take reduced damage.
+                if (targetHealthComponent.body
+                    && (targetHealthComponent.body.bodyIndex == DLC3Content.BodyPrefabs.SolusWingBody.bodyIndex
+                        || targetHealthComponent.body.bodyIndex == DLC3Content.BodyPrefabs.SolusHeartBody.bodyIndex))
+                {
+                    damage /= 3f;
+                }
+
                 Vector3 damagePosition = targetHealthComponent.body ? targetHealthComponent.body.corePosition : base.transform.position;
-                targetHealthComponent.TakeDamage(new DamageInfo()
+                DamageInfo damageInfo = new DamageInfo()
                 {
                     damage = damage,
                     damageType = DamageType.BypassArmor | DamageType.BypassBlock,
@@ -475,7 +486,8 @@ namespace ClassicItemsReturns.Items.Rare
                     position = damagePosition,
                     procChainMask = default,
                     procCoefficient = 0f
-                });
+                };
+                targetHealthComponent.TakeDamage(damageInfo);
                 EffectManager.SimpleSoundEffect(USB.atlasCannonFireSound.index, damagePosition, true);
             }
         }

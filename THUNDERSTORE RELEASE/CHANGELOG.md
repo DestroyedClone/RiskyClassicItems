@@ -1,3 +1,13 @@
+- `3.6.17`
+	- Classified Access Codes
+		- Added support for Solutional Haunt.
+			- Damage is reduced by 1/3 since the boss only has 1 healthbar.
+		
+	- Snake Eyes
+		- Crit chance reduced from 7.5% -> 5%
+		
+		*Guaranteed proc on shrines makes it really easy to get all 6 stacks compared to 1/Returns.*
+
 - `3.6.16`
 	- Added extra nullcheck to Guardian's Heart.
 
