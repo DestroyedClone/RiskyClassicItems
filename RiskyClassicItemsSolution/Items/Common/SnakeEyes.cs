@@ -69,7 +69,7 @@ namespace ClassicItemsReturns.Items.Common
         {
         };
 
-        public float critChance = 7.5f;
+        public float critChance = 5f;
         public float critDamageInitial = 0f;
         public float critDamageStack = 0.05f;
 
