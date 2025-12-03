@@ -59,10 +59,6 @@ namespace ClassicItemsReturns.Items.Common
 
         public static HashSet<string> shrineListSingleProc = new HashSet<string>
         {
-            "LynxShrinePrefab",
-            "LynxShrinePrefab1",
-            "LynxShrinePrefab2",
-            "LynxShrinePrefab3",
         };
 
         public static HashSet<string> shrineListTeamProc = new HashSet<string>

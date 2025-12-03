@@ -161,7 +161,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             }
 
             CraftableDef unlockTheSafe = ScriptableObject.CreateInstance<CraftableDef>();
-            unlockTheSafe.pickup = ItemDef;
+            unlockTheSafe.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/BarrierOnKill/BarrierOnKill.asset").WaitForCompletion();
             unlockTheSafe.recipes = new Recipe[]
             {
                 new Recipe()

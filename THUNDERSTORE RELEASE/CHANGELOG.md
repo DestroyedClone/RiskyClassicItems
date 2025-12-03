@@ -1,3 +1,7 @@
+- `3.6.18`
+	- Locked Jewel
+		- Fixed crafting recipe giving 2x of itself, instead of 2x topaz brooches.
+
 - `3.6.17`
 	- Classified Access Codes
 		- Added support for Solutional Haunt.
