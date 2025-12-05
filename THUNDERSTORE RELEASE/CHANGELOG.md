@@ -1,3 +1,7 @@
+- `3.6.19`
+	- Rusty Jetpack
+		- Fixed crafting recipe requiring another Rusty Jetpack instead of Arcane Blades.
+
 - `3.6.18`
 	- Locked Jewel
 		- Fixed crafting recipe giving 2x of itself, instead of 2x topaz brooches.

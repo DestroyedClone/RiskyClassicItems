@@ -170,7 +170,7 @@ namespace ClassicItemsReturns.Items.Uncommon
                         {
                             new RecipeIngredient()
                             {
-                                pickup = ItemDef
+                                pickup = ArcaneBlades.Instance.ItemDef
                             },
                             new RecipeIngredient()
                             {
