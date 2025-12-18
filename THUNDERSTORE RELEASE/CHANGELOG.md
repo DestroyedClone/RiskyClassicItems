@@ -1,3 +1,8 @@
+- `3.6.20`
+	- Jar of Souls
+		- Now only uses the custom blacklist if you enable it in the config. Will use the plugin's default blacklist otherwise.
+		- Blacklisted Solus Wing and Solus Heart to prevent progression break bugs.
+
 - `3.6.19`
 	- Rusty Jetpack
 		- Fixed crafting recipe requiring another Rusty Jetpack instead of Arcane Blades.

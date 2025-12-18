@@ -30,7 +30,7 @@ namespace ClassicItemsReturns.Equipment
 
         public static ConfigEntry<bool> blacklistSS2UNemesis;
         public static ConfigEntry<bool> drainHP;
-        public static ConfigEntry<string> bodyBlacklistString;
+        public static string bodyBlacklistString;
 
         public static NetworkSoundEventDef activationSound;
 
@@ -68,7 +68,7 @@ namespace ClassicItemsReturns.Equipment
 
         private void GetBodyIndex()
         {
-            string[] bodyNames = bodyBlacklistString.Value.Split(',');
+            string[] bodyNames = bodyBlacklistString.Split(',');
             foreach (string str in bodyNames)
             {
                 BodyIndex index = BodyCatalog.FindBodyIndex(str.Trim());
@@ -150,7 +150,11 @@ namespace ClassicItemsReturns.Equipment
             int maxUses = config.Bind(ConfigCategory, "Max Uses", 2, "Max amount of active uses (each use spawns 3 normal enemies or 1 boss).").Value;
             drainHP = config.Bind(ConfigCategory, "Drain HP", true, "Ghosts drain HP over their lifetime. Mainly used so that boss ghosts properly trigger their attacks that require certain HP thresholds.");
             blacklistSS2UNemesis = config.Bind(ConfigCategory, "Blacklist SS2U Nemesis Bosses", true, "Jar of Souls cannot target Nemesis Bosses from SS2U.");
-            bodyBlacklistString = config.Bind(ConfigCategory, "Body Blacklist", "ShopkeeperBody, VoidInfestorBody, WispSoulBody, UrchinTurretBody, MinorConstructAttachableBody, VoidRaidCrabBody, MiniVoidRaidCrabBodyPhase1, MiniVoidRaidCrabBodyPhase2, MiniVoidRaidCrabBodyPhase3", "Prevents the listed enemies from being targeted. Case-sensitive, use DebugToolKit list_bodies command to see full bodylist.");
+
+            string defaultBlacklist = "ShopkeeperBody, VoidInfestorBody, WispSoulBody, UrchinTurretBody, MinorConstructAttachableBody, VoidRaidCrabBody, MiniVoidRaidCrabBodyPhase1, MiniVoidRaidCrabBodyPhase2, MiniVoidRaidCrabBodyPhase3, SolusWingBody, SolusHeartBody, SolusHeartBody_Offering, ExhaustPortWeakpointBody, SolusMineBody";
+            bool useDefaultBlacklist = config.Bind(ConfigCategory, "Body Blacklist - Use Default", true, "Ignore the custom blacklist setting and just use the default body blacklist.").Value;
+            string customBlacklist = config.Bind(ConfigCategory, "Body Blacklist", defaultBlacklist, "Prevents the listed enemies from being targeted. Case-sensitive, use DebugToolKit list_bodies command to see full bodylist.").Value;
+            bodyBlacklistString = useDefaultBlacklist ? defaultBlacklist : customBlacklist;
 
             maxGhosts = maxUses * ghostsPerCommon;
         }
