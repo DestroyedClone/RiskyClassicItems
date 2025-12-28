@@ -94,6 +94,7 @@ namespace ClassicItemsReturns.Items.Common
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
             craftable.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC2/Items/TriggerEnemyDebuffs/TriggerEnemyDebuffs.asset").WaitForCompletion();
             craftable.recipes = new Recipe[]

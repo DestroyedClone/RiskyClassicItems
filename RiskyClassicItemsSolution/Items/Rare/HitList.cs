@@ -228,6 +228,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             ItemDef warBonds = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC2/Items/BarrageOnBoss/BarrageOnBoss.asset").WaitForCompletion();
             if (GoldenGun.Instance != null && GoldenGun.Instance.ItemDef)
             {

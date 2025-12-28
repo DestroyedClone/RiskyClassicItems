@@ -202,7 +202,7 @@ namespace ClassicItemsReturns.Items
             CreateConfig(config);
             CreateAssets(config);
             CreateItem();
-            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
+            if (ItemDef) ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
         }
 

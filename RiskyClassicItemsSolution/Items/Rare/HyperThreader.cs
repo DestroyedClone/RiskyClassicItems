@@ -109,6 +109,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             bool golden = GoldenGun.Instance != null && GoldenGun.Instance.ItemDef;
             bool energy = EnergyCell.Instance != null && EnergyCell.Instance.ItemDef;
             if (golden || energy)

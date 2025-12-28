@@ -163,6 +163,7 @@ namespace ClassicItemsReturns.Equipment
 
         protected override void CreateCraftableDef()
         {
+            if (!EquipmentDef) return;
             bool armsRace = ArmsRace.Instance != null && ArmsRace.Instance.ItemDef;
             bool mortar = MortarTube.Instance != null && MortarTube.Instance.ItemDef;
             if (ArmsRace.Instance != null && ArmsRace.Instance.ItemDef)

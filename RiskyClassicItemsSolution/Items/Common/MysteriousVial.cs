@@ -60,6 +60,7 @@ namespace ClassicItemsReturns.Items.Common
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             CraftableDef toInfusion = ScriptableObject.CreateInstance<CraftableDef>();
             toInfusion.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Infusion/Infusion.asset").WaitForCompletion();
             toInfusion.recipes = new Recipe[]

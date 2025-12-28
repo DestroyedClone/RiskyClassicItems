@@ -120,6 +120,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             ItemDef talisman = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Talisman/Talisman.asset").WaitForCompletion();
 
             bool amethyst = ResetSkillCooldown.Instance != null && ResetSkillCooldown.Instance.EquipmentDef;

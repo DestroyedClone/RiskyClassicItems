@@ -67,6 +67,7 @@ namespace ClassicItemsReturns.Items.Common
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             CraftableDef toBiggerConstruct = ScriptableObject.CreateInstance<CraftableDef>();
             toBiggerConstruct.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/DLC1/MinorConstructOnKill/MinorConstructOnKill.asset").WaitForCompletion();
             toBiggerConstruct.recipes = new Recipe[]

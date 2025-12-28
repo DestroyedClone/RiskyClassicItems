@@ -1,3 +1,6 @@
+- `3.6.21`
+	- Fixed a faulty crafting recipe related to Golden Gun which could cause the crafting system to break when Razor Penny is disabled.
+
 - `3.6.20`
 	- Jar of Souls
 		- Now only uses the custom blacklist if you enable it in the config. Will use the plugin's default blacklist otherwise.

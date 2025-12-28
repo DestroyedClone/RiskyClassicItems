@@ -166,7 +166,7 @@ namespace ClassicItemsReturns.Equipment
             CreateAssets(config);
             CreateLang();
             CreateEquipment();
-            ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
+            if (EquipmentDef != null) ClassicItemsReturnsPlugin.onFinishScanning += CreateCraftableDef;
             Hooks();
         }
         public virtual void CreateAssets(ConfigFile config)

@@ -397,6 +397,7 @@ namespace ClassicItemsReturns.Equipment
 
         protected override void CreateCraftableDef()
         {
+            if (!EquipmentDef) return;
             CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
             craftable.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/GhostOnKill/GhostOnKill.asset").WaitForCompletion();
             craftable.recipes = new Recipe[]

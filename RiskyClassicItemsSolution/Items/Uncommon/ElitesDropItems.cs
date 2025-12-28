@@ -77,6 +77,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             CraftableDef cdCloverToClover = ScriptableObject.CreateInstance<CraftableDef>();
             Recipe fromNectar = new Recipe()
             {

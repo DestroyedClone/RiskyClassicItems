@@ -51,6 +51,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             CraftableDef toFrostRelic = ScriptableObject.CreateInstance<CraftableDef>();
             toFrostRelic.pickup = Addressables.LoadAssetAsync<ItemDef>("RoR2/Base/Icicle/Icicle.asset").WaitForCompletion();
             toFrostRelic.recipes = new Recipe[]

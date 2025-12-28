@@ -157,6 +157,7 @@ namespace ClassicItemsReturns.Items.Uncommon
 
         protected override void CreateCraftableDef()
         {
+            if (!ItemDef) return;
             if (ArcaneBlades.Instance != null && ArcaneBlades.Instance.ItemDef)
             {
                 CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();

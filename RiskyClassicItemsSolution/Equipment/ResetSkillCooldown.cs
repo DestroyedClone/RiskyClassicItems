@@ -69,6 +69,7 @@ namespace ClassicItemsReturns.Equipment
 
         protected override void CreateCraftableDef()
         {
+            if (!EquipmentDef) return;
             CraftableDef craftable = ScriptableObject.CreateInstance<CraftableDef>();
             craftable.pickup = EquipmentDef;
             craftable.recipes = new Recipe[]

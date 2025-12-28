@@ -102,7 +102,7 @@ namespace ClassicItemsReturns.Items.Uncommon
                         },
                         new RecipeIngredient()
                         {
-                            pickup = RazorPenny.Instance.ItemDef
+                            pickup = LifeSavings.Instance.ItemDef
                         }
                     }
                 };
