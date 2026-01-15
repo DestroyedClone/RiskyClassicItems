@@ -1,3 +1,9 @@
+- `3.6.22`
+	- Energy Cell
+		- Increased attack speed from 10%-40% -> 20%-60%
+		
+		*Just a numbers buff for now. Item is kind of bad and could use a rework version.*
+
 - `3.6.21`
 	- Fixed a faulty crafting recipe related to Golden Gun which could cause the crafting system to break when Razor Penny is disabled.
 

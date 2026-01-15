@@ -36,10 +36,10 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.LowHealth,
             ItemTag.CanBeTemporary
         };
-        public const float atkSpdIncrease = 0.1f;
-        public const float atkSpdIncreaseStack = 0.1f;
-        public const float atkSpdIncreaseLowHealth = 0.3f;
-        public const float atkSpdIncreaseLowHealthStack = 0.3f;
+        public const float atkSpdIncrease = 0.2f;
+        public const float atkSpdIncreaseStack = 0.2f;
+        public const float atkSpdIncreaseLowHealth = 0.4f;
+        public const float atkSpdIncreaseLowHealthStack = 0.4f;
 
         public const float atkSpdIncreaseLowHealthThreshold = 0.25f;
         public const float atkSpdIncreaseLowHealthThresholdInverse = 1f - atkSpdIncreaseLowHealthThreshold;
