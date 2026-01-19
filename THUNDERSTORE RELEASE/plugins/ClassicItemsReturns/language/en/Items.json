@@ -85,7 +85,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Energy Cell",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Attack faster at lower health.",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>10%-40%</style> <style=cStack>(+10%-40% per stack)</style> based on <style=cIsHealth>health lost</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Increases <style=cIsDamage>attack speed</style> by <style=cIsDamage>{0}%-{2}%</style> <style=cStack>(+{1}%-{3}% per stack)</style> based on <style=cIsHealth>health lost</style>.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/09\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "Boxing Gloves",

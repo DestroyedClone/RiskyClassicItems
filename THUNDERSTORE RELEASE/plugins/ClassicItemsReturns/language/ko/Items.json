@@ -85,7 +85,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "에너지 셀",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "체력이 낮을때 공격 속도가 빨라집니다.",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "<style=cIsHealth>체력이 낮을 때</style> <style=cIsDamage>공격 속도</style>가 <style=cIsDamage>10%~40%</style><style=cStack>(중첩당 +10%~40%)</style> 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "<style=cIsHealth>체력이 낮을 때</style> <style=cIsDamage>공격 속도</style>가 <style=cIsDamage>{0}%~{2}%</style><style=cStack>(중첩당 +{1}%~{3}%)</style> 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/09\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "복싱 글러브",

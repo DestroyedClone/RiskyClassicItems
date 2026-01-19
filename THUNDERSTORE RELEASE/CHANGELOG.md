@@ -1,3 +1,6 @@
+- `3.6.23`
+	- Fixed Energy Cell description not showing updated values.
+
 - `3.6.22`
 	- Energy Cell
 		- Increased attack speed from 10%-40% -> 20%-60%

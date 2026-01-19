@@ -85,7 +85,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "能量电池",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "生命值越低，攻击速度越快。",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "根据<style=cIsHealth>失去的生命值</style>，增加<style=cIsDamage>攻击速度</style> <style=cIsDamage>10%-40%</style> <style=cStack>(每层额外+10%-40%)</style>。",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "根据<style=cIsHealth>失去的生命值</style>，增加<style=cIsDamage>攻击速度</style> <style=cIsDamage>{0}%-{2}%</style> <style=cStack>(每层额外+{1}%-{3}%)</style>。",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "订单：能量电池\r\n跟踪号码：1442***********\r\n预计送达时间：2056年11月9日\r\n运输方式：优先\r\n收货地址：火星，CronTech实验室，第6511号\r\n运输详情：\r\n\r\n致：----- - J.\r\nCC#：---- ---- - ---\r\n账户#：200158\r\n仅用于基于融合的车辆和机械。请勿上传至主框架。",
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "拳击手套",

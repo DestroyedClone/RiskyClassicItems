@@ -85,7 +85,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_NAME": "Célula de Energia",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_PICKUP": "Ataque mais rápido quando estiver com pouca saúde.",
-		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Aumenta a <style=cIsDamage>velocidade de ataque</style> em <style=cIsDamage>10%-40%</style> <style=cStack>(+10%-40% por acúmulo)</style> baseado na <style=cIsHealth>saúde faltante</style>.",
+		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_DESCRIPTION": "Aumenta a <style=cIsDamage>velocidade de ataque</style> em <style=cIsDamage>{0}%-{2}%</style> <style=cStack>(+{1}%-{3}% por acúmulo)</style> baseado na <style=cIsHealth>saúde faltante</style>.",
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Pedido: Célula de Energia\r\nNúmero de Rastreio: 1442***********\r\nPrevisão de Entrega: 11\/09\/2056\r\nMétodo de Envio: Priority\r\nEndereço de Entrega: 6511, Laboratórios CronTech, Marte\r\nDetalhes do Pedido:\r\n\r\nPARA: ----- - J.\nCC#: ---- ---- - ---\nC.#: 200158\nUsar APENAS em veículos e máquinas baseados em fusão. NÃO carregar no servidor principal.",
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "Luvas de Boxes",
