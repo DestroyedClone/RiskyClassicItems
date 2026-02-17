@@ -1,3 +1,6 @@
+- `3.6.24`
+	- Updated KO TL.
+
 - `3.6.23`
 	- Fixed Energy Cell description not showing updated values.
 

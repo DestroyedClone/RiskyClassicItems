@@ -29,12 +29,12 @@
 		"CLASSICITEMSRETURNS_ITEM_WEAKENONCONTACT_LORE": "Order: The Toxin\r\nEstimated Delivery: 04\/30\/2056\r\nShipping Method: Unmarked\r\nShipping Address: EICO labs, City of Gold, Earth\r\nShipping Details:\r\n\r\nTEST SUMMARY\n[id.416c7068615468726565]\nSubject stabilized - Notable levels of arousal.\nIncreased disposition to disperse.\nSpecialized containment necessary if active.\nN31 applied, watch for adverse reactions.\nHandling prohibited for this phase.\nAOD: 53 75 6e 46 61 6c 6c",
 
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_NAME": "뱀의 눈",
-		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "성소 사용시 치명타 확율과 치명타 피해가 증가합니다.",
+		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_PICKUP": "성소 사용시 치명타 확률과 치명타 피해가 증가합니다.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_DESCRIPTION": "<style=cIsUtility>성소 사용 시</style> <style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +7.5)</style> 증가하고 치명타 피해가 <style=cIsDamage>{1}%</style><style=cStack>(중첩당 +{2}%)</style> 증가합니다. <style=cIsDamage>최대 6번</style>까지 중첩됩니다. 스테이지를 시작할 때마다 초기화됩니다.",
 		"CLASSICITEMSRETURNS_ITEM_SNAKEEYES_LORE": "Order: Snake Eyes\r\nTracking Number: 1500***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Standard\r\nShipping Address: 1843, GMG Services, Venus\r\nShipping Details:\r\n\r\nYou dirty ---------er. You KNEW I had to win to pay off my debts. Are you in with the casinos? Of course you are; a snake like you would. A dice that's loaded for SNAKE EYES. CUTE MOVE, --------er.\n\nI'm comin' for you, ----.",
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "칼날 동전",
-		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "치명타 확율이 증가하고 치명타 공격이 골드를 생성합니다.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "치명타 확률이 증가하고 치명타 공격이 골드를 생성합니다.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "<style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>{1}골드</style><style=cStack>(중첩당 +{1}골드)</style>를 얻습니다.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "Order: Razor Penny\r\nTracking Number: 3023***********\r\nEstimated Delivery: 01\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: Residential 24, Anlesburg, Mars\r\nShipping Details:\r\n\r\nNo way they allowed these on the market. I know it was ages ago but it's seriously concerning. Imagine having... I don't know, 10 of these in your pocket (you know, pocket change)? Reach in and woops! Mangled hand!\nCities didn't switch to virtual currencies for nothing...",
 
@@ -50,7 +50,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_NAME": "56잎 클로버",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_PICKUP": "엘리트 몬스터를 처치시 가끔 아이템을 떨어뜨립니다.",
-		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "엘리트 몬스터가 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{1}%)</style> <style=cIsUtility>확율</style>로 <style=cIsUtility>아이템을 떨어뜨립니다</style>.",
+		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_DESCRIPTION": "엘리트 몬스터가 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{1}%)</style> <style=cIsUtility>확률</style>로 <style=cIsUtility>아이템을 떨어뜨립니다</style>.",
 		"CLASSICITEMSRETURNS_ITEM_56LEAFCLOVER_LORE": "Order: 56 Leaf Clover\r\nTracking Number: 1428***********\r\nEstimated Delivery: 12\/24\/2056\r\nShipping Method: Priority\r\nShipping Address: 777, Lucky Drop, Earth\r\nShipping Details:\r\n\r\nA FIFTY-FREAKIN-SIX leaf clover! It was sent to me from a fan, picked from the top of Mount Drummond. It lived through the mountain fire; imagine that! I'm keeping it in observation to make sure it doesn't wilt; this is a once in a lifetime specimen! Think of all the elixirs we could make.. I may use a few of them myself and go hit the lottery!",
 
 		"CLASSICITEMSRETURNS_ITEM_ARMSRACE_NAME": "군비 경쟁",
@@ -89,7 +89,7 @@
 		"CLASSICITEMSRETURNS_ITEM_ENERGYCELL_LORE": "Order: Energy Cell\r\nTracking Number: 1442***********\r\nEstimated Delivery: 11\/09\/2056\r\nShipping Method: Priority\r\nShipping Address: 6511, CronTech Labs, Mars\r\nShipping Details:\r\n\r\nFOR: ----- - J.\nCC#: ---- ---- - ---\nACCT#: 200158\nUse ONLY in fusion - based vehicles and machinery. Do NOT upload to mainframe.",
 
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_NAME": "복싱 글러브",
-		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "공격 시 확율적으로 적을 밀치고 추가 피해를 입힙니다.",
+		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_PICKUP": "공격 시 확률적으로 적을 밀치고 추가 피해를 입힙니다.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_DESCRIPTION": "공격 적중 시 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{1}%)</style> 확률로 적을 <style=cIsUtility>뒤로 밀쳐내고</style> 총 <style=cIsDamage>{2}%의 피해</style>를 입힙니다.",
 		"CLASSICITEMSRETURNS_ITEM_BOXINGGLOVES_LORE": "Order: Boxing Gloves\r\nTracking Number: 1438***********\r\nEstimated Delivery: 07\/07\/2056\r\nShipping Method: Priority\r\nShipping Address: O.B.-Gym, Slam Station, Venus\r\nShipping Details:\r\n\r\nThese should work fine for the kids you're training. A bit musty, though. It'll make your trainees hit like a pro, ha!",
 
@@ -99,17 +99,17 @@
 		"CLASSICITEMSRETURNS_ITEM_RUSTYJETPACK_LORE": "Order: Rusty Jetpack\r\nTracking Number: 1415***********\r\nEstimated Delivery: 01\/01\/2056\r\nShipping Method: Priority\r\nShipping Address: Fun Center, 2105, NE Taurus\r\nShipping Details:\r\n\r\nSorry, it seems to be broken. It only works for a split second; maybe I'll send you a fully working jetpack in a few months? Should work well enough for the carnival!\nMake sure to keep the kiddos away from the bottom; it shoots out quite a jet. Can make for fun obstacle challenges.",
 		
 		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_NAME": "왕실 메달",
-		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "Bosses drop powerful buffing orbs when hit.",
-		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "보스 몬스터 공격 적중 시 <style=cIsDamage>10%</style> 확률로 <style=cIsUtility>버프의 오브가 생성됩니다</style>. 오브는 <style=cIsDamage>체력 재생, 공격 속도, 이동 속도, 기본 피해량을 향상</style>시킵니다. <style=cIsDamage>10초</style><style=cStack>(중첩당 +6초)</style> 동안 지속됩니다.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_PICKUP": "보스 몬스터 공격 적중 시 버프 부여 오브를 생성합니다.",
+		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_DESCRIPTION": "보스 몬스터 공격 적중 시 <style=cIsDamage>10%</style> 확률로 <style=cIsUtility>버프 부여 오브가 </style>. 오브는 <style=cIsDamage>체력 재생, 공격 속도, 이동 속도, 기본 피해량을 향상</style>시킵니다. <style=cIsDamage>10초</style><style=cStack>(중첩당 +6초)</style> 동안 지속됩니다.",
 		"CLASSICITEMSRETURNS_ITEM_ROYALMEDALLION_LORE": "Order: Royal Medallion\r\nTracking Number: 2746***********\r\nEstimated Delivery: 05\/03\/2056\r\nShipping Method: Priority\r\nShipping Address: #4 Visitors, Wing 4, Aeolus 2\r\nShipping Details:\r\n\r\nOn the outer orbits of our system lies a confederacy of people.\nWith kings and lords; knights and warriors, it's monarchical in nature.\nEach member of the major hierarchy carries a medallion, granting courage and fortitude.\nThis one belonged to a prince, his name buried under strife and accusations of treachery.\nStripped away from his belongings, his medallion remained as nothing more than a curiosity by the humble forager who found it, far from where it was worn.\nNow, I pass it on to you. Whether your destiny lies in the stars or your heart calls for home, your valor will be unrivaled. Keep fighting, son.",
 
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_NAME": "탈륨",
-		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "공격 시 적을 중독시킬 확율이 생깁니다.",
+		"CLASSICITEMSRETURNS_ITEM_THALLIUM_PICKUP": "공격 시 적을 중독시킬 확률이 생깁니다.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_DESCRIPTION": "공격 적중 시 <style=cIsDamage>{0}% 확률</style>로 적을 <style=cIsDamage>중독</style>시키고 중독된 적은 <style=cIsDamage>{3}초</style><style=cStack>(중첩당 +{4}초)</style>에 걸쳐 <style=cIsDamage>1초마다 2x{1}%의 피해</style>를 입고, 이동 속도가 <style=cIsDamage>{2}% 감소</style>합니다.",
 		"CLASSICITEMSRETURNS_ITEM_THALLIUM_LORE": "Order: Thallium\r\nTracking Number: 1344***********\r\nEstimated Delivery: 05\/14\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 0909, K&K Union, Earth\r\nShipping Details:\r\n\r\nShe shouldn't notice.",
 		
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_NAME": "영구 결빙",
-		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "공격 시 적을 얼릴 확율이 생깁니다.",
+		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_PICKUP": "공격 시 적을 얼릴 확률이 생깁니다.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_DESCRIPTION": "공격 적중 시 <style=cIsUtility>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 확률로 적을 <style=cIsUtility>2초</style> 동안 <style=cIsUtility>얼어붙게</style> 만듭니다.",
 		"CLASSICITEMSRETURNS_ITEM_PERMAFROST_LORE": "Order: Permafrost\r\nTracking Number: 1380***********\r\nEstimated Delivery: 04\/17\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 10681, Frozen Valley, Pluto\r\nShipping Details:\r\n\r\nThe core of this ice cube is VERY VERY close to absolute zero, much closer than anything we made in the lab before. Test it! TEST! This will lead to HUGE breakthroughs in superconductor technology.",
 
@@ -123,7 +123,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_NAME": "하이퍼 스레더",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_PICKUP": "퓨 퓨",
-		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "적에게 공격 적중 시 <style=cIsDamage>{0}%</style> 확율로 <style=cIsDamage>레이저를 발사</style>하여 <style=cIsDamage>{1}%의 피해</style>를 입힙니다. 레이저는 <style=cIsDamage>{2}명</style><style=cStack>(중첩당 +{3}명)</style>의 적에게 <style=cIsDamage>튕깁니다</style>.",
+		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_DESCRIPTION": "적에게 공격 적중 시 <style=cIsDamage>{0}%</style> 확률로 <style=cIsDamage>레이저를 발사</style>하여 <style=cIsDamage>{1}%의 피해</style>를 입힙니다. 레이저는 <style=cIsDamage>{2}명</style><style=cStack>(중첩당 +{3}명)</style>의 적에게 <style=cIsDamage>튕깁니다</style>.",
 		"CLASSICITEMSRETURNS_ITEM_HYPERTHREADER_LORE": "Order: Hyper-Threader\r\nTracking Number: 1360***********\r\nEstimated Delivery: 12\/08\/2056\r\nShipping Method: High Priority\/Fragile\r\nShipping Address: 6900 West, Advanced Warfare Center, Mars\r\nShipping Details:\r\n\r\nDespite its appearance, the FNA 200 'Hyper-Threader' Energy Subrifle is anything but fragile.\n\nUsing direct energy energy technology, the FNA 200 can fire superheated gases at a high fire rate. The FNA 200 also requires little to no charging, instead generating energy from the air around it.",
 
 		"CLASSICITEMSRETURNS_ITEM_HITLIST_NAME": "살생부",
@@ -140,5 +140,11 @@
 		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_PICKUP": "일정 확률로 박격포를 발사합니다.",
 		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_DESCRIPTION": "공격 적중 시 <style=cIsDamage>{0}%</style> 확률로 박격포를 발사하여 <style=cIsDamage>총 {1}%<style=cStack>(중첩당 +{2}%)</style>의 피해</style>를 입힙니다.",
 		"CLASSICITEMSRETURNS_ITEM_MORTARTUBE_LORE": "Order: Mortar Tube\r\nTracking Number: 1487***********\r\nEstimated Delivery: 05\/19\/1946\r\nShipping Method: MILITARY\r\nShipping Address: 437 West, Old Bunker, Earth\r\nShipping Details:\r\n\r\nWell, uh.. it's a little outdated. You stick explosives down the end, then you fire the explosive. With more explosives. If you're trying to reduce your injury rate, don't use these.\n\nOther than its archaic design, the mortar tube is actually pretty decent if you can get a lot of them in a battery.  Can blanket a big area, like [REDACTED]. I suppose you can beat them with the tube afterwards.",
+
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_NAME": "수호자의 심장",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_PICKUP": "방어막이 피해량을 막아줍니다.",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_DESCRIPTION": "최대 체력의 <style=cIsHealing>{0}%</style><style=cStack>(스택당 +{1}%)</style>에 해당하는 방어막을 얻습니다. 방어막이 파괴되면 나머지 피해는 <style=cIsHealing>+{2}의 방어력</style><style=cStack>(스택당 +{3})</style>이 적용됩니다. 위험에서 벗어나 있을 때 재충전됩니다.",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_DESCRIPTION_ALT": "최대 체력의 <style=cIsHealing>{0}%</style><style=cStack>(스택당 +{1}%)</style>에 해당하는 방어막을 얻습니다. 방어막이 파괴되면 나머지 피해는 <style=cIsHealing>차단</style>됩니다. 위험에서 벗어나 있을 때 재충전됩니다.",
+		"CLASSICITEMSRETURNS_ITEM_GUARDIANSHEART_LORE": "Order: Guardian's Heart\r\nTracking Number: 1439***********\r\nEstimated Delivery: 09\/16\/2056\r\nShipping Method: Priority/Biological\r\nShipping Address: 1100 Fairview, Research Center, Mars\r\nShipping Details:\r\n\r\nTest subject 150053 results. While living, the subject had advanced muscle growth, cell regeneration, higher agility, and increased intelligence, along with a blue hue to his skin. \nOn 08/23/2056, the subject broke free of his restraints and freed all other test subjects. All test subjects, including 150053, were terminated.\n\nHis heart seems to still beat independent of the rest of his body. Perhaps a transplant into another subject can continue research."
 	}
 }
