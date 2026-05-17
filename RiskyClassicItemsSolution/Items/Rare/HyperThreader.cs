@@ -78,7 +78,7 @@ namespace ClassicItemsReturns.Items.Rare
             int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
-            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
+            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master) && !damageInfo.procChainMask.HasProc(ProcType.SureProc)) return;
 
             int calcBounceCount = Utils.ItemHelpers.StackingLinear(itemCount, bounceCount, bounceCountPerStack);
             ChainGunOrb chainGunOrb = new ChainGunOrb(orbEffect);

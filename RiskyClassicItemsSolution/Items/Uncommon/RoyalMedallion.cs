@@ -101,7 +101,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             if (!RoyalMedallionPickup.CanSpawnPickup() || !attackerBody.inventory) return;
 
             int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
-            if (!(itemCount > 0 && Util.CheckRoll(procChance, attackerBody.master))) return;
+            if (!(itemCount > 0 && (Util.CheckRoll(procChance, attackerBody.master) || damageInfo.procChainMask.HasProc(ProcType.SureProc)))) return;
 
             GameObject buffObject = UnityEngine.Object.Instantiate(buffObjectPrefab, damageInfo.position, UnityEngine.Random.rotation);
 

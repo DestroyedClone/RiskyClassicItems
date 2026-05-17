@@ -1,3 +1,8 @@
+- `3.6.25`
+	- Added SureProc support to items.
+	- Mortar Tube now works with ICBM.
+	- Reduced Guardian's Heart shield from 12% -> 10%
+
 - `3.6.24`
 	- Updated KO TL.
 

@@ -72,7 +72,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             if (itemCount <= 0) return;
 
             float chance = Utils.ItemHelpers.StackingLinear(itemCount, this.chance, chanceStack);
-            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
+            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master) && !damageInfo.procChainMask.HasProc(ProcType.SureProc)) return;
 
 
             //Reset Victim Force

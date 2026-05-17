@@ -130,7 +130,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             if (itemCount <= 0) return;
 
             float chance = procChance;
-            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
+            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master) && !damageInfo.procChainMask.HasProc(ProcType.SureProc)) return;
 
             //Manually build aimray since server and client aimray can be desynced.
             Ray aimRay = new Ray()
@@ -169,11 +169,19 @@ namespace ClassicItemsReturns.Items.Uncommon
             magnitude = direction.magnitude;
             ray.direction = direction;
 
-            Quaternion rotation = Util.QuaternionSafeLookRotation(ray.direction + UnityEngine.Random.insideUnitSphere * 0.05f);
+            Vector3 projectileDirection = ray.direction + UnityEngine.Random.insideUnitSphere * 0.05f;
+
+            Quaternion rotation = Util.QuaternionSafeLookRotation(projectileDirection);
 
             float coeff = damageCoeff + (itemCount - 1) * stackDamageCoeff;
 
-            ProjectileManager.instance.FireProjectileServer(new FireProjectileInfo
+            int icbmCount = attackerBody.inventory.GetItemCountEffective(DLC1Content.Items.MoreMissile);
+            if (icbmCount > 0)
+            {
+                coeff *= MissileUtils.GetMoreMissileDamageMultiplier(icbmCount);
+            }
+
+            FireProjectileInfo info = new FireProjectileInfo
             {
                 crit = damageInfo.crit,
                 damage = damageInfo.damage * coeff,
@@ -188,7 +196,33 @@ namespace ClassicItemsReturns.Items.Uncommon
                 _speedOverride = magnitude,
                 useFuseOverride = false,
                 useSpeedOverride = true
-            });
+            };
+
+            ProjectileManager.instance.FireProjectileServer(info);
+
+            if (icbmCount > 0)
+            {
+                Vector3 rhs = Vector3.Cross(Vector3.up, projectileDirection);
+                Vector3 axis = Vector3.Cross(projectileDirection, rhs);
+
+                float angle = 0f;
+                float num2 = 0f;
+                num2 = 4f;   //Bandit is x2
+                angle = num2 / 2f;  //3 - 1 rockets
+
+                Vector3 direction2 = Quaternion.AngleAxis(-num2 * 0.5f, axis) * projectileDirection;
+                Quaternion rotation2 = Quaternion.AngleAxis(angle, axis);
+                Ray aimRay2 = new Ray(ray.origin, direction2);
+                for (int i = 0; i < 3; i++)
+                {
+                    info.rotation = Util.QuaternionSafeLookRotation(aimRay2.direction);
+                    if (i != 1)
+                    {
+                        ProjectileManager.instance.FireProjectile(info);
+                    }
+                    aimRay2.direction = rotation2 * aimRay2.direction;
+                }
+            }
         }
     }
 

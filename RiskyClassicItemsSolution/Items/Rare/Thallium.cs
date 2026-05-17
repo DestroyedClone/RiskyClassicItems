@@ -77,7 +77,7 @@ namespace ClassicItemsReturns.Items.Rare
             int itemCount = attackerBody.inventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
-            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master)) return;
+            if (!Util.CheckRoll(chance * damageInfo.procCoefficient, attackerBody.master) && !damageInfo.procChainMask.HasProc(ProcType.SureProc)) return;
 
             int itemStack = itemCount - 1;
             float totalDuration = Utils.ItemHelpers.StackingLinear(itemCount, Instance.duration, durationPerStack);

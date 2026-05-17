@@ -36,7 +36,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             return new ItemDisplayRuleDict();
         }
 
-        public float shield = 0.12f;
+        public float shield = 0.1f;
         public float armor = 100f;
         public ConfigEntry<bool> useFullInvuln;
 

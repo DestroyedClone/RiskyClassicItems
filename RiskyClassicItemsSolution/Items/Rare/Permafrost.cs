@@ -93,7 +93,7 @@ namespace ClassicItemsReturns.Items.Rare
             int itemCount = attackerInventory.GetItemCountEffective(ItemDef);
             if (itemCount <= 0) return;
 
-            if (!Util.CheckRoll(procChancePercentage * itemCount, damageReport.attackerMaster)) return;
+            if (!Util.CheckRoll(procChancePercentage * itemCount, damageReport.attackerMaster) && !damageInfo.procChainMask.HasProc(ProcType.SureProc)) return;
 
             float duration = 2f * damageReport.damageInfo.procCoefficient;
 
