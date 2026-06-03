@@ -1,3 +1,6 @@
+- `3.6.26`
+	- Attempted to fix Permafrost's RiskyMod compat not working.
+
 - `3.6.25`
 	- Added SureProc support to items.
 	- Mortar Tube now works with ICBM.

@@ -29,7 +29,7 @@ namespace ClassicItemsReturns.Items.Rare
 
         //This is used to handle boss freezing
         public bool allowFreezeBoss = false;
-        public static HashSet<BuffIndex> ModdedFreezeDebuffs = new HashSet<BuffIndex>();
+        public static List<BuffDef> ModdedFreezeDebuffs = new List<BuffDef>();
 
         public override ItemTag[] ItemTags => new ItemTag[]
         {
@@ -103,20 +103,30 @@ namespace ClassicItemsReturns.Items.Rare
             }
             else if (damageReport.victimBody)
             {
-                foreach (BuffIndex buff in ModdedFreezeDebuffs)
+                var body = damageReport.victimBody;
+                bool notFreezeImmune = !body.HasBuff(DLC2Content.Buffs.FreezeImmune);
+                bool notFrozen = !(body.healthComponent && body.healthComponent.isInFrozenState);
+
+                if (notFreezeImmune && notFrozen && !body.IsDrone)
                 {
-                    damageReport.victimBody.AddTimedBuff(buff, duration);
+                    foreach (var buff in ModdedFreezeDebuffs)
+                    {
+                        damageReport.victimBody.AddTimedBuff(buff, duration);
+                    }
                 }
             }
         }
 
         private void GetModdedFreezeDebuffs()
         {
-            BuffIndex toAdd = BuffCatalog.FindBuffIndex("RiskyMod_FreezeDebuff");
-            if (toAdd != BuffIndex.None) ModdedFreezeDebuffs.Add(toAdd);
-
-            toAdd = BuffCatalog.FindBuffIndex("Freeze Debuff");
-            if (toAdd != BuffIndex.None) ModdedFreezeDebuffs.Add(toAdd);
+            if (ModSupport.ModCompatRiskyMod.loaded)
+            {
+                var buffDef = ModSupport.ModCompatRiskyMod.GetFreezeDebuff();
+                if (buffDef)
+                {
+                    ModdedFreezeDebuffs.Add(buffDef);
+                }
+            }
         }
     }
 }

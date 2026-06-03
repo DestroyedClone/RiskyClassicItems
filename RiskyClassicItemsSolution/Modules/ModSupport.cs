@@ -66,6 +66,16 @@ namespace ClassicItemsReturns.Modules
             {
                 return RiskyMod.Items.ItemsCore.enabled && RiskyMod.Items.Uncommon.AtG.enabled;
             }
+
+            internal static BuffDef GetFreezeDebuff()
+            {
+                if (!loaded) return null;
+                return GetFreezeDebuffInternal();
+            }
+            private static BuffDef GetFreezeDebuffInternal()
+            {
+                return RiskyMod.Tweaks.CharacterMechanics.FreezeChampionExecute.FreezeDebuff;
+            }
         }
 
         internal class ModCompatAssistManager
