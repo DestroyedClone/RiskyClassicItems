@@ -72,6 +72,8 @@ namespace ClassicItemsReturns.Modules
                 if (!loaded) return null;
                 return GetFreezeDebuffInternal();
             }
+
+            [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
             private static BuffDef GetFreezeDebuffInternal()
             {
                 return RiskyMod.Tweaks.CharacterMechanics.FreezeChampionExecute.FreezeDebuff;
