@@ -1,3 +1,6 @@
+- `3.6.27`
+	- Fixed Royal Medallion not counting towards Collector's Compulsion.
+
 - `3.6.26`
 	- Attempted to fix Permafrost's RiskyMod compat not working.
 

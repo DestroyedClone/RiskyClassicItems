@@ -187,6 +187,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             {
                 attackerBody.AddTimedBuff(Modules.Buffs.RoyalMedallionBuff, duration);
             }
+            attackerBody.OnPickup(CharacterBody.PickupClass.Minor);
         }
     }
 
