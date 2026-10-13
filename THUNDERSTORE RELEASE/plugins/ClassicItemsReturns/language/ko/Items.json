@@ -35,7 +35,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "칼날 동전",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "치명타 확률이 증가하고 치명타 공격이 골드를 생성합니다.",
-		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "<style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>{1}골드</style><style=cStack>(중첩당 +{1}골드)</style>를 얻습니다.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "<style=cIsDamage>치명타 확률</style>이 <style=cIsDamage>{0}%</style><style=cStack>(중첩당 +{0}%)</style> 증가합니다. <style=cIsDamage>치명타 적중 시</style> <style=cIsUtility>{1}골드</style><style=cStack>(중첩당 +{1}골드)</style>를 얻습니다. 시간이 지날수록 비례합니다.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "Order: Razor Penny\r\nTracking Number: 3023***********\r\nEstimated Delivery: 01\/22\/2056\r\nShipping Method: Standard\r\nShipping Address: Residential 24, Anlesburg, Mars\r\nShipping Details:\r\n\r\nNo way they allowed these on the market. I know it was ages ago but it's seriously concerning. Imagine having... I don't know, 10 of these in your pocket (you know, pocket change)? Reach in and woops! Mangled hand!\nCities didn't switch to virtual currencies for nothing...",
 
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "신비한 칼날",

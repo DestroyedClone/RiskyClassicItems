@@ -54,7 +54,7 @@ namespace ClassicItemsReturns.Items.Common
         public override void CreateConfig(ConfigFile config)
         {
             cfgBannedSceneNames = config.Bind(ConfigCategory, "Banned Scenes", "bazaar", "Input the names of the scenes you don't want the item to perform on. Entries are separated by commas.");
-            scaleWithTime = config.Bind(ConfigCategory, "Scale with Time", true, "Scale money gain with time.");
+            scaleWithTime = config.Bind(ConfigCategory, "Scale with Time", true, "Scale money gain with stages cleared.");
             onlyAfterTeleporter = config.Bind(ConfigCategory, "On Teleporter Activated", false, "Only proc this item after teleporter has been activated.");
             bannedSceneDefNames = cfgBannedSceneNames.Value.Split(',');
             for (int i = 0; i < bannedSceneDefNames.Length; i++)
@@ -93,7 +93,13 @@ namespace ClassicItemsReturns.Items.Common
                     stopwatch = Instance.intervalSeconds;
 
                     int moneyToGive = Utils.ItemHelpers.StackingLinear(stack, Instance.gold, Instance.goldStack);
-                    if (Run.instance && scaleWithTime.Value)
+                    if (Run.instance && Run.instance.stageClearCount >= 0)
+                    {
+                        moneyToGive *= (Run.instance.stageClearCount + 1);
+                    }
+
+                    //This makes it too op
+                    /*if (Run.instance && scaleWithTime.Value)
                     {
                         float diff = 0f;
                         if (Stage.instance)
@@ -106,7 +112,7 @@ namespace ClassicItemsReturns.Items.Common
                         }
 
                         moneyToGive = Run.instance.GetDifficultyScaledCost(moneyToGive, diff);
-                    }
+                    }*/
                     master.GiveMoney((uint)(moneyToGive));
                 }
             }

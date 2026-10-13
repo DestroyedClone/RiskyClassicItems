@@ -1,3 +1,10 @@
+- `3.7.0`
+	- DLC4
+	- Life Savings and Razor Penny
+		- Money now scales with stage count, $1 per stage.
+		
+		*A halfway compromise between no scaling (bad) and time scaling (overpowered). It increases, but chests scale faster.*
+
 - `3.6.27`
 	- Fixed Royal Medallion not counting towards Collector's Compulsion.
 

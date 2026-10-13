@@ -35,7 +35,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "Moeda Navalha",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "Aumenta um pouco a chance de acerto crítico. 'Acertos Críticos' concedem Ouro.",
-		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "Aumenta sua <style=cIsDamage>{0}% <style=cStack>(+{0}% por acúmulo)</style> chance de acerto crítico</style>. <style=cIsDamage>Acertos Críticos</style> derrubam <style=cIsUtility>${1} <style=cStack>(+${1} por acúmulo)</style> de ouro</style>.",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "Aumenta sua <style=cIsDamage>{0}% <style=cStack>(+{0}% por acúmulo)</style> chance de acerto crítico</style>. <style=cIsDamage>Acertos Críticos</style> derrubam <style=cIsUtility>${1} <style=cStack>(+${1} por acúmulo)</style> de ouro</style>. Varia com o tempo.",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "Pedido: Moeda Navalha\r\nNúmero de Rastreio: 3023***********\r\nPrevisão de Entrega: 01\/22\/2056\r\nMétodo de Envio: Padrão\r\nEndereço de Entrega: Residencial 24, Anlesburg, Marte\r\nDetalhes do Pedido:\r\n\r\nNão acredito que aceitavam essa moeda no comércio. Sei que já faz um tempão desde aquela época, mas isso é preocupante. Imagine que você tem... sei lá, umas 10 dessas no bolso (uns trocados, sabe). Coloque a mão lá dentro e pronto, sua mão está mutilada!\nAs cidades não trocaram para moedas virtuais à toa...",
 
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "Patins Arcanos",

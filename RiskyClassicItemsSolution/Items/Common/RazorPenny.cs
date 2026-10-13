@@ -11,6 +11,7 @@ namespace ClassicItemsReturns.Items.Common
     public class RazorPenny : ItemBase<RazorPenny>
     {
         public static ConfigEntry<bool> disableInBazaar;
+        public static ConfigEntry<bool> scaleWithTime;
         public override string ItemName => "Razor Penny";
 
         public override string ItemLangTokenName => "PENNY";
@@ -42,6 +43,7 @@ namespace ClassicItemsReturns.Items.Common
         public override void CreateConfig(ConfigFile config)
         {
             disableInBazaar = config.Bind(ConfigCategory, "Disable in Bazaar", true, "Disable money gain from this item in the Bazaar.");
+            scaleWithTime = config.Bind(ConfigCategory, "Scale with Time", true, "Scale money gain with stages cleared.");
         }
 
 
@@ -59,7 +61,13 @@ namespace ClassicItemsReturns.Items.Common
             if (itemCount <= 0) return;
             if (disableInBazaar.Value && SceneCatalog.GetSceneDefForCurrentScene() == ClassicItemsReturnsPlugin.bazaarScene) return;
 
-            attackerBody.master.GiveMoney((uint)(goldOnHit * itemCount));
+            int moneyToGive = goldOnHit;
+            if (Run.instance && Run.instance.stageClearCount >= 0)
+            {
+                moneyToGive *= (Run.instance.stageClearCount + 1);
+            }
+
+            attackerBody.master.GiveMoney((uint)(moneyToGive * itemCount));
         }
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)

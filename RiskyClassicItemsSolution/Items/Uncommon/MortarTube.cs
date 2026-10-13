@@ -79,6 +79,7 @@ namespace ClassicItemsReturns.Items.Uncommon
             mortarProjectileGhostPrefab.transform.Find("missile VFX").localPosition = new Vector3(0f, 0f, -0.45f);
             mortarProjectileGhostPrefab.transform.Find("missile VFX").localScale = new Vector3(0.5f, 0.3f, 0.5f);
 
+            projectileController.ghostPrefabAddress = default;
             projectileController.ghostPrefab = mortarProjectileGhostPrefab;
 
             projectileImpact.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("Play_ClassicItemsReturns_Mortar"); // firing sound here

@@ -35,7 +35,7 @@
 
 		"CLASSICITEMSRETURNS_ITEM_PENNY_NAME": "锋利硬币",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_PICKUP": "略微增加暴击几率。暴击给你金币。",
-		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "增加<style=cIsDamage>{0}% <style=cStack>(每层额外+{0}%)</style>暴击几率</style>。<style=cIsDamage>暴击</style>掉落<style=cIsUtility>${1} <style=cStack>(每层额外+${1})</style>金币</style>。",
+		"CLASSICITEMSRETURNS_ITEM_PENNY_DESCRIPTION": "增加<style=cIsDamage>{0}% <style=cStack>(每层额外+{0}%)</style>暴击几率</style>。<style=cIsDamage>暴击</style>掉落<style=cIsUtility>${1} <style=cStack>(每层额外+${1})</style>金币</style>。随时间缩放。",
 		"CLASSICITEMSRETURNS_ITEM_PENNY_LORE": "订单：锋利硬币\r\n跟踪号码：3023***********\r\n预计送达时间：2056年1月22日\r\n运输方式：标准\r\n收货地址：火星，Anlesburg，第24号住宅\r\n运输详情：\r\n\r\n他们怎么能让这些上市呢？我知道这是很久以前的事了，但这真的很令人担忧。想象一下，口袋里有……我不知道，10个这样的东西（你知道，零钱）？伸手进去，哇！手被割伤了！\r\n\r\n城市不切换到虚拟货币是有原因的……",
 
 		"CLASSICITEMSRETURNS_ITEM_ARCANEBLADES_NAME": "奥术之刃",
