@@ -12,6 +12,8 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - DITHER
+  - FORCE_SPEC
+  - FRESNEL_EMISSION
   - _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -47,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmTex:
-        m_Texture: {fileID: 2800000, guid: a0d9107bae88c2d4caea42a170bc3e7d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 583aff19e0e0db24cb17874dd2d1d19b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -71,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ad0224a2f5aecf64795d025d38c56732, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelNormalTex:
@@ -83,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9840cef55d9e2784989cc9a780320683, type: 3}
+        m_Texture: {fileID: 2800000, guid: e32234d07764f524ea8a5e523536958b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -91,7 +93,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4e2d30a53d5acb44987a66f26b2a5fe5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -130,9 +132,9 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 1.5
+    - _EmPower: 1
     - _EnableCutout: 0
-    - _FEON: 0
+    - _FEON: 1
     - _Fade: 1
     - _FadeBias: 0
     - _FlowEmissionStrength: 1
@@ -143,9 +145,9 @@ Material:
     - _FlowSpeed: 1
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 0
-    - _ForceSpecOn: 0
-    - _FresnelBoost: 1
-    - _FresnelPower: 1
+    - _ForceSpecOn: 1
+    - _FresnelBoost: 0.5
+    - _FresnelPower: 0.15
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -155,23 +157,23 @@ Material:
     - _LimbRemovalOn: 0
     - _Metallic: 0.1
     - _Mode: 0
-    - _NormalStrength: 1
+    - _NormalStrength: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PrintBias: 0
-    - _PrintBoost: 1
+    - _PrintBoost: 0
     - _PrintDirection: 0
     - _PrintEmissionToAlbedoLerp: 0
     - _PrintOn: 0
     - _RampInfo: 0
-    - _SliceAlphaDepth: 0.1
-    - _SliceBandHeight: 1
-    - _SliceHeight: 5
-    - _Smoothness: 0
+    - _SliceAlphaDepth: 0
+    - _SliceBandHeight: 0
+    - _SliceHeight: 1
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
-    - _SpecularExponent: 1
+    - _SpecularExponent: 0.6
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0
+    - _SpecularStrength: 0.02
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
@@ -179,7 +181,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmColor: {r: 0.5568628, g: 0.85882354, b: 0.49803922, a: 1}
+    - _EmColor: {r: 0, g: 1, b: 0.5372549, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
