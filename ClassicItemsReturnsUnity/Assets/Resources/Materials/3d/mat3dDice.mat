@@ -2,14 +2,17 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat3dDice
   m_Shader: {fileID: 4800000, guid: 1e66606608720d9479ff3206ff5e4894, type: 3}
-  m_ShaderKeywords: DITHER
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - DITHER
+  - FRESNEL_EMISSION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,11 +67,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelMask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a9df556cf0da0a344b4e1c214dafc15f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8a5126efded798943bf3b5e713a55362, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelNormalTex:
@@ -80,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ff69f49f72660d418be3cac7adc9379, type: 3}
+        m_Texture: {fileID: 2800000, guid: 843da2dfb6551bd4896acca27e8ebd0a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -88,7 +91,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 114d0407cdf10a744a6a50af8f371351, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -111,6 +114,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BlueChannelBias: 0
     - _BlueChannelSmoothness: 0
@@ -128,7 +132,7 @@ Material:
     - _EliteIndex: 0
     - _EmPower: 1
     - _EnableCutout: 0
-    - _FEON: 0
+    - _FEON: 1
     - _Fade: 1
     - _FadeBias: 0
     - _FlowEmissionStrength: 1
@@ -178,3 +182,4 @@ Material:
     - _EmColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
