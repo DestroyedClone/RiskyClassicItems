@@ -14,7 +14,12 @@ namespace ClassicItemsReturns.Utils
             "limbo",
             "enemiesreturns_outoftime",
             "solutionalhaunt",
-            "solusweb"
+            "solusweb",
+            "champrush",
+            "ultima",
+            "soul1",
+            "sad1",
+            "surv2"
         };
 
         public IsTeleActivatedTracker()
@@ -31,6 +36,13 @@ namespace ClassicItemsReturns.Utils
             On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
             On.EntityStates.Missions.Goldshores.GoldshoresBossfight.SpawnBoss += GoldshoresBossfight_SpawnBoss;
             On.EntityStates.MeridianEvent.MeridianEventStart.OnEnter += MeridianEventStart_OnEnter1;
+            On.RoR2.WakeController.InitializeWake += WakeController_InitializeWake;
+        }
+
+        private void WakeController_InitializeWake(On.RoR2.WakeController.orig_InitializeWake orig, WakeController self)
+        {
+            orig(self);
+            teleporterActivated = true;
         }
 
         private void MeridianEventStart_OnEnter1(On.EntityStates.MeridianEvent.MeridianEventStart.orig_OnEnter orig, EntityStates.MeridianEvent.MeridianEventStart self)
