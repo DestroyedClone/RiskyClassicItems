@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8474737377933383070}
   m_Father: {fileID: 0}
@@ -126,6 +127,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 71cc4da51d2e8e0419447b86e12a6810,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b6dcdcb4fa08de408fd84d6f0f90319, type: 2}
     - target: {fileID: 919132149155446097, guid: 71cc4da51d2e8e0419447b86e12a6810,
         type: 3}
       propertyPath: m_Name
