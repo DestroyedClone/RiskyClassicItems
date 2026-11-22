@@ -1,3 +1,12 @@
+- `3.8.0`
+	- Updated a bunch of models (Thanks FORCED_REASSEMBLY!)
+
+	- Added CanBeRental tag to most items.
+	- Mu Construct
+		- Buffed Mu Construct healing from +25% per stack to +50% per stack to match Bungus/Dungus scaling.
+			- The description says -50%, but it's like armor, where it's 100 / (100 + 50%) scaling.
+		- Construct will now hover around the teleporter before you activate it.
+	
 - `3.7.0`
 	- DLC4
 	- Life Savings and Razor Penny
