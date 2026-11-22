@@ -5,6 +5,7 @@ using R2API;
 using RoR2;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -42,12 +43,22 @@ namespace ClassicItemsReturns.Items.Common
              MuConstructBehavior.healAmount * 100f,  MuConstructBehavior.initialCooldown,  MuConstructBehavior.cooldownReduction * 100f
         };
 
-
         public override void Init(ConfigFile config)
         {
             base.Init(config);
             MuConstructBehavior.followerPrefab = Modules.Assets.LoadObject("MuConstructFollower");
             ItemHelpers.SetupMaterials(MuConstructBehavior.followerPrefab);
+            InitTeleOrbiter();
+        }
+
+        private void InitTeleOrbiter()
+        {
+            if (MuConstructTPOrbiterManager.orbiterPrefab) return;
+
+            MuConstructTPOrbiterManager.orbiterPrefab = Modules.Assets.LoadObject("MuConstructTPIdle");
+            MuConstructTPOrbiterManager.orbiterPrefab.AddComponent<MuConstructTPOrbiterBehavior>();
+
+            MuConstructTPOrbiterManager.Init();
         }
 
         public override void CreateConfig(ConfigFile config)
@@ -109,11 +120,53 @@ namespace ClassicItemsReturns.Items.Common
         }
     }
 
+    public class MuConstructTPOrbiterBehavior : MonoBehaviour
+    {
+        public float orbitRadius = 2f;
+        public float orbitDuration = 8f;
+        public float spawnHeight = 2f;
+
+        private float stopwatch;
+        private Vector3 centerPosition;
+
+        private void Start()
+        {
+            transform.position += spawnHeight * Vector3.up;
+            centerPosition = transform.position;
+        }
+
+        private void FixedUpdate()
+        {
+            if (IsTeleActivatedTracker.teleporterActivated)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            DoMovement(Time.fixedDeltaTime);
+        }
+
+        private void DoMovement(float deltaTime)
+        {
+            stopwatch += deltaTime;
+            if (stopwatch >= orbitDuration) stopwatch -= orbitDuration;
+
+            float orbitPercent = stopwatch / orbitDuration;
+            float currentAngle = 360f * orbitPercent;
+
+            Vector3 forwardOffset = orbitRadius * (Quaternion.AngleAxis(currentAngle, Vector3.up) * Vector3.forward);
+            Vector3 currentPos = centerPosition + forwardOffset;
+
+            transform.position = currentPos;
+            transform.forward = (Quaternion.AngleAxis(90f, Vector3.up) * forwardOffset.normalized);
+        }
+    }
+
     public class MuConstructBehavior : CharacterBody.ItemBehavior
     {
         public static float healAmount = 0.025f;
         public static float initialCooldown = 5f;
-        public static float cooldownReduction = 0.25f;
+        public static float cooldownReduction = 0.5f;   //This translates to an increase in healing factor per stack, so keep this at 0.5 for Bungus-like +50% scaling.
 
         private float cooldown = 0f;
 
@@ -202,5 +255,74 @@ namespace ClassicItemsReturns.Items.Common
 
         private Vector3 velocity = Vector3.zero;
         #endregion
+    }
+
+    public class MuConstructTPOrbiterManager
+    {
+        public static GameObject orbiterPrefab;
+        public static bool orbiterIsActive;
+
+        public static void Init()
+        {
+            RoR2.Stage.onStageStartGlobal += Stage_onStageStartGlobal;
+            On.RoR2.CharacterBody.OnInventoryChanged += CharacterBody_OnInventoryChanged;
+        }
+
+        private static void CharacterBody_OnInventoryChanged(On.RoR2.CharacterBody.orig_OnInventoryChanged orig, CharacterBody self)
+        {
+            orig(self);
+            if (PlayerTeamHasMuConstruct())
+            {
+                TrySpawnMuConstruct();
+            }
+        }
+
+        private static void Stage_onStageStartGlobal(Stage obj)
+        {
+            orbiterIsActive = false;
+            if (PlayerTeamHasMuConstruct())
+            {
+                TrySpawnMuConstruct();
+            }
+        }
+
+        public static bool PlayerTeamHasMuConstruct()
+        {
+            ReadOnlyCollection<CharacterMaster> readOnlyInstancesList = CharacterMaster.readOnlyInstancesList;
+            for (int i = 0; i < readOnlyInstancesList.Count; i++)
+            {
+                CharacterMaster characterMaster = readOnlyInstancesList[i];
+                if (characterMaster && characterMaster.teamIndex == TeamIndex.Player && characterMaster.inventory)
+                {
+                    if (characterMaster.inventory.GetItemCountEffective(MuConstruct.Instance.ItemDef) > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static void TrySpawnMuConstruct()
+        {
+            if (orbiterIsActive) return;
+
+            //TODO: Per-stage special cases
+            if (!TeleporterInteraction.instance) return;
+
+            Vector3 originPos = Vector3.zero;
+
+            if (TeleporterInteraction.instance)
+            {
+                originPos = TeleporterInteraction.instance.transform.position;
+            }
+
+            var obj = UnityEngine.Object.Instantiate(orbiterPrefab);
+            if (obj)
+            {
+                orbiterIsActive = true;
+                obj.transform.position = originPos;
+            }
+        }
     }
 }
