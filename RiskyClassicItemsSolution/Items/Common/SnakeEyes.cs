@@ -39,7 +39,8 @@ namespace ClassicItemsReturns.Items.Common
         public static HashSet<string> stageDontResetList = new HashSet<string>
         {
             "solusweb",
-            "solutionalhaunt"
+            "solutionalhaunt",
+            "enemiesreturns_contactlight"
         };
         
         public static HashSet<string> stageForceResetList = new HashSet<string>
@@ -55,7 +56,9 @@ namespace ClassicItemsReturns.Items.Common
         public static HashSet<string> teamwideProcShrineList = new HashSet<string>
         {
             "SHRINE_HALCYONITE_NAME",
-            "SHRINE_BOSS_NAME"
+            "SHRINE_BOSS_NAME",
+            "SHRINE_CURSE_NAME",
+            "SHRINE_CATASTROPHE_NAME"
         };
 
         public static HashSet<string> shrineListSingleProc = new HashSet<string>
@@ -84,7 +87,6 @@ namespace ClassicItemsReturns.Items.Common
             RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
             Inventory.onInventoryChangedGlobal += Inventory_onInventoryChangedGlobal;
             On.RoR2.Inventory.RemoveInventoryDisabler += Inventory_RemoveInventoryDisabler;
-            //ShrineChanceBehavior.onShrineChancePurchaseGlobal += DiceOnShrineFail;
             On.RoR2.PurchaseInteraction.OnInteractionBegin += DiceOnShrinePurchase;
             Stage.onStageStartGlobal += ResetCountOnStageStart;
             CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
@@ -93,9 +95,19 @@ namespace ClassicItemsReturns.Items.Common
             On.EntityStates.Missions.Moon.MoonBatteryActive.OnEnter += MoonBatteryActive_OnEnter;
             On.EntityStates.Missions.Arena.NullWard.Active.OnEnter += Active_OnEnter;
             On.EntityStates.DeepVoidPortalBattery.Charging.OnEnter += Charging_OnEnter;
+            On.RoR2.WakeController.InitializeWakeEventServer += WakeController_InitializeWakeEventServer;
 
             On.RoR2.Interactor.PerformInteraction += Interactor_PerformInteraction;
             On.RoR2.ScrapperController.CreateItemTakenOrb += ScrapperController_CreateItemTakenOrb;
+        }
+
+        private void WakeController_InitializeWakeEventServer(On.RoR2.WakeController.orig_InitializeWakeEventServer orig, WakeController self, Interactor activator)
+        {
+            orig(self, activator);
+            if (NetworkServer.active)
+            {
+                ProcSnakeEyesForTeam(TeamIndex.Player);
+            }
         }
 
         private void Inventory_RemoveInventoryDisabler(On.RoR2.Inventory.orig_RemoveInventoryDisabler orig, Inventory self)
