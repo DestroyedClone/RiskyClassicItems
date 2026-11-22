@@ -35,7 +35,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             ItemTag.Utility,
             ItemTag.AIBlacklist,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

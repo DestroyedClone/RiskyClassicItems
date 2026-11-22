@@ -46,7 +46,8 @@ namespace ClassicItemsReturns.Items.Rare
             ItemTag.Damage,
             ItemTag.AIBlacklist,
             ItemTag.CanBeTemporary,
-            ItemTag.Technology
+            ItemTag.Technology,
+            ItemTag.CanBeRental
         };
 
         public override void CreateAssets(ConfigFile config)

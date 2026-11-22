@@ -40,7 +40,8 @@ namespace ClassicItemsReturns.Items.Common
         {
             ItemTag.Healing,
             ItemTag.CanBeTemporary,
-            ItemTag.FoodRelated
+            ItemTag.FoodRelated,
+            ItemTag.CanBeRental
         };
 
         public override void Init(ConfigFile config)

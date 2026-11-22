@@ -46,7 +46,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             ItemTag.Damage,
             ItemTag.AIBlacklist,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override void Hooks()

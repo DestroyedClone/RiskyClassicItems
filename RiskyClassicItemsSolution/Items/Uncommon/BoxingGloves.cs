@@ -41,7 +41,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             ItemTag.Damage,
             ItemTag.Utility,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override bool Unfinished => true;

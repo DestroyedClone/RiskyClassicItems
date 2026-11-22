@@ -41,7 +41,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         protected override void CreateLang()

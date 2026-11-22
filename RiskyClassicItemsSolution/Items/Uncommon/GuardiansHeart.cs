@@ -28,7 +28,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.Utility,
             ItemTag.CanBeTemporary,
             ItemTag.Technology,
-            ItemTag.FoodRelated
+            ItemTag.FoodRelated,
+            ItemTag.CanBeRental
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

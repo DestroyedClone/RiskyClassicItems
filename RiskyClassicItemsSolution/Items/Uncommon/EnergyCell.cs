@@ -34,7 +34,8 @@ namespace ClassicItemsReturns.Items.Uncommon
         {
             ItemTag.Damage,
             ItemTag.LowHealth,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
         public const float atkSpdIncrease = 0.2f;
         public const float atkSpdIncreaseStack = 0.2f;

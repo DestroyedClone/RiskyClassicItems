@@ -19,7 +19,8 @@ namespace ClassicItemsReturns.Items.Common
         {
             ItemTag.Damage,
             ItemTag.AIBlacklist,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override GameObject ItemModel => LoadItemModel("FireShield");

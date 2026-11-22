@@ -26,8 +26,7 @@ namespace ClassicItemsReturns.Items.Rare
             enemyAttackDamageCoef * 100f,
             enemyMoveSpeedCoef * 100,
             duration,
-            durationPerStack,
-            ItemTag.CanBeTemporary
+            durationPerStack
         };
 
         public override ItemTier Tier => ItemTier.Tier3;
@@ -39,7 +38,9 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public static GameObject thalliumTickEffect;

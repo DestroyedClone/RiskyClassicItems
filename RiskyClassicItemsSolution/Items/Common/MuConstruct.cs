@@ -33,7 +33,8 @@ namespace ClassicItemsReturns.Items.Common
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Healing,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override object[] ItemFullDescriptionParams => new object[]

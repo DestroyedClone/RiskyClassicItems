@@ -40,7 +40,8 @@ namespace ClassicItemsReturns.Items.Rare
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage, ItemTag.Utility,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

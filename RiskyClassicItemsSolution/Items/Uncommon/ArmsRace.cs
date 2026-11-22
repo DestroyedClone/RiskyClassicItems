@@ -40,7 +40,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.AIBlacklist,
             ItemTag.BrotherBlacklist,
             ItemTag.Damage,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

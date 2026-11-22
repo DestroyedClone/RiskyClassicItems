@@ -40,7 +40,8 @@ namespace ClassicItemsReturns.Items.Common
         {
             ItemTag.Damage,
             ItemTag.AIBlacklist,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
 

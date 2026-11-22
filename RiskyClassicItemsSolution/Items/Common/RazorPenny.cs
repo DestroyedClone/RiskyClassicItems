@@ -29,7 +29,8 @@ namespace ClassicItemsReturns.Items.Common
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Damage, ItemTag.Utility,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public float critChance = 5f;

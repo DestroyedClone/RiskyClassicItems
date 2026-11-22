@@ -38,7 +38,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.AIBlacklist,
             ItemTag.DevotionBlacklist,
             ItemTag.CanBeTemporary,
-            ItemTag.Technology
+            ItemTag.Technology,
+            ItemTag.CanBeRental
         };
 
         public static NetworkSoundEventDef activationSound;

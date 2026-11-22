@@ -36,7 +36,9 @@ namespace ClassicItemsReturns.Items.Common
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility,
-            ItemTag.AIBlacklist
+            ItemTag.AIBlacklist,
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public override void Init(ConfigFile config)

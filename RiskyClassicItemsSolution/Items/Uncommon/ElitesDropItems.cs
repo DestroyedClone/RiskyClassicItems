@@ -34,7 +34,8 @@ namespace ClassicItemsReturns.Items.Uncommon
             ItemTag.Utility,
             ItemTag.CannotCopy,
             ItemTag.CanBeTemporary,
-            ItemTag.FoodRelated
+            ItemTag.FoodRelated,
+            ItemTag.CanBeRental
         };
 
         public const float cloverPercentageDropChance = 4.5f;

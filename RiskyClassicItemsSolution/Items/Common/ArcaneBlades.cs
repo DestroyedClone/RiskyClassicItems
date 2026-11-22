@@ -27,7 +27,8 @@ namespace ClassicItemsReturns.Items.Common
         public override ItemTag[] ItemTags => new ItemTag[]
         {
             ItemTag.Utility,
-            ItemTag.CanBeTemporary
+            ItemTag.CanBeTemporary,
+            ItemTag.CanBeRental
         };
 
         public float speedIncrease = 0.25f;

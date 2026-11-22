@@ -36,7 +36,8 @@ namespace ClassicItemsReturns.Items.Rare
             ItemTag.Utility,
             ItemTag.AIBlacklist,
             ItemTag.CanBeTemporary,
-            ItemTag.FoodRelated
+            ItemTag.FoodRelated,
+            ItemTag.CanBeRental
         };
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
